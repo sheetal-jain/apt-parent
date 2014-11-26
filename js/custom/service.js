@@ -56,10 +56,11 @@ function fnOverlayImageContentOnWelcomeSlide(imgSrc,data){
     $('#'+data.imgContentId).fadeTo("slow", 0, function () {
         $('#'+data.imgContentId).css('width', slide2imgW / 2);
         $('#'+data.imgContentId).css('padding', (slide2imgW / 2) / 5);
-        $('#'+data.imgContentId).removeClass('fade');
-        $('#'+data.imgContentId).addClass('fade.in');
+        $($('#'+data.imgContentId)).removeClass('fade');
+        $($('#'+data.imgContentId)).addClass('fade.in');
         if(data.imgContentId == "slide2-popup1"){
-            $('#'+data.imgContentId).css('height', slide2imgH / 2);
+
+            $($('#'+data.imgContentId)).css('height', slide2imgH / 2);
         }
         else if(data.imgContentId == "slide2-popup2"){
             slide2imgL = (slide2imgW / 2) + 15;
