@@ -32,6 +32,10 @@ $(document).ready(function(){
         startAPT();
         curIdx=+1;
         getTopicWiseData(curIdx);
+        if(objAPT_JSON[curIdx].popupImg.length > 0){
+            refreshPopupImageContent(objAPT_JSON[curIdx].popupImg);
+        }
+
     });
 
     // Increment Index
@@ -42,10 +46,6 @@ $(document).ready(function(){
     // Next image and audio on button (and image) click
     $('#next').click( function() {
         curIdx = (curIdx+1) % max;
-        if(objAPT_JSON[curIdx].popupImg != undefined && objAPT_JSON[curIdx].popupImg.length > 0){
-            refreshPopupImageContent(objAPT_JSON[curIdx].popupImg);
-        }
-
         $('#firstslideheader').addClass('collapse');
         $('#slide1').css('display','none');
         $('#slide1').addClass('img-collapse');
@@ -56,6 +56,10 @@ $(document).ready(function(){
             $($("div.screen[name="+objAPT_JSON[curIdx-1].name+"]")).addClass('collapse');
             $($("div.screen[name="+objAPT_JSON[curIdx].name+"]")).removeClass('collapse');
             $($("div.screen[name="+objAPT_JSON[curIdx].name+"]")).addClass('collapse.in');
+            $("#bergeron-footer").addClass('collapse');
+        }
+        if(getScreenName == "intro_bergeron"){
+            $("#bergeron-footer").removeClass('collapse');
         }
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         $('#slide-dyn').removeClass('img-collapse');
@@ -68,7 +72,6 @@ $(document).ready(function(){
     // Prev image and audio on button click
     $('#prev').click( function() {
         curIdx = (curIdx+max-1) % max;
-
         refreshPopupImageContent(objAPT_JSON[curIdx].popupImg)
         if(curIdx == 0)//The condition for 1st slide when prev
         {
@@ -82,6 +85,7 @@ $(document).ready(function(){
             $('.custom-audio-button').removeClass('fade.in');
             $('#slide2').css('display','none');
             $('.custom-audio-button').addClass('fade');
+            $("#bergeron-footer").addClass('collapse');
         }
         else if(curIdx == 1)//The condition for 2nd slide when prev
         {
@@ -89,12 +93,10 @@ $(document).ready(function(){
             $('#slide2').css('display','none');
             $('#slide1').attr('src', 'Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png');
             $('#slide1').css('display','inline');
-//            $('#slide1').addClass('img-collapse');
             $($("div.screen[name="+objAPT_JSON[curIdx + 1].name+"]")).addClass('collapse');
             $($("div.screen[name="+objAPT_JSON[curIdx].name+"]")).removeClass('collapse');
-//            $($("div.screen")[curIdx]).addClass('collapse.in');
             startAPT();
-
+            $("#bergeron-footer").addClass('collapse');
         }else {
             getScreenName = $($("div.screen")[curIdx]).attr("name");
             if (getScreenName == objAPT_JSON[curIdx].name) {
@@ -103,13 +105,18 @@ $(document).ready(function(){
                         console.log(obj.contentClass)
                         $($("."+obj.contentClass)).css("display",'none');
                     });
-
                 }
-
                 $($("div.screen[name="+objAPT_JSON[curIdx +1].name+"]")).addClass('collapse');
                 $($("div.screen[name="+objAPT_JSON[curIdx].name+"]")).removeClass('collapse');
                 $($("div.screen[name="+objAPT_JSON[curIdx].name+"]")).addClass('collapse.in');
+                $("#bergeron-footer").addClass('collapse');
             }
+            if(getScreenName == "intro_bergeron"){
+                $("#bergeron-footer").removeClass('collapse');
+            }
+            /*if(getScreenName == "intro_navigation_help"){
+                $("#bergeron-footer").removeClass('collapse');
+            }*/
         }
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
 //        $('#slide-dyn').removeClass('img-collapse');
@@ -126,6 +133,7 @@ $(document).ready(function(){
 
     function refreshPopupImageContent(data){
         console.log("FROM CALLBACK ===== ",data);
+        isAudioFlag = false;
         jQuery.each(data,function(i,obj){
 //            $('#'+obj.imgContentId).removeClass('fade.in');
 //            $($('#'+obj.imgContentId)).css("display",'none');
