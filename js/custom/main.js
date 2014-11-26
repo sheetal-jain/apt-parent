@@ -4,6 +4,7 @@ var getSingleObjOfJSON = [];
 var getScreenName,max;
 var curIdx = 0;
 var isAudioFlag = false;
+var getAudioCurrentTime,duration,getAudioCurrentTimeInSec;
 
 // For convenience
 var imgSrcBase = 'Images/';
@@ -16,6 +17,12 @@ $(document).ready(function(){
     //get Content from json
     objAPT_JSON = JSON.parse(fnGetDataFromServer('JSON/APT_Contents_JSON.json').responseText);
     max =objAPT_JSON.length;
+
+    var slider = new Slider("#audio_sliderID", {
+        range: false,
+        tooltip: 'always',
+        precision: 0
+    });
 
     $('.custom-audio-button').addClass('fade');
     $('#slide2').addClass('fade');
@@ -149,14 +156,21 @@ $(document).ready(function(){
 //        }
 //    });
 //
+    audio.onloadedmetadata = function (_event) {
+        duration = audio.duration;
+        slider.setAttribute("max", duration);
+    };
+
 
     audio.addEventListener('timeupdate',function(event){
-        var getCurrentTimeInSec = Math.floor(this.currentTime);
+        getAudioCurrentTime = this.currentTime;
+        slider.setValue(getAudioCurrentTime);
+        getAudioCurrentTimeInSec = Math.floor(this.currentTime);
         if(getSingleObjOfJSON.popupContent != undefined)
         {
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupContent.length;intIndex++)
             {
-                if(getCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime && !isAudioFlag)
+                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime && !isAudioFlag)
                 {
                     if(getSingleObjOfJSON.name == "intro_bergeron" ) {
                         fnOverlayContentOnBergeronSlide(getSingleObjOfJSON.popupContent[intIndex]);
@@ -169,7 +183,7 @@ $(document).ready(function(){
         {
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupImg.length;intIndex++)
             {
-                if(getCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].startingTime && !isAudioFlag)
+                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].startingTime && !isAudioFlag)
                 {
                     if(getSingleObjOfJSON.name == "intro_welcome") {
                         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, getSingleObjOfJSON.popupImg[intIndex]);
@@ -179,7 +193,7 @@ $(document).ready(function(){
                     }
                     isAudioFlag = true;
                 }
-                if(getCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].endingTime)
+                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].endingTime)
                 {
                     isAudioFlag = false;
                 }
@@ -187,10 +201,22 @@ $(document).ready(function(){
         }
 
     },false);
+
+    $("#audio_sliderID").on('slide',function(){
+        audio.currentTime = $("#audio_sliderID").val();
+        getAudioCurrentTimeInSec = $("#audio_sliderID").val();
+        if(getAudioCurrentTimeInSec > 0 && getAudioCurrentTimeInSec < 6) {
+            if (!this.paused) {
+                //addPopoverRight();
+            }
+        }
+        if(getAudioCurrentTimeInSec > 6) {
+            if (!this.paused) {
+                //addPopoverLeft();
+            }
+        }
+    });
 });
-
-
-
 
 
 
