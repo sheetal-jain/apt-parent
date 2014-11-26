@@ -19,13 +19,13 @@ function startAPT() {
     $('#APT_Audio_Controls').trigger('play');
 
     if (scrw <= 600) {
-        $('#APT_Audio_Controls').css('width', '75%');
+        $('.well').css('width', '75%');
     }
     else if (scrw <= 768) {
-        $('#APT_Audio_Controls').css('width', '80%');
+        $('.well').css('width', '80%');
     }
     else {
-        $('#APT_Audio_Controls').css('width', '85%');
+        $('.well').css('width', '85%');
     }
     $('#APT_Audio_Controls').css('margin-right', '15px');
     $('.custom-audio-button').removeClass('fade');
