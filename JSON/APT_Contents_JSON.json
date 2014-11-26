@@ -7,7 +7,7 @@
     },
     {   "name":"intro_welcome",
         "imgName" : "5eexq4u95MM_DX1890_DY1890_CX945_CY530.png",
-        "audioName":["6n7vVfJToNo_22050_80.mp3",""],
+        "audioName":["6n7vVfJToNo_22050_80.mp3","welcome.ogg"],
         "popupContent":[],
         "popupImg":[
         {

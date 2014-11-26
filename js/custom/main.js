@@ -42,6 +42,10 @@ $(document).ready(function(){
     // Next image and audio on button (and image) click
     $('#next').click( function() {
         curIdx = (curIdx+1) % max;
+        if(objAPT_JSON[curIdx].popupImg != undefined && objAPT_JSON[curIdx].popupImg.length > 0){
+            refreshPopupImageContent(objAPT_JSON[curIdx].popupImg);
+        }
+
         $('#firstslideheader').addClass('collapse');
         $('#slide1').css('display','none');
         $('#slide1').addClass('img-collapse');
@@ -64,6 +68,8 @@ $(document).ready(function(){
     // Prev image and audio on button click
     $('#prev').click( function() {
         curIdx = (curIdx+max-1) % max;
+
+        refreshPopupImageContent(objAPT_JSON[curIdx].popupImg)
         if(curIdx == 0)//The condition for 1st slide when prev
         {
             $('#slide-dyn').addClass('img-collapse');
@@ -118,6 +124,17 @@ $(document).ready(function(){
         getSingleObjOfJSON = objAPT_JSON[curIdx];
     }
 
+    function refreshPopupImageContent(data){
+        console.log("FROM CALLBACK ===== ",data);
+        jQuery.each(data,function(i,obj){
+//            $('#'+obj.imgContentId).removeClass('fade.in');
+//            $($('#'+obj.imgContentId)).css("display",'none');
+            $("#slide2img").attr('src','Images/6gt3Ugtneuy_DX872_DY872_CX396_CY436.jpg');
+            $($('#'+obj.imgContentId)).css('opacity','0');
+
+        })
+    }
+
 //    //table of content wise display image and load audio.
 //    $('.dropdown-menu li a').click( function() {
 //        for(var i=0; i< objAPT_JSON.length;i++){
@@ -143,6 +160,8 @@ $(document).ready(function(){
         duration = audio.duration;
         slider.setAttribute("max", duration);
     };
+
+
     audio.addEventListener('timeupdate',function(event){
         getAudioCurrentTime = this.currentTime;
         slider.setValue(getAudioCurrentTime);
