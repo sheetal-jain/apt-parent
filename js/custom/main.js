@@ -48,26 +48,30 @@ $(document).ready(function(){
     // Next image and audio on button (and image) click
     $('#next').click( function() {
         curIdx = (curIdx+1) % max;
-        $('#firstslideheader').addClass('collapse');
+        $('#firstslideheader').addClass('content-collapse');
         $('#slide1').css('display','none');
-        $('#slide1').addClass('img-collapse');
-        $('#welcome').addClass('collapse');
+        $('#slide1').addClass('content-collapse');
+        $('#welcome').addClass('content-collapse');
         getScreenName = $($("div.screen")[curIdx]).attr("name");
         if(getScreenName == objAPT_JSON[curIdx].name)
         {
-            $($("div.screen[name="+objAPT_JSON[curIdx-1].name+"]")).addClass('collapse');
-            $($("div.screen[name="+objAPT_JSON[curIdx].name+"]")).removeClass('collapse');
-            $($("div.screen[name="+objAPT_JSON[curIdx].name+"]")).addClass('collapse.in');
-            $("#bergeron-footer").addClass('collapse');
+            if(objAPT_JSON[curIdx].popupContent != undefined || objAPT_JSON[curIdx].popupContent.length > 0){
+                refreshPopupContent(objAPT_JSON[curIdx].popupContent);
+            }
+            /*$($("div.screen[name="+objAPT_JSON[curIdx-1].name+"]")).addClass('content-collapse');
+            $($("div.screen[name="+objAPT_JSON[curIdx].name+"]")).removeClass('content-collapse');*/
+            setCollapseClassToScreen(objAPT_JSON[curIdx].name);
+            $("#bergeron-footer").addClass('content-collapse');
         }
         if(getScreenName == "intro_bergeron"){
-            $("#bergeron-footer").removeClass('collapse');
+            $("#bergeron-footer").removeClass('content-collapse');
         }
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
-        $('#slide-dyn').removeClass('img-collapse');
-        $("#mp3source").attr('src', audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
+        $('#slide-dyn').removeClass('content-collapse');
+        /*$("#mp3source").attr('src', audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
         $('#APT_Audio_Controls').trigger('load');
-        $('#APT_Audio_Controls').trigger('play');
+        $('#APT_Audio_Controls').trigger('play');*/
+        setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
         getTopicWiseData(curIdx);
     });
 
@@ -77,54 +81,45 @@ $(document).ready(function(){
         refreshPopupImageContent(objAPT_JSON[curIdx].popupImg)
         if(curIdx == 0)//The condition for 1st slide when prev
         {
-            $('#slide-dyn').addClass('img-collapse');
+            $('#slide-dyn').addClass('content-collapse');
             $('#slide1').attr('src',imgSrcBase+objAPT_JSON[curIdx].imgName);
-            $('#firstslideheader').removeClass('collapse');
-            $('#firstslideheader').addClass('collapse.in');
-            $('#btnStart').removeClass('collapse');
-            $('#btnStart').addClass('collapse.in');
+            $('#firstslideheader').removeClass('content-collapse');
+            $('#btnStart').removeClass('content-collapse');
 
             $('.custom-audio-button').removeClass('fade.in');
             $('#slide2').css('display','none');
             $('.custom-audio-button').addClass('fade');
-            $("#bergeron-footer").addClass('collapse');
+            $("#bergeron-footer").addClass('content-collapse');
         }
         else if(curIdx == 1)//The condition for 2nd slide when prev
         {
-            $('#slide-dyn').addClass('img-collapse');
+            $('#slide-dyn').addClass('content-collapse');
             $('#slide2').css('display','none');
             $('#slide1').attr('src', 'Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png');
             $('#slide1').css('display','inline');
-            $($("div.screen[name="+objAPT_JSON[curIdx + 1].name+"]")).addClass('collapse');
-            $($("div.screen[name="+objAPT_JSON[curIdx].name+"]")).removeClass('collapse');
+
+            setCollapseClassToScreen(objAPT_JSON[curIdx].name);
+
             startAPT();
-            $("#bergeron-footer").addClass('collapse');
+            $("#bergeron-footer").addClass('content-collapse');
         }else {
             getScreenName = $($("div.screen")[curIdx]).attr("name");
             if (getScreenName == objAPT_JSON[curIdx].name) {
                 if(objAPT_JSON[curIdx].popupContent != undefined || objAPT_JSON[curIdx].popupContent.length > 0){
-                    jQuery.each(objAPT_JSON[curIdx].popupContent,function(i,obj){
-                        console.log(obj.contentClass)
-                        $($("."+obj.contentClass)).css("display",'none');
-                    });
+                    refreshPopupContent(objAPT_JSON[curIdx].popupContent);
                 }
-                $($("div.screen[name="+objAPT_JSON[curIdx +1].name+"]")).addClass('collapse');
-                $($("div.screen[name="+objAPT_JSON[curIdx].name+"]")).removeClass('collapse');
-                $($("div.screen[name="+objAPT_JSON[curIdx].name+"]")).addClass('collapse.in');
-                $("#bergeron-footer").addClass('collapse');
+                setCollapseClassToScreen(objAPT_JSON[curIdx].name);
+                $("#bergeron-footer").addClass('content-collapse');
             }
             if(getScreenName == "intro_bergeron"){
-                $("#bergeron-footer").removeClass('collapse');
+                $("#bergeron-footer").removeClass('content-collapse');
             }
-            /*if(getScreenName == "intro_navigation_help"){
-                $("#bergeron-footer").removeClass('collapse');
-            }*/
         }
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
-//        $('#slide-dyn').removeClass('img-collapse');
-        $("#mp3source").attr('src', audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
+        /*$("#mp3source").attr('src', audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
         $('#APT_Audio_Controls').trigger('load');
-        $('#APT_Audio_Controls').trigger('play');
+        $('#APT_Audio_Controls').trigger('play');*/
+        setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
         getTopicWiseData(curIdx);
     });
 

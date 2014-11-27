@@ -30,8 +30,8 @@ function startAPT() {
     $('#APT_Audio_Controls').css('margin-right', '15px');
     $('.custom-audio-button').removeClass('fade');
     $('.custom-audio-button').addClass('fade.in');
-    $('#btnStart').addClass('collapse');
-    $('#firstslideheader').addClass('collapse');
+    $('#btnStart').addClass('content-collapse');
+    $('#firstslideheader').addClass('content-collapse');
     $('#slide1').removeClass('image-shadow');
     window.setTimeout(function () {
 
@@ -79,12 +79,30 @@ function fnOverlayImageContentOnWelcomeSlide(imgSrc,data){
 
 function fnOverlayContentOnBergeronSlide(data){
     $('.'+data.contentClass).fadeTo(1000, 0, function () {
-        $('.'+data.contentClass).removeClass('collapse');
+        $('.'+data.contentClass).removeClass('content-collapse');
     }).fadeTo(500, 1);
 };
 
 function fnOverlayImageContentOnGatherResourcesSlide(data){
     $('#slide-dyn').attr('src', 'Images/67mHodTVPPD_DX1890_DY1890_CX945_CY530.png').fadeTo(1000);
-    $('#nested-slide4-1').removeClass('img-collapse');
-    $('#nested-slide4-1').addClass('img-collapse.in');
+    $('#nested-slide4-1').removeClass('content-collapse');
 };
+
+
+function setCollapseClassToScreen(screenName){
+    $($("div.screen[name="+screenName+"]")).removeClass('content-collapse');
+    $($("div.screen:not(.screen[name="+screenName+"])")).addClass('content-collapse');
+}
+
+function refreshPopupContent(popupContentArr){
+    jQuery.each(popupContentArr,function(i,obj){
+        console.log(obj.contentClass)
+        $($("."+obj.contentClass)).css("display",'none');
+    });
+}
+
+function setupAudioControls(audioName){
+    $("#mp3source").attr('src', audioName);
+    $('#APT_Audio_Controls').trigger('load');
+    $('#APT_Audio_Controls').trigger('play');
+}

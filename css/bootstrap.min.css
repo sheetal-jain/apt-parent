@@ -3872,13 +3872,10 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
     display: block;
 }
 
-.img-collapse {
+.content-collapse {
     display: none;
 }
 
-.img-collapse.in {
-    display: block;
-}
 
 tr.collapse.in {
     display: table-row;
