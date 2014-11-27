@@ -48,30 +48,36 @@ $(document).ready(function(){
     // Next image and audio on button (and image) click
     $('#next').click( function() {
         curIdx = (curIdx+1) % max;
+
         $('#firstslideheader').addClass('content-collapse');
         $('#slide1').css('display','none');
         $('#slide1').addClass('content-collapse');
         $('#welcome').addClass('content-collapse');
+        refreshPopupImageContent(objAPT_JSON[curIdx].popupImg);
         getScreenName = $($("div.screen")[curIdx]).attr("name");
         if(getScreenName == objAPT_JSON[curIdx].name)
         {
             if(objAPT_JSON[curIdx].popupContent != undefined || objAPT_JSON[curIdx].popupContent.length > 0){
                 refreshPopupContent(objAPT_JSON[curIdx].popupContent);
             }
-            /*$($("div.screen[name="+objAPT_JSON[curIdx-1].name+"]")).addClass('content-collapse');
-            $($("div.screen[name="+objAPT_JSON[curIdx].name+"]")).removeClass('content-collapse');*/
+            if(objAPT_JSON[curIdx].popupImg != undefined || objAPT_JSON[curIdx].popupImg.length > 0){
+                refreshPopupImages(objAPT_JSON[curIdx].popupImg);
+            }
             setCollapseClassToScreen(objAPT_JSON[curIdx].name);
             $("#bergeron-footer").addClass('content-collapse');
         }
         if(getScreenName == "intro_bergeron"){
             $("#bergeron-footer").removeClass('content-collapse');
         }
+
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         $('#slide-dyn').removeClass('content-collapse');
-        /*$("#mp3source").attr('src', audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
-        $('#APT_Audio_Controls').trigger('load');
-        $('#APT_Audio_Controls').trigger('play');*/
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
+
+//        if(objAPT_JSON[curIdx+1]){
+//            loadNextPageImages(objAPT_JSON[curIdx+1]);
+//        }
+
         getTopicWiseData(curIdx);
     });
 
@@ -116,9 +122,6 @@ $(document).ready(function(){
             }
         }
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
-        /*$("#mp3source").attr('src', audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
-        $('#APT_Audio_Controls').trigger('load');
-        $('#APT_Audio_Controls').trigger('play');*/
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
         getTopicWiseData(curIdx);
     });
@@ -129,11 +132,8 @@ $(document).ready(function(){
     }
 
     function refreshPopupImageContent(data){
-        console.log("FROM CALLBACK ===== ",data);
         isAudioFlag = false;
         jQuery.each(data,function(i,obj){
-//            $('#'+obj.imgContentId).removeClass('fade.in');
-//            $($('#'+obj.imgContentId)).css("display",'none');
             $("#slide2img").attr('src','Images/6gt3Ugtneuy_DX872_DY872_CX396_CY436.jpg');
             $($('#'+obj.imgContentId)).css('opacity','0');
 
@@ -175,52 +175,56 @@ $(document).ready(function(){
         getAudioCurrentTimeInSec = Math.floor(this.currentTime);
         slider.setValue(getAudioCurrentTime);
         $("#audio_sliderID").attr('data-slider-value',getAudioCurrentTimeInSec);
-        if(getSingleObjOfJSON.popupContent != undefined)
+        if(getSingleObjOfJSON.popupContent.length > 0)
         {
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupContent.length;intIndex++)
             {
-                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime && !isAudioFlag)
+                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime /*&& getAudioCurrentTimeInSec < getSingleObjOfJSON.popupContent[intIndex].endingTime*/ && !isAudioFlag) //
                 {
-                    if(getSingleObjOfJSON.name == "intro_bergeron" ) {
+                    if(getSingleObjOfJSON.name == "intro_bergeron" ){
+                        console.log(getAudioCurrentTimeInSec);
                         fnOverlayContentOnBergeronSlide(getSingleObjOfJSON.popupContent[intIndex]);
                     }
                     isAudioFlag = true;
                 }
+                if( getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime /*&& getAudioCurrentTimeInSec < getSingleObjOfJSON.popupContent[intIndex].endingTime*/)
+                {
+                    isAudioFlag = false;
+                }
             }
+
         }
 
-        if(getSingleObjOfJSON.popupImg != undefined)
+        if(getSingleObjOfJSON.popupImg.length > 0)
         {
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupImg.length;intIndex++)
             {
 //                console.log(getSingleObjOfJSON.popupImg[intIndex].imgContentId);
 
-                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].startingTime && !isAudioFlag)
+                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].startingTime  && !isAudioFlag)
                 {
-                    console.log("Inside if ===");
                     if(getSingleObjOfJSON.name == "intro_welcome") {
 
                         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, getSingleObjOfJSON.popupImg[intIndex]);
                     }
                     else if(getSingleObjOfJSON.name == "intro_resource"){
+                        console.log(getSingleObjOfJSON.popupImg[intIndex].startingTime);
                         fnOverlayImageContentOnGatherResourcesSlide(getSingleObjOfJSON.popupImg[intIndex]);
                     }
+
+
                     isAudioFlag = true;
                 }
-                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].endingTime)
+                if( getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].endingTime)
                 {
                     isAudioFlag = false;
                 }
+
             }
         }
 
     },false);
 
-    /*audio.onseeking = function(){
-        audio.currentTime = $("#audio_sliderID").val();
-        getAudioCurrentTimeInSec = $("#audio_sliderID").val();
-        console.log("SEEKING ==== ",audio.currentTime);
-    }*/
     $('#audio_sliderID_data').on('click', function(_event){
         console.log($("#audio_sliderID").val());
         audio.currentTime = $("#audio_sliderID").val();
