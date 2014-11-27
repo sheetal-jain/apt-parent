@@ -25,7 +25,7 @@ $(document).ready(function(){
         tooltip: 'always',
         precision: 0
     });
-
+    audio.load();
     $('.custom-audio-button').addClass('fade');
     $('#slide2').addClass('fade');
 
@@ -165,17 +165,21 @@ $(document).ready(function(){
 //            }
 //        }
 //    });
-//
+
     audio.onloadedmetadata = function (_event) {
         duration = audio.duration;
         slider.setAttribute("max", duration);
     };
-
+    if(audio.pause)
+    {
+        console.log(slider.getValue());
+    }
 
     audio.addEventListener('timeupdate',function(event){
         getAudioCurrentTime = this.currentTime;
-        slider.setValue(getAudioCurrentTime);
         getAudioCurrentTimeInSec = Math.floor(this.currentTime);
+        slider.setValue(getAudioCurrentTime);
+        $("#audio_sliderID").attr('data-slider-value',getAudioCurrentTimeInSec);
         if(getSingleObjOfJSON.popupContent != undefined)
         {
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupContent.length;intIndex++)
@@ -222,10 +226,14 @@ $(document).ready(function(){
         getAudioCurrentTimeInSec = $("#audio_sliderID").val();
         console.log("SEEKING ==== ",audio.currentTime);
     }*/
-    $("#audio_sliderID").on('slide',function(){
+    $('#audio_sliderID_data').on('click', function(_event){
+        console.log($("#audio_sliderID").val());
+        audio.currentTime = $("#audio_sliderID").val();
+    });
+    $("#audio_sliderID").on('slide',function(_event){
         if(!isSlideFlag)
         {
-            console.log($("#audio_sliderID").val());
+            console.log($("#audio_sliderID").val()+" -- "+_event.value);
             audio.currentTime = $("#audio_sliderID").val();
             getAudioCurrentTimeInSec = $("#audio_sliderID").val();
             isSlideFlag = true;

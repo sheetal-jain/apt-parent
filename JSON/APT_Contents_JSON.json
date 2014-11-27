@@ -37,25 +37,49 @@
     },
     {
         "name":"intro_bergeron",
-        "imgName" : "68oYqVh5uf0_DX1890_DY1890_CX945_CY530.png",
+        "imgName" : "69oYqVh5uf0_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6l4Qheq8nL6_22050_80.mp3",""],
         "popupContent":[{
             "contentId":"",
             "contentClass":"bergeron-header",
-            "startingTime":"0",
-            "endingTime":""
+            "startingTime":"1",
+            "endingTime":"20"
+        },
+        {
+            "contentId":"",
+            "contentClass":"michael",
+            "startingTime":"5",
+            "endingTime":"20"
+        },
+        {
+            "contentId":"",
+            "contentClass":"jennifer",
+            "startingTime":"6",
+            "endingTime":"20"
+        },
+        {
+            "contentId":"",
+            "contentClass":"john",
+            "startingTime":"11",
+            "endingTime":"20"
+        },
+        {
+            "contentId":"",
+            "contentClass":"emma",
+            "startingTime":"12",
+            "endingTime":"20"
         }],
         "popupImg":[]
     },
     {
         "name":"intro_resource",
-        "imgName" : "68oYqVh5uf0_DX1890_DY1890_CX945_CY530.png",
+        "imgName" : "69oYqVh5uf0_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6pl1lX8BFwh_22050_80.mp3",""],
         "popupContent":[],
         "popupImg":[{
-            "imgName":"",
-            "startingTime":"0",
-            "endingTime":"",
+            "imgName":"6qB0JuNQzGI_DX1088_DY1088_CX544_CY303.jpg",
+            "startingTime":"2",
+            "endingTime":"32",
             "imgContentId":""
         }]
     },
@@ -77,9 +101,33 @@
         "audioName":["5vkMr75bsLP_22050_80.mp3",""],
         "popupContent":[],
         "popupImg":[{
-            "imgName":"",
-            "startingTime":"0",
-            "endingTime":"",
+            "imgName":"6lavtVoHLVD_DX542_DY542_CX172_CY271.png",
+            "startingTime":"5",
+            "endingTime":"24",
+            "imgContentId":""
+        },
+        {
+            "imgName":"5rU7ZnG90Fx_DX542_DY542_CX172_CY271.png",
+            "startingTime":"12",
+            "endingTime":"24",
+            "imgContentId":""
+        },
+        {
+            "imgName":"6hD3ydvjLt7_DX542_DY542_CX172_CY271.png",
+            "startingTime":"14",
+            "endingTime":"24",
+            "imgContentId":""
+        },
+        {
+            "imgName":"6baW6GPP0CQ_DX542_DY542_CX172_CY271.png",
+            "startingTime":"20",
+            "endingTime":"24",
+            "imgContentId":""
+        },
+        {
+            "imgName":"5unXAHubqY3_DX542_DY542_CX172_CY271.png",
+            "startingTime":"23",
+            "endingTime":"24",
             "imgContentId":""
         }]
     },

@@ -84,7 +84,7 @@ function fnOverlayContentOnBergeronSlide(data){
 };
 
 function fnOverlayImageContentOnGatherResourcesSlide(data){
-    $('#slide-dyn').attr('src', 'Images/67mHodTVPPD_DX1890_DY1890_CX945_CY530.png').fadeTo(1000);
+    $('#slide-dyn').attr('src', 'Images/68mHodTVPPD_DX1890_DY1890_CX945_CY530.png').fadeTo(1000);
     $('#nested-slide4-1').removeClass('img-collapse');
     $('#nested-slide4-1').addClass('img-collapse.in');
 };
