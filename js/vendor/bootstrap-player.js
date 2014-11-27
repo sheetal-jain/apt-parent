@@ -75,7 +75,7 @@
 			var seek_wrapper = document.createElement('div');
 			$(seek_wrapper).addClass('btn  span4');
 			$(seek_wrapper).append(seek);
-			$(song).on('ended', seek.reset);
+//			$(song).on('ended', seek.reset);
 			$(player).append(seek_wrapper);
 		};
 		var addTime = function() {
