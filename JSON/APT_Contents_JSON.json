@@ -77,6 +77,7 @@
         "audioName":["6pl1lX8BFwh_22050_80.mp3",""],
         "popupContent":[],
         "popupImg":[{
+            "imgId":"nested-slide4-1",
             "imgName":"6qB0JuNQzGI_DX1088_DY1088_CX544_CY303.jpg",
             "startingTime":"2",
             "endingTime":"32",
@@ -88,12 +89,7 @@
         "imgName" : "61jTjzoAxVVJ_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6M835h3fDC3_22050_80.mp3",""],
         "popupContent":[],
-        "popupImg":[{
-            "imgName":"",
-            "startingTime":"0",
-            "endingTime":"",
-            "imgContentId":""
-        }]
+        "popupImg":[]
     },
     {
         "name":"intro_Tips4online",
@@ -136,35 +132,20 @@
         "imgName" : "5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6OoSjP9v0c6_22050_80.mp3",""],
         "popupContent":[],
-        "popupImg":[{
-            "imgName":"",
-            "startingTime":"0",
-            "endingTime":"",
-            "imgContentId":""
-        }]
+        "popupImg":[]
     },
     {
         "name":"intro_transition",
         "imgName" : "5jJRHWX2Aig_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6doLQFoO1Ee_22050_80.mp3",""],
         "popupContent":[],
-        "popupImg":[{
-            "imgName":"",
-            "startingTime":"0",
-            "endingTime":"",
-            "imgContentId":""
-        }]
+        "popupImg":[]
     },
     {
         "name":"intro_menu",
         "imgName" : "5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png",
         "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
         "popupContent":[],
-        "popupImg":[{
-            "imgName":"",
-            "startingTime":"0",
-            "endingTime":"",
-            "imgContentId":""
-        }]
+        "popupImg":[]
     }
 ]

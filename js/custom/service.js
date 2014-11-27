@@ -78,14 +78,19 @@ function fnOverlayImageContentOnWelcomeSlide(imgSrc,data){
 };
 
 function fnOverlayContentOnBergeronSlide(data){
+    console.log("Method Call");
     $('.'+data.contentClass).fadeTo(1000, 0, function () {
         $('.'+data.contentClass).removeClass('content-collapse');
     }).fadeTo(500, 1);
 };
 
 function fnOverlayImageContentOnGatherResourcesSlide(data){
-    $('#slide-dyn').attr('src', 'Images/67mHodTVPPD_DX1890_DY1890_CX945_CY530.png').fadeTo(1000);
-    $('#nested-slide4-1').removeClass('content-collapse');
+    $('#slide-dyn').attr('src', 'Images/67mHodTVPPD_DX1890_DY1890_CX945_CY530.png').fadeTo(2000);
+    $('#nested-slide4-1').fadeTo(1000, 0, function () {
+        $('#nested-slide4-1').attr('src',"Images/6qB0JuNQzGI_DX1088_DY1088_CX544_CY303.jpg");
+        $('#nested-slide4-1').removeClass('content-collapse');
+    }).fadeTo(500, 1);
+
 };
 
 
@@ -105,4 +110,18 @@ function setupAudioControls(audioName){
     $("#mp3source").attr('src', audioName);
     $('#APT_Audio_Controls').trigger('load');
     $('#APT_Audio_Controls').trigger('play');
+}
+
+function refreshPopupImages(popupImageArr){
+    jQuery.each(popupImageArr,function(i,obj){
+//        console.log(obj.contentClass)
+        $($("#"+obj.imgId)).css('opacity','0');
+        $($("#"+obj.imgId)).addClass("content-collapse");
+    });
+}
+
+function loadNextPageImages(nextObj){
+    var slideImg = new Image();
+    slideImg.src = nextObj.imgName;
+    console.log(slideImg.src);
 }
