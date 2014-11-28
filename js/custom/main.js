@@ -67,9 +67,18 @@ $(document).ready(function(){
             }
             setCollapseClassToScreen(objAPT_JSON[curIdx].name);
             $("#bergeron-footer").addClass('content-collapse');
+            $(".navigation-help").addClass('content-collapse');
+            $(".tips-header").removeClass('content-collapse');
+            $("#tips-images").removeClass('content-collapse');
         }
         if(getScreenName == "intro_bergeron"){
             $("#bergeron-footer").removeClass('content-collapse');
+        }
+        else if(getScreenName == "intro_navigation_help"){
+            $("#Tips4online").removeClass('content-collapse');
+            $(".tips-header").addClass('content-collapse');
+            $(".navigation-help").removeClass('content-collapse');
+            $("#tips-images").addClass('content-collapse');
         }
 
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
@@ -118,9 +127,18 @@ $(document).ready(function(){
                 }
                 setCollapseClassToScreen(objAPT_JSON[curIdx].name);
                 $("#bergeron-footer").addClass('content-collapse');
+                $(".navigation-help").addClass('content-collapse');
+                $(".tips-header").removeClass('content-collapse');
+                $("#tips-images").removeClass('content-collapse');
             }
             if(getScreenName == "intro_bergeron"){
                 $("#bergeron-footer").removeClass('content-collapse');
+            }
+            else if(getScreenName == "intro_navigation_help"){
+                $("#Tips4online").removeClass('content-collapse');
+                $(".tips-header").addClass('content-collapse');
+                $(".navigation-help").removeClass('content-collapse');
+                $("#tips-images").addClass('content-collapse');
             }
         }
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
@@ -138,8 +156,7 @@ $(document).ready(function(){
         jQuery.each(data,function(i,obj){
             $("#slide2img").attr('src','Images/6gt3Ugtneuy_DX872_DY872_CX396_CY436.jpg');
             $($('#'+obj.imgContentId)).css('opacity','0');
-
-        })
+        });
     }
 
 //    //table of content wise display image and load audio.
@@ -177,6 +194,7 @@ $(document).ready(function(){
         $("#audio_sliderID").attr('data-slider-value',getAudioCurrentTimeInSec);
         if(getSingleObjOfJSON.popupContent.length > 0)
         {
+//            nextStartTime = getSingleObjOfJSON.popupContent[0].startingTime;
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupContent.length;intIndex++)
             {
 
@@ -204,6 +222,7 @@ $(document).ready(function(){
 
         if(getSingleObjOfJSON.popupImg.length > 0)
         {
+//            nextImgStartTime = getSingleObjOfJSON.popupImg[0].startingTime;
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupImg.length;intIndex++)
             {
                 if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].startingTime && !isImgFlag)
@@ -230,6 +249,13 @@ $(document).ready(function(){
             }
         }
 
+        if(getAudioCurrentTimeInSec == (Math.floor(duration) - 2))
+        {
+            $("#footer-next-indicator").removeClass("content-collapse");
+        }else if(getAudioCurrentTimeInSec == 0)
+        {
+            $("#footer-next-indicator").addClass("content-collapse");
+        }
     },false);
 
     /*-------------- Reset Slide content on Audio Reload ----------------*/
@@ -244,10 +270,16 @@ $(document).ready(function(){
         getAudioCurrentTimeInSec = value;
 
         if(getSingleObjOfJSON.popupImg != undefined){
+            var imgArr = getSingleObjOfJSON.popupImg.sort(function(a,b){
+                return a.startingTime - b.startingTime;
+            });
             if(getSingleObjOfJSON.name == "intro_welcome") {
-                var imgArr = getSingleObjOfJSON.popupImg;
+
                 fnSetupContentByTimeOnWelcomeSlide(getAudioCurrentTime,imgArr);
                 isAudioFlag = false;
+            }
+            else{
+                fnSetupContentByTimeGeneral(getAudioCurrentTime,imgArr);
             }
         }
 
@@ -255,6 +287,7 @@ $(document).ready(function(){
 
     $("#audio_sliderID").on('slideStart',function(_event){
         sliderMouse.mouseDown = _event.value;
+        console.log(sliderMouse.mouseDown);
         fnPerformSlidingEvent(sliderMouse.mouseDown);
     });
 
