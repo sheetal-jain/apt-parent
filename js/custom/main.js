@@ -4,6 +4,7 @@ var getSingleObjOfJSON = [];
 var getScreenName,max;
 var curIdx = 0;
 var isAudioFlag = false;
+var isImgFlag = false;
 var isSlideFlag = false;
 var curValue = 0;
 var sliderMouse = {mouseDown:0};
@@ -11,7 +12,7 @@ var getAudioCurrentTime,duration,getAudioCurrentTimeInSec;
 
 // For convenience
 var imgSrcBase = 'Images/';
-var audioSrcBase_mp3 = 'Audio/mp3/';
+var audioSrcBase_mp3 = 'Audio/FR/mp3/';
 var audioSrcBase_ogg = 'ogg/';
 var audio = document.getElementById("APT_Audio_Controls");
 
@@ -167,6 +168,8 @@ $(document).ready(function(){
         slider.setAttribute("max", duration);
     };
 
+    var nextStartTime = "0";
+    var nextImgStartTime = "0";
     audio.addEventListener('timeupdate',function(event){
         getAudioCurrentTime = this.currentTime;
         getAudioCurrentTimeInSec = Math.floor(this.currentTime);
@@ -176,15 +179,22 @@ $(document).ready(function(){
         {
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupContent.length;intIndex++)
             {
-                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime /*&& getAudioCurrentTimeInSec < getSingleObjOfJSON.popupContent[intIndex].endingTime*/ && !isAudioFlag) //
+
+                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime && !isAudioFlag)
                 {
-                    if(getSingleObjOfJSON.name == "intro_bergeron" ){
+//                    if(getSingleObjOfJSON.name == "intro_bergeron" ){
                         console.log(getAudioCurrentTimeInSec);
                         fnOverlayContentOnBergeronSlide(getSingleObjOfJSON.popupContent[intIndex]);
-                    }
+                        if(getSingleObjOfJSON.popupContent[intIndex+1] != undefined){
+                            nextStartTime = getSingleObjOfJSON.popupContent[intIndex+1].startingTime;
+                        }
+//                    }
+                    /*else if(getSingleObjOfJSON.name == "intro_bergeron"){
+
+                    }*/
                     isAudioFlag = true;
                 }
-                if( getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime /*&& getAudioCurrentTimeInSec < getSingleObjOfJSON.popupContent[intIndex].endingTime*/)
+                if( getAudioCurrentTimeInSec == (nextStartTime-1)  )
                 {
                     isAudioFlag = false;
                 }
@@ -196,23 +206,25 @@ $(document).ready(function(){
         {
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupImg.length;intIndex++)
             {
-                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].startingTime && !isAudioFlag)
+                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].startingTime && !isImgFlag)
                 {
                     if(getSingleObjOfJSON.name == "intro_welcome") {
 
                         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, getSingleObjOfJSON.popupImg[intIndex]);
                     }
                     else if(getSingleObjOfJSON.name == "intro_resource"){
-                        console.log(getSingleObjOfJSON.popupImg[intIndex].startingTime);
                         fnOverlayImageContentOnGatherResourcesSlide(getSingleObjOfJSON.popupImg[intIndex]);
+                    }else{
+                        if(getSingleObjOfJSON.popupImg[intIndex+1] != undefined){
+                            nextImgStartTime = getSingleObjOfJSON.popupImg[intIndex+1].startingTime;
+                        }
+                        fnOverlayImageContentGeneral(imgSrcBase,getSingleObjOfJSON.popupImg[intIndex])
                     }
-
-
-                    isAudioFlag = true;
+                    isImgFlag = true;
                 }
-                if( getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].endingTime)
+                if(getAudioCurrentTimeInSec == (nextImgStartTime-1) || getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].endingTime)
                 {
-                    isAudioFlag = false;
+                    isImgFlag = false;
                 }
 
             }
@@ -220,185 +232,42 @@ $(document).ready(function(){
 
     },false);
 
-    $("#audio_sliderID").on('slideStart',function(_event){
-        sliderMouse.mouseDown = _event.value;
-        clickEvent(sliderMouse.mouseDown);
-    });
-    function clickEvent(value){
-        audio.pause();
+    /*-------------- Reset Slide content on Audio Reload ----------------*/
+
+    //when sliding the content and effect mange using bootstrap slider event
+    function fnPerformSlidingEvent(value){
+        //audio.pause();
         audio.currentTime = value;
-        audio.play();
+        if(!audio.pause){audio.play();}
+
+        getAudioCurrentTime = audio.currentTime;
+        getAudioCurrentTimeInSec = value;
+
+        if(getSingleObjOfJSON.popupImg != undefined){
+            if(getSingleObjOfJSON.name == "intro_welcome") {
+                var imgArr = getSingleObjOfJSON.popupImg;
+                fnSetupContentByTimeOnWelcomeSlide(getAudioCurrentTime,imgArr);
+                isAudioFlag = false;
+            }
+        }
 
     }
 
+    $("#audio_sliderID").on('slideStart',function(_event){
+        sliderMouse.mouseDown = _event.value;
+        fnPerformSlidingEvent(sliderMouse.mouseDown);
+    });
+
     $("#audio_sliderID").on('slide',function(_event){
-        if(!isSlideFlag)
-        {
-            audio.currentTime = $("#audio_sliderID").val();
-            getAudioCurrentTimeInSec = $("#audio_sliderID").val();
+        if(!isSlideFlag) {
+            fnPerformSlidingEvent(_event.value);
             isSlideFlag = true;
-            curValue = $("#audio_sliderID").val();
-
-            if(getSingleObjOfJSON.popupImg != undefined){
-                if(getSingleObjOfJSON.name == "intro_welcome") {
-                    var imgArr = getSingleObjOfJSON.popupImg;
-                    if(getAudioCurrentTimeInSec < imgArr[0].startingTime)
-                    {
-                        $('#slide2img').attr('src','Images/6gt3Ugtneuy_DX872_DY872_CX396_CY436.jpg');
-
-                        $('#'+imgArr[0].imgContentId).removeAttr('style');
-                        $('#'+imgArr[0].imgContentId).removeClass('fade.in');
-                        $('#'+imgArr[0].imgContentId).addClass('fade');
-
-                        $('#'+imgArr[1].imgContentId).removeAttr('style');
-                        $('#'+imgArr[1].imgContentId).removeClass('fade.in');
-                        $('#'+imgArr[1].imgContentId).addClass('fade');
-
-                        $('#'+imgArr[2].imgContentId).removeAttr('style');
-                        $('#'+imgArr[2].imgContentId).removeClass('fade.in');
-                        $('#'+imgArr[2].imgContentId).addClass('fade');
-
-                        $('#'+imgArr[3].imgContentId).removeAttr('style');
-                        $('#'+imgArr[3].imgContentId).removeClass('fade.in');
-                        $('#'+imgArr[3].imgContentId).addClass('fade');
-                    }
-                    else if(getAudioCurrentTimeInSec > imgArr[0].startingTime && getAudioCurrentTimeInSec<imgArr[0].endingTime)
-                    {
-                        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[0]);
-
-                        $('#'+imgArr[1].imgContentId).removeAttr('style');
-                        $('#'+imgArr[1].imgContentId).removeClass('fade.in');
-                        $('#'+imgArr[1].imgContentId).addClass('fade');
-
-                        $('#'+imgArr[2].imgContentId).removeAttr('style');
-                        $('#'+imgArr[2].imgContentId).removeClass('fade.in');
-                        $('#'+imgArr[2].imgContentId).addClass('fade');
-
-                        $('#'+imgArr[3].imgContentId).removeAttr('style');
-                        $('#'+imgArr[3].imgContentId).removeClass('fade.in');
-                        $('#'+imgArr[3].imgContentId).addClass('fade');
-                    }
-                    else if(getAudioCurrentTimeInSec > imgArr[1].startingTime && getAudioCurrentTimeInSec<imgArr[1].endingTime)
-                    {
-                        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[1]);
-
-                        $('#'+imgArr[2].imgContentId).removeAttr('style');
-                        $('#'+imgArr[2].imgContentId).removeClass('fade.in');
-                        $('#'+imgArr[2].imgContentId).addClass('fade');
-
-                        $('#'+imgArr[3].imgContentId).removeAttr('style');
-                        $('#'+imgArr[3].imgContentId).removeClass('fade.in');
-                        $('#'+imgArr[3].imgContentId).addClass('fade');
-                    }
-                    else if(getAudioCurrentTimeInSec > imgArr[2].startingTime && getAudioCurrentTimeInSec<imgArr[2].endingTime)
-                    {
-                        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[2]);
-
-                        $('#'+imgArr[3].imgContentId).removeAttr('style');
-                        $('#'+imgArr[3].imgContentId).removeClass('fade.in');
-                        $('#'+imgArr[3].imgContentId).addClass('fade');
-                    }
-                    else if(getAudioCurrentTimeInSec > imgArr[3].startingTime && getAudioCurrentTimeInSec<imgArr[3].endingTime)
-                    {
-                        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[3]);
-                    }
-                    isAudioFlag = false;
-                }
-            }
+            curValue = _event.value;
         }
         else if(curValue != $("#audio_sliderID").val())
         {
             isSlideFlag = false;
         }
-
-//        if(getSingleObjOfJSON.popupImg != undefined)
-//        {
-//
-//            var imageArr = getSingleObjOfJSON.popupImg;
-//             imageArr.sort(function(a,b){
-//                return a.startingTime - b.startingTime;
-//            });
-//            var minStartTime =imageArr[0].startingTime;
-//
-////            console.log("Min Time ========== ",minStartTime);
-//            for(var intIndex = 0;intIndex<imageArr.length;intIndex++)
-//            {
-////                if(getAudioCurrentTimeInSec < "31")
-//                if(getAudioCurrentTimeInSec < minStartTime)
-//                {
-//                    if(getSingleObjOfJSON.name == "intro_welcome") {
-//                        isAudioFlag = false;
-//
-//
-//                        /*$('#'+imageArr[intIndex].imgContentId).removeAttr('style');
-//                        $('#'+imageArr[intIndex].imgContentId).removeClass('fade.in');
-//                        $('#'+imageArr[intIndex].imgContentId).addClass('fade');*/
-////                        console.log("hello",getSingleObjOfJSON.popupImg);
-//                        jQuery.each(imageArr,function(i,obj){
-//                            $('#'+obj.imgContentId).css('opacity','0');
-//                            $('#slide2img').attr('src','Images/6gt3Ugtneuy_DX872_DY872_CX396_CY436.jpg');
-////                            $('#'+obj.imgContentId).removeClass('fade.in');
-////                            $('#'+obj.imgContentId).addClass('fade');
-//                        });
-//                    }
-//                }else if(imageArr[intIndex].startingTime < getAudioCurrentTimeInSec && imageArr[intIndex].endingTime > getAudioCurrentTimeInSec)
-//                {
-//                    console.log(intIndex," ========== ", imageArr[intIndex].startingTime);
-//
-//                    if(imageArr[intIndex].startingTime <= 31 && imageArr[intIndex].endingTime >= 34){
-//
-//                        $('#'+imageArr[0].imgContentId).css('opacity','1')
-//                        $('#slide2img').attr('src',imgSrcBase+imageArr[0].imgName);
-//
-//                        $('#'+imageArr[1].imgContentId).css('opacity','0');
-//                        $('#'+imageArr[2].imgContentId).css('opacity','0');
-//                        $('#'+imageArr[3].imgContentId).css('opacity','0');
-//                    }else if(imageArr[intIndex].startingTime <= 35 && imageArr[intIndex].endingTime >= 38){
-//                        $('#'+imageArr[1].imgContentId).css('opacity','1')
-//                        $('#slide2img').attr('src',imgSrcBase+imageArr[1].imgName);
-//
-//                        $('#'+imageArr[2].imgContentId).css('opacity','0')
-//                        $('#'+imageArr[3].imgContentId).css('opacity','0')
-//
-//                    }else if(imageArr[intIndex].startingTime <= 39 && imageArr[intIndex].endingTime >= 41){
-//                        $('#'+imageArr[2].imgContentId).css('opacity','1')
-//                        $('#slide2img').attr('src',imgSrcBase+imageArr[2].imgName);
-//
-//                        $('#'+imageArr[3].imgContentId).css('opacity','0')
-//
-//                    }else if(imageArr[intIndex].startingTime <= 42 && imageArr[intIndex].endingTime >= 45){
-//                        $('#'+imageArr[3].imgContentId).css('opacity','1')
-//                        $('#slide2img').attr('src',imgSrcBase+imageArr[3].imgName);
-//                    }
-//                    /*$('#'+imageArr[intIndex].imgContentId).css('opacity','1');
-//                    $('#'+imageArr[intIndex].imgContentId).removeClass('fade');
-//                    $('#'+imageArr[intIndex].imgContentId).addClass('fade.in');
-//*/
-////                    $('#slide2img').attr('src',imgSrcBase+imageArr[intIndex].imgName);
-//                    /*if(intIndex > 0){
-//                        for(var i=0; i<intIndex-1;i++){
-//                            $('#'+imageArr[i].imgContentId).css('opacity','1');
-//                            $('#slide2img').attr('src',imgSrcBase+imageArr[i].imgName);
-////                            $('#slide2img').attr('src',imgSrcBase+imageArr[i].imgName);
-////                            $('#'+imageArr[i].imgContentId).removeClass('fade');
-////                            $('#'+imageArr[i].imgContentId).addClass('fade.in');
-//                        }
-//
-//                        for(var j=intIndex; j<imageArr.length;j++){
-////                            $('#'+imageArr[j].imgContentId).removeAttr('style');
-//                            $('#'+imageArr[j].imgContentId).css('opacity','0');
-//                            $('#slide2img').attr('src',imgSrcBase+imageArr[i].imgName);
-////                            $('#slide2img').attr('src',imgSrcBase+imageArr[j].imgName);
-////                            $('#'+imageArr[j].imgContentId).removeClass('fade.in');
-////                            $('#'+imageArr[j].imgContentId).addClass('fade');
-//                        }
-//                    }*/
-//
-//
-//                }
-//
-//            }
-//        }
     });
 });
 

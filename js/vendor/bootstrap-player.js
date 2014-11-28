@@ -78,9 +78,22 @@
 //			$(song).on('ended', seek.reset);
 			$(player).append(seek_wrapper);
 		};
+        var addReplay = function() {
+            var replay = document.createElement('button');
+            $(replay).addClass('btn span1');
+            $(replay).attr("id","replayBtn");
+            $(replay).html('<i class="fa fa-undo"></i>');
+            $(replay).click(function () {
+                song.currentTime = 0;
+                song.play();
+            });
+            $(player).append(replay);
+
+        };
+
 		var addTime = function() {
 			var time = document.createElement('a');
-				$(time).addClass('btn span3');
+				$(time).addClass('btn span1');
 				$(time).tooltip({'container': 'body', 'placement': 'right', 'html': true});
 			time.twodigit = function (myNum) {
 				return ("0" + myNum).slice(-2);
@@ -182,7 +195,8 @@
 		var addPlayer = function() {
 			if ($(song).data('play') !== 'off'){ addPlay();}
 			if ($(song).data('seek') !== 'off'){ addSeek();}
-			if ($(song).data('time') !== 'off'){ addTime();}
+            if ($(song).data('replay') !== 'off'){ addReplay();}
+//			if ($(song).data('time') !== 'off'){ addTime();}
 			if ($(song).data('mute') !== 'off'){ addMute();}
 			if ($(song).data('volume') !== 'off'){ addVolume();}
 			$(player_box).append(player);

@@ -14,7 +14,7 @@ function fnGetDataFromServer(url)
 
 function startAPT() {
     var scrw = $(window).width();
-    $('#mp3source').attr('src', 'Audio/mp3/6n7vVfJToNo_22050_80.mp3');
+    $('#mp3source').attr('src', 'Audio/FR/mp3/6n7vVfJToNo_22050_80.mp3');
     $('#APT_Audio_Controls').trigger('load');
     $('#APT_Audio_Controls').trigger('play');
 
@@ -58,6 +58,7 @@ function fnOverlayImageContentOnWelcomeSlide(imgSrc,data){
         $('#'+data.imgContentId).css('padding', (slide2imgW / 2) / 5);
         $($('#'+data.imgContentId)).removeClass('fade');
         $($('#'+data.imgContentId)).addClass('fade.in');
+        $($('#'+data.imgContentId)).html(data.imgContent);
         if(data.imgContentId == "slide2-popup1"){
 
             $($('#'+data.imgContentId)).css('height', slide2imgH / 2);
@@ -78,7 +79,6 @@ function fnOverlayImageContentOnWelcomeSlide(imgSrc,data){
 };
 
 function fnOverlayContentOnBergeronSlide(data){
-    console.log("Method Call");
     $('.'+data.contentClass).fadeTo(1000, 0, function () {
         $('.'+data.contentClass).removeClass('content-collapse');
     }).fadeTo(500, 1);
@@ -93,6 +93,62 @@ function fnOverlayImageContentOnGatherResourcesSlide(data){
 
 };
 
+function fnSetupContentByTimeOnWelcomeSlide(curTime,imgArr)
+{
+    if(curTime < imgArr[0].startingTime)
+    {
+        $('#slide2img').attr('src','Images/6gt3Ugtneuy_DX872_DY872_CX396_CY436.jpg');
+
+        fnFadeEffectRemove(imgArr[0].imgContentId);
+        fnFadeEffectRemove(imgArr[1].imgContentId);
+        fnFadeEffectRemove(imgArr[2].imgContentId);
+        fnFadeEffectRemove(imgArr[3].imgContentId);
+
+    }
+    else if(curTime > imgArr[0].startingTime && curTime < imgArr[0].endingTime)
+    {
+        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[0]);
+
+        fnFadeEffectRemove(imgArr[1].imgContentId);
+        fnFadeEffectRemove(imgArr[2].imgContentId);
+        fnFadeEffectRemove(imgArr[3].imgContentId);
+    }
+    else if(curTime > imgArr[1].startingTime && curTime < imgArr[1].endingTime)
+    {
+        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[0]);
+        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[1]);
+
+        fnFadeEffectRemove(imgArr[2].imgContentId);
+        fnFadeEffectRemove(imgArr[3].imgContentId);
+
+    }
+    else if(curTime > imgArr[2].startingTime && curTime < imgArr[2].endingTime)
+    {
+        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[0]);
+        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[1]);
+        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[2]);
+
+        fnFadeEffectRemove(imgArr[3].imgContentId);
+    }
+    else if(curTime > imgArr[3].startingTime && curTime < imgArr[3].endingTime)
+    {
+        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[0]);
+        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[1]);
+        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[2]);
+        fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[3]);
+    }
+}
+
+function fnFadeEffectRemove(_id){
+//    $("#"+_id).fadeOut(1000, function() {
+//        $(this).remove();
+//        $(this).removeAttr('style');
+//        $(this).removeClass('fade.in');
+//        $(this).addClass('fade');
+//    });
+    $("#"+_id).html("");
+};
+
 
 function setCollapseClassToScreen(screenName){
     $($("div.screen[name="+screenName+"]")).removeClass('content-collapse');
@@ -105,6 +161,7 @@ function refreshPopupContent(popupContentArr){
         $($("."+obj.contentClass)).css("display",'none');
     });
 }
+
 
 function setupAudioControls(audioName){
     $("#mp3source").attr('src', audioName);
@@ -124,4 +181,17 @@ function loadNextPageImages(nextObj){
     var slideImg = new Image();
     slideImg.src = nextObj.imgName;
     console.log(slideImg.src);
+}
+
+function fnOverlayImageContentGeneral(imgSrc,popupImageObj){
+    $('#'+popupImageObj.imgId).css('opacity',"1");
+    console.log(popupImageObj.imgId);
+    $('#'+popupImageObj.imgId).fadeTo(1000, 0, function () {
+        $('#'+popupImageObj.imgId).attr('src',imgSrc+popupImageObj.imgName);
+        $('#'+popupImageObj.imgId).removeClass('content-collapse');
+    }).fadeTo(500, 1);
+}
+
+function fnSetupContentByTimeGeneral(popupContentArr){
+
 }
