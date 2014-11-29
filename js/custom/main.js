@@ -26,7 +26,10 @@ $(document).ready(function(){
     var slider = new Slider("#audio_sliderID", {
         range: false,
         tooltip: 'always',
-        precision: 0
+        precision: 0,
+        formatter: function(value) {
+            return Math.round(value);
+        }
     });
     audio.load();
     $('.custom-audio-button').addClass('fade');
@@ -67,21 +70,9 @@ $(document).ready(function(){
                 refreshPopupImages(objAPT_JSON[curIdx].popupImg);
             }
             setCollapseClassToScreen(objAPT_JSON[curIdx].name);
-            $("#bergeron-footer").addClass('content-collapse');
-            $(".navigation-help").addClass('content-collapse');
-            $(".tips-header").removeClass('content-collapse');
-            $("#tips-images").removeClass('content-collapse');
+            fnAddOrRemoveElementClass();
         }
-
-        if(getScreenName == "intro_bergeron"){
-            $("#bergeron-footer").removeClass('content-collapse');
-        }
-        else if(getScreenName == "intro_navigation_help"){
-            $("#Tips4online").removeClass('content-collapse');
-            $(".tips-header").addClass('content-collapse');
-            $(".navigation-help").removeClass('content-collapse');
-            $("#tips-images").addClass('content-collapse');
-        }
+        fnSlideWiseAddOrRemoveElementClass(getScreenName);
 
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         $('#slide-dyn').removeClass('content-collapse');
@@ -108,7 +99,8 @@ $(document).ready(function(){
             $('.custom-audio-button').removeClass('fade.in');
             $('#slide2').css('display','none');
             $('.custom-audio-button').addClass('fade');
-            $("#bergeron-footer").addClass('content-collapse');
+
+            $(".playa").removeAttr("style");
         }
         else if(curIdx == 1)//The condition for 2nd slide when prev
         {
@@ -118,9 +110,7 @@ $(document).ready(function(){
             $('#slide1').css('display','inline');
 
             setCollapseClassToScreen(objAPT_JSON[curIdx].name);
-
             startAPT();
-            $("#bergeron-footer").addClass('content-collapse');
         }else {
             getScreenName = $($("div.screen")[curIdx]).attr("name");
             if (getScreenName == objAPT_JSON[curIdx].name) {
@@ -128,21 +118,10 @@ $(document).ready(function(){
                     refreshPopupContent(objAPT_JSON[curIdx].popupContent);
                 }
                 setCollapseClassToScreen(objAPT_JSON[curIdx].name);
-                $("#bergeron-footer").addClass('content-collapse');
-                $(".navigation-help").addClass('content-collapse');
-                $(".tips-header").removeClass('content-collapse');
-                $("#tips-images").removeClass('content-collapse');
             }
-            if(getScreenName == "intro_bergeron"){
-                $("#bergeron-footer").removeClass('content-collapse');
-            }
-            else if(getScreenName == "intro_navigation_help"){
-                $("#Tips4online").removeClass('content-collapse');
-                $(".tips-header").addClass('content-collapse');
-                $(".navigation-help").removeClass('content-collapse');
-                $("#tips-images").addClass('content-collapse');
-            }
+            fnSlideWiseAddOrRemoveElementClass(getScreenName);
         }
+        fnAddOrRemoveElementClass();
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
         getTopicWiseData(curIdx);
@@ -192,7 +171,7 @@ $(document).ready(function(){
     audio.addEventListener('timeupdate',function(event){
         getAudioCurrentTime = this.currentTime;
         getAudioCurrentTimeInSec = Math.floor(this.currentTime);
-        slider.setValue(getAudioCurrentTimeInSec);
+        slider.setValue(Math.round(this.currentTime));
         $("#audio_sliderID").attr('data-slider-value',getAudioCurrentTimeInSec);
         if(getSingleObjOfJSON.popupContent.length > 0)
         {
@@ -209,9 +188,7 @@ $(document).ready(function(){
                             nextStartTime = getSingleObjOfJSON.popupContent[intIndex+1].startingTime;
                         }
 //                    }
-                    /*else if(getSingleObjOfJSON.name == "intro_bergeron"){
 
-                    }*/
                     isAudioFlag = true;
                 }
                 if( getAudioCurrentTimeInSec == (nextStartTime-1)  )
@@ -229,8 +206,8 @@ $(document).ready(function(){
             {
                 if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].startingTime && !isImgFlag)
                 {
+                    console.log(getSingleObjOfJSON.popupImg[intIndex].startingTime +" == "+isAudioFlag+" =="+ nextImgStartTime);
                     if(getSingleObjOfJSON.name == "intro_welcome") {
-
                         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, getSingleObjOfJSON.popupImg[intIndex]);
                     }
                     else if(getSingleObjOfJSON.name == "intro_resource"){
@@ -247,10 +224,10 @@ $(document).ready(function(){
                 {
                     isImgFlag = false;
                 }
-
             }
         }
 
+        /*Show Next Indicator*/
         if(getAudioCurrentTimeInSec == (Math.floor(duration) - 2))
         {
             $("#footer-next-indicator").removeClass("content-collapse");
@@ -258,12 +235,16 @@ $(document).ready(function(){
         {
             $("#footer-next-indicator").addClass("content-collapse");
         }
+
     },false);
 
     /*-------------- Reset Slide content on Audio Reload ----------------*/
+    $("#replayBtn").click(function(){
+        fnResetContentOnSlide(0);
+    });
 
-    //when sliding the content and effect mange using bootstrap slider event
-    function fnPerformSlidingEvent(value){
+    //when sliding or replay the content and effect mange 
+    function fnResetContentOnSlide(value){
         //audio.pause();
         audio.currentTime = value;
         if(!audio.pause){audio.play();}
@@ -276,7 +257,7 @@ $(document).ready(function(){
                 return a.startingTime - b.startingTime;
             });
             if(getSingleObjOfJSON.name == "intro_welcome") {
-
+                var imgArr = getSingleObjOfJSON.popupImg;
                 fnSetupContentByTimeOnWelcomeSlide(getAudioCurrentTime,imgArr);
                 isAudioFlag = false;
             }
@@ -285,17 +266,24 @@ $(document).ready(function(){
             }
         }
 
+        /*Next Indicator hide*/
+        if(audio.currentTime < (duration-2)){
+            $("#footer-next-indicator").addClass("content-collapse");
+        }
+        else
+        {
+            $("#footer-next-indicator").removeClass("content-collapse");
+        }
     }
 
     $("#audio_sliderID").on('slideStart',function(_event){
         sliderMouse.mouseDown = _event.value;
-        console.log(sliderMouse.mouseDown);
-        fnPerformSlidingEvent(sliderMouse.mouseDown);
+        fnResetContentOnSlide(sliderMouse.mouseDown);
     });
 
     $("#audio_sliderID").on('slide',function(_event){
         if(!isSlideFlag) {
-            fnPerformSlidingEvent(_event.value);
+            fnResetContentOnSlide(_event.value);
             isSlideFlag = true;
             curValue = _event.value;
         }
