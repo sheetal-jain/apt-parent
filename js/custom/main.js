@@ -22,6 +22,7 @@ $(document).ready(function(){
     objAPT_JSON = JSON.parse(fnGetDataFromServer('JSON/APT_Contents_JSON.json').responseText);
     max =objAPT_JSON.length;
 
+    preloadImages(objAPT_JSON[1]);
     var slider = new Slider("#audio_sliderID", {
         range: false,
         tooltip: 'always',
@@ -71,6 +72,7 @@ $(document).ready(function(){
             $(".tips-header").removeClass('content-collapse');
             $("#tips-images").removeClass('content-collapse');
         }
+
         if(getScreenName == "intro_bergeron"){
             $("#bergeron-footer").removeClass('content-collapse');
         }
@@ -88,7 +90,7 @@ $(document).ready(function(){
 //        if(objAPT_JSON[curIdx+1]){
 //            loadNextPageImages(objAPT_JSON[curIdx+1]);
 //        }
-
+        preloadImages(objAPT_JSON[curIdx+1]);
         getTopicWiseData(curIdx);
     });
 

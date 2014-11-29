@@ -12,6 +12,15 @@ function fnGetDataFromServer(url)
     });
 };
 
+function preloadImages(JSONObj){
+    var imagesArr = [];
+    imagesArr.push(JSONObj.imgName);
+    jQuery.each(JSONObj.popupImg,function(i,obj){
+        imagesArr.push(obj.imgName)
+    });
+    $.preload(imagesArr);
+}
+
 function startAPT() {
     var scrw = $(window).width();
     $('#mp3source').attr('src', 'Audio/FR/mp3/6n7vVfJToNo_22050_80.mp3');
@@ -187,8 +196,9 @@ function loadNextPageImages(nextObj){
 }
 
 function fnOverlayImageContentGeneral(imgSrc,popupImageObj){
-    $('#'+popupImageObj.imgId).css('display','block');
-    console.log(popupImageObj.imgId);
+//    $('#'+popupImageObj.imgId).css('display','block');
+    //$('#'+popupImageObj.imgId).css('opacity','1');
+    $('#'+popupImageObj.imgId).removeAttr('style');
     $('#'+popupImageObj.imgId).fadeTo(1000, 0, function () {
         $('#'+popupImageObj.imgId).attr('src',imgSrc+popupImageObj.imgName);
         $('#'+popupImageObj.imgId).removeClass('content-collapse');
