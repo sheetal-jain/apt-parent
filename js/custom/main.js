@@ -25,7 +25,10 @@ $(document).ready(function(){
     var slider = new Slider("#audio_sliderID", {
         range: false,
         tooltip: 'always',
-        precision: 0
+        precision: 0,
+        formatter: function(value) {
+            return Math.round(value);
+        }
     });
     audio.load();
     $('.custom-audio-button').addClass('fade');
@@ -67,9 +70,16 @@ $(document).ready(function(){
             }
             setCollapseClassToScreen(objAPT_JSON[curIdx].name);
             $("#bergeron-footer").addClass('content-collapse');
+            $(".navigation-help").addClass('content-collapse');
+            $(".tips-header").removeClass('content-collapse');
         }
         if(getScreenName == "intro_bergeron"){
             $("#bergeron-footer").removeClass('content-collapse');
+        }else if(getScreenName == "intro_navigation_help"){
+            $("#Tips4online").removeClass('content-collapse');
+            $(".tips-header").addClass('content-collapse');
+            $(".navigation-help").removeClass('content-collapse');
+            $("#tips-images").addClass('content-collapse');
         }
 
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
@@ -118,9 +128,16 @@ $(document).ready(function(){
                 }
                 setCollapseClassToScreen(objAPT_JSON[curIdx].name);
                 $("#bergeron-footer").addClass('content-collapse');
+                $(".navigation-help").addClass('content-collapse');
+                $(".tips-header").removeClass('content-collapse');
             }
             if(getScreenName == "intro_bergeron"){
                 $("#bergeron-footer").removeClass('content-collapse');
+            }else if(getScreenName == "intro_navigation_help"){
+                $("#Tips4online").removeClass('content-collapse');
+                $(".tips-header").addClass('content-collapse');
+                $(".navigation-help").removeClass('content-collapse');
+                $("#tips-images").addClass('content-collapse');
             }
         }
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
@@ -173,7 +190,7 @@ $(document).ready(function(){
     audio.addEventListener('timeupdate',function(event){
         getAudioCurrentTime = this.currentTime;
         getAudioCurrentTimeInSec = Math.floor(this.currentTime);
-        slider.setValue(getAudioCurrentTimeInSec);
+        slider.setValue(Math.round(this.currentTime));
         $("#audio_sliderID").attr('data-slider-value',getAudioCurrentTimeInSec);
         if(getSingleObjOfJSON.popupContent.length > 0)
         {
@@ -189,9 +206,7 @@ $(document).ready(function(){
                             nextStartTime = getSingleObjOfJSON.popupContent[intIndex+1].startingTime;
                         }
 //                    }
-                    /*else if(getSingleObjOfJSON.name == "intro_bergeron"){
 
-                    }*/
                     isAudioFlag = true;
                 }
                 if( getAudioCurrentTimeInSec == (nextStartTime-1)  )
@@ -204,12 +219,13 @@ $(document).ready(function(){
 
         if(getSingleObjOfJSON.popupImg.length > 0)
         {
+            nextImgStartTime = getSingleObjOfJSON.popupImg[0].startingTime
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupImg.length;intIndex++)
             {
                 if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].startingTime && !isImgFlag)
                 {
+                    console.log(getSingleObjOfJSON.popupImg[intIndex].startingTime +" == "+isAudioFlag+" =="+ nextImgStartTime);
                     if(getSingleObjOfJSON.name == "intro_welcome") {
-
                         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, getSingleObjOfJSON.popupImg[intIndex]);
                     }
                     else if(getSingleObjOfJSON.name == "intro_resource"){
@@ -226,8 +242,15 @@ $(document).ready(function(){
                 {
                     isImgFlag = false;
                 }
-
             }
+        }
+
+        if(getAudioCurrentTimeInSec == (Math.floor(duration) - 2))
+        {
+            $("#footer-next-indicator").removeClass("content-collapse");
+        }else if(getAudioCurrentTimeInSec == 0)
+        {
+            $("#footer-next-indicator").addClass("content-collapse");
         }
 
     },false);
@@ -246,6 +269,7 @@ $(document).ready(function(){
         if(getSingleObjOfJSON.popupImg != undefined){
             if(getSingleObjOfJSON.name == "intro_welcome") {
                 var imgArr = getSingleObjOfJSON.popupImg;
+
                 fnSetupContentByTimeOnWelcomeSlide(getAudioCurrentTime,imgArr);
                 isAudioFlag = false;
             }
