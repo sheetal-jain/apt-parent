@@ -231,3 +231,36 @@ function fnSetupContentByTimeGeneral(currTime,popupContentArr){
         }
     }
 }
+
+function fnAddOrRemoveElementClass(){
+    $("#bergeron-footer").addClass('content-collapse');
+    $(".navigation-help").addClass('content-collapse');
+    $(".tips-header").removeClass('content-collapse');
+    $("#tips-images").removeClass('content-collapse');
+}
+
+function fnSlideWiseAddOrRemoveElementClass(slide){
+    switch (slide) {
+        case "intro_bergeron":
+            $("#bergeron-footer").removeClass('content-collapse');
+            break;
+        case "intro_navigation_help":
+            $("#Tips4online").removeClass('content-collapse');
+            $(".tips-header").addClass('content-collapse');
+            $(".navigation-help").removeClass('content-collapse');
+            $("#tips-images").addClass('content-collapse');
+            break;
+        case "intro_transition":
+            //show next button
+            $("#next").removeClass('content-collapse');
+            $(".playa").css('width','85%');
+            break;
+        case "intro_menu":
+            //hide next button
+            $("#next").addClass('content-collapse');
+            $(".playa").css('width','93%');
+            break;
+        default:
+//            console.log("Default Call In fnSlideWiseAddOrRemoveElementClass function");
+    }
+}
