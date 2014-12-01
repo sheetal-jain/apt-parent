@@ -12,6 +12,14 @@ function fnGetDataFromServer(url)
     });
 };
 
+
+
+/* RJ ------------------ Change cookie pagewise -----------------------*/
+function changeCookieValue(newValue) {
+    $.removeCookie('current_page');
+    $.cookie('current_page', newValue, { expires: 7 });
+}
+
 function preloadImages(JSONObj){
     var imagesArr = [];
     imagesArr.push(JSONObj.imgName);

@@ -21,6 +21,72 @@ $(document).ready(function(){
     //get Content from json
     objAPT_JSON = JSON.parse(fnGetDataFromServer('JSON/APT_Contents_JSON.json').responseText);
     max =objAPT_JSON.length;
+    console.log("MAX === ",max);
+    /* RJ------------------ if cookie not exist, create one with the first slide ----------------------*/
+    var current_page_cookie = $.cookie('current_page');
+    console.log(current_page_cookie);
+    if(current_page_cookie != undefined){
+        jQuery.each(objAPT_JSON,function(i,obj){
+            if(obj.name == current_page_cookie){
+                if(current_page_cookie == 'introduction'){
+                    $('#slide-dyn').addClass('content-collapse');
+                    $('#slide1').attr('src',imgSrcBase+obj.imgName);
+                    $('#firstslideheader').removeClass('content-collapse');
+                    $('#btnStart').removeClass('content-collapse');
+
+                    $('.custom-audio-button').removeClass('fade.in');
+//                    $('#slide2').css('display','none');
+                    $('.custom-audio-button').addClass('fade');
+                    $('#slide2').addClass('fade');
+
+                    $(".playa").removeAttr("style");
+                    curIdx = i;
+                }
+                else if(current_page_cookie == 'intro_welcome'){
+
+                    $('#slide-dyn').addClass('content-collapse');
+                    $('#slide2').css('display','none');
+                    $('#slide1').attr('src', 'Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png');
+                    $('#slide1').css('display','inline');
+
+                    setCollapseClassToScreen(obj.name);
+                    curIdx = i;
+                    console.log(curIdx);
+                    startAPT();
+
+                }
+                else{
+                    $('.custom-audio-button').removeClass('fade');
+                    $('.custom-audio-button').addClass('fade.in');
+                    $('#slide1').addClass('content-collapse');
+                    $('.playa').css("width",'85%');
+                    $('#btnStart').addClass('content-collapse');
+                    $('#firstslideheader').addClass('content-collapse');
+                    $('a.custom-audio-button').addClass('fade.in');
+                    $("#slide-dyn").attr('src','Images/'+obj.imgName);
+                    $('#slide-dyn').removeClass('content-collapse');
+                    $($("div.screen[name="+current_page_cookie+"]")).removeClass('content-collapse');
+                    $($("div.screen:not(.screen[name="+current_page_cookie+"])")).addClass('content-collapse');
+                    $("#tips-images").find("div").css('opacity','0');
+                    $("#tips-images").find("div").css('display','none');
+                    if(obj.popupImg.length > 0){
+                        refreshPopupImageContent(obj.popupImg);
+                    }
+                    setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
+                    getTopicWiseData(i);
+                    curIdx = i;
+                }
+            }
+        });
+
+        console.log(current_page_cookie);
+    }else{
+        console.log("No cookie Exist");
+        $.cookie('current_page',objAPT_JSON[0].name, { expires: 7 });
+        $('.custom-audio-button').addClass('fade');
+        $('#slide2').addClass('fade');
+
+    }
 
     preloadImages(objAPT_JSON[1]);
     var slider = new Slider("#audio_sliderID", {
@@ -32,8 +98,8 @@ $(document).ready(function(){
         }
     });
     audio.load();
-    $('.custom-audio-button').addClass('fade');
-    $('#slide2').addClass('fade');
+//    $('.custom-audio-button').addClass('fade');
+//    $('#slide2').addClass('fade');
 
     //start APT Parent Section
     $('#startAPT').click( function() {
@@ -44,17 +110,19 @@ $(document).ready(function(){
             refreshPopupImageContent(objAPT_JSON[curIdx].popupImg);
         }
 
+        /* RJ----------------------- Set cookie for intro page ------------------*/
+        changeCookieValue(objAPT_JSON[curIdx].name);
     });
 
     // Increment Index
-    while (curIdx < max) {
+    /*while (curIdx < max) {
         curIdx++;
-    }
+    }*/
 
     // Next image and audio on button (and image) click
     $('#next').click( function() {
         curIdx = (curIdx+1) % max;
-
+        console.log("Current Slide === ",curIdx);
         $('#firstslideheader').addClass('content-collapse');
         $('#slide1').css('display','none');
         $('#slide1').addClass('content-collapse');
@@ -84,6 +152,9 @@ $(document).ready(function(){
 //        if(objAPT_JSON[curIdx+1]){
 //            loadNextPageImages(objAPT_JSON[curIdx+1]);
 //        }
+
+        changeCookieValue(objAPT_JSON[curIdx].name);
+
         if(objAPT_JSON[curIdx+1] != undefined){
             preloadImages(objAPT_JSON[curIdx+1]);
         }
@@ -94,6 +165,7 @@ $(document).ready(function(){
     // Prev image and audio on button click
     $('#prev').click( function() {
         curIdx = (curIdx+max-1) % max;
+        console.log("Current Slide === ",curIdx);
         refreshPopupImageContent(objAPT_JSON[curIdx].popupImg)
         if(curIdx == 0)//The condition for 1st slide when prev
         {
@@ -134,6 +206,7 @@ $(document).ready(function(){
         fnAddOrRemoveElementClass();
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
+        changeCookieValue(objAPT_JSON[curIdx].name);
         getTopicWiseData(curIdx);
     });
 
@@ -285,7 +358,7 @@ $(document).ready(function(){
         fnResetContentOnSlide(0);
     });
 
-    //when sliding or replay the content and effect mange 
+    //when sliding or replay the content and effect mange
     function fnResetContentOnSlide(value){
         //audio.pause();
         audio.currentTime = value;
