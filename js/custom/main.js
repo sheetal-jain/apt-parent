@@ -88,6 +88,7 @@ $(document).ready(function(){
 
     }
 
+    preloadImages(objAPT_JSON[1]);
     var slider = new Slider("#audio_sliderID", {
         range: false,
         tooltip: 'always',
@@ -138,9 +139,11 @@ $(document).ready(function(){
             }
             setCollapseClassToScreen(objAPT_JSON[curIdx].name);
             fnAddOrRemoveElementClass();
-
         }
-        fnSlideWiseAddOrRemoveElementClass(getScreenName);
+        else{
+            fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
+        }
+        fnSlideWiseContentManage(getScreenName);
 
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         $('#slide-dyn').removeClass('content-collapse');
@@ -149,7 +152,13 @@ $(document).ready(function(){
 //        if(objAPT_JSON[curIdx+1]){
 //            loadNextPageImages(objAPT_JSON[curIdx+1]);
 //        }
+
         changeCookieValue(objAPT_JSON[curIdx].name);
+
+        if(objAPT_JSON[curIdx+1] != undefined){
+            preloadImages(objAPT_JSON[curIdx+1]);
+        }
+
         getTopicWiseData(curIdx);
     });
 
@@ -187,8 +196,12 @@ $(document).ready(function(){
                     refreshPopupContent(objAPT_JSON[curIdx].popupContent);
                 }
                 setCollapseClassToScreen(objAPT_JSON[curIdx].name);
+                $('#slide-capsule1').addClass('collapse');
+                $('#slide-menu').removeClass('collapse');
+            }else{
+                fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
             }
-            fnSlideWiseAddOrRemoveElementClass(getScreenName);
+            fnSlideWiseContentManage(getScreenName);
         }
         fnAddOrRemoveElementClass();
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
@@ -196,6 +209,38 @@ $(document).ready(function(){
         changeCookieValue(objAPT_JSON[curIdx].name);
         getTopicWiseData(curIdx);
     });
+
+    /*----------------------Model call on capsule click----------------------------------------*/
+    $("#capsule1").click(function(){
+        curIdx = (curIdx+1) % max;
+        fnSetModelScreen();
+        fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
+    });
+
+    $("#capsule2").click(function(){
+        fnSetModelScreen();
+        for(var intIndex = 0;intIndex<objAPT_JSON.length;intIndex++)
+        {
+            if(objAPT_JSON[intIndex].name == "capsule2_slide1")
+            {
+               curIdx = intIndex;
+                fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
+            }
+        }
+    });
+
+    $("#capsule3").click(function(){
+        fnSetModelScreen();
+        for(var intIndex = 0;intIndex<objAPT_JSON.length;intIndex++)
+        {
+            if(objAPT_JSON[intIndex].name == "capsule3_slide1")
+            {
+                curIdx = intIndex;
+                fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
+            }
+        }
+    });
+
 
     function getTopicWiseData(curIdx)
     {

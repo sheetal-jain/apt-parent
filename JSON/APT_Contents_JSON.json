@@ -137,31 +137,41 @@
             "imgName":"6lavtVoHLVD_DX542_DY542_CX172_CY271.png",
             "startingTime":"5",
             "endingTime":"24",
-            "imgId":"slide-content-1"
+            "imgId":"slide-content-1",
+            "imgContentId":"slide-content-1",
+            "imgContent":"LE PROGRAMME COMPORTE UNE NARRATION. VOUS DEVEZ DONC RÉGLER LE VOLUME DE VOTRE ORDINATEUR."
         },
         {
             "imgName":"5rU7ZnG90Fx_DX542_DY542_CX172_CY271.png",
             "startingTime":"12",
             "endingTime":"24",
-            "imgId":"slide-content-2"
+            "imgId":"slide-content-2",
+            "imgContentId":"slide-content-2",
+            "imgContent":"UTILISEZ UN CASQUE D’ÉCOUTE POUR ÊTRE PLUS CONCENTRÉ."
         },
         {
             "imgName":"6hD3ydvjLt7_DX542_DY542_CX172_CY271.png",
             "startingTime":"14",
             "endingTime":"24",
-            "imgId":"slide-content-3"
+            "imgId":"slide-content-3",
+            "imgContentId":"slide-content-3",
+            "imgContent":"INFORMEZ LES GENS QUI VOUS ENTOURENT QUE VOUS ÊTES EN FORMATION. VOUS ÉVITEREZ AINSI D’ÊTRE DÉRANGÉ."
         },
         {
             "imgName":"6baW6GPP0CQ_DX542_DY542_CX172_CY271.png",
             "startingTime":"20",
             "endingTime":"24",
-            "imgId":"slide-content-4"
+            "imgId":"slide-content-4",
+            "imgContentId":"slide-content-4",
+            "imgContent":"LISEZ ATTENTIVEMENT LES CONSIGNES QUI SONT PRÉSENTÉES À L’ÉCRAN."
         },
         {
             "imgName":"5unXAHubqY3_DX542_DY542_CX172_CY271.png",
             "startingTime":"23",
             "endingTime":"24",
-            "imgId":"slide-content-5"
+            "imgId":"slide-content-5",
+            "imgContentId":"slide-content-5",
+            "imgContent":"FAITES TOUTES LES CAPSULES, À VOTRE RYTHME."
         }]
     },
     {
@@ -181,6 +191,314 @@
     {
         "name":"intro_menu",
         "imgName" : "5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide1",
+        "imgName" : "5WimNqiORUO_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide2",
+        "imgName" : "5WimNqiORUO_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide3",
+        "imgName" : "5hgeNZO9EH7_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide4",
+        "imgName" : "5hgeNZO9EH7_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide5",
+        "imgName" : "6Mf3mZWhjUq_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide6",
+        "imgName" : "6BjyxYRgmxO_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide7",
+        "imgName" : "6kSmvH4B0yo_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide8",
+        "imgName" : "6kSmvH4B0yo_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide9",
+        "imgName" : "6hJCqFBgemL_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide10",
+        "imgName" : "6hJCqFBgemL_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide11",
+        "imgName" : "6hJCqFBgemL_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide12",
+        "imgName" : "6S4hTfH7qSB_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide13",
+        "imgName" : "6Bxjc66ijbP_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide14",
+        "imgName" : "5UuKmsyBQe2_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide15",
+        "imgName" : "6lSlLp3ZcAT_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule1_slide16",
+        "imgName" : "6gkFUuxVEcu_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name":"intro_menuAfterCap1",
+        "imgName" : "5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide1",
+        "imgName" : "5oa9lL9NqsU_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide2",
+        "imgName" : "5oa9lL9NqsU_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide3",
+        "imgName" : "5rNt0wirY8U_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide4",
+        "imgName" : "5rNt0wirY8U_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide5",
+        "imgName" : "616YVQ08vha_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide6",
+        "imgName" : "5rNt0wirY8U_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide7",
+        "imgName" : "5wgfyzZLGkp_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide8",
+        "imgName" : "6J6rJUPfqsz_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide9",
+        "imgName" : "6TfxD0NNimi_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide10",
+        "imgName" : "5dp1SH3GcCk_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide11",
+        "imgName" : "5W7AHu8TBJX_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide12",
+        "imgName" : "5W7AHu8TBJX_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule2_slide13",
+        "imgName" : "6RvhwmlG1h4_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name":"intro_menuAfterCap2",
+        "imgName" : "5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide1",
+        "imgName" : "5u2NuFOhgFT_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide2",
+        "imgName" : "5u2NuFOhgFT_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide3",
+        "imgName" : "5u2NuFOhgFT_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide4",
+        "imgName" : "6hmpZppJlxm_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide5",
+        "imgName" : "5oPmf5gNdcB_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide6",
+        "imgName" : "6VSk8oIeeXM_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide7",
+        "imgName" : "6b04fMETRyT_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide8",
+        "imgName" : "6favrCCzyZW_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide9",
+        "imgName" : "6favrCCzyZW_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide10",
+        "imgName" : "5bE88RUwxo8_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide11",
+        "imgName" : "6leqSerEMzN_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide12",
+        "imgName" : "6LfsxxorS1V_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name": "capsule3_slide13",
+        "imgName" : "6kSF2jw7moU_DX1890_DY1890_CX945_CY530.png",
         "audioName":["5nOPrNSAfIb_22050_80.mp3",""],
         "popupContent":[],
         "popupImg":[]
