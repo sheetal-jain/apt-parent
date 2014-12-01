@@ -12,6 +12,13 @@ function fnGetDataFromServer(url)
     });
 };
 
+
+/* RJ ------------------ Change cookie pagewise -----------------------*/
+function changeCookieValue(newValue){
+    $.removeCookie('current_page');
+    $.cookie('current_page',newValue, { expires: 7 });
+}
+
 function startAPT() {
     var scrw = $(window).width();
     $('#mp3source').attr('src', 'Audio/FR/mp3/6n7vVfJToNo_22050_80.mp3');
