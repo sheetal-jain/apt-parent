@@ -278,7 +278,7 @@ function fnSlideWiseContentManage(slide){
             $(".playa").css('width','93%');
             break;
         case "capsule1_slide1":
-            setupAudioControls('Audio/FR/mp3/6CYh8nauv4Z_22050_80.mp3')
+            setupAudioControls('Audio/FR/mp3/6CYh8nauv4Z_22050_80.mp3');
 
             //show next button
             $("#next").removeClass('content-collapse');
@@ -313,11 +313,10 @@ function fnSlideWiseContentManage(slide){
             $('#fw-day').text('Saturday night');
             $('#fw-time').text('7:30');
             $('#fw-text').text("Jennifer is driving Michael to a party at his friend Julie's. Normally, Michael is a real chatterbox, but tonight, he seems nervous");
-            $('.fw-main-div').hide().fadeIn(3000);
+
+            $('.fw-header').hide();
+            $('.fw-content').hide();
             $('.fw-footer').hide();
-            setTimeout(function(){
-                $('.fw-footer').fadeIn(3000);
-            },8000);
             // --- Content - Show --- //
             // --- Content - collapse --- //
 
@@ -334,6 +333,7 @@ function fnSlideWiseContentManage(slide){
             $('.l-c-header').removeClass('collapse');
             // --- Show --- //
             // --- Content - Show --- //
+            $('#lc-header-1').css('display','inline');
             $('#lc-header-1').text('Establish meaningful relationships between');
             $('#lc-header-2').text('parents and adolescents');
             $('#rc-content-text').removeClass('collapse');
@@ -371,7 +371,7 @@ function fnSlideWiseContentManage(slide){
             $('#rc-footer-text').addClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#rc-footer-confirm').removeClass('collapse');
-            $('#l-c-footer-text').removeClass('collapse');
+//            $('#l-c-footer-text').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#lc-footer-img').attr('src', 'Images/5heZxU5t7t7_DX1110_DY1110_CX555_CY80.png');
             /* --- Content --- */
@@ -430,6 +430,8 @@ function fnSlideWiseContentManage(slide){
             $('#fw-day').text('Saturday Night');
             $('#fw-time').text('11:00');
             $('#fw-text').text("Phone conversation between Michael and his mother.");
+
+            $('.fw-footer').hide();
             break;
         case "capsule1_slide8":
             $('.convertion').addClass('collapse');
@@ -450,6 +452,8 @@ function fnSlideWiseContentManage(slide){
             $('#fw-day').text('Saturday Night');
             $('#fw-time').text('11:30');
             $('#fw-text').text("On the way back home, Michael is intoxicated");
+
+            $('.fw-footer').hide();
             break;
         case "capsule1_slide10":
             $('#fw-footer-img').removeClass('collapse');
@@ -606,6 +610,10 @@ function fnSlideWiseContentManage(slide){
             $('#fw-day').text('Thrusday Night');
             $('#fw-time').text('6:15');
             $('#fw-text').text("Michael started the tenth grade a few days ago. John and jennifer want to know how things are going...");
+
+            $('.fw-header').hide();
+            $('.fw-content').hide();
+            $('.fw-footer').hide();
             break;
         case "capsule2_slide2":
             $('.full-width-content').addClass('collapse');
@@ -853,6 +861,10 @@ function fnSlideWiseContentManage(slide){
             $('#fw-day').text('friday');
             $('#fw-time').text('6:00');
             $('#fw-text').text("At dinner,Jennifer and John annouance that they are going to spend the evening with friends. They will be living Michael and Emma home alone as of 7:30. Michael and Emma ask if they can have friends over.");
+
+            $('.fw-header').hide();
+            $('.fw-content').hide();
+            $('.fw-footer').hide();
             break;
         case "capsule3_slide2":
             $('.full-width-content').addClass('collapse');
@@ -972,6 +984,7 @@ function fnSlideWiseContentManage(slide){
             $('#fw-time').text('10:45');
             $('#fw-text').text("Jennifer has a slight migraine and decides to come home early.John will take a taxi later on.All she wants to do is go to bed,but she notices empty bottles on the living room coffee table.");
 
+            $('.fw-footer').hide();
             break;
         case "capsule3_slide9":
             $('.full-width-content').removeClass('collapse');
@@ -1108,6 +1121,10 @@ function fnSlideWiseContentManage(slide){
             $('#fw-time').text('4:00');
             $('.fw-footer-content-grp').css('margin-bottom', '2.2%')
             $('.fw-footer-r-content').append("<span class='font-med f-w-med'>John has come home early today. He wants to speek to Emma when she gets home from school. John and Jennifer recived a message from a teacher: for a severel weeks, Emma has been falling asleep in class, And even skipping some.<br />This the second time the school has contected them. Earlier this year, Other teachers reported a significant drop in Emma's grades, Which haven't any improved since.</span>");
+
+            $('.fw-header').hide();
+            $('.fw-content').hide();
+            $('.fw-footer').hide();
             //$('#fw-text').text("");
             //$('#fw-text').text("");
             break;
@@ -1334,3 +1351,31 @@ function fnSlideWiseContentManage(slide){
 //            console.log("Default Call In fnSlideWiseAddOrRemoveElementClass function");
     }
 }
+
+function fnSlideWiseEffectManage(curTime,singleObj){
+    var getSlideWiseData = singleObj;
+    switch (getSlideWiseData.name) {
+        case "capsule1_slide1":
+        case "capsule1_slide7":
+        case "capsule1_slide9":
+        case "capsule2_slide1":
+        case "capsule3_slide1":
+        case "capsule4_slide1":
+        case "capsule3_slide8":
+            for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
+            {
+                if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(3000);
+                }
+            }
+            for(var intIndex=0;intIndex<getSlideWiseData.popupImg.length;intIndex++)
+            {
+                if(curTime == getSlideWiseData.popupImg[intIndex].startingTime){
+                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeIn(3000);
+                }
+            }
+            break;
+    }
+};
+
+

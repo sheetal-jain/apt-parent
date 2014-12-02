@@ -216,6 +216,7 @@ $(document).ready(function(){
         curIdx = (curIdx+1) % max;
         fnSetModelScreen();
         fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
+        getTopicWiseData(curIdx);
     });
 
     $("#capsule2").click(function(){
@@ -228,6 +229,7 @@ $(document).ready(function(){
                 fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
             }
         }
+        getTopicWiseData(curIdx);
     });
 
     $("#capsule3").click(function(){
@@ -240,6 +242,7 @@ $(document).ready(function(){
                 fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
             }
         }
+        getTopicWiseData(curIdx);
     });
 
     $("#capsule4").click(function(){
@@ -252,6 +255,7 @@ $(document).ready(function(){
                 fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
             }
         }
+        getTopicWiseData(curIdx);
     });
 
     function getTopicWiseData(curIdx)
@@ -300,6 +304,7 @@ $(document).ready(function(){
         getAudioCurrentTimeInSec = Math.floor(this.currentTime);
         slider.setValue(Math.round(this.currentTime));
         $("#audio_sliderID").attr('data-slider-value',getAudioCurrentTimeInSec);
+
         if(getSingleObjOfJSON.popupContent.length > 0)
         {
 //            nextStartTime = getSingleObjOfJSON.popupContent[0].startingTime;
@@ -353,7 +358,7 @@ $(document).ready(function(){
                 }
             }
         }
-
+        fnSlideWiseEffectManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
         /*Show Next Indicator*/
         if(getAudioCurrentTimeInSec == (Math.floor(duration) - 2))
         {
