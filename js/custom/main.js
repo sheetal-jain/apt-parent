@@ -79,7 +79,7 @@ $(document).ready(function(){
             }
         });
 
-        console.log(current_page_cookie);
+//        console.log(current_page_cookie);
     }else{
         console.log("No cookie Exist");
         $.cookie('current_page',objAPT_JSON[0].name, { expires: 7 });
@@ -127,6 +127,7 @@ $(document).ready(function(){
         $('#slide1').addClass('content-collapse');
         $('#welcome').addClass('content-collapse');
         refreshPopupImageContent(objAPT_JSON[curIdx].popupImg);
+        console.log(objAPT_JSON[curIdx].name);
         getScreenName = $($("div.screen")[curIdx]).attr("name");
         if(getScreenName == objAPT_JSON[curIdx].name)
         {
@@ -213,43 +214,36 @@ $(document).ready(function(){
         curIdx = (curIdx+1) % max;
         fnSetModelScreen();
         fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
+        getTopicWiseData(curIdx);
     });
 
     $("#capsule2").click(function(){
         fnSetModelScreen();
-        for(var intIndex = 0;intIndex<objAPT_JSON.length;intIndex++)
-        {
-            if(objAPT_JSON[intIndex].name == "capsule2_slide1")
-            {
-               curIdx = intIndex;
-                fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
-            }
-        }
+        getFirstSlideofCapsule(objAPT_JSON,"capsule2_slide1");
     });
 
     $("#capsule3").click(function(){
         fnSetModelScreen();
-        for(var intIndex = 0;intIndex<objAPT_JSON.length;intIndex++)
-        {
-            if(objAPT_JSON[intIndex].name == "capsule3_slide1")
-            {
-                curIdx = intIndex;
-                fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
-            }
-        }
+        getFirstSlideofCapsule(objAPT_JSON,"capsule3_slide1");
     });
 
     $("#capsule4").click(function(){
         fnSetModelScreen();
+        getFirstSlideofCapsule(objAPT_JSON,'capsule4_slide1');
+    });
+
+    function getFirstSlideofCapsule(objAPT_JSON,screenName){
         for(var intIndex = 0;intIndex<objAPT_JSON.length;intIndex++)
         {
-            if(objAPT_JSON[intIndex].name == "capsule4_slide1")
+            if(objAPT_JSON[intIndex].name == screenName)
             {
                 curIdx = intIndex;
                 fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
+                break;
             }
         }
-    });
+        getTopicWiseData(curIdx);
+    }
 
     function getTopicWiseData(curIdx)
     {
@@ -350,6 +344,8 @@ $(document).ready(function(){
                 }
             }
         }
+
+        fnSlideWiseEffectManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
 
         /*Show Next Indicator*/
         if(getAudioCurrentTimeInSec == (Math.floor(duration) - 2))
