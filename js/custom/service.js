@@ -240,6 +240,7 @@ function fnSetupContentByTimeGeneral(currTime,popupContentArr){
     }
 }
 function fnSetModelScreen(){
+    console.log($('.image-shadow'));
     var capw = $('.image-shadow').width();
     var caph = $('.image-shadow').height();
 
@@ -313,6 +314,7 @@ function fnAddCollapseClass(){
 }
 
 function fnSlideWiseContentManage(slide){
+    console.log("IN FUNCTION",slide);
 
     switch (slide) {
         case "intro_bergeron":
@@ -336,6 +338,9 @@ function fnSlideWiseContentManage(slide){
             //hide next button
             $("#next").addClass('content-collapse');
             $(".playa").css('width','93%');
+            $("#slide-capsule1").addClass("collapse");
+            $('#slide-menu').removeClass('content-collapse');
+            $('#slide-menu').removeClass('collapse');
             break;
 
         case "capsule1_slide1":
@@ -371,7 +376,10 @@ function fnSlideWiseContentManage(slide){
             break;
 
         case "capsule1_slide2":
+            console.log("IN Switch Case");
             fnAddCollapseClass();
+
+
             $('.content-view-1').removeClass('collapse');
             $('.fw-header').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
@@ -560,6 +568,7 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').show();
             $("#next").removeClass('content-collapse');
             $(".playa").css('width','85%');
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
             $('.fw-content').html("");
@@ -577,6 +586,7 @@ function fnSlideWiseContentManage(slide){
 
             // --- Add Collapse --- //
             $('#slide-menu').removeClass('collapse');
+            $('#slide-menu').removeClass('content-collapse');
             $('#slide-capsule1').addClass('collapse');
             // --- Collapse --- //
             $('#transition').addClass('collapse');
@@ -780,6 +790,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide13":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.fw-content').show();
             $("#next").removeClass('content-collapse');
             $(".playa").css('width','85%');
@@ -799,6 +810,8 @@ function fnSlideWiseContentManage(slide){
             $(".playa").css('width','93%');
 
             $('#slide-capsule1').addClass('collapse');
+            $('#slide-menu').removeClass('content-collapse');
+            $('#slide-menu').removeClass('collapse');
             // --- Collapse --- //
             $('#transition').addClass('collapse');
             // --- Show --- //
@@ -1012,6 +1025,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide13":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.fw-content').show();
             $("#next").removeClass('content-collapse');
             $(".playa").css('width','85%');
@@ -1031,6 +1045,9 @@ function fnSlideWiseContentManage(slide){
             $(".playa").css('width','93%');
 
             $('#slide-capsule1').addClass('collapse');
+            $('#slide-menu').removeClass('content-collapse');
+            $('#slide-menu').removeClass('collapse');
+
             // --- Collapse --- //
             $('#transition').addClass('collapse');
             // --- Show --- //
@@ -1224,6 +1241,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide11":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.fw-content').show();
             $("#next").removeClass('content-collapse');
             $(".playa").css('width','85%');
@@ -1245,6 +1263,8 @@ function fnSlideWiseContentManage(slide){
             $(".playa").css('width','93%');
 
             $('#slide-capsule1').addClass('collapse');
+            $('#slide-menu').removeClass('content-collapse');
+            $('#slide-menu').removeClass('collapse');
             // --- Collapse --- //
             $('#transition').addClass('collapse');
             // --- Show --- //
@@ -1264,6 +1284,8 @@ function fnSlideWiseContentManage(slide){
         default:
 //            console.log("Default Call In fnSlideWiseAddOrRemoveElementClass function");
     }
+
+    $('.convertion').addClass('collapse');
 }
 
 function fnSlideWiseEffectManage(curTime,singleObj){
@@ -1280,16 +1302,16 @@ function fnSlideWiseEffectManage(curTime,singleObj){
             for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
             {
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
-                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(3000);
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(2000);
                 }
-                if(curTime == getSlideWiseData.popupContent[intIndex].endingTime){
+                /*if(curTime == getSlideWiseData.popupContent[intIndex].endingTime){
                     $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(3000);
-                }
+                }*/
             }
             for(var intIndex=0;intIndex<getSlideWiseData.popupImg.length;intIndex++)
             {
                 if(curTime == getSlideWiseData.popupImg[intIndex].startingTime){
-                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeIn(3000);
+                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeIn(2000);
                 }
             }
             break;
