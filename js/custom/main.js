@@ -79,7 +79,7 @@ $(document).ready(function(){
             }
         });
 
-        console.log(current_page_cookie);
+//        console.log(current_page_cookie);
     }else{
         console.log("No cookie Exist");
         $.cookie('current_page',objAPT_JSON[0].name, { expires: 7 });
@@ -128,6 +128,7 @@ $(document).ready(function(){
         $('#slide1').addClass('content-collapse');
         $('#welcome').addClass('content-collapse');
         refreshPopupImageContent(objAPT_JSON[curIdx].popupImg);
+        console.log(objAPT_JSON[curIdx].name);
         getScreenName = $($("div.screen")[curIdx]).attr("name");
         if(getScreenName == objAPT_JSON[curIdx].name)
         {
@@ -241,6 +242,17 @@ $(document).ready(function(){
         }
     });
 
+    $("#capsule4").click(function(){
+        fnSetModelScreen();
+        for(var intIndex = 0;intIndex<objAPT_JSON.length;intIndex++)
+        {
+            if(objAPT_JSON[intIndex].name == "capsule4_slide1")
+            {
+                curIdx = intIndex;
+                fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
+            }
+        }
+    });
 
     function getTopicWiseData(curIdx)
     {

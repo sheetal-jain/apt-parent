@@ -278,6 +278,8 @@ function fnSlideWiseContentManage(slide){
             $(".playa").css('width','93%');
             break;
         case "capsule1_slide1":
+            setupAudioControls('Audio/FR/mp3/6CYh8nauv4Z_22050_80.mp3')
+
             //show next button
             $("#next").removeClass('content-collapse');
             $(".playa").css('width','85%');
@@ -288,7 +290,8 @@ function fnSlideWiseContentManage(slide){
             $('.content-view-1').addClass('collapse');
             $('#rc-footer-text').addClass('collapse');
             $('#fw-footer-img').addClass('collapse');
-
+//            $('.fw-main-div').fadeTo(1500);
+//            $('.fw-footer').fadeTo(4000);
 
             // --- Show --- //
             $('#slide-dyn').attr('src', 'Images/5WimNqiORUO_DX1890_DY1890_CX945_CY530.png');
@@ -301,13 +304,20 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').removeClass('collapse');
             $('.fw-content').html("");
             $('.fw-content').append("<span class='font-xx-lg'>01</span>");
+            $('#fw-header-1').css('display','inline');
             $('#fw-header-1').text('');
             $('#fw-header-1').text('Establish meaningful relationships between');
             $('#fw-header-2').text('parents and adolescents');
+
             $('#fw-footer-lr').removeClass('collapse');
             $('#fw-day').text('Saturday night');
             $('#fw-time').text('7:30');
             $('#fw-text').text("Jennifer is driving Michael to a party at his friend Julie's. Normally, Michael is a real chatterbox, but tonight, he seems nervous");
+            $('.fw-main-div').hide().fadeIn(3000);
+            $('.fw-footer').hide();
+            setTimeout(function(){
+                $('.fw-footer').fadeIn(3000);
+            },8000);
             // --- Content - Show --- //
             // --- Content - collapse --- //
 
@@ -551,6 +561,10 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').append("<span class='font-med nxt-page-msg'>Go to the next screen to return to the main menu.</span>");
             break;
         case "intro_menuAfterCap1":
+            //hide next button
+            $("#next").addClass('content-collapse');
+            $(".playa").css('width','93%');
+
             // --- Add Collapse --- //
             $('#slide-menu').removeClass('collapse');
             $('#slide-capsule1').addClass('collapse');
@@ -567,6 +581,7 @@ function fnSlideWiseContentManage(slide){
 
             break;
         case "capsule2_slide1":
+            setupAudioControls('Audio/FR/mp3/6KADunyRYy4_22050_80.mp3');
             //show next button
             $("#next").removeClass('content-collapse');
             $(".playa").css('width','85%');
@@ -794,6 +809,10 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').append("<span class='font-med nxt-page-msg'>Go to the next screen to return to the main menu.</span>");
             break;
         case "intro_menuAfterCap2":
+            //hide next button
+            $("#next").addClass('content-collapse');
+            $(".playa").css('width','93%');
+
             $('#slide-capsule1').addClass('collapse');
             // --- Collapse --- //
             $('#transition').addClass('collapse');
@@ -809,6 +828,7 @@ function fnSlideWiseContentManage(slide){
             // --- Show --- //
             break;
         case "capsule3_slide1":
+            setupAudioControls('Audio/FR/mp3/6Oyf4dGZ7ed_22050_80.mp3');
             //show next button
             $("#next").removeClass('content-collapse');
             $(".playa").css('width','85%');
@@ -1040,6 +1060,276 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').append("<span class='font-med nxt-page-msg'>Go to the next screen to return to the main menu.</span>");
 
             break;
+        case "intro_menuAfterCap3":
+            //hide next button
+            $("#next").addClass('content-collapse');
+            $(".playa").css('width','93%');
+
+            $('#slide-capsule1').addClass('collapse');
+            // --- Collapse --- //
+            $('#transition').addClass('collapse');
+            // --- Show --- //
+            $('#slide-dyn').attr('src', 'Images/5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png');
+            $('#slide-dyn').removeClass('collapse');
+            $('#slide-menu').removeClass('collapse');
+            $('#cap-img-1').attr('src', 'Images/62nL0mUWegS_DX630_DY630_CX211_CY315.png');
+            $('#cap-img-2').attr('src', 'Images/5fOa3eko1NA_DX630_DY630_CX211_CY315.png');
+            $('#cap-img-3').attr('src', 'Images/6gMh41j4l4l_DX630_DY630_CX211_CY315.png');
+            $('#capsule3').removeClass('active');
+            $('#capsule2').css('opacity', '1');
+            $('#capsule3').css('opacity', '1');
+            $('#capsule4').addClass('active');
+            // --- Show --- //
+            break;
+        case "capsule4_slide1":
+            setupAudioControls('Audio/FR/mp3/650d4QwzNBA_22050_80.mp3');
+            //show next button
+            $("#next").removeClass('content-collapse');
+            $(".playa").css('width','85%');
+
+            $('#slide-menu').addClass('collapse');
+            $('.fw-content').empty();
+            $('.fw-content').removeClass('collapse');
+            $('.fw-content').removeClass('cap1-last-slide');
+            $('.fw-content').append("<span class='font-xx-lg'>04</span>");
+            $('#slide-dyn').attr('src', 'Images/5ukYkRgWwoe_DX1890_DY1890_CX945_CY530.png');
+            $('#slide-dyn').removeClass('collapse');
+            $('#audwelcom').attr('src', '').trigger('load');
+            $('#slide-capsule1').removeClass('collapse');
+            $('.full-width-content').removeClass('collapse');
+            $('.fw-header').removeClass('collapse');
+            $('.fw-footer').removeClass('collapse');
+            $('#fw-header-1').text('RESOLVING CONFLICTS BETWEEN');
+            $('#fw-header-1').css('margin-left', '-35px');
+            $('#fw-header-2').text('PARENTS AND ADOLESCENTS');
+            $('#fw-footer-lr').removeClass('collapse');
+            $('#fw-footer-img').addClass('collapse');
+            $('#fw-day').text('THUESDAY');
+            $('#fw-time').text('4:00');
+            $('.fw-footer-content-grp').css('margin-bottom', '2.2%')
+            $('.fw-footer-r-content').append("<span class='font-med f-w-med'>John has come home early today. He wants to speek to Emma when she gets home from school. John and Jennifer recived a message from a teacher: for a severel weeks, Emma has been falling asleep in class, And even skipping some.<br />This the second time the school has contected them. Earlier this year, Other teachers reported a significant drop in Emma's grades, Which haven't any improved since.</span>");
+            //$('#fw-text').text("");
+            //$('#fw-text').text("");
+            break;
+        case "capsule4_slide2":
+            $('.full-width-content').addClass('collapse');
+            $('.content-view-1').removeClass('collapse');
+            $('#rc-content-text').removeClass('collapse');
+            $('#rc-content-text').empty();
+            $('#rc-content-text').append("<span class='font-med f-w-med block'>Jennifer and John would like to understand what's going on and see Emma get back on track at school. John is wondering how to handle the situation with Emma: a potential conflict could easily escalate.<br /><br />Your objective is <span class='orange'>to help John resolve a conflict with Emma,</span> Who is having trobule at school. Throughtout the discussion, You also need to <span class='orange'>produce arguments against Emma's misconseptions about smoking marijuana.</span></span>");
+            $('#rc-footer-text').removeClass('collapse');
+            $('#rc-footer-text').empty();
+            $('#rc-footer-text').append("<span id='rc-footer-span' class='font-med'>To begin, go tho the next screen.</span>");
+            $('#l-c-footer-img').addClass('collapse');
+            $('.l-c-header').removeClass('collapse');
+            $('.r-c-header').addClass('collapse');
+            $('#rc-content-select').addClass('collapse');
+            $('#lc-header-1').text('RESOLVING CONFLICTS BETWEEN');
+            $('#lc-header-1').css('margin-left', '-35px');
+            $('#lc-header-2').text('PARENTS AND ADOLESCENTS');
+            $('#lc-content').append("<span class='font-xx-lg'>04</span>");
+            break;
+        case "capsule4_slide3":
+            $('.full-width-content').removeClass('collapse');
+            $('.fw-header').addClass('collapse');
+            $('.fw-content').addClass('collapse');
+            $('#fw-footer-lr').addClass('collapse');
+            $('.content-view-1').addClass('collapse');
+            $('#slide-dyn').attr('src', 'Images/5kP9TIE0HvI_DX1890_DY1890_CX945_CY530.png');
+            $('#fw-footer-img').removeClass('collapse');
+            $('#fw-footer-img-src').attr('src', 'Images/5j6PBcOmITF_DX1110_DY1110_CX555_CY160.png');
+            $('.convertion').removeClass('collapse');
+            $('#conv4-slide3').removeClass('collapse');
+            break;
+        case "capsule4_slide4":
+            $('.full-width-content').addClass('collapse');
+            $('.content-view-1').removeClass('collapse');
+            $('#l-c-footer-img').removeClass('collapse');
+            $('#slide-dyn').attr('src', 'Images/60XdPzwDQGP_DX1890_DY1890_CX945_CY530.png');
+            $('#lc-footer-img').attr('src', 'Images/5j6PBcOmITF_DX1110_DY1110_CX555_CY160.png');
+            $('.l-c-header').addClass('collapse');
+            $('#lc-content').addClass('collapse');
+            $('#rc-content-text').addClass('collapse');
+            $('#rc-content-select').removeClass('collapse');
+            $('.r-c-header').removeClass('collapse');
+            $('#rc-header-1').text('Dilema: ');
+            $('#rc-header-2').empty();
+            $('#rc-header-2').append("<dfn>" + '"' + "I can't believe it. I'm furious but I wan't to know more show that we can work on finding a soluation together." + '"' + "</dfn>");
+            $('#rc-header-que').text("What is the best way to respond?");
+            $('#rc-opt-1').text('"' + "That's enough! You have to stop it right way. You cannot flunk the school year because of this." + '"');
+            $('#rc-opt-2').text('"' + "Don't tell me you've become a pothead like your cousion? Honestly, I throught you were smarter than that." + '"');
+            $('#rc-opt-3').text('"' + "I would really like us to talk about it.How often do you smoke?" + '"');
+            $('#rc-footer-text').addClass('collapse');
+            $('#rc-footer-confirm').removeClass('collapse');
+            $('.convertion').addClass('collapse');
+            $('#conv3-slide4').addClass('collapse');
+            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+            $('#lc-ans-header').text("that's right.");
+            $('#lc-ans-content').text("While conflicts are inevitable in a family, You must prevent them from escalating to the point where the adolescent is very hurt, humiliated or upset. Eric should try to get more information without criticizing Alexandra or making hurtful comments. He should not let his anger get the better of him by resortng to insults, hurtful words or threats.");
+            /* --- Wrong Answer --- */
+            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
+            //$('#lc-ans-header').text("that's not the best option.");
+            $('#l-c-footer-text').removeClass('collapse');
+            break;
+        case "capsule4_slide5":
+            $('.full-width-content').removeClass('collapse');
+            $('.fw-header').addClass('collapse');
+            $('.fw-content').addClass('collapse');
+            $('#fw-footer-lr').addClass('collapse');
+            $('.content-view-1').addClass('collapse');
+            $('#slide-dyn').attr('src', 'Images/5ZPM7UaofLE_DX1890_DY1890_CX945_CY530.png');
+            $('#fw-footer-img').removeClass('collapse');
+            $('#fw-footer-img-src').attr('src', 'Images/5wkt9k2zg90_DX1110_DY1110_CX555_CY160.png');
+            $('.convertion').removeClass('collapse');
+            $('#conv4-slide3').addClass('collapse');
+            $('#conv4-slide5').removeClass('collapse');
+            break;
+        case "capsule4_slide6":
+            $('.full-width-content').addClass('collapse');
+            $('.content-view-1').removeClass('collapse');
+            $('#l-c-footer-img').removeClass('collapse');
+            $('#slide-dyn').attr('src', 'Images/5ZPM7UaofLE_DX1890_DY1890_CX945_CY530.png');
+            $('#lc-footer-img').attr('src', 'Images/5wkt9k2zg90_DX1110_DY1110_CX555_CY160.png');
+            $('.l-c-header').addClass('collapse');
+            $('#lc-content').addClass('collapse');
+            $('#rc-content-text').addClass('collapse');
+            $('#rc-content-select').removeClass('collapse');
+            $('.r-c-header').removeClass('collapse');
+            $('#rc-header-1').text('Dilema: ');
+            $('#rc-header-2').empty();
+            $('#rc-header-2').append("<dfn>" + '"' + "How to remain clam and explain the effects of smoking marijuana." + '"' + "</dfn>");
+            $('#rc-header-que').text("What is the best way to respond?");
+            $('#rc-opt-1').text('"' + "Ok,it's your business,but if you deal with stress by smoking pot, you won't get very far in life." + '"');
+            $('#rc-opt-2').text('"' + "Just pot? And after that, just cocaine and then you're just a drug addict! It's just your life after all." + '"');
+            $('#rc-opt-3').text('"' + "Hold on, pot is drug like any other and it's bad for you! If you use it regularly, it'll have the, it will have the exact opposite effects from what you described." + '"');
+            $('#rc-footer-text').addClass('collapse');
+            $('#rc-footer-confirm').removeClass('collapse');
+            $('.convertion').addClass('collapse');
+            $('#conv4-slide5').addClass('collapse');
+            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+            $('#lc-ans-header').text("that's right.");
+            $('#lc-ans-content').text("Eric should continue the conversation and give his daughter information without getting angry. Marijuana is a drug and it's consumption should be taken seriously. It's effects, partycularly on memory, concentraction and motivation, can lead to significant problems at school. Relationship with friends and family could also be affected.");
+            /* --- Wrong Answer --- */
+            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
+            //$('#lc-ans-header').text("that's not the best option.");
+            $('#l-c-footer-text').removeClass('collapse');
+
+            break;
+        case "capsule4_slide7":
+            $('.full-width-content').removeClass('collapse');
+            $('.fw-header').addClass('collapse');
+            $('.fw-content').addClass('collapse');
+            $('#fw-footer-lr').addClass('collapse');
+            $('.content-view-1').addClass('collapse');
+            $('#slide-dyn').attr('src', 'Images/5dbjW9897cg_DX1890_DY1890_CX945_CY530.png');
+            $('#fw-footer-img').removeClass('collapse');
+            $('#fw-footer-img-src').attr('src', 'Images/6LaGG0B3GPA_DX1110_DY1110_CX555_CY160.png');
+            $('.convertion').removeClass('collapse');
+            $('#conv4-slide5').addClass('collapse');
+            $('#conv4-slide7').removeClass('collapse');
+            break;
+        case "capsule4_slide8":
+            $('.full-width-content').addClass('collapse');
+            $('.content-view-1').removeClass('collapse');
+            $('#l-c-footer-img').removeClass('collapse');
+            $('#slide-dyn').attr('src', 'Images/5dbjW9897cg_DX1890_DY1890_CX945_CY530.png');
+            $('#lc-footer-img').attr('src', 'Images/6LaGG0B3GPA_DX1110_DY1110_CX555_CY160.png');
+            $('.l-c-header').addClass('collapse');
+            $('#lc-content').addClass('collapse');
+            $('#rc-content-text').addClass('collapse');
+            $('#rc-content-select').removeClass('collapse');
+            $('.r-c-header').removeClass('collapse');
+            $('#rc-header-1').text('Dilema: ');
+            $('#rc-header-2').empty();
+            $('#rc-header-2').append("<dfn>" + '"' + "How can we get her to stop smoking and get back on track at school?" + '"' + "</dfn>");
+            $('#rc-header-que').text("What is the best way to respond?");
+            $('#rc-opt-1').text('"' + "Your mother and I are against you smoking pot. I'd like for us to look into other ways to mange your stress." + '"');
+            $('#rc-opt-2').text('"' + "Clearly, You're not mature enough to find a soluation. For now, you'll come straight home after school to do your homework." + '"');
+            $('#rc-opt-3').text('"' + "It's simple-you are going to improve your grades and your mother and I never want to hear about drugs again." + '"');
+            $('#rc-footer-text').addClass('collapse');
+            $('#rc-footer-confirm').removeClass('collapse');
+            $('.convertion').addClass('collapse');
+            $('#conv4-slide7').addClass('collapse');
+            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+            $('#lc-ans-header').text("that's right.");
+            $('#lc-ans-content').text("It is best of use a collaborative strategy in which everybody wins. If the situation is urgent, Eric can impose conditions (competative strategy);Alexandra would therfore corporate (acomodation strategy) but would end upfrustrated and thus not gain anything. Finally refusing to talk about the conflict (avoidance stategy) would cause the worst possible outcome.");
+            /* --- Wrong Answer --- */
+            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
+            //$('#lc-ans-header').text("that's not the best option.");
+            $('#l-c-footer-text').removeClass('collapse');
+            break;
+        case "capsule4_slide9":
+            $('.full-width-content').removeClass('collapse');
+            $('.fw-header').addClass('collapse');
+            $('.fw-content').addClass('collapse');
+            $('#fw-footer-lr').addClass('collapse');
+            $('.content-view-1').addClass('collapse');
+            $('#slide-dyn').attr('src', 'Images/5wrz9olrxwX_DX1890_DY1890_CX945_CY530.png');
+            $('#fw-footer-img').removeClass('collapse');
+            $('#fw-footer-img-src').attr('src', 'Images/5zOVHYoqrBl_DX1110_DY1110_CX555_CY160.png');
+            $('.convertion').removeClass('collapse');
+            $('#conv4-slide7').addClass('collapse');
+            $('#conv4-slide9').removeClass('collapse');
+            break;
+        case "capsule4_slide10":
+            $('.full-width-content').addClass('collapse');
+            $('.content-view-1').removeClass('collapse');
+            $('#slide-dyn').attr('src', 'Images/5vAre4J4XO2_DX1890_DY1890_CX945_CY530.png');
+            $('.convertion').addClass('collapse');
+            $('#conv4-slide9').addClass('collapse');
+            $('.l-c-header').addClass('collapse');
+            $('#l-c-footer-text').addClass('collapse');
+            $('#l-c-footer-img').removeClass('collapse');
+            $('#lc-footer-img').attr('src', 'Images/5zOVHYoqrBl_DX1110_DY1110_CX555_CY160.png');
+            $('.r-c-header').addClass('collapse');
+            $('#rc-footer-confirm').addClass('collapse');
+            $('#rc-footer-text').removeClass('collapse');
+            $('#rc-content-select').addClass('collapse');
+            $('#rc-content-text').removeClass('collapse');
+            $('#rc-content-text').empty();
+            $('#rc-content-text').append("<span class='font-med f-w-med line-h-125 in-block'>Family conflicts are invitable. How often they occur isn't the problem, but rather the amount of frustraction and feelings of anger or injustince they create within the adolescent.<br /><br />Emma needed to understand that smoking pot was not a soluation to her academic problems. By favouring a collaburative strategy and avoiding hunting his daughter's feelings in the conflict, John showed her that she could count on her family help her resolve her problems.</span>");
+            $('#rc-footer-span').empty();
+            $('#rc-footer-text').append("<span class='text-uppercase f-w-med'>HOW ABOUT YOU?</span>");
+            $('#rc-footer-text').append("<ul class='f-w-med'><li><span>What is your conflict resolution strategy?</span></li></ul>");
+            break;
+        case "capsule4_slide11":
+            $('#slide-dyn').attr('src', 'Images/5fIEnF5ZlqL_DX1890_DY1890_CX945_CY530.png');
+            $('.full-width-content').removeClass('collapse');
+            $('.content-view-1').addClass('collapse');
+            $('.fw-header').addClass('collapse');
+            $('.fw-footer').addClass('collapse');
+            $('.fw-content').removeClass('collapse');
+            $('.fw-content').empty();
+            $('.fw-content').addClass('cap1-last-slide');
+            $('.fw-content').append("<div><span class='orange text-uppercase font-x-lg'>congratulations!</span></div>");
+            $('.fw-content').append("<div><span class='text-uppercase font-med'>to conclude this training capsule, you have received a new information sheet!<br /><br />In order to complete your training, consult the information sheet as well as the common beliefs and misconceptions document:</span></div>");
+            $('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>information sheet</span></th><th><span class='text-uppercase orange'>common beliefs and misconceptions covered in the capsule</span></th></tr></thead><tbody><tr><td class='carousel'><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(click to consult)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>CONFLICT RESOLUTION STRATEGIS</span></div></td><td><span>Go to the next screen to return to the main menu.<br />4-5-9-11-16-17-18-19-21</span></td></tr><tr><td><span>The information sheet is now in the Resources tab.</span></td><td><span>Consult the chart in the Resources tab in order to see the arguments used against these misconceptions.</span></td></tr></tbody></table>");
+            $('.fw-content').append("<span class='font-med nxt-page-msg'>Go to the next screen to return to the main menu.</span>");
+            $('.cust-span-em').css('font-size', '60%');
+            break;
+        case "intro_menuAfterCap4":
+            //hide next button
+            $("#next").addClass('content-collapse');
+            $(".playa").css('width','93%');
+
+            $('#slide-capsule1').addClass('collapse');
+            // --- Collapse --- //
+            $('#transition').addClass('collapse');
+            // --- Show --- //
+            $('#slide-dyn').attr('src', 'Images/5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png');
+            $('#slide-dyn').removeClass('collapse');
+            $('#slide-menu').removeClass('collapse');
+            $('#cap-img-1').attr('src', 'Images/62nL0mUWegS_DX630_DY630_CX211_CY315.png');
+            $('#cap-img-2').attr('src', 'Images/5fOa3eko1NA_DX630_DY630_CX211_CY315.png');
+            $('#cap-img-3').attr('src', 'Images/6gMh41j4l4l_DX630_DY630_CX211_CY315.png');
+            $('#cap-img-4').attr('src', 'Images/6cybjdXpjo5_DX630_DY630_CX211_CY315.png');
+            $('#capsule4').removeClass('active');
+            $('#capsule2').css('opacity', '1');
+            $('#capsule3').css('opacity', '1');
+            $('#capsule4').css('opacity', '1');
+            // --- Show --- //
+            break;
+
         default:
 //            console.log("Default Call In fnSlideWiseAddOrRemoveElementClass function");
     }
