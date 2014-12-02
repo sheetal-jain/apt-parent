@@ -122,7 +122,6 @@ $(document).ready(function(){
     // Next image and audio on button (and image) click
     $('#next').click( function() {
         curIdx = (curIdx+1) % max;
-        console.log("Current Slide === ",curIdx);
         $('#firstslideheader').addClass('content-collapse');
         $('#slide1').css('display','none');
         $('#slide1').addClass('content-collapse');
@@ -165,7 +164,6 @@ $(document).ready(function(){
     // Prev image and audio on button click
     $('#prev').click( function() {
         curIdx = (curIdx+max-1) % max;
-        console.log("Current Slide === ",curIdx);
         refreshPopupImageContent(objAPT_JSON[curIdx].popupImg)
         if(curIdx == 0)//The condition for 1st slide when prev
         {
@@ -241,6 +239,17 @@ $(document).ready(function(){
         }
     });
 
+    $("#capsule4").click(function(){
+        fnSetModelScreen();
+        for(var intIndex = 0;intIndex<objAPT_JSON.length;intIndex++)
+        {
+            if(objAPT_JSON[intIndex].name == "capsule4_slide1")
+            {
+                curIdx = intIndex;
+                fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
+            }
+        }
+    });
 
     function getTopicWiseData(curIdx)
     {
