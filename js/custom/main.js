@@ -72,6 +72,13 @@ $(document).ready(function(){
                     if(obj.popupImg.length > 0){
                         refreshPopupImageContent(obj.popupImg);
                     }
+                    setTimeout(function(){
+                        console.log($("#slide-dyn").height()+'px');
+                        fnSetModelScreen();
+                    },100)
+                    $("#slide-capsule1").removeClass('collapse');
+                    fnSlideWiseContentManage(current_page_cookie);
+
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
                     getTopicWiseData(i);
                     curIdx = i;
@@ -116,13 +123,12 @@ $(document).ready(function(){
 
     // Increment Index
     /*while (curIdx < max) {
-        curIdx++;
-    }*/
+     curIdx++;
+     }*/
 
     // Next image and audio on button (and image) click
     $('#next').click( function() {
         curIdx = (curIdx+1) % max;
-        console.log("Current Slide === ",curIdx);
         $('#firstslideheader').addClass('content-collapse');
         $('#slide1').css('display','none');
         $('#slide1').addClass('content-collapse');
@@ -166,7 +172,6 @@ $(document).ready(function(){
     // Prev image and audio on button click
     $('#prev').click( function() {
         curIdx = (curIdx+max-1) % max;
-        console.log("Current Slide === ",curIdx);
         refreshPopupImageContent(objAPT_JSON[curIdx].popupImg)
         if(curIdx == 0)//The condition for 1st slide when prev
         {
@@ -200,6 +205,7 @@ $(document).ready(function(){
                 $('#slide-capsule1').addClass('collapse');
                 $('#slide-menu').removeClass('collapse');
             }else{
+                console.log(objAPT_JSON[curIdx].name);
                 fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
             }
             fnSlideWiseContentManage(getScreenName);
@@ -216,47 +222,38 @@ $(document).ready(function(){
         curIdx = (curIdx+1) % max;
         fnSetModelScreen();
         fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
+        changeCookieValue(objAPT_JSON[curIdx].name)
         getTopicWiseData(curIdx);
     });
 
     $("#capsule2").click(function(){
         fnSetModelScreen();
-        for(var intIndex = 0;intIndex<objAPT_JSON.length;intIndex++)
-        {
-            if(objAPT_JSON[intIndex].name == "capsule2_slide1")
-            {
-               curIdx = intIndex;
-                fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
-            }
-        }
-        getTopicWiseData(curIdx);
+        getFirstSlideofCapsule(objAPT_JSON,"capsule2_slide1");
     });
 
     $("#capsule3").click(function(){
         fnSetModelScreen();
-        for(var intIndex = 0;intIndex<objAPT_JSON.length;intIndex++)
-        {
-            if(objAPT_JSON[intIndex].name == "capsule3_slide1")
-            {
-                curIdx = intIndex;
-                fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
-            }
-        }
-        getTopicWiseData(curIdx);
+        getFirstSlideofCapsule(objAPT_JSON,"capsule3_slide1");
     });
 
     $("#capsule4").click(function(){
         fnSetModelScreen();
+        getFirstSlideofCapsule(objAPT_JSON,'capsule4_slide1');
+    });
+
+    function getFirstSlideofCapsule(objAPT_JSON,screenName){
         for(var intIndex = 0;intIndex<objAPT_JSON.length;intIndex++)
         {
-            if(objAPT_JSON[intIndex].name == "capsule4_slide1")
+            if(objAPT_JSON[intIndex].name == screenName)
             {
                 curIdx = intIndex;
                 fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
+                break;
             }
         }
+        changeCookieValue(screenName)
         getTopicWiseData(curIdx);
-    });
+    }
 
     function getTopicWiseData(curIdx)
     {
@@ -304,7 +301,6 @@ $(document).ready(function(){
         getAudioCurrentTimeInSec = Math.floor(this.currentTime);
         slider.setValue(Math.round(this.currentTime));
         $("#audio_sliderID").attr('data-slider-value',getAudioCurrentTimeInSec);
-
         if(getSingleObjOfJSON.popupContent.length > 0)
         {
 //            nextStartTime = getSingleObjOfJSON.popupContent[0].startingTime;
@@ -314,11 +310,11 @@ $(document).ready(function(){
                 if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime && !isAudioFlag)
                 {
 //                    if(getSingleObjOfJSON.name == "intro_bergeron" ){
-                        console.log(getAudioCurrentTimeInSec);
-                        fnOverlayContentOnBergeronSlide(getSingleObjOfJSON.popupContent[intIndex]);
-                        if(getSingleObjOfJSON.popupContent[intIndex+1] != undefined){
-                            nextStartTime = getSingleObjOfJSON.popupContent[intIndex+1].startingTime;
-                        }
+                    console.log(getAudioCurrentTimeInSec);
+                    fnOverlayContentOnBergeronSlide(getSingleObjOfJSON.popupContent[intIndex]);
+                    if(getSingleObjOfJSON.popupContent[intIndex+1] != undefined){
+                        nextStartTime = getSingleObjOfJSON.popupContent[intIndex+1].startingTime;
+                    }
 //                    }
 
                     isAudioFlag = true;
@@ -358,7 +354,9 @@ $(document).ready(function(){
                 }
             }
         }
+
         fnSlideWiseEffectManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
+
         /*Show Next Indicator*/
         if(getAudioCurrentTimeInSec == (Math.floor(duration) - 2))
         {
