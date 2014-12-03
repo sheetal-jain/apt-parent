@@ -31,6 +31,7 @@ $(document).ready(function(){
                 if(current_page_cookie == 'introduction'){
                     $('#slide-dyn').addClass('content-collapse');
                     $('#slide1').attr('src',imgSrcBase+obj.imgName);
+                    showLoader('#slide1');
                     $('#firstslideheader').removeClass('content-collapse');
                     $('#btnStart').removeClass('content-collapse');
 
@@ -48,7 +49,7 @@ $(document).ready(function(){
                     $('#slide2').css('display','none');
                     $('#slide1').attr('src', 'Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png');
                     $('#slide1').css('display','inline');
-
+                    showLoader('#slide1');
                     setCollapseClassToScreen(obj.name);
                     curIdx = i;
                     console.log(curIdx);
@@ -65,6 +66,7 @@ $(document).ready(function(){
                     $('a.custom-audio-button').addClass('fade.in');
                     $("#slide-dyn").attr('src','Images/'+obj.imgName);
                     $('#slide-dyn').removeClass('content-collapse');
+                    showLoader('#slide-dyn');
                     $($("div.screen[name="+current_page_cookie+"]")).removeClass('content-collapse');
                     $($("div.screen:not(.screen[name="+current_page_cookie+"])")).addClass('content-collapse');
                     $("#tips-images").find("div").css('opacity','0');
@@ -92,6 +94,7 @@ $(document).ready(function(){
         $.cookie('current_page',objAPT_JSON[0].name, { expires: 7 });
         $('.custom-audio-button').addClass('fade');
         $('#slide2').addClass('fade');
+        showLoader('#slide1')
 
     }
 
@@ -105,8 +108,6 @@ $(document).ready(function(){
         }
     });
     audio.load();
-//    $('.custom-audio-button').addClass('fade');
-//    $('#slide2').addClass('fade');
 
     //start APT Parent Section
     $('#startAPT').click( function() {
@@ -154,6 +155,7 @@ $(document).ready(function(){
 
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         $('#slide-dyn').removeClass('content-collapse');
+        showLoader('#slide-dyn');
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
 
 //        if(objAPT_JSON[curIdx+1]){

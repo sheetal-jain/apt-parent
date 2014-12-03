@@ -29,6 +29,17 @@ function preloadImages(JSONObj){
     $.preload(imagesArr);
 }
 
+function showLoader(imgId){
+    $("#img-loader").show();
+    $(imgId).load(function(){
+        $("#img-loader").hide();
+        console.log("Image Loaded === ",imgId);
+    })/*.error(function(){
+        $("#img-loader").hide();
+        alert("error loading image");
+    })*/
+}
+
 function startAPT() {
     var scrw = $(window).width();
     $('#mp3source').attr('src', 'Audio/FR/mp3/6n7vVfJToNo_22050_80.mp3');
@@ -314,8 +325,6 @@ function fnAddCollapseClass(){
 }
 
 function fnSlideWiseContentManage(slide){
-    console.log("IN FUNCTION",slide);
-
     switch (slide) {
         case "intro_bergeron":
             $("#bergeron-footer").removeClass('content-collapse');
