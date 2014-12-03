@@ -238,7 +238,24 @@
         "name": "capsule1_slide3",
         "imgName" : "5hgeNZO9EH7_DX1890_DY1890_CX945_CY530.png",
         "audioName":["5z7KXAlwh8H_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"100","left":"570"},
+                "startingTime":"1",
+                "endingTime":"5",
+                "contentText":"Qu’est-ce qui ne va pas Vincent? T’as l’air préoccupé. Aller à un party ça devrait être plaisant, non?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"175","left":"55"},
+                "startingTime":"6",
+                "endingTime":"14",
+                "contentText":"Oui mais, c’est juste que les partys chez Julie, c’est toujours pareil! Gab et Alexis vont apporter de l’alcool puis m’achaler pour que j’en prenne avec eux. "
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -252,14 +269,88 @@
         "name": "capsule1_slide5",
         "imgName" : "6Mf3mZWhjUq_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6hk38MolaTe_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"100","left":"570"},
+                "startingTime":"1",
+                "endingTime":"5",
+                "contentText":"T’es préoccupé par la réaction de tes amis si tu n’en prends pas. Tu veux qu’on en parle?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"175","left":"55"},
+                "startingTime":"6",
+                "endingTime":"18",
+                "contentText":"Non… Ben, je sais pas trop quoi penser. Tout le monde dit que c’est chill l’alcool, que ça relaxe et tout. Et puis, je serais peut-être moins pogné si j’en prenais un peu… Et mes amis arrêteraient de m’achaler avec ça."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"100","left":"570"},
+                "startingTime":"19",
+                "endingTime":"27",
+                "contentText":"Tu sais, ce n’est pas si relax que ça l’alcool, Vincent. Selon la quantité que tu prends, ça peut donner mal au cœur, au ventre et ça fait déprimer aussi."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"175","left":"55"},
+                "startingTime":"28",
+                "endingTime":"31",
+                "contentText":"Tu exagéres maman, tout le monde boit dans les partys à mon âge !"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"100","left":"570"},
+                "startingTime":"31",
+                "endingTime":"40",
+                "contentText":"Ça peut te faire faire ou dire des choses que tu vas regretter après, te faire oublier des trucs importants et même (ton humoristique) te faire prendre de la bedaine, toi qui s’entraine si fort."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"175","left":"55"},
+                "startingTime":"41",
+                "endingTime":"41",
+                "contentText":"Hey, wo là!"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"100","left":"570"},
+                "startingTime":"42",
+                "endingTime":"47",
+                "contentText":"Et tu ne devrais pas avoir à prendre de l’alcool pour qu’on arrête de t’achaler."
+            }
+        ],
         "popupImg":[]
     },
     {
         "name": "capsule1_slide6",
         "imgName" : "6BjyxYRgmxO_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6OkWuCPMz88_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"175","left":"55"},
+                "startingTime":"0",
+                "endingTime":"3",
+                "contentText":"Ouin... Faque j’ai un peu raison de ne pas vouloir absolument boire de l’alcool?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"100","left":"570"},
+                "startingTime":"4",
+                "endingTime":"16",
+                "contentText":"C’est certain! C’est tout à fait normal. Et de toute façon, tu es encore un peu trop jeune pour en consommer. Je suis contente qu’on en ait parlé, en tout cas. Tiens, on arrive. Bon party!"
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -283,7 +374,64 @@
         "name": "capsule1_slide8",
         "imgName" : "6kSmvH4B0yo_DX1890_DY1890_CX945_CY530.png",
         "audioName":["5fNbUoqtLt7_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"15","left":"650"},
+                "startingTime":"0",
+                "endingTime":"1",
+                "contentText":"Oui, allô?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"175","left":"55"},
+                "startingTime":"2",
+                "endingTime":"6",
+                "contentText":"Maman, peux-tu venir me chercher? Je ne me sens vraiment pas bien."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"15","left":"650"},
+                "startingTime":"7",
+                "endingTime":"9",
+                "contentText":"Comment ça? Qu’est-ce qui s’est passé?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"175","left":"55"},
+                "startingTime":"9",
+                "endingTime":"12",
+                "contentText":"Euh… ben… je sais pas trop…"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"15","left":"650"},
+                "startingTime":"13",
+                "endingTime":"16",
+                "contentText":"Coudonc, as-tu pris de l’alcool?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"175","left":"55"},
+                "startingTime":"16",
+                "endingTime":"19",
+                "contentText":"Euh… un peu, oui… "
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"15","left":"650"},
+                "startingTime":"20",
+                "endingTime":"25",
+                "contentText":"(soupir)Tu me déçois Vincent. Bon… j’arrive!"
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -306,7 +454,16 @@
         "name": "capsule1_slide10",
         "imgName" : "6hJCqFBgemL_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6WR0wuLXlPf_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"220","left":"55"},
+                "startingTime":"1",
+                "endingTime":"5",
+                "contentText":"Je m’excuse, maman. T’es fâchée hein?"
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -323,13 +480,48 @@
         "popupContent":[
             {
                 "contentId":"",
-                "contentClass":"fw-header",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"15","left":"650"},
                 "startingTime":"0",
-                "endingTime":"5",
-                "contentText":""
+                "endingTime":"4",
+                "contentText":"Tu as l’air mieux ce matin, comment tu te sens?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"265","left":"170"},
+                "startingTime":"4",
+                "endingTime":"6",
+                "contentText":"Correct…"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-right",
+                "position":{"top":"175","left":"290"},
+                "startingTime":"6",
+                "endingTime":"18",
+                "contentText":"Tu sais Vincent, après la conversation qu’on a eue en allant te reconduire hier, j’ai été vraiment déçue que tu boives. Tu es trop jeune pour prendre de l’alcool. Je t’aime et je ne veux pas m’inquiéter à chaque fois que tu vas dans un party."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"210","left":"370"},
+                "startingTime":"19",
+                "endingTime":"27",
+                "contentText":"Bien non, t’exagères. Ce n’est pas ma faute, je ne voulais pas en prendre. C’est compliqué… Ah, laisse-donc faire, tu ne comprendrais pas."
             }
         ],
-        "popupImg":[]
+        "popupImg":[
+            {
+                "imgName":"",
+                "startingTime":"0",
+                "endingTime":"4",
+                "imgId":"",
+                "imgClass":"fw-header",
+                "imgContentId":"",
+                "imgContent":""
+            }
+        ]
     },
     {
         "name": "capsule1_slide13",
@@ -342,7 +534,40 @@
         "name": "capsule1_slide14",
         "imgName" : "5UuKmsyBQe2_DX1890_DY1890_CX945_CY530.png",
         "audioName":["5eNjibh651b_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"15","left":"650"},
+                "startingTime":"0",
+                "endingTime":"3",
+                "contentText":"Explique-moi. J’aimerais comprendre ce qui s’est passé."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"235","left":"40"},
+                "startingTime":"4",
+                "endingTime":"6",
+                "contentText":"Tu vas me trouver con…"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-right",
+                "position":{"top":"205","left":"255"},
+                "startingTime":"7",
+                "endingTime":"11",
+                "contentText":"Ben non, voyons. Si tu m’expliques, je vais pouvoir t’aider pour que ça n’arrive plus."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"235","left":"40"},
+                "startingTime":"13",
+                "endingTime":"23",
+                "contentText":"Bon, OK. Ça allait bien jusqu’à temps qu’Alexis arrive avec des bières. Pis là.. comme d’habitude, il m’a dit d’en prendre.."
+            }
+        ],
         "popupImg":[]
     },
     {
