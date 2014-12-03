@@ -1304,9 +1304,9 @@ function fnSlideWiseEffectManage(curTime,singleObj){
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
                     $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(2000);
                 }
-                /*if(curTime == getSlideWiseData.popupContent[intIndex].endingTime){
-                 $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(3000);
-                 }*/
+                if(curTime == getSlideWiseData.popupContent[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
+                 $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(2000);
+                 }
             }
             for(var intIndex=0;intIndex<getSlideWiseData.popupImg.length;intIndex++)
             {
