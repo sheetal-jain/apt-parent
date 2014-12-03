@@ -75,7 +75,7 @@ $(document).ready(function(){
                     setTimeout(function(){
                         console.log($("#slide-dyn").height()+'px');
                         fnSetModelScreen();
-                    },100)
+                    },1000)
                     $("#slide-capsule1").removeClass('collapse');
                     fnSlideWiseContentManage(current_page_cookie);
 
