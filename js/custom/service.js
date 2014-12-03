@@ -384,6 +384,11 @@ function fnSlideWiseContentManage(slide){
             $('.fw-header').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
             $('.l-c-header').removeClass('collapse');
+            $('#lc-content').removeClass('collapse');
+            $('#lc-content').html("");
+            $('#lc-content').append("<span class='font-xx-lg'>01</span>");
+
+            $('#lc-header-1').css('display','inline');
             $('#lc-header-1').text('Establish meaningful relationships between');
             $('#lc-header-2').text('parents and adolescents');
             $('#rc-content-text').removeClass('collapse');
@@ -394,6 +399,7 @@ function fnSlideWiseContentManage(slide){
         case "capsule1_slide3":
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5heZxU5t7t7_DX1110_DY1110_CX555_CY80.png');
             $('.convertion').removeClass('collapse');
@@ -429,6 +435,7 @@ function fnSlideWiseContentManage(slide){
         case "capsule1_slide5":
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5wQcyLfzE5d_DX1110_DY1110_CX555_CY80.png');
             $('.convertion').removeClass('collapse');
@@ -438,6 +445,7 @@ function fnSlideWiseContentManage(slide){
         case "capsule1_slide6":
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/6N5jhO1cXng_DX1110_DY1110_CX555_CY80.png');
             $('.convertion').removeClass('collapse');
@@ -477,6 +485,8 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide10":
             fnAddCollapseClass();
+            $('.full-width-content').removeClass('collapse');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/6j2V7CHeU3S_DX1110_DY1110_CX555_CY80.png');
             $('.convertion').removeClass('collapse');
@@ -507,7 +517,8 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide12":
             fnAddCollapseClass();
-            $('.full-width-content').removeClass('collapse');
+            $('.full-width-content').removeClass('collapse')
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5itRdnRNYV6_DX1110_DY1110_CX555_CY80.png');
             $('.fw-header').removeClass('collapse');
@@ -543,6 +554,8 @@ function fnSlideWiseContentManage(slide){
         case "capsule1_slide14":
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
+            $('.fw-footer').removeClass('collapse');
+
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/6L9kKi7B4bf_DX1110_DY1110_CX555_CY80.png');
             $('.convertion').removeClass('collapse');
