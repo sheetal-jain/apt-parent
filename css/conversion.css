@@ -1,5 +1,4 @@
-﻿/* --- Conversion --- */
-
+﻿﻿/* --- Conversion --- */
 .convertion {
     position: absolute;
     top: 0;
@@ -7,6 +6,99 @@
     height: 100%;
     color: #6E6E6E;
 }
+
+#talkbubble-left {
+    max-width: 250px;
+    background: #fff;
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 20px 0 0 70px;
+    padding: 20px;
+}
+
+#talkbubble-left:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 26px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 60px solid #fff;
+    /*border-bottom: 13px solid transparent;*/
+}
+
+
+#talkbubble-right {
+    max-width: 250px;
+    background: #fff;
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 20px 0 0 70px;
+    padding: 20px;
+}
+
+#talkbubble-right:before {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 26px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-left: 60px solid #fff;
+    /*border-bottom: 13px solid transparent;*/
+}
+
+
+#talkbubble-top {
+    max-width: 250px;
+    background: #fff;
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 70px 0 0 20px;
+    padding: 20px;
+}
+
+#talkbubble-top:before {
+    content: "";
+    position: absolute;
+    right: 50%;
+    top: -55px;
+    width: 0;
+    height: 0;
+    border-top: 60px solid transparent;
+    border-right: 18px solid #fff;
+}
+
+#talkbubble-bottom {
+    max-width: 250px;
+    background: #fff;
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 10px 0 70px 20px;
+    padding: 20px;
+}
+
+#talkbubble-bottom:before {
+    content: "";
+    position: absolute;
+    right: 50%;
+    bottom: -55px;
+    width: 0;
+    height: 0;
+    border-bottom: 60px solid transparent;
+    border-right: 18px solid #fff;
+}
+
 
 .convbox-lb span {
     display: inline-block;
@@ -731,72 +823,72 @@
     padding: 5% !important;
 }
 
-    .cap1-last-slide div:first-child span {
-        font-size: 215%;
-    }
+.cap1-last-slide div:first-child span {
+    font-size: 215%;
+}
 
-    .cap1-last-slide div:nth-child(2) {
-        margin: 1.5% 3.5%;
-        line-height: 1.2;
-    }
+.cap1-last-slide div:nth-child(2) {
+    margin: 1.5% 3.5%;
+    line-height: 1.2;
+}
 
-    .cap1-last-slide .custom-img {
-        position: absolute;
-        bottom: -4px;
-        cursor: pointer;
-    }
+.cap1-last-slide .custom-img {
+    position: absolute;
+    bottom: -4px;
+    cursor: pointer;
+}
 
-        .cap1-last-slide .custom-img span {
-            font-size: 110% !important;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
+.cap1-last-slide .custom-img span {
+    font-size: 110% !important;
+    margin-bottom: 10px;
+    display: inline-block;
+}
 
-        .cap1-last-slide .custom-img .cust-span-em {
-            position: absolute;
-            left: 0;
-            font-size: 60% !important;
-            color: #808080;
-            bottom: 0;
-            margin: 0 0 10px 15px;
-        }
+.cap1-last-slide .custom-img .cust-span-em {
+    position: absolute;
+    left: 0;
+    font-size: 60% !important;
+    color: #808080;
+    bottom: 0;
+    margin: 0 0 10px 15px;
+}
 
-            .cap1-last-slide .custom-img .cust-span-em span {
-                margin-right: 5px;
-            }
+.cap1-last-slide .custom-img .cust-span-em span {
+    margin-right: 5px;
+}
 
-    .cap1-last-slide .nxt-page-msg {
-        float: right;
-        margin-right: 5%;
-        margin-top: 4%;
-    }
+.cap1-last-slide .nxt-page-msg {
+    float: right;
+    margin-right: 5%;
+    margin-top: 4%;
+}
 
-    .cap1-last-slide table {
-        margin: 5% 0;
-        background-color: rgba(0,0,0,0.5);
-        border: 1px solid #fff;
-    }
+.cap1-last-slide table {
+    margin: 5% 0;
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid #fff;
+}
 
-        .cap1-last-slide table tr th {
-            padding: 8px 15px;
-            border: 1px solid #fff;
-            width: 50%;
-            font-weight: normal;
-            line-height: 1.25;
-        }
+.cap1-last-slide table tr th {
+    padding: 8px 15px;
+    border: 1px solid #fff;
+    width: 50%;
+    font-weight: normal;
+    line-height: 1.25;
+}
 
-        .cap1-last-slide table tr td {
-            padding: 8px 15px;
-            border: 1px solid #fff;
-            width: 50%;
-            font-weight: normal;
-            line-height: 1.25;
-        }
+.cap1-last-slide table tr td {
+    padding: 8px 15px;
+    border: 1px solid #fff;
+    width: 50%;
+    font-weight: normal;
+    line-height: 1.25;
+}
 
-            .cap1-last-slide table tr td img {
-                display: inline-block;
-                vertical-align: bottom;
-            }
+.cap1-last-slide table tr td img {
+    display: inline-block;
+    vertical-align: bottom;
+}
 
 
 /* ------------------------------------------- */
@@ -805,84 +897,84 @@
     padding: 3% !important;
 }
 
-    .cap2-last-slide div:first-child span {
-        font-size: 215%;
-    }
+.cap2-last-slide div:first-child span {
+    font-size: 215%;
+}
 
-    .cap2-last-slide div:nth-child(2) {
-        margin: 0.5% 3.5%;
-        line-height: 1.2;
-    }
+.cap2-last-slide div:nth-child(2) {
+    margin: 0.5% 3.5%;
+    line-height: 1.2;
+}
 
-    .cap2-last-slide .custom-img {
-        /*position: absolute;
-        bottom: -4px;*/
-        cursor: pointer;
-    }
+.cap2-last-slide .custom-img {
+    /*position: absolute;
+    bottom: -4px;*/
+    cursor: pointer;
+}
 
-        .cap2-last-slide .custom-img span {
-            font-size: 110% !important;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
+.cap2-last-slide .custom-img span {
+    font-size: 110% !important;
+    margin-bottom: 10px;
+    display: inline-block;
+}
 
-        .cap2-last-slide .custom-img .cust-span-em {
-            position: absolute;
-            left: 0;
-            font-size: 70% !important;
-            color: #808080;
-            bottom: 0;
-            margin: 0 0 10px 27px;
-        }
+.cap2-last-slide .custom-img .cust-span-em {
+    position: absolute;
+    left: 0;
+    font-size: 70% !important;
+    color: #808080;
+    bottom: 0;
+    margin: 0 0 10px 27px;
+}
 
-            .cap2-last-slide .custom-img .cust-span-em span {
-                margin-right: 5px;
-            }
+.cap2-last-slide .custom-img .cust-span-em span {
+    margin-right: 5px;
+}
 
-    .cap2-last-slide .nxt-page-msg {
-        float: right;
-        margin-right: 5%;
-        margin-top: 2%;
-    }
+.cap2-last-slide .nxt-page-msg {
+    float: right;
+    margin-right: 5%;
+    margin-top: 2%;
+}
 
-    .cap2-last-slide table {
-        /*margin: 5% 0;*/
-        background-color: rgba(0,0,0,0.5);
-        border: 1px solid #fff;
-    }
+.cap2-last-slide table {
+    /*margin: 5% 0;*/
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid #fff;
+}
 
-        .cap2-last-slide table tr th {
-            padding: 8px 15px;
-            border: 1px solid #fff;
-            width: 50%;
-            font-weight: normal;
-            line-height: 1.25;
-        }
+.cap2-last-slide table tr th {
+    padding: 8px 15px;
+    border: 1px solid #fff;
+    width: 50%;
+    font-weight: normal;
+    line-height: 1.25;
+}
 
-        .cap2-last-slide table tr td {
-            padding: 8px 15px;
-            border: 1px solid #fff;
-            width: 50%;
-            font-weight: normal;
-            line-height: 1.25;
-        }
+.cap2-last-slide table tr td {
+    padding: 8px 15px;
+    border: 1px solid #fff;
+    width: 50%;
+    font-weight: normal;
+    line-height: 1.25;
+}
 
-            .cap2-last-slide table tr td img {
-                display: inline-block;
-                vertical-align: bottom;
-            }
+.cap2-last-slide table tr td img {
+    display: inline-block;
+    vertical-align: bottom;
+}
 
-    .cap2-last-slide .wth-o-padd {
-        padding: 0;
-    }
+.cap2-last-slide .wth-o-padd {
+    padding: 0;
+}
 
-        .cap2-last-slide .wth-o-padd div {
-            display: block;
-            border-bottom: 1px solid #fff;
-            position: relative;
-            padding: 8px 0 0 15px;
-            margin: 0;
-        }
+.cap2-last-slide .wth-o-padd div {
+    display: block;
+    border-bottom: 1px solid #fff;
+    position: relative;
+    padding: 8px 0 0 15px;
+    margin: 0;
+}
 
 .v-align-t {
     vertical-align: top;
