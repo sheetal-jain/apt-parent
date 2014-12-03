@@ -75,7 +75,7 @@ $(document).ready(function(){
                     setTimeout(function(){
                         console.log($("#slide-dyn").height()+'px');
                         fnSetModelScreen();
-                    },100)
+                    },1000)
                     $("#slide-capsule1").removeClass('collapse');
                     fnSlideWiseContentManage(current_page_cookie);
 
@@ -123,8 +123,8 @@ $(document).ready(function(){
 
     // Increment Index
     /*while (curIdx < max) {
-        curIdx++;
-    }*/
+     curIdx++;
+     }*/
 
     // Next image and audio on button (and image) click
     $('#next').click( function() {
@@ -310,11 +310,11 @@ $(document).ready(function(){
                 if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime && !isAudioFlag)
                 {
 //                    if(getSingleObjOfJSON.name == "intro_bergeron" ){
-                        console.log(getAudioCurrentTimeInSec);
-                        fnOverlayContentOnBergeronSlide(getSingleObjOfJSON.popupContent[intIndex]);
-                        if(getSingleObjOfJSON.popupContent[intIndex+1] != undefined){
-                            nextStartTime = getSingleObjOfJSON.popupContent[intIndex+1].startingTime;
-                        }
+                    console.log(getAudioCurrentTimeInSec);
+                    fnOverlayContentOnBergeronSlide(getSingleObjOfJSON.popupContent[intIndex]);
+                    if(getSingleObjOfJSON.popupContent[intIndex+1] != undefined){
+                        nextStartTime = getSingleObjOfJSON.popupContent[intIndex+1].startingTime;
+                    }
 //                    }
 
                     isAudioFlag = true;
