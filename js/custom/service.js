@@ -1338,6 +1338,16 @@ function fnSlideWiseContentManage(slide){
 
     $('.convertion').addClass('collapse');
 }
+function fnDisableNextPrev(){
+    $("#next").css("pointer-events","none");
+    $("#next").css("cursor","default");
+    $("#prev").css("pointer-events","none");
+    $("#prev").css("cursor","default");
+};
+function fnEnableNextPrev(){
+    $("#next").removeAttr("style");
+    $("#prev").removeAttr("style");
+};
 
 function fnSlideWiseEffectManage(curTime,singleObj){
     var getSlideWiseData = singleObj;
@@ -1353,21 +1363,28 @@ function fnSlideWiseEffectManage(curTime,singleObj){
             for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
             {
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
-                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(100);
+                    fnDisableNextPrev();
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(1000,function(){
+                        fnEnableNextPrev();
+                    });
                 }
             }
             for(var intIndex=0;intIndex<getSlideWiseData.popupImg.length;intIndex++)
             {
                 if(curTime == getSlideWiseData.popupImg[intIndex].startingTime){
-                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeIn(100);
+                    fnDisableNextPrev();
+                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeIn(1000,function(){
+                        fnEnableNextPrev();
+                    });
                 }
                 if(curTime == getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
-                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(100);
+                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(1000);
                 }
             }
             break;
     }
 };
+
 /*--------------Slide wise Conversation manage---------*/
 var isPopupFlag = false;
 function fnSlideWiseConversationManage(curTime,singleObj){
@@ -1402,12 +1419,14 @@ function fnSlideWiseConversationManage(curTime,singleObj){
                     $(contentClass).css('top',popupPosition.top+'px');
                     $(contentClass).css('left',popupPosition.left+'px');
                     $(contentClass).find('span').html(contentText);
-                    $(contentClass).fadeIn(100,function(){
+                    fnDisableNextPrev();
+                    $(contentClass).fadeIn(1000,function(){
                         $(this).css('position','absolute');
+                        fnEnableNextPrev();
                     });
                 }
                 if(curTime == getSlideWiseData.popupContent[intIndex].endingTime){
-                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(100);
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(1000);
                 }
             }
             break;
@@ -1416,25 +1435,31 @@ function fnSlideWiseConversationManage(curTime,singleObj){
         case "capsule3_slide11":
             for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
             {
-                if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
+                if(curTime == getSlideWiseData.popupContent[intIndex].startingTime && !isPopupFlag){
                     var popupPosition = getSlideWiseData.popupContent[intIndex].position;
                     var contentText = getSlideWiseData.popupContent[intIndex].contentText;
                     var contentClass = '.'+getSlideWiseData.popupContent[intIndex].contentClass;
                     $(contentClass).css('top',popupPosition.top+'px');
                     $(contentClass).css('left',popupPosition.left+'px');
                     $(contentClass).find('span').text(contentText);
-                    $(contentClass).fadeIn(100,function(){
+                    fnDisableNextPrev();
+                    $(contentClass).fadeIn(1000,function(){
                         $(this).css('position','absolute');
+                        fnEnableNextPrev();
                     });
                     isPopupFlag = true;
                 }
                 if(curTime == getSlideWiseData.popupContent[intIndex].endingTime){
-                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(500);
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(1000);
                     isPopupFlag = false;
                 }
             }
             break;
         default:
+            $('.conversation-top').hide();
+            $('.conversation-bottom').hide();
+            $('.conversation-left').hide();
+            $('.conversation-right').hide();
             break;
     }
 };
