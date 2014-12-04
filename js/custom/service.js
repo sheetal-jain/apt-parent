@@ -33,6 +33,7 @@ function showLoader(imgId){
     $("#img-loader").show();
     $(imgId).load(function(){
         $("#img-loader").hide();
+        fnSetModelScreen();
         console.log("Image Loaded === ",imgId);
     })/*.error(function(){
         $("#img-loader").hide();
