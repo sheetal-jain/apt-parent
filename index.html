@@ -20,10 +20,10 @@
     <header>
     </header>
     <div class="container">
-    <img src="Images/spinner.png" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top: 50%;left: 50%;"/>
+
         <div id="firstprogram" class="row">
             <br />
-            <div class="col-lg-12">
+            <!--<div class="col-lg-12">
                 <strong>Section APTE Parents</strong>
             </div>
             <div class="col-lg-12 ">
@@ -46,6 +46,122 @@
                         <li><a href="#">Quitter</a></li>
                     </ul>
                 </div>
+            </div>-->
+            <div class="col-lg-12">
+                <div class="col-md-12">
+                    <strong>APT Parents Section</strong>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <div class="pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#" onclick="help();">Help</a></li>
+                            <li class="divider-vertical"></li>
+                            <li><a href="#" onclick="resource();">Resources</a></li>
+                            <li class="divider-vertical"></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Table of content</a>
+                                <ul class="dropdown-menu cust-toggle-menu">
+                                    <li>
+                                        <div id="toggle-header" class="toggle-header" onclick="tglclass();" name='introduction'>
+                                            <span>Introduction</span>
+                                        </div>
+                                        <div id="tgldtl" style="display: none">
+                                            <ul>
+                                                <li name="intro_welcome">Welcome!</li>
+                                                <li name="intro_bergeron">The Bergeron family</li>
+                                                <li name="intro_resource">The Resources</li>
+                                                <li name="intro_psychoactive_head">A few words about psychoactive substances</li>
+                                                <li name="intro_Tips4online">Before you begin</li>
+                                                <li name="intro_navigation_help">Navigation help</li>
+                                                <li name="intro_transition">Transition</li>
+                                                <li name="intro_menu">Main Menu</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div id="toggle-header1" class="toggle-header" onclick="tglclass1();" name="capsule1_slide1">
+                                            <span>Capsule 1: Establish meaningful relationship...</span>
+                                        </div>
+                                        <div id="tgldtl1" style="display: none">
+                                            <ul>
+                                                <li name="capsule1_slide1">The Scenario</li>
+                                                <li name="capsule1_slide2">Your mission</li>
+                                                <li name="capsule1_slide3">On the way to the party</li>
+                                                <li name="capsule1_slide5">The effects of alcohol</li>
+                                                <li name="capsule1_slide7">The conversation</li>
+                                                <li name="capsule1_slide8">The conversation</li>
+                                                <li name="capsule1_slide9">On the way home</li>
+                                                <li name="capsule1_slide10">On the way home</li>
+                                                <li name="capsule1_slide12">The next morning</li>
+                                                <li name="capsule1_slide15">Assessment</li>
+                                                <li name="capsule1_slide16">Conclusion</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div id="toggle-header2" class="toggle-header" onclick="tglclass2();" name="capsule2_slide1">
+                                            <span>Capsule 2: Communicate effectively with you...</span>
+                                        </div>
+                                        <div id="tgldtl2" style="display: none">
+                                            <ul>
+                                                <li name="capsule2_slide1">The Scenario</li>
+                                                <li name="capsule2_slide2">Your mission</li>
+                                                <li name="capsule2_slide3">The weird guy</li>
+                                                <li name="capsule2_slide5">The effects of speed</li>
+                                                <li name="capsule2_slide9">The circle of friends</li>
+                                                <li name="capsule2_slide12">Assessment</li>
+                                                <li name="capsule2_slide13">Your collection</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div id="toggle-header3" class="toggle-header" onclick="tglclass3();" name="capsule3_slide1">
+                                            <span>Capsule 3: Applying good parental practices...</span>
+                                        </div>
+                                        <div id="tgldtl3" style="display: none">
+                                            <ul>
+                                                <li name="capsule3_slide1">The Situation</li>
+                                                <li name="capsule3_slide2">Your mission</li>
+                                                <li name="capsule3_slide3">The friends</li>
+                                                <li name="capsule3_slide4">The beer in the fridge</li>
+                                                <li name="capsule3_slide6">The rules</li>
+                                                <li name="capsule3_slide7">Parental control</li>
+                                                <li name="capsule3_slide8">The discovery</li>
+                                                <li name="capsule3_slide10">The consequences</li>
+                                                <li name="capsule3_slide12">Assessment</li>
+                                                <li name="capsule3_slide13">Your collection</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div id="toggle-header4" class="toggle-header" onclick="tglclass4();" name="capsule4_slide1">
+                                            <span>Capsule 4: Solve conflicts between parents an...</span>
+                                        </div>
+                                        <div id="tgldtl4" style="display: none">
+                                            <ul>
+                                                <li name="capsule4_slide1">The scenario</li>
+                                                <li name="capsule4_slide2">Your mission</li>
+                                                <li name="capsule4_slide3">The confession</li>
+                                                <li name="capsule4_slide5">The effects of marijuana</li>
+                                                <li name="capsule4_slide8">Searching for solutions</li>
+                                                <li name="capsule4_slide10">Assessment</li>
+                                                <li name="capsule4_slide11">Your collection</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <!--<li><a href="#">Instroduction</a></li>
+                                <li><a href="#">Capsule 1: Establish meaningful relationships...</a></li>
+                                <li><a href="#">Capsule 2: Communicate effectively with you...</a></li>
+                                <li><a href="#">Capsule 3: Applying good parental practices...</a></li>
+                                <li><a href="#">Capsule 4: Solve conflicts between parents and...</a></li>-->
+                                </ul>
+                            </li>
+                            <li class="divider-vertical"></li>
+                            <li><a href="#">Quit</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-12 custom-margin-top">
                 <div class="image-shadow">
@@ -54,6 +170,7 @@
                         <span class="header-span" style="margin-left: 50px;margin-right: -60px;">Section</span>
                         <span class="header">APTE Parents</span>                        
                     </div>
+                    <img src="Images/spinner.png" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top: 50%;left: 50%;"/>
                     <img id="slide1" class="img-responsive image-shadow" src="Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png" alt="" />
                     <!-- Welcome Programme -->
                     <div id="welcome" class="screen" name="intro_welcome">
@@ -329,7 +446,7 @@
                                                 </div>
                                                 <div id="rc-footer-confirm" class="collapse">
                                                     <div>
-                                                        <img src="Images/5bpC2K3s9RZ_DX150_DY150_CX72_CY75.png" alt="" />
+                                                        <img src="Images/5VxKgI1OHAB_80_DX138_DY138_CX68_CY69.png" alt="" />
                                                     </div>
                                                 </div>
                                             </div>
