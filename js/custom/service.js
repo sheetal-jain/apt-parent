@@ -401,8 +401,8 @@ function fnSlideWiseContentManage(slide){
             $('#lc-content').append("<span class='font-xx-lg'>01</span>");
 
             $('#lc-header-1').css('display','inline');
-            $('#lc-header-1').text('Establish meaningful relationships between');
-            $('#lc-header-2').text('parents and adolescents');
+            $('#lc-header-1').text('Établir des relations de qualité entre');
+            $('#lc-header-2').text('parents et adolescents');
             $('#rc-content-text').removeClass('collapse');
             $('#rc-content-text').html("");
             $('#rc-content-text').html("<span class='font-med f-w-med block'>Isabelle aimerait en savoir plus sur ce qui tracasse Vincent. Dans cette situation, la qualité de leur relation sera déterminante pour la suite de la discussion.<br/><br/>Une relation de qualité implique de l’amour, c’est-à-dire une <span class='orange'>proximité émotionnelle.</span> C’est en montrant du soutien et de l’affection à Vincent qu’Isabelle assurera cette proximité.<br /><br />Votre objectif est d’aider <span class='orange'>Isabelle à faire preuve de soutien et d’affection vis-à-vis de Vincent</span> qui semble vivre une situation difficile.<br /><br />Au cours de la discussion, vous devrez également l’aider à <span class='orange'>argumenter face aux croyances de Vincent concernant la consommation d’alcool.</span></span>");
@@ -1353,16 +1353,16 @@ function fnSlideWiseEffectManage(curTime,singleObj){
             for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
             {
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
-                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(2000);
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(100);
                 }
-                if(curTime == getSlideWiseData.popupContent[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
-                 $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(2000);
-                 }
             }
             for(var intIndex=0;intIndex<getSlideWiseData.popupImg.length;intIndex++)
             {
                 if(curTime == getSlideWiseData.popupImg[intIndex].startingTime){
-                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeIn(2000);
+                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeIn(100);
+                }
+                if(curTime == getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
+                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(100);
                 }
             }
             break;
@@ -1402,12 +1402,12 @@ function fnSlideWiseConversationManage(curTime,singleObj){
                     $(contentClass).css('top',popupPosition.top+'px');
                     $(contentClass).css('left',popupPosition.left+'px');
                     $(contentClass).find('span').html(contentText);
-                    $(contentClass).fadeIn(2000,function(){
+                    $(contentClass).fadeIn(100,function(){
                         $(this).css('position','absolute');
                     });
                 }
                 if(curTime == getSlideWiseData.popupContent[intIndex].endingTime){
-                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(2000);
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(100);
                 }
             }
             break;
