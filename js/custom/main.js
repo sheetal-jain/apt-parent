@@ -34,17 +34,14 @@ $(document).ready(function(){
                     showLoader('#slide1');
                     $('#firstslideheader').removeClass('content-collapse');
                     $('#btnStart').removeClass('content-collapse');
-
                     $('.custom-audio-button').removeClass('fade.in');
 //                    $('#slide2').css('display','none');
                     $('.custom-audio-button').addClass('fade');
                     $('#slide2').addClass('fade');
-
                     $(".playa").removeAttr("style");
                     curIdx = i;
                 }
                 else if(current_page_cookie == 'intro_welcome'){
-
                     $('#slide-dyn').addClass('content-collapse');
                     $('#slide2').css('display','none');
                     $('#slide1').attr('src', 'Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png');
@@ -54,7 +51,6 @@ $(document).ready(function(){
                     curIdx = i;
                     console.log(curIdx);
                     startAPT();
-
                 }
                 else{
                     $('.custom-audio-button').removeClass('fade');
@@ -75,20 +71,16 @@ $(document).ready(function(){
                         refreshPopupImageContent(obj.popupImg);
                     }
                     setTimeout(function(){
-                        console.log($("#slide-dyn").height()+'px');
                         fnSetModelScreen();
                     },1000)
                     $("#slide-capsule1").removeClass('collapse');
                     fnSlideWiseContentManage(current_page_cookie);
-
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
                     getTopicWiseData(i);
                     curIdx = i;
                 }
             }
         });
-
-//        console.log(current_page_cookie);
     }else{
         console.log("No cookie Exist");
         $.cookie('current_page',objAPT_JSON[0].name, { expires: 7 });
@@ -358,7 +350,7 @@ $(document).ready(function(){
         }
 
         fnSlideWiseEffectManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
-
+        fnSlideWiseConversationManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
         /*Show Next Indicator*/
         if(getAudioCurrentTimeInSec == (Math.floor(duration) - 2))
         {

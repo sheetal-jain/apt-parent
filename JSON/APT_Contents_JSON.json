@@ -634,7 +634,40 @@
         "name": "capsule2_slide3",
         "imgName" : "5rNt0wirY8U_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6LOgjdNnWej_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"200","left":"50"},
+                "startingTime":"0",
+                "endingTime":"3",
+                "contentText":"Comment ça se passe à l’école Vincent? As-tu un beau groupe?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"25","left":"470"},
+                "startingTime":"4",
+                "endingTime":"5",
+                "contentText":"Oui, pas mal, Julien est avec moi."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"200","left":"50"},
+                "startingTime":"6",
+                "endingTime":"7",
+                "contentText":"C’est bien ça!"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"25","left":"470"},
+                "startingTime":"8",
+                "endingTime":"11",
+                "contentText":"Oui, c’est cool… Mais il y a aussi un gars « bizarre » dans notre groupe."
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -648,7 +681,40 @@
         "name": "capsule2_slide5",
         "imgName" : "616YVQ08vha_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6qaERIVRZK1_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"200","left":"50"},
+                "startingTime":"0",
+                "endingTime":"1",
+                "contentText":"C’est qui ce gars-là?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"250","left":"300"},
+                "startingTime":"2",
+                "endingTime":"3",
+                "contentText":"Pourquoi tu le trouves bizarre?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"25","left":"680"},
+                "startingTime":"4",
+                "endingTime":"5",
+                "contentText":"Je ne sais pas trop…"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"200","left":"415"},
+                "startingTime":"6",
+                "endingTime":"16",
+                "contentText":"Il sent toujours drôle, il arrive en retard et il a souvent l’air fatigué… Pis d’autres fois, il est super énervé. En tout cas… Heille, qu’est-ce que ça fait du « speed »?"
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -662,21 +728,96 @@
         "name": "capsule2_slide7",
         "imgName" : "5wgfyzZLGkp_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6XvGjXAyios_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"200","left":"50"},
+                "startingTime":"0",
+                "endingTime":"3",
+                "contentText":"C’est un type de drogue à base d’amphétamines. Si tu veux, on peut en parler…"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"25","left":"680"},
+                "startingTime":"4",
+                "endingTime":"5",
+                "contentText":"Où as-tu entendu parler de ça?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"175","left":"460"},
+                "startingTime":"6",
+                "endingTime":"22",
+                "contentText":"C’est Simon, le « gars bizarre », qui en avait sur lui l’autre jour. Il nous l’a montré. Il paraît que ça aide à se concentrer et que ça diminue la fatigue. Il a dit que si on en voulait, il fallait juste lui demander. Ça donne du courage, qu’il dit."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"200","left":"500"},
+                "startingTime":"23",
+                "endingTime":"24",
+                "contentText":"Est-ce que t’avais envie d’essayer?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"175","left":"460"},
+                "startingTime":"25",
+                "endingTime":"30",
+                "contentText":"Pas vraiment. En fait, j’avais un peu peur et puis je n’ai pas le goût de ressembler à Simon."
+            }
+        ],
         "popupImg":[]
     },
     {
         "name": "capsule2_slide8",
         "imgName" : "6J6rJUPfqsz_DX1890_DY1890_CX945_CY530.png",
         "audioName":["5bCYRK5zKkp_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"210","left":"300"},
+                "startingTime":"0",
+                "endingTime":"10",
+                "contentText":"T’as bien raison d’avoir peur. Étant donné qu’il n’y a pas de contrôle, il peut y avoir n’importe quoi là-dedans. Les effets sont donc imprévisibles et dangereux. Ça peut causer des problèmes graves de santé en plus de la dépendance."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"216","left":"550"},
+                "startingTime":"11",
+                "endingTime":"26",
+                "contentText":"Oui, puis même si c’est un stimulant qui « donne du courage » (ton ironique) sur le coup, à long terme, ça peut causer la dépression, de l’insomnie, bref des difficultés à fonctionner normalement. Dans le fond, ça fait juste repousser les problèmes et en causer d’autres. Ça n’en règle aucun."
+            }
+        ],
         "popupImg":[]
     },
     {
         "name": "capsule2_slide9",
         "imgName" : "6TfxD0NNimi_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6nF5aBC2FIw_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"70","left":"600"},
+                "startingTime":"0",
+                "endingTime":"2",
+                "contentText":"Est-ce que tu te tiens avec Simon en dehors des cours?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"240","left":"50"},
+                "startingTime":"3",
+                "endingTime":"8",
+                "contentText":"Non, pas tellement. Il est assis en arrière de moi dans la classe, mais ce n’est pas vraiment un ami…"
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -690,7 +831,33 @@
         "name": "capsule2_slide11",
         "imgName" : "5W7AHu8TBJX_DX1890_DY1890_CX945_CY530.png",
         "audioName":["5mm5ZGUgk3O_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"205","left":"440"},
+                "startingTime":"0",
+                "endingTime":"8",
+                "contentText":"On est intéressés à connaître les gens avec qui tu te tiens et à savoir ce que vous faites ensemble. Si la situation se représente, qu’est-ce que tu comptes faire?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"240","left":"450"},
+                "startingTime":"9",
+                "endingTime":"13",
+                "contentText":"Je vais juste lui dire que je suis pas intéressé, c’est tout. De toute façon, je me tiens avec Julien, puis il l’aime pas trop lui non plus."
+            }
+            ,
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"240","left":"150"},
+                "startingTime":"16",
+                "endingTime":"25",
+                "contentText":"C’est bon. En tout cas, tiens-nous au courant, on aime toujours ça savoir comment ça se passe et comment tu te sens. Et toi Alexandra, l’école, comment ça va?"
+            }
+        ],
         "popupImg":[]
     },
     {

@@ -1362,6 +1362,13 @@ function fnSlideWiseConversationManage(curTime,singleObj){
         case "capsule1_slide10":
         case "capsule1_slide12":
         case "capsule1_slide14":
+        case "capsule2_slide3":
+        case "capsule2_slide5":
+        case "capsule2_slide7":
+        case "capsule2_slide8":
+        case "capsule2_slide9":
+        case "capsule2_slide11":
+
             for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
             {
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
