@@ -904,12 +904,15 @@ function fnSlideWiseContentManage(slide){
             $('#lc-header-1').html('Exercer de bonnes ');
             $('#lc-header-1').css('margin-left', '-16px');
             $('#lc-header-2').html('parenting practices');
-            $('#lc-content').append("<span class='font-xx-lg'>03</span>");
+            $('#lc-content').removeClass('collapse');
+            $('#lc-content').html("");
+            $('#lc-content').html("<span class='font-xx-lg'>03</span>");
             break;
 
         case "capsule3_slide3":
             fnAddCollapseClass();
             $('#rc-content-text').html("");
+            $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#lc-footer-img').attr('src', 'Images/5b30tlntG0Z_DX1110_DY1110_CX555_CY92.png');
             $('.r-c-header').removeClass('collapse');
@@ -937,6 +940,7 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6hmpZppJlxm_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/63WoTp24Wi4_DX1110_DY1110_CX555_CY92.png');
             $('.convertion').removeClass('collapse');
@@ -972,6 +976,7 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6VSk8oIeeXM_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5faPwXeepBG_DX1110_DY1110_CX555_CY92.png');
             $('.convertion').removeClass('collapse');
@@ -982,6 +987,7 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6b04fMETRyT_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5vUIj0S5LRU_DX1110_DY1110_CX555_CY92.png');
             $('.convertion').removeClass('collapse');
@@ -1139,13 +1145,16 @@ function fnSlideWiseContentManage(slide){
             $('#lc-header-1').text('Résoudre les conflits entre');
             $('#lc-header-1').css('margin-left', '-35px');
             $('#lc-header-2').text('parents et adolescents');
-            $('#lc-content').append("<span class='font-xx-lg'>04</span>");
+            $('#lc-content').removeClass('collapse');
+            $('#lc-content').html("");
+            $('#lc-content').html("<span class='font-xx-lg'>04</span>");
             break;
 
         case "capsule4_slide3":
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5kP9TIE0HvI_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5j6PBcOmITF_DX1110_DY1110_CX555_CY160.png');
             $('.convertion').removeClass('collapse');
@@ -1181,6 +1190,7 @@ function fnSlideWiseContentManage(slide){
 
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5ZPM7UaofLE_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5wkt9k2zg90_DX1110_DY1110_CX555_CY160.png');
             $('.convertion').removeClass('collapse');
@@ -1214,9 +1224,9 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide7":
             fnAddCollapseClass();
-
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5dbjW9897cg_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/6LaGG0B3GPA_DX1110_DY1110_CX555_CY160.png');
             $('.convertion').removeClass('collapse');
@@ -1252,6 +1262,7 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5wrz9olrxwX_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5zOVHYoqrBl_DX1110_DY1110_CX555_CY160.png');
             $('.convertion').removeClass('collapse');
