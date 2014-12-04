@@ -931,7 +931,24 @@
         "name": "capsule3_slide4",
         "imgName" : "6hmpZppJlxm_DX1890_DY1890_CX945_CY530.png",
         "audioName":["5jiOnCjmNvX_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"250","left":"40"},
+                "startingTime":"0",
+                "endingTime":"4",
+                "contentText":"OK, vous pouvez inviter Mathieu et Delphine."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"40","left":"665"},
+                "startingTime":"4",
+                "endingTime":"9",
+                "contentText":"Maman, est-ce qu’on pourrait prendre quelques bières, juste pour cette fois? Ce serait cool et il y en a dans le frigo…"
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -945,14 +962,120 @@
         "name": "capsule3_slide6",
         "imgName" : "6VSk8oIeeXM_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6N3HTnP8Dze_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"250","left":"465"},
+                "startingTime":"0",
+                "endingTime":"10",
+                "contentText":"Non, vous ne pouvez pas prendre d’alcool. Mais c’est vrai qu’on en n’a jamais parlé clairement ensemble. Comme pour tout le reste, on va prendre le temps d’en discuter et de s’entendre sur les règles Qu’en penses-tu, Éric?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"250","left":"165"},
+                "startingTime":"10",
+                "endingTime":"13",
+                "contentText":"Bien d’accord. Pour ce soir, on s’entend que c’est non."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-right",
+                "position":{"top":"310","left":"582"},
+                "startingTime":"14",
+                "endingTime":"15",
+                "contentText":"Mais, maman..."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"0","left":"125"},
+                "startingTime":"13",
+                "endingTime":"19",
+                "contentText":"La semaine prochaine on prendra le temps d’entendre ce que vous avez à dire et aussi vous expliquer notre position."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"240","left":"200"},
+                "startingTime":"19",
+                "endingTime":"21",
+                "contentText":"Envoye-donc, papa! On n’est plus des enfants"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-right",
+                "position":{"top":"288","left":"453"},
+                "startingTime":"21",
+                "endingTime":"22",
+                "contentText":"On n’a même pas d’école demain en plus"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"240","left":"200"},
+                "startingTime":"23",
+                "endingTime":"24",
+                "contentText":"Juste une ou deux bières..."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"240","left":"215"},
+                "startingTime":"25",
+                "endingTime":"34",
+                "contentText":"Vous n’êtes plus des enfants, c’est vrai! Vous pouvez rester seuls à la maison et inviter des amis, mais vous n’avez pas l’âge de prendre de l’alcool et ça ne fait pas exception quand on n’est pas là."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"30","left":"415"},
+                "startingTime":"33",
+                "endingTime":"35",
+                "contentText":"Aaaah… OK, OK. "
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"250","left":"465"},
+                "startingTime":"36",
+                "endingTime":"40",
+                "contentText":"Bon allez, appelez vos amis. Vous allez voir, ce sera le fun même sans alcool!."
+            }
+        ],
         "popupImg":[]
     },
     {
         "name": "capsule3_slide7",
         "imgName" : "6b04fMETRyT_DX1890_DY1890_CX945_CY530.png",
         "audioName":["5ahP6RNSsxY_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"5","left":"600"},
+                "startingTime":"0",
+                "endingTime":"6",
+                "contentText":"Tu sais, Je me demande si on n’a pas été un peu sévères avec eux. Après tout, une ou deux bières ce n’est pas si terrible que ça… "
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"165","left":"60"},
+                "startingTime":"6",
+                "endingTime":"18",
+                "contentText":"Non, on a bien tenu notre bout. Et rappelle-toi, plus ils commencent tôt à consommer de l’alcool, plus ils sont à risque de développer des problèmes reliés à l’alcool.. Et puis si on avait dit oui, ils en auraient probablement pris plus qu’une ou deux…"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"5","left":"600"},
+                "startingTime":"18",
+                "endingTime":"22",
+                "contentText":"C’est vrai. Avec des règles claires on les protège au fond."
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -974,7 +1097,48 @@
         "name": "capsule3_slide9",
         "imgName" : "6favrCCzyZW_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6bN4eifBrZO_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"80","left":"575"},
+                "startingTime":"0",
+                "endingTime":"1",
+                "contentText":"C’est quoi ça?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"145","left":"150"},
+                "startingTime":"2",
+                "endingTime":"3",
+                "contentText":"Ben… euh…"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"80","left":"495"},
+                "startingTime":"4",
+                "endingTime":"8",
+                "contentText":"Je suis vraiment déçue. Vous connaissiez les règles pourtant. Pas d’alcool, ça veut dire pas de bière!"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"145","left":"350"},
+                "startingTime":"9",
+                "endingTime":"11",
+                "contentText":"On en a presque pas pris, maman, capote pas!"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"80","left":"495"},
+                "startingTime":"12",
+                "endingTime":"16",
+                "contentText":"Ce n’est pas une question de combien vous en avez pris… "
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -988,7 +1152,72 @@
         "name": "capsule3_slide11",
         "imgName" : "6leqSerEMzN_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6E7S3DHuZqD_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"80","left":"440"},
+                "startingTime":"0",
+                "endingTime":"2",
+                "contentText":"Là, vous comprenez qu’il y aura des conséquences"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"300","left":"500"},
+                "startingTime":"3",
+                "endingTime":"4",
+                "contentText":"Mais maman"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"145","left":"220"},
+                "startingTime":"3",
+                "endingTime":"4",
+                "contentText":"Ah..."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"80","left":"440"},
+                "startingTime":"4",
+                "endingTime":"6",
+                "contentText":"pas d’amis à la maison quand on sort pendant le prochain mois."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"110","left":"150"},
+                "startingTime":"6",
+                "endingTime":"7",
+                "contentText":"Un mois! C’est bien trop long!"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"300","left":"500"},
+                "startingTime":"7",
+                "endingTime":"10",
+                "contentText":"On n’en a quasiment pas pris et c’était l’idée de Vincent."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"300","left":"80"},
+                "startingTime":"9",
+                "endingTime":"10",
+                "contentText":"Heille!"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-right",
+                "position":{"top":"0","left":"250"},
+                "startingTime":"11",
+                "endingTime":"15",
+                "contentText":"Ça suffit. Vous ne me laissez pas d’autre choix : vous connaissiez les règles. Et peu importe l’idée venait de qui, le résultat est le même."
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -1055,7 +1284,80 @@
         "name": "capsule4_slide3",
         "imgName" : "5kP9TIE0HvI_DX1890_DY1890_CX945_CY530.png",
         "audioName":["5kXZW8Sd6O1_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"125","left":"50"},
+                "startingTime":"0",
+                "endingTime":"1",
+                "contentText":"Papa? Qu’est-ce que tu fais là?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"40","left":"615"},
+                "startingTime":"2",
+                "endingTime":"3",
+                "contentText":"Je suis rentré plus tôt parce que j’aimerais qu’on se parle."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-right",
+                "position":{"top":"75","left":"0"},
+                "startingTime":"4",
+                "endingTime":"5",
+                "contentText":"De... De quoi?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"10","left":"615"},
+                "startingTime":"6",
+                "endingTime":"16",
+                "contentText":"L’école a encore téléphoné. Ils s’inquiètent de toi : il paraît que tu dors en classe, que tu manques des cours et puis que tes notes ont encore baissé. Ta mère et moi on est inquiets et on aimerait comprendre ce qui se passe."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"125","left":"50"},
+                "startingTime":"15",
+                "endingTime":"19",
+                "contentText":"Ben… Rien de particulier, une mauvaise passe, c’est tout. "
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"10","left":"615"},
+                "startingTime":"20",
+                "endingTime":"26",
+                "contentText":"Tu es sûre? Je pense que ton comportement pourrait s’expliquer par de la consommation de pot. Est-ce possible que ce soit le cas? "
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"125","left":"185"},
+                "startingTime":"27",
+                "endingTime":"28",
+                "contentText":"..."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"10","left":"615"},
+                "startingTime":"27",
+                "endingTime":"34",
+                "contentText":"Écoute, je vais pouvoir t’aider seulement si tu m’expliques ce qui se passe. Est-ce que tu fumes du pot?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"125","left":"50"},
+                "startingTime":"35",
+                "endingTime":"38",
+                "contentText":"Ben… peut-être, mais ça n’a pas de rapport avec mes notes."
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -1069,7 +1371,72 @@
         "name": "capsule4_slide5",
         "imgName" : "5ZPM7UaofLE_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6DgO9nc6shJ_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"175","left":"50"},
+                "startingTime":"0",
+                "endingTime":"1",
+                "contentText":"J’aimerais qu’on en parle. Est-ce que tu fumes souvent?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"10","left":"635"},
+                "startingTime":"2",
+                "endingTime":"4",
+                "contentText":"Euh… juste ou deux fois depuis que l’école est recommencée"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"175","left":"50"},
+                "startingTime":"4",
+                "endingTime":"8",
+                "contentText":"Avec l’école qui appelle, je doute que cela ne soit que juste une ou deux fois."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"10","left":"635"},
+                "startingTime":"8",
+                "endingTime":"11",
+                "contentText":"Stresser pas.J’suis pas une droguée !"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"175","left":"50"},
+                "startingTime":"12",
+                "endingTime":"13",
+                "contentText":"Explique-moi ce qui se passe."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-right",
+                "position":{"top":"200","left":"300"},
+                "startingTime":"14",
+                "endingTime":"20",
+                "contentText":"Je pense que ça va m’aider pour mes notes : je suis moins stressée et plus concentrée. Puis tu sais, il y a plein d’artistes qui en prennent alors je suis sûre que je vais avoir des meilleures idées."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"175","left":"125"},
+                "startingTime":"21",
+                "endingTime":"22",
+                "contentText":"Humm, humm"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-right",
+                "position":{"top":"200","left":"300"},
+                "startingTime":"23",
+                "endingTime":"31",
+                "contentText":"En tout cas, au moins, ça m’a permis de rencontrer du nouveau monde, tu devrais être content que je socialise! <br/>Puis coudonc, c’est juste un peu de pot, c’est pas la fin du monde…"
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -1083,7 +1450,48 @@
         "name": "capsule4_slide7",
         "imgName" : "5dbjW9897cg_DX1890_DY1890_CX945_CY530.png",
         "audioName":["5sluoTiNFIi_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"155","left":"325"},
+                "startingTime":"0",
+                "endingTime":"10",
+                "contentText":"Un instant, le pot, c’est une drogue et toutes les drogues ont des impacts! En consommer régulièrement, ça donne exactement le contraire de ce que tu as dit. Ça altère ta perception et diminue ta mémoire à court terme. Rien pour aider tes résultats scolaires."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"200","left":"470"},
+                "startingTime":"11",
+                "endingTime":"15",
+                "contentText":"Ah… ben… peut-être, mais ça m’aide à être moins stressée."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"155","left":"325"},
+                "startingTime":"15",
+                "endingTime":"25",
+                "contentText":"Je comprends que tu penses que ça t’aide à être moins stressée, mais à la longue, ça a l’effet contraire. Et ça va stresser ta famille et tes autres amis qui vont s’inquiéter pour toi. On t’aime, tu sais!..."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-left",
+                "position":{"top":"155","left":"325"},
+                "startingTime":"27",
+                "endingTime":"36",
+                "contentText":"...Et puis ça coûte cher fumer du pot. Pense à tout ce que tu pourrais faire avec cet argent-là. Tu voulais aller visiter ton amie Julie à Québec; si tu brûles ton argent dans le pot, tu ne pourras pas y aller."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"200","left":"470"},
+                "startingTime":"37",
+                "endingTime":"41",
+                "contentText":"Ben là… si le pot ça ne m’aide pas à me calmer à l’école, qu’est-ce que je suis supposée de faire?"
+            }
+        ],
         "popupImg":[]
     },
     {
@@ -1097,7 +1505,32 @@
         "name": "capsule4_slide9",
         "imgName" : "5wrz9olrxwX_DX1890_DY1890_CX945_CY530.png",
         "audioName":["61sKclLsPcS_22050_80.mp3",""],
-        "popupContent":[],
+        "popupContent":[
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"200","left":"50"},
+                "startingTime":"0",
+                "endingTime":"7",
+                "contentText":"Ta mère et moi on est contre le fait que tu fumes du pot. Mais j’aimerais qu’on regarde comment on peut t’aider à gérer ton stress autrement."
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-bottom",
+                "position":{"top":"10","left":"650"},
+                "startingTime":"8",
+                "endingTime":"11",
+                "contentText":"Bon, OK. Genre quoi?"
+            },
+            {
+                "contentId":"",
+                "contentClass":"conversation-top",
+                "position":{"top":"200","left":"50"},
+                "startingTime":"12",
+                "endingTime":"17",
+                "contentText":"Il y a des services de soutien à ton école pour t’aider à améliorer tes notes; on pourrait commencer par là…"
+            }
+        ],
         "popupImg":[]
     },
     {

@@ -7885,3 +7885,51 @@ button.close {
         margin-top: 19px;
     }
 }
+
+
+.cust-toggle-menu {
+    padding: 10px !important;
+    min-width: 300px !important;
+    font-size: 85% !important;
+    max-height: 450px;
+    overflow: auto;
+}
+
+.cust-toggle-menu li {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding: 3px 0;
+    list-style: none;
+    cursor: pointer;
+}
+
+.cust-toggle-menu li ul {
+    padding: 0 0 0 10px;
+}
+
+.cust-toggle-menu li li {
+    border-bottom: none;
+    list-style: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.cust-toggle-menu li:last-child {
+    border: none;
+}
+
+/*.cust-toggle-menu li:hover {
+    color: rgba(0,246,255,0.15);
+}*/
+
+.cust-toggle-menu li li:hover {
+    color: #FBF489;
+}
+
+#help-header {
+    background: none !important;
+    border: none !important;
+    font-size: 120%;
+    width: 50%;
+    margin: 3% 1.5%;
+    line-height: 1.25;
+}

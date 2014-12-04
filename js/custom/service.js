@@ -404,8 +404,8 @@ function fnSlideWiseContentManage(slide){
             $('#lc-content').append("<span class='font-xx-lg'>01</span>");
 
             $('#lc-header-1').css('display','inline');
-            $('#lc-header-1').text('Establish meaningful relationships between');
-            $('#lc-header-2').text('parents and adolescents');
+            $('#lc-header-1').text('Établir des relations de qualité entre');
+            $('#lc-header-2').text('parents et adolescents');
             $('#rc-content-text').removeClass('collapse');
             $('#rc-content-text').html("");
             $('#rc-content-text').html("<span class='font-med f-w-med block'>Isabelle aimerait en savoir plus sur ce qui tracasse Vincent. Dans cette situation, la qualité de leur relation sera déterminante pour la suite de la discussion.<br/><br/>Une relation de qualité implique de l’amour, c’est-à-dire une <span class='orange'>proximité émotionnelle.</span> C’est en montrant du soutien et de l’affection à Vincent qu’Isabelle assurera cette proximité.<br /><br />Votre objectif est d’aider <span class='orange'>Isabelle à faire preuve de soutien et d’affection vis-à-vis de Vincent</span> qui semble vivre une situation difficile.<br /><br />Au cours de la discussion, vous devrez également l’aider à <span class='orange'>argumenter face aux croyances de Vincent concernant la consommation d’alcool.</span></span>");
@@ -907,12 +907,15 @@ function fnSlideWiseContentManage(slide){
             $('#lc-header-1').html('Exercer de bonnes ');
             $('#lc-header-1').css('margin-left', '-16px');
             $('#lc-header-2').html('parenting practices');
-            $('#lc-content').append("<span class='font-xx-lg'>03</span>");
+            $('#lc-content').removeClass('collapse');
+            $('#lc-content').html("");
+            $('#lc-content').html("<span class='font-xx-lg'>03</span>");
             break;
 
         case "capsule3_slide3":
             fnAddCollapseClass();
             $('#rc-content-text').html("");
+            $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#lc-footer-img').attr('src', 'Images/5b30tlntG0Z_DX1110_DY1110_CX555_CY92.png');
             $('.r-c-header').removeClass('collapse');
@@ -940,6 +943,8 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6hmpZppJlxm_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').show();
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/63WoTp24Wi4_DX1110_DY1110_CX555_CY92.png');
             $('.convertion').removeClass('collapse');
@@ -975,6 +980,8 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6VSk8oIeeXM_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').show();
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5faPwXeepBG_DX1110_DY1110_CX555_CY92.png');
             $('.convertion').removeClass('collapse');
@@ -985,6 +992,8 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6b04fMETRyT_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').show();
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5vUIj0S5LRU_DX1110_DY1110_CX555_CY92.png');
             $('.convertion').removeClass('collapse');
@@ -1005,6 +1014,8 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6favrCCzyZW_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').show();
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/6r404kBUKne_DX1110_DY1110_CX555_CY92.png');
             $('.convertion').removeClass('collapse');
@@ -1142,13 +1153,16 @@ function fnSlideWiseContentManage(slide){
             $('#lc-header-1').text('Résoudre les conflits entre');
             $('#lc-header-1').css('margin-left', '-35px');
             $('#lc-header-2').text('parents et adolescents');
-            $('#lc-content').append("<span class='font-xx-lg'>04</span>");
+            $('#lc-content').removeClass('collapse');
+            $('#lc-content').html("");
+            $('#lc-content').html("<span class='font-xx-lg'>04</span>");
             break;
 
         case "capsule4_slide3":
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5kP9TIE0HvI_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5j6PBcOmITF_DX1110_DY1110_CX555_CY160.png');
             $('.convertion').removeClass('collapse');
@@ -1184,6 +1198,7 @@ function fnSlideWiseContentManage(slide){
 
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5ZPM7UaofLE_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5wkt9k2zg90_DX1110_DY1110_CX555_CY160.png');
             $('.convertion').removeClass('collapse');
@@ -1217,9 +1232,9 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide7":
             fnAddCollapseClass();
-
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5dbjW9897cg_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/6LaGG0B3GPA_DX1110_DY1110_CX555_CY160.png');
             $('.convertion').removeClass('collapse');
@@ -1255,6 +1270,7 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5wrz9olrxwX_DX1890_DY1890_CX945_CY530.png');
+            $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5zOVHYoqrBl_DX1110_DY1110_CX555_CY160.png');
             $('.convertion').removeClass('collapse');
@@ -1325,6 +1341,16 @@ function fnSlideWiseContentManage(slide){
 
     $('.convertion').addClass('collapse');
 }
+function fnDisableNextPrev(){
+    $("#next").css("pointer-events","none");
+    $("#next").css("cursor","default");
+    $("#prev").css("pointer-events","none");
+    $("#prev").css("cursor","default");
+};
+function fnEnableNextPrev(){
+    $("#next").removeAttr("style");
+    $("#prev").removeAttr("style");
+};
 
 function fnSlideWiseEffectManage(curTime,singleObj){
     var getSlideWiseData = singleObj;
@@ -1340,14 +1366,22 @@ function fnSlideWiseEffectManage(curTime,singleObj){
             for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
             {
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
-                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(2000);
+                    fnDisableNextPrev();
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(1000,function(){
+                        fnEnableNextPrev();
+                    });
                 }
-
             }
             for(var intIndex=0;intIndex<getSlideWiseData.popupImg.length;intIndex++)
             {
                 if(curTime == getSlideWiseData.popupImg[intIndex].startingTime){
-                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeIn(2000);
+                    fnDisableNextPrev();
+                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeIn(1000,function(){
+                        fnEnableNextPrev();
+                    });
+                }
+                if(curTime == getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
+                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(1000);
                 }
                 if(curTime == getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
                     $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(2000);
@@ -1356,7 +1390,9 @@ function fnSlideWiseEffectManage(curTime,singleObj){
             break;
     }
 };
+
 /*--------------Slide wise Conversation manage---------*/
+var isPopupFlag = false;
 function fnSlideWiseConversationManage(curTime,singleObj){
     var getSlideWiseData = singleObj;
     switch (getSlideWiseData.name) {
@@ -1373,7 +1409,13 @@ function fnSlideWiseConversationManage(curTime,singleObj){
         case "capsule2_slide8":
         case "capsule2_slide9":
         case "capsule2_slide11":
-
+        case "capsule3_slide4":
+        case "capsule3_slide7":
+        case "capsule3_slide9":
+        case "capsule4_slide3":
+        case "capsule4_slide5":
+        case "capsule4_slide7":
+        case "capsule4_slide9":
             for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
             {
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
@@ -1382,17 +1424,48 @@ function fnSlideWiseConversationManage(curTime,singleObj){
                     var contentClass = '.'+getSlideWiseData.popupContent[intIndex].contentClass;
                     $(contentClass).css('top',popupPosition.top+'px');
                     $(contentClass).css('left',popupPosition.left+'px');
-                    $(contentClass).find('span').text(contentText);
-                    $(contentClass).fadeIn(2000,function(){
+                    $(contentClass).find('span').html(contentText);
+                    fnDisableNextPrev();
+                    $(contentClass).fadeIn(1000,function(){
                         $(this).css('position','absolute');
+                        fnEnableNextPrev();
                     });
                 }
                 if(curTime == getSlideWiseData.popupContent[intIndex].endingTime){
-                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(2000);
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(1000);
+                }
+            }
+            break;
+
+        case "capsule3_slide6":
+        case "capsule3_slide11":
+            for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
+            {
+                if(curTime == getSlideWiseData.popupContent[intIndex].startingTime && !isPopupFlag){
+                    var popupPosition = getSlideWiseData.popupContent[intIndex].position;
+                    var contentText = getSlideWiseData.popupContent[intIndex].contentText;
+                    var contentClass = '.'+getSlideWiseData.popupContent[intIndex].contentClass;
+                    $(contentClass).css('top',popupPosition.top+'px');
+                    $(contentClass).css('left',popupPosition.left+'px');
+                    $(contentClass).find('span').text(contentText);
+                    fnDisableNextPrev();
+                    $(contentClass).fadeIn(1000,function(){
+                        $(this).css('position','absolute');
+                        fnEnableNextPrev();
+                    });
+                    isPopupFlag = true;
+                }
+                if(curTime == getSlideWiseData.popupContent[intIndex].endingTime){
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(1000);
+                    isPopupFlag = false;
                 }
             }
             break;
         default:
+            $('.conversation-top').hide();
+            $('.conversation-bottom').hide();
+            $('.conversation-left').hide();
+            $('.conversation-right').hide();
             break;
     }
 };

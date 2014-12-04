@@ -21,7 +21,6 @@ $(document).ready(function(){
     //get Content from json
     objAPT_JSON = JSON.parse(fnGetDataFromServer('JSON/APT_Contents_JSON.json').responseText);
     max =objAPT_JSON.length;
-    console.log("MAX === ",max);
     /* RJ------------------ if cookie not exist, create one with the first slide ----------------------*/
     var current_page_cookie = $.cookie('current_page');
     console.log(current_page_cookie);
@@ -119,6 +118,20 @@ $(document).ready(function(){
      curIdx++;
      }*/
 
+    /*---- --------------------- Dropdown menu header click ----------*/
+    $(".toggle-header").click(function(){
+        var slide = $(this).attr("name");
+        fnSetupPageFromMenu(slide);
+    });
+
+    $(".dropdown-menu").find("li").find("ul").find("li").click(function(event){
+        console.log($(this).attr("name"));
+        var slide = $(this).attr("name");
+        fnSetupPageFromMenu(slide);
+//        event.preventDefault();
+//        event.stopPropagation();
+    });
+
     // Next image and audio on button (and image) click
     $('#next').click( function() {
         curIdx = (curIdx+1) % max;
@@ -126,6 +139,8 @@ $(document).ready(function(){
         $('#slide1').css('display','none');
         $('#slide1').addClass('content-collapse');
         $('#welcome').addClass('content-collapse');
+        /*$('#tips-images').find("div").css('opacity','0');
+        $('#tips-header').addClass('content-collapse')*/
         refreshPopupImageContent(objAPT_JSON[curIdx].popupImg);
         console.log(objAPT_JSON[curIdx].name);
         getScreenName = $($("div.screen")[curIdx]).attr("name");
@@ -179,6 +194,7 @@ $(document).ready(function(){
             $('.custom-audio-button').addClass('fade');
 
             $(".playa").removeAttr("style");
+            fnAddOrRemoveElementClass();
         }
         else if(curIdx == 1)//The condition for 2nd slide when prev
         {
@@ -186,7 +202,7 @@ $(document).ready(function(){
             $('#slide2').css('display','none');
             $('#slide1').attr('src', 'Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png');
             $('#slide1').css('display','inline');
-
+            fnAddOrRemoveElementClass();
             setCollapseClassToScreen(objAPT_JSON[curIdx].name);
             startAPT();
         }else {
@@ -202,9 +218,10 @@ $(document).ready(function(){
                 console.log(objAPT_JSON[curIdx].name);
                 fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
             }
+            fnAddOrRemoveElementClass();
             fnSlideWiseContentManage(getScreenName);
         }
-        fnAddOrRemoveElementClass();
+
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
         changeCookieValue(objAPT_JSON[curIdx].name);
@@ -261,27 +278,6 @@ $(document).ready(function(){
             $($('#'+obj.imgContentId)).css('opacity','0');
         });
     }
-
-//    //table of content wise display image and load audio.
-//    $('.dropdown-menu li a').click( function() {
-//        for(var i=0; i< objAPT_JSON.length;i++){
-//            if($(this).attr("name") == objAPT_JSON[i].name){
-//                $(".thumbnail").attr('src', imgSrcBase+objAPT_JSON[i].imgName);
-//                $(".mp3").attr('src', audioSrcBase_mp3+objAPT_JSON[i].audioName[0]);
-//                $(".ogg").attr('src', audioSrcBase_ogg+objAPT_JSON[i].audioName[1]);
-//                getScreenName = $($("div.screen")[i]).attr("name");
-//                if(getScreenName == objAPT_JSON[i].name)
-//                {
-//                    $($("div.screen")[i-1]).css("display","none");
-//                    $($("div.screen")[i+1]).css("display","none");
-//                    $($("div.screen")[i]).css("display","block");
-//                }
-//                getTopicWiseData(i);
-//                audio.load();
-//                audio.play();
-//            }
-//        }
-//    });
 
     audio.onloadedmetadata = function (_event) {
         duration = audio.duration;
@@ -416,7 +412,76 @@ $(document).ready(function(){
             isSlideFlag = false;
         }
     });
+
+
+    function fnSetupPageFromMenu(slide){
+        jQuery.each(objAPT_JSON,function(i,obj){
+            if(obj.name == slide){
+                if(slide == 'introduction'){
+                    fnAddCollapseClass();
+                    $('#slide-dyn').addClass('content-collapse');
+                    $('#slide1').removeClass('content-collapse')
+                    $('#slide1').attr('src',imgSrcBase+obj.imgName);
+                    showLoader('#slide1');
+                    $('#firstslideheader').removeClass('content-collapse');
+                    $('#btnStart').removeClass('content-collapse');
+                    $('.custom-audio-button').removeClass('fade.in');
+//                    $('#slide2').css('display','none');
+                    $('.custom-audio-button').addClass('fade');
+                    $('#slide2').addClass('fade');
+                    $(".playa").removeAttr("style");
+                    setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
+                    changeCookieValue(slide);
+                    curIdx = i;
+                }
+                else if(slide == 'intro_welcome'){
+                    $('#slide-dyn').addClass('content-collapse');
+                    $('#slide2').css('display','none');
+                    $('#slide1').attr('src', 'Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png');
+                    $('#slide1').css('display','inline');
+                    showLoader('#slide1');
+                    setCollapseClassToScreen(obj.name);
+                    changeCookieValue(slide);
+                    curIdx = i;
+                    console.log(curIdx);
+                    startAPT();
+                }
+                else{
+                    $('.custom-audio-button').removeClass('fade');
+                    $('.custom-audio-button').addClass('fade.in');
+                    $('#slide1').addClass('content-collapse');
+                    $('.playa').css("width",'85%');
+                    $('#btnStart').addClass('content-collapse');
+                    $('#firstslideheader').addClass('content-collapse');
+                    $('a.custom-audio-button').addClass('fade.in');
+                    $("#slide-dyn").attr('src','Images/'+obj.imgName);
+                    $('#slide-dyn').removeClass('content-collapse');
+                    showLoader('#slide-dyn');
+                    $("#dyn-footer").find("span").addClass("content-collapse");
+                    $("#dyn-footer").find("span").removeAttr('style');
+                    $($("div.screen[name="+slide+"]")).removeClass('content-collapse');
+                    $($("div.screen:not(.screen[name="+slide+"])")).addClass('content-collapse');
+                    $("#tips-images").find("div").css('opacity','0');
+                    $("#tips-images").find("div").css('display','none');
+                    changeCookieValue(slide);
+                    if(obj.popupImg.length > 0){
+                        refreshPopupImageContent(obj.popupImg);
+                    }
+                    setTimeout(function(){
+                        fnSetModelScreen();
+                    },1000)
+                    $("#slide-capsule1").removeClass('collapse');
+                    fnSlideWiseContentManage(slide);
+                    setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
+                    getTopicWiseData(i);
+                    curIdx = i;
+                }
+            }
+        });
+    }
 });
+
+
 
 
 
