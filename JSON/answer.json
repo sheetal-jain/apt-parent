@@ -1,0 +1,146 @@
+[
+    {
+        "slideName" : "capsule1_slide4",
+        "rightOption" : "3",
+        "positiveFeedback" : {
+            "text" : "Pour démontrer son soutien dans cette situation, Isabelle devrait rester amicale et demander à Vincent s’il souhaite en discuter. Vincent doit sentir que sa mère est à l’écoute et qu’elle comprend ses inquiétudes.",
+            "audio": ["5najNMrPmvK_22050_80.mp3",""]
+        },
+        "negativeFeedback" : {
+            "text" : "Pour démontrer son soutien dans cette situation, Isabelle devrait rester amicale et demander à Vincent s’il souhaite en discuter. Vincent doit sentir que sa mère est à l’écoute et qu’elle comprend ses inquiétudes.",
+            "audio" : ["5vyFP20SXhj_22050_80.mp3",""]
+        }
+    },
+    {
+        "slideName" : "capsule1_slide11",
+        "rightOption" : "3",
+        "positiveFeedback" : {
+            "text" : "Vincent doit sentir qu’il peut compter sur sa mère, même si elle est en colère. Elle peut expliquer sa frustration sans le juger ou lui faire des reproches. De plus, discuter de la situation pendant que Vincent est en état d’ébriété est déconseillé. Il faut en parler, mais lorsqu’il sera sobre.",
+            "audio": ["5najNMrPmvK_22050_80.mp3",""]
+        },
+        "negativeFeedback" : {
+            "text" : "Vincent doit sentir qu’il peut compter sur sa mère, même si elle est en colère. Elle peut expliquer sa frustration sans le juger ou lui faire des reproches. De plus, discuter de la situation pendant que Vincent est en état d’ébriété est déconseillé. Il faut en parler, mais lorsqu’il sera sobre.",
+            "audio" : ["5vyFP20SXhj_22050_80.mp3",""]
+        }
+    },
+    {
+        "slideName" : "capsule1_slide13",
+        "rightOption" : "3",
+        "positiveFeedback" : {
+            "text" : "En demandant calmement des explications à son fils, Isabelle montrera qu’elle essaie de comprendre ses difficultés et qu’elle souhaite l’aider. Ignorer la situation ou refuser d’écouter Vincent ne sont pas des marques de soutien ou d’affection qui permettent d’établir une relation de qualité.",
+            "audio": ["5najNMrPmvK_22050_80.mp3",""]
+        },
+        "negativeFeedback" : {
+            "text" : "En demandant calmement des explications à son fils, Isabelle montrera qu’elle essaie de comprendre ses difficultés et qu’elle souhaite l’aider. Ignorer la situation ou refuser d’écouter Vincent ne sont pas des marques de soutien ou d’affection qui permettent d’établir une relation de qualité.",
+            "audio" : ["5vyFP20SXhj_22050_80.mp3",""]
+        }
+    },
+    {
+        "slideName" : "capsule2_slide4",
+        "rightOption" : "3",
+        "positiveFeedback" : {
+            "text" : "L’ouverture et l’information sont la clé d’une communication efficace entre parents et adolescents. En essayant d’en savoir plus sur « le gars bizarre » sans juger Vincent, Éric et Isabelle montreront qu’ils écoutent et qu’ils s’intéressent à ce que leur fils dit et pense. De plus, ils seront informés sur les personnes qui l’entourent à l’école.",
+            "audio": ["5najNMrPmvK_22050_80.mp3",""]
+        },
+        "negativeFeedback" : {
+            "text" : "L’ouverture et l’information sont la clé d’une communication efficace entre parents et adolescents. En essayant d’en savoir plus sur «le gars bizarre » sans juger Vincent, Éric et Isabelle montreront qu’ils s’intéressent à ce que leur fils dit et pense. De plus, ils seront informés sur les personnes qui l’entourent à l’école.",
+            "audio" : ["5vyFP20SXhj_22050_80.mp3",""]
+        }
+    },
+    {
+        "slideName" : "capsule2_slide6",
+        "rightOption" : "3",
+        "positiveFeedback" : {
+            "text" : "Faire preuve d’ouverture implique de répondre franchement quand un adolescent pose des questions. De plus, il a été démontré que lorsque les parents parlent de drogue avec leurs jeunes, ces derniers risquent moins d’en consommer. Isabelle et Éric devraient donc continuer la discussion.",
+            "audio": ["5najNMrPmvK_22050_80.mp3",""]
+        },
+        "negativeFeedback" : {
+            "text" : "Faire preuve d’ouverture implique de répondre franchement quand un adolescent pose des questions. De plus, il a été démontré que lorsque les parents parlent de drogue avec leurs enfants, ces derniers risquent moins d’en consommer. Isabelle et Éric devraient donc continuer la discussion.",
+            "audio" : ["5vyFP20SXhj_22050_80.mp3",""]
+        }
+    },
+    {
+        "slideName" : "capsule2_slide10",
+        "rightOption" : "3",
+        "positiveFeedback" : {
+            "text" : "En étant bien informés sur les amis et les activités de Vincent, Isabelle et Éric pourront aider leur fils à reconnaître les situations à risque afin d’y faire face de la meilleure façon possible.",
+            "audio": ["5najNMrPmvK_22050_80.mp3",""]
+        },
+        "negativeFeedback" : {
+            "text" : "Il est vrai qu’un jeune qui fréquente un groupe d’amis qui consomment de l’alcool, du cannabis ou d’autres drogues risque plus d’en consommer. Toutefois, c’est en étant bien informés sur les amis et les activités de Vincent qu’Isabelle et Éric pourront l’aider à reconnaître les situations à risque afin d’y faire face de la meilleure façon possible.",
+            "audio" : ["5vyFP20SXhj_22050_80.mp3",""]
+        }
+    },
+    {
+        "slideName" : "capsule3_slide3",
+        "rightOption" : "3",
+        "positiveFeedback" : {
+            "text" : "En acceptant que leurs ados reçoivent des ami(e)s en leur absence, Isabelle et Éric feront preuve d’une saine tolérance.",
+            "audio": ["5najNMrPmvK_22050_80.mp3",""]
+        },
+        "negativeFeedback" : {
+            "text" : "En acceptant que leurs ados reçoivent des ami(e)s en leur absence, Isabelle et Éric feront preuve d’une saine tolérance.",
+            "audio" : ["5vyFP20SXhj_22050_80.mp3",""]
+        }
+    },
+    {
+        "slideName" : "capsule3_slide5",
+        "rightOption" : "3",
+        "positiveFeedback" : {
+            "text" : "L’encadrement fait partie du contrôle parental. Isabelle et Éric doivent fixer des règles et exiger qu’elles soient respectées. Toutefois, la menace d’une punition excessive est inutile. De plus, des règles et attentes claires en ce qui a trait à l’alcool, au cannabis ou aux autres drogues protègent les jeunes des problèmes de consommation.",
+            "audio": ["5najNMrPmvK_22050_80.mp3",""]
+        },
+        "negativeFeedback" : {
+            "text" : "L’encadrement fait partie du contrôle parental. Isabelle et Éric doivent fixer des règles et exiger qu’elles soient respectées. Toutefois, la menace d’une punition excessive est inutile. De plus, des règles et attentes claires en ce qui a trait à l’alcool, au cannabis ou aux autres drogues protègent les jeunes des problèmes de consommation.",
+            "audio" : ["5vyFP20SXhj_22050_80.mp3",""]
+        }
+    },
+    {
+        "slideName" : "capsule3_slide10",
+        "rightOption" : "3",
+        "positiveFeedback" : {
+            "text" : "Lorsque c’est possible, Isabelle devrait exercer son autorité parentale par des négociations avec ses ados (style disciplinaire inductif). Mais dans ce cas-ci, une règle a été brisée en toute conscience. La punition (style punitif) est donc acceptable. Isabelle doit cependant éviter l’agressivité ou les menaces (style coercitif), autant que l’absence de discipline (style permissif).",
+            "audio": ["5najNMrPmvK_22050_80.mp3",""]
+        },
+        "negativeFeedback" : {
+            "text" : "Lorsque c’est possible, Isabelle devrait exercer son autorité parentale par des négociations avec ses ados (style disciplinaire inductif). Mais dans ce cas-ci, une règle a été brisée en toute conscience. La punition (style punitif) est donc acceptable. Isabelle doit cependant éviter l’agressivité ou les menaces (style coercitif), autant que l’absence de discipline (style permissif).",
+            "audio" : ["5vyFP20SXhj_22050_80.mp3",""]
+        }
+    },
+    {
+        "slideName" : "capsule4_slide4",
+        "rightOption" : "3",
+        "positiveFeedback" : {
+            "text" : "Bien que les conflits soient inévitables dans une famille, il faut éviter que ceux-ci dégénèrent au point de blesser, humilier ou faire beaucoup de peine à l’adolescent. Éric devrait tenter d’en savoir plus en évitant de critiquer Alexandra et de lui faire des remarques désagréables. Il ne doit pas laisser aller sa colère au point de dire des insultes, des mots blessants ou des menaces.",
+            "audio": ["5najNMrPmvK_22050_80.mp3",""]
+        },
+        "negativeFeedback" : {
+            "text" : "Bien que les conflits soient inévitables dans une famille, il faut éviter que ceux-ci dégénèrent au point de blesser, humilier ou faire beaucoup de peine à l’adolescent. Éric devrait tenter d’en savoir plus en évitant de critiquer Alexandra et de lui faire des remarques désagréables. Il ne doit pas laisser aller sa colère au point de dire des insultes, des mots blessants ou des menaces.",
+            "audio" : ["5vyFP20SXhj_22050_80.mp3",""]
+        }
+    },
+    {
+        "slideName" : "capsule4_slide6",
+        "rightOption" : "3",
+        "positiveFeedback" : {
+            "text" : "Éric devrait poursuivre la discussion et informer sa fille, sans se mettre en colère. Le cannabis est une drogue et sa consommation doit être prise au sérieux. Ses impacts, notamment sur la mémoire, sur la concentration et sur la motivation entraînent des troubles scolaires importants. Les relations avec les amis et la famille peuvent également être affectées.",
+            "audio": ["5najNMrPmvK_22050_80.mp3",""]
+        },
+        "negativeFeedback" : {
+            "text" : "Éric devrait poursuivre la discussion et informer sa fille, sans se mettre en colère. Le cannabis est une drogue et sa consommation doit être prise au sérieux. Ses impacts, notamment sur la mémoire, sur la concentration et sur la motivation entraînent des troubles scolaires importants. Les relations avec les amis et la famille peuvent également être affectées.",
+            "audio" : ["5vyFP20SXhj_22050_80.mp3",""]
+        }
+    },
+    {
+        "slideName" : "capsule4_slide8",
+        "rightOption" : "3",
+        "positiveFeedback" : {
+            "text" : "Quand les intérêts de tout le monde sont compatibles, il vaut mieux utiliser une stratégie de collaboration où tout le monde y gagne. En cas d’urgence, Éric pourrait imposer ses conditions (stratégie de compétition); Alexandra serait alors conciliante (stratégie d’accommodation), mais en sortirait frustrée et donc perdante. Enfin, refuser de discuter du conflit (stratégie d’évitement) amènerait le pire résultat possible.",
+            "audio": ["5najNMrPmvK_22050_80.mp3",""]
+        },
+        "negativeFeedback" : {
+            "text" : "Il vaut mieux utiliser une stratégie de collaboration où tout le monde y gagne. En cas d’urgence, Éric pourrait imposer ses conditions (stratégie de compétition); Alexandra serait alors conciliante (stratégie d’accommodation), mais en sortirait frustrée et donc perdante. Enfin, refuser de discuter du conflit (stratégie d’évitement) amènerait le pire résultat possible.",
+            "audio" : ["5vyFP20SXhj_22050_80.mp3",""]
+        }
+    }
+]
