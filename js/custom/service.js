@@ -326,11 +326,10 @@ function fnAddCollapseClass(){
     $('#conv4-slide9').addClass('collapse');
 
     /*-------------- conversation popup hide-----------*/
-    $('.popup-conversation').html("");
+    $('.popup-conversation').removeClass('collapse');
 }
 
 function fnAddCollapseClassIntroCapsule(){
-
     $('.custom-audio-button').removeClass('fade.in');
     $('.custom-audio-button').addClass('fade')
 
@@ -362,6 +361,8 @@ function fnAddCollapseClassIntroCapsule(){
     $("#infrom-navi").addClass("content-collapse");
 
     $("#transition").addClass("content-collapse");
+
+    $('.popup-conversation').addClass('collapse');
 }
 
 function fnSlideWiseContentManage(slide){
@@ -1538,6 +1539,8 @@ function fnSlideWiseConversationManage(curTime,singleObj){
             break;
 
         default:
+            console.log("default section");
+            $(".popup-conversation").html("");
             break;
     }
 };

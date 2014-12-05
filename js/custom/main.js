@@ -466,6 +466,20 @@ $(document).ready(function(){
             }
         });
     }
+
+    /*$("#quit").click(function(){
+//        alert("Quit");
+
+        setTimeout(function(){
+            var win = window.open("","_self");  //url = “” or “about:blank”; target=”_self”
+            win.close();
+        },1000)
+
+
+//        var win = window.open("localhost:5000","_self"); *//* url = "" or "about:blank"; target="_self" *//*
+//        win.close();
+
+    });*/
 });
 
 
