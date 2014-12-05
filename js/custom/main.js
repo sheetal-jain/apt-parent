@@ -24,7 +24,6 @@ $(document).ready(function(){
     max =objAPT_JSON.length;
     /* RJ------------------ if cookie not exist, create one with the first slide ----------------------*/
     var current_page_cookie = $.cookie('current_page');
-    console.log(current_page_cookie);
     if(current_page_cookie != undefined){
         jQuery.each(objAPT_JSON,function(i,obj){
             if(obj.name == current_page_cookie){
@@ -49,7 +48,6 @@ $(document).ready(function(){
                     showLoader('#slide1');
                     setCollapseClassToScreen(obj.name);
                     curIdx = i;
-                    console.log(curIdx);
                     startAPT();
                 }
                 else{
@@ -82,7 +80,6 @@ $(document).ready(function(){
             }
         });
     }else{
-        console.log("No cookie Exist");
         $.cookie('current_page',objAPT_JSON[0].name, { expires: 7 });
         $('.custom-audio-button').addClass('fade');
         $('#slide2').addClass('fade');
@@ -126,11 +123,8 @@ $(document).ready(function(){
     });
 
     $(".dropdown-menu").find("li").find("ul").find("li").click(function(event){
-        console.log($(this).attr("name"));
         var slide = $(this).attr("name");
         fnSetupPageFromMenu(slide);
-//        event.preventDefault();
-//        event.stopPropagation();
     });
 
     // Next image and audio on button (and image) click
@@ -139,11 +133,9 @@ $(document).ready(function(){
         $('#firstslideheader').addClass('content-collapse');
         $('#slide1').css('display','none');
         $('#slide1').addClass('content-collapse');
-        $('#welcome').addClass('content-collapse');
-        /*$('#tips-images').find("div").css('opacity','0');
-        $('#tips-header').addClass('content-collapse')*/
-        refreshPopupImageContent(objAPT_JSON[curIdx].popupImg);
+
         console.log(objAPT_JSON[curIdx].name);
+        setCollapseClassToScreen(objAPT_JSON[curIdx].name);
         getScreenName = $($("div.screen")[curIdx]).attr("name");
         if(getScreenName == objAPT_JSON[curIdx].name)
         {
@@ -152,6 +144,7 @@ $(document).ready(function(){
             }
             if(objAPT_JSON[curIdx].popupImg != undefined || objAPT_JSON[curIdx].popupImg.length > 0){
                 refreshPopupImages(objAPT_JSON[curIdx].popupImg);
+                refreshPopupImageContent(objAPT_JSON[curIdx].popupImg);
             }
             setCollapseClassToScreen(objAPT_JSON[curIdx].name);
             fnAddOrRemoveElementClass();
@@ -216,7 +209,6 @@ $(document).ready(function(){
                 $('#slide-capsule1').addClass('collapse');
                 $('#slide-menu').removeClass('collapse');
             }else{
-                console.log(objAPT_JSON[curIdx].name);
                 fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
             }
             fnAddOrRemoveElementClass();
@@ -292,7 +284,7 @@ $(document).ready(function(){
         getAudioCurrentTimeInSec = Math.floor(this.currentTime);
         slider.setValue(Math.round(this.currentTime));
         $("#audio_sliderID").attr('data-slider-value',getAudioCurrentTimeInSec);
-        if(getSingleObjOfJSON.popupContent.length > 0)
+        if(getSingleObjOfJSON.popupContent != undefined && getSingleObjOfJSON.popupContent.length > 0)
         {
 //            nextStartTime = getSingleObjOfJSON.popupContent[0].startingTime;
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupContent.length;intIndex++)
@@ -301,7 +293,6 @@ $(document).ready(function(){
                 if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime && !isAudioFlag)
                 {
 //                    if(getSingleObjOfJSON.name == "intro_bergeron" ){
-                    console.log(getAudioCurrentTimeInSec);
                     fnOverlayContentOnBergeronSlide(getSingleObjOfJSON.popupContent[intIndex]);
                     if(getSingleObjOfJSON.popupContent[intIndex+1] != undefined){
                         nextStartTime = getSingleObjOfJSON.popupContent[intIndex+1].startingTime;
@@ -318,14 +309,13 @@ $(document).ready(function(){
 
         }
 
-        if(getSingleObjOfJSON.popupImg.length > 0)
+        if(getSingleObjOfJSON.popupImg != undefined && getSingleObjOfJSON.popupImg.length > 0)
         {
 //            nextImgStartTime = getSingleObjOfJSON.popupImg[0].startingTime;
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupImg.length;intIndex++)
             {
                 if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].startingTime && !isImgFlag)
                 {
-                    console.log(getSingleObjOfJSON.popupImg[intIndex].startingTime +" == "+isAudioFlag+" =="+ nextImgStartTime);
                     if(getSingleObjOfJSON.name == "intro_welcome") {
                         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, getSingleObjOfJSON.popupImg[intIndex]);
                     }
@@ -426,16 +416,9 @@ $(document).ready(function(){
             if(obj.name == slide){
                 if(slide == 'introduction'){
                     fnAddCollapseClass();
-                    $('#slide-dyn').addClass('content-collapse');
-                    $('#slide1').removeClass('content-collapse')
                     $('#slide1').attr('src',imgSrcBase+obj.imgName);
+                    fnSlideWiseContentManage(slide);
                     showLoader('#slide1');
-                    $('#firstslideheader').removeClass('content-collapse');
-                    $('#btnStart').removeClass('content-collapse');
-                    $('.custom-audio-button').removeClass('fade.in');
-//                    $('#slide2').css('display','none');
-                    $('.custom-audio-button').addClass('fade');
-                    $('#slide2').addClass('fade');
                     $(".playa").removeAttr("style");
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
                     changeCookieValue(slide);
@@ -450,13 +433,13 @@ $(document).ready(function(){
                     setCollapseClassToScreen(obj.name);
                     changeCookieValue(slide);
                     curIdx = i;
-                    console.log(curIdx);
                     startAPT();
                 }
                 else{
                     $('.custom-audio-button').removeClass('fade');
                     $('.custom-audio-button').addClass('fade.in');
                     $('#slide1').addClass('content-collapse');
+                    $('#slide1').css('display','none');
                     $('.playa').css("width",'85%');
                     $('#btnStart').addClass('content-collapse');
                     $('#firstslideheader').addClass('content-collapse');
@@ -464,21 +447,19 @@ $(document).ready(function(){
                     $("#slide-dyn").attr('src','Images/'+obj.imgName);
                     $('#slide-dyn').removeClass('content-collapse');
                     showLoader('#slide-dyn');
-                    $("#dyn-footer").find("span").addClass("content-collapse");
-                    $("#dyn-footer").find("span").removeAttr('style');
-                    $($("div.screen[name="+slide+"]")).removeClass('content-collapse');
-                    $($("div.screen:not(.screen[name="+slide+"])")).addClass('content-collapse');
-                    $("#tips-images").find("div").css('opacity','0');
-                    $("#tips-images").find("div").css('display','none');
+                    setCollapseClassToScreen(slide);
+
                     changeCookieValue(slide);
+
                     if(obj.popupImg.length > 0){
                         refreshPopupImageContent(obj.popupImg);
                     }
+                    fnSlideWiseContentManage(slide);
                     setTimeout(function(){
                         fnSetModelScreen();
                     },1000)
                     $("#slide-capsule1").removeClass('collapse');
-                    fnSlideWiseContentManage(slide);
+
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
                     getTopicWiseData(i);
                     curIdx = i;
@@ -486,6 +467,43 @@ $(document).ready(function(){
             }
         });
     }
+
+
+    answer_JSON = JSON.parse(fnGetDataFromServer('JSON/answer.json').responseText);
+    var selectedOption;
+    var rightImgUrl = "Images/6ZhqSSk0Exm_DX72_DY72_CX36_CY36.png";
+    $('input[type=radio]').click(function(){
+        selectedOption = $(this).val();
+    });
+    $('#rc-footer-confirm').click(function(){
+        console.log(selectedOption);
+        if(selectedOption != undefined){
+            for(var i = 0; i < answer_JSON.length; i++)
+            {
+                if(getSingleObjOfJSON.name == answer_JSON[i].slideName){
+                    if( answer_JSON[i].rightOption == selectedOption){
+                        $("#l-c-footer-text").show();
+                        $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+                        $('#lc-ans-header').html("Tout à fait!");
+                        $('#lc-ans-content').html(answer_JSON[i].positiveFeedback.text);
+                        $('#option'+answer_JSON[i].rightOption).css('background-image', 'url('+ rightImgUrl +')');
+                        $('#right'+answer_JSON[i].rightOption).show();
+                        $('#lc-footer-img').hide();
+                        setupAudioControls(audioSrcBase_mp3+answer_JSON[i].positiveFeedback.audio[0]);
+                    }
+                    else{
+                        $("#l-c-footer-text").show();
+                        $('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
+                        $('#lc-ans-header').html("Ce n’est pas le meilleur choix.");
+                        $('#lc-ans-content').html(answer_JSON[i].negativeFeedback.text);
+                        $('#lc-footer-img').hide();
+                        $('#right'+answer_JSON[i].rightOption).show();
+                        setupAudioControls(audioSrcBase_mp3+answer_JSON[i].negativeFeedback.audio[0]);
+                    }
+                }
+            }
+        }
+    })
 });
 
 

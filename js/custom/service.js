@@ -62,6 +62,7 @@ function startAPT() {
     $('.custom-audio-button').addClass('fade.in');
     $('#btnStart').addClass('content-collapse');
     $('#firstslideheader').addClass('content-collapse');
+    $('#welcome').removeClass('content-collapse');
     $('#slide1').removeClass('image-shadow');
     window.setTimeout(function () {
 
@@ -229,7 +230,7 @@ function fnOverlayImageContentGeneral(imgSrc,popupImageObj){
 function fnSetupContentByTimeGeneral(currTime,popupContentArr){
     for(var intIndex= 0; intIndex<popupContentArr.length;intIndex++){
 
-        /*if(currTime < popupContentArr[intIndex].startingTime){
+        if(currTime < popupContentArr[intIndex].startingTime){
          for(var i=0; i < intIndex; i++ ){
          $("#"+popupContentArr[i].imgId).attr("src",'Images/'+popupContentArr[i].imgName);
          $("#"+popupContentArr[i].imgId).css("opacity","1");
@@ -243,12 +244,12 @@ function fnSetupContentByTimeGeneral(currTime,popupContentArr){
          $("#"+popupContentArr[j].imgId).css("display","none");
 
          }
-         }*/
+         }
         if(currTime < popupContentArr[intIndex].startingTime)
         {
-//            $("#"+popupContentArr[intIndex].imgId).attr("src",'Images/'+popupContentArr[i].imgName);
-//            $("#"+popupContentArr[intIndex].imgId).fadeOut(1000,function(){$(this).removeAttr('style');});
-//            $("#"+popupContentArr[intIndex].imgId)
+            $("#"+popupContentArr[intIndex].imgId).attr("src",'Images/'+popupContentArr[i].imgName);
+            $("#"+popupContentArr[intIndex].imgId).fadeOut(1000,function(){$(this).removeAttr('style');});
+            $("#"+popupContentArr[intIndex].imgId)
         }
     }
 }
@@ -325,34 +326,134 @@ function fnAddCollapseClass(){
     $('#conv4-slide9').addClass('collapse');
 
     /*-------------- conversation popup hide-----------*/
-    $('.popup-conversation').html("");
+    $('.popup-conversation').removeClass('collapse');
+}
+
+function fnAddCollapseClassIntroCapsule(){
+    $('.custom-audio-button').removeClass('fade.in');
+    $('.custom-audio-button').addClass('fade')
+
+    $("#prev").addClass('fade.in');
+    $("#next").addClass('fade.in')
+    /*---- ---------- Introduction ---------------*/
+    $('#slide-dyn').addClass('content-collapse');
+
+    /*------- Intro Welcome -----------*/
+    $("#slide2").addClass("fade");
+    $("#slide2").removeAttr("style");
+
+    /*---- ---------- Intro Bergeron ------------*/
+    $(".bergeron-header").css("display","none");
+    $("#aside-bergeron").addClass("content-collapse");
+    /*$("#bergeron-footer").addClass('content-collapse');*/
+    $("#dyn-footer").find("span").addClass("content-collapse");
+    $("#dyn-footer").find("span").removeAttr('style');
+    $("#resources-head").addClass("content-collapse");
+
+    $("#psychoactive-head").addClass("content-collapse");
+    $(".tips-header").addClass('content-collapse');
+    $("#Tips4online").addClass('content-collapse');
+    $("#tips-images").find("div").css('opacity','0');
+    $("#tips-images").find("div").css('display','none');
+
+    $(".navigation-help").addClass("content-collapse");
+
+    $("#infrom-navi").addClass("content-collapse");
+
+    $("#transition").addClass("content-collapse");
+
+    $('.popup-conversation').addClass('collapse');
 }
 
 function fnSlideWiseContentManage(slide){
     switch (slide) {
+        case "introduction":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+
+            $('#slide1').removeClass('content-collapse')
+            $('#slide1').css('display','block')
+            $('#firstslideheader').removeClass('content-collapse');
+            $("#next").removeClass("fade.in");
+            $("#prev").removeClass("fade.in");
+            $("#next").addClass("fade");
+            $("#prev").addClass("fade");
+            $('#btnStart').removeClass('content-collapse');
+            break;
+
+        case "intro_welcome":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $("#welcome").removeClass("content-collapse");
+            $("#slide2").removeClass("fade");
+            break;
+
         case "intro_bergeron":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $('#slide-dyn').removeClass('content-collapse');
+            $("#aside-bergeron").removeClass("content-collapse");
             $("#bergeron-footer").removeClass('content-collapse');
             break;
 
-        case "intro_navigation_help":
-            console.log("intro HELP");
+        case "intro_Tips4online":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $('#slide-dyn').removeClass('content-collapse');
             $("#Tips4online").removeClass('content-collapse');
-            $(".tips-header").addClass('content-collapse');
+            $('.tips-header').removeClass("content-collapse");
+            break;
+
+        case "intro_navigation_help":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $("#infrom-navi").removeClass("content-collapse");
+            $('#slide-dyn').removeClass('content-collapse');
+            $("#Tips4online").removeClass('content-collapse');
+
             $(".navigation-help").removeClass('content-collapse');
 //            $("#tips-images").addClass('content-collapse');
             $('#tips-images').find("div").css('opacity','0');
             break;
-
+        case "intro_psychoactive_head":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $('#slide-dyn').removeClass('content-collapse');
+            $("#psychoactive-head").removeClass("content-collapse");
+            break;
         case "intro_transition":
             //show next button
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $("#transition").removeClass("content-collapse");
+            $('#slide-dyn').removeClass('content-collapse');
             $("#next").removeClass('content-collapse');
             $(".playa").css('width','85%');
             break;
 
         case "intro_menu":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
             //hide next button
-            $("#next").addClass('content-collapse');
+            $("#next").addClass('fade');
+            $("#prev").removeClass("content-collapse");
             $(".playa").css('width','93%');
+            $('#slide-dyn').removeClass('content-collapse');
             $("#slide-capsule1").addClass("collapse");
             $('#slide-menu').removeClass('content-collapse');
             $('#slide-menu').removeClass('collapse');
@@ -388,6 +489,7 @@ function fnSlideWiseContentManage(slide){
             $('.fw-header').hide();
             $('.fw-content').hide();
             $('.fw-footer').hide();
+
             break;
 
         case "capsule1_slide2":
@@ -436,9 +538,11 @@ function fnSlideWiseContentManage(slide){
             $('#rc-opt-2').html('"' + "Julie doesm't mind having alchohol aria-atomic her parties? You're much too young! You shouldn't hang out with them if they bug you to drink." + '"');
             $('#rc-opt-3').html('"' + "You're worried about what your friends will say if they see you not drinking. Do you want to talk about it?" + '"');
             /* --- Wrong Answer --- */
-            $('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-            $('#lc-ans-header').html("Ce n’est pas le meilleur choix.");
-            $('#lc-ans-content').html("Pour démontrer son soutien dans cette situation, Isabelle devrait rester amicale et demander à Vincent s’il souhaite en discuter. Vincent doit sentir que sa mère est à l’écoute et qu’elle comprend ses inquiétudes.");
+//            $('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
+//            $('#lc-ans-header').html("Ce n’est pas le meilleur choix.");
+//            $('#lc-ans-content').html("Pour démontrer son soutien dans cette situation, Isabelle devrait rester amicale et demander à Vincent s’il souhaite en discuter. Vincent doit sentir que sa mère est à l’écoute et qu’elle comprend ses inquiétudes.");
+            $(".ans-right").find("img").hide();
+            $("#l-c-footer-text").hide();
             /* --- Right Answer --- */
             //$('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
             //$('#lc-ans-header').text("that's right.");
@@ -518,9 +622,11 @@ function fnSlideWiseContentManage(slide){
             $('#rc-opt-1').html('"' + "I am upset, I thought you had understood. Now I can't trust you anymore." + '"');
             $('#rc-opt-2').html('"' + "I am disappointed in your behaviour. We'll talk tommorrow at breakfast, when you've sobered up." + '"');
             $('#rc-opt-3').html('"' + "I knew it was a bad idea to let you go to a party where there would be alcohol. Why did you drink? Your friends really are bad influence on you!" + '"');
-            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-            $('#lc-ans-header').html("Tout à fait!");
-            $('#lc-ans-content').html("Vincent doit sentir qu’il peut compter sur sa mère, même si elle est en colère. Elle peut expliquer sa frustration sans le juger ou lui faire des reproches. De plus, discuter de la situation pendant que Vincent est en état d’ébriété est déconseillé. Il faut en parler, mais lorsqu’il sera sobre.");
+//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+//            $('#lc-ans-header').html("Tout à fait!");
+//            $('#lc-ans-content').html("Vincent doit sentir qu’il peut compter sur sa mère, même si elle est en colère. Elle peut expliquer sa frustration sans le juger ou lui faire des reproches. De plus, discuter de la situation pendant que Vincent est en état d’ébriété est déconseillé. Il faut en parler, mais lorsqu’il sera sobre.");
+            $(".ans-right").find("img").hide();
+            $("#l-c-footer-text").hide();
             /* --- Wrong Answer --- */
             //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
             //$('#lc-ans-header').text("that's not the best option.");
@@ -554,9 +660,11 @@ function fnSlideWiseContentManage(slide){
             $('#rc-opt-1').html('"' + "Talk to me. I'd like to understand what happend." + '"');
             $('#rc-opt-2').html('"' + "There's no point in apologizing, I won't here any of it. I don't want you drinking alcohol anymore, that's it." + '"');
             $('#rc-opt-3').html('"' + "OK,it's your business. Do you want some orange juice" + '"');
-            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-            $('#lc-ans-header').html("Tout à fait!");
-            $('#lc-ans-content').html("En demandant calmement des explications à son fils, Isabelle montrera qu’elle essaie de comprendre ses difficultés et qu’elle souhaite l’aider. Ignorer la situation ou refuser d’écouter Vincent ne sont pas des marques de soutien ou d’affection qui permettent d’établir une relation de qualité.");
+//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+//            $('#lc-ans-header').html("Tout à fait!");
+//            $('#lc-ans-content').html("En demandant calmement des explications à son fils, Isabelle montrera qu’elle essaie de comprendre ses difficultés et qu’elle souhaite l’aider. Ignorer la situation ou refuser d’écouter Vincent ne sont pas des marques de soutien ou d’affection qui permettent d’établir une relation de qualité.");
+            $(".ans-right").find("img").hide();
+            $("#l-c-footer-text").hide();
             /* --- Wrong Answer --- */
             //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
             //$('#lc-ans-header').text("that's not the best option.");
@@ -701,9 +809,11 @@ function fnSlideWiseContentManage(slide){
             $('#rc-opt-2').html('"' + "Who is this guy? Why do you find him wired?" + '"');
             $('#rc-opt-3').html('"' + "Come on, we don't talk like that about other people! He must not be any different from the others in your class." + '"');
             $('#rc-footer-confirm').removeClass('collapse');
-            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-            $('#lc-ans-header').text("Tout à fait!");
-            $('#lc-ans-content').text("L’ouverture et l’information sont la clé d’une communication efficace entre parents et adolescents. En essayant d’en savoir plus sur « le gars bizarre » sans juger Vincent, Éric et Isabelle montreront qu’ils écoutent et qu’ils s’intéressent à ce que leur fils dit et pense. De plus, ils seront informés sur les personnes qui l’entourent à l’école.");
+//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+//            $('#lc-ans-header').text("Tout à fait!");
+//            $('#lc-ans-content').text("L’ouverture et l’information sont la clé d’une communication efficace entre parents et adolescents. En essayant d’en savoir plus sur « le gars bizarre » sans juger Vincent, Éric et Isabelle montreront qu’ils écoutent et qu’ils s’intéressent à ce que leur fils dit et pense. De plus, ils seront informés sur les personnes qui l’entourent à l’école.");
+            $(".ans-right").find("img").hide();
+            $("#l-c-footer-text").hide();
             /* --- Wrong Answer --- */
             //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
             //$('#lc-ans-header').text("that's not the best option.");
@@ -735,9 +845,11 @@ function fnSlideWiseContentManage(slide){
             $('#rc-opt-2').html('"' + "I'm not sure I should tell you about it. I'm sure they'll explain it to you at school." + '"');
             $('#rc-opt-3').html('"' + "It's a drug. If you want, we can talk about it..." + '"');
             $('#rc-footer-confirm').removeClass('collapse');
-            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-            $('#lc-ans-header').html("Ce n’est pas le meilleur choix.");
-            $('#lc-ans-content').html("Faire preuve d’ouverture implique de répondre franchement quand un adolescent pose des questions. De plus, il a été démontré que lorsque les parents parlent de drogue avec leurs enfants, ces derniers risquent moins d’en consommer. Isabelle et Éric devraient donc continuer la discussion.");
+//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+//            $('#lc-ans-header').html("Ce n’est pas le meilleur choix.");
+//            $('#lc-ans-content').html("Faire preuve d’ouverture implique de répondre franchement quand un adolescent pose des questions. De plus, il a été démontré que lorsque les parents parlent de drogue avec leurs enfants, ces derniers risquent moins d’en consommer. Isabelle et Éric devraient donc continuer la discussion.");
+            $(".ans-right").find("img").hide();
+            $("#l-c-footer-text").hide();
             /* --- Wrong Answer --- */
             //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
             //$('#lc-ans-header').text("that's not the best option.");
@@ -789,9 +901,11 @@ function fnSlideWiseContentManage(slide){
             $('#rc-opt-2').text('"' + "Very good.we know you have good judgement and would never take drugs, So don't pay attentaion him." + '"');
             $('#rc-opt-3').text('"' + "You're better off. We don't want you hanging out with this guy nor do we want hear about him anymore." + '"');
             $('#rc-footer-confirm').removeClass('collapse');
-            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-            $('#lc-ans-header').text("Tout à fait!");
-            $('#lc-ans-content').text("En étant bien informés sur les amis et les activités de Vincent, Isabelle et Éric pourront aider leur fils à reconnaître les situations à risque afin d’y faire face de la meilleure façon possible.");
+//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+//            $('#lc-ans-header').text("Tout à fait!");
+//            $('#lc-ans-content').text("En étant bien informés sur les amis et les activités de Vincent, Isabelle et Éric pourront aider leur fils à reconnaître les situations à risque afin d’y faire face de la meilleure façon possible.");
+            $(".ans-right").find("img").hide();
+            $("#l-c-footer-text").hide();
             /* --- Wrong Answer --- */
             //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
             //$('#lc-ans-header').text("that's not the best option.");
@@ -927,9 +1041,11 @@ function fnSlideWiseContentManage(slide){
             $('#rc-opt-2').html('"' + "No problem,you can do whatever you like so long as everybody's gone when we get back!" + '"');
             $('#rc-opt-3').html('"' + "Absolutely not. There's no way we're going to allow a party to happen while we're not here." + '"');
             /* --- Right Answer --- */
-            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-            $('#lc-ans-header').html("Tout à fait!");
-            $('#lc-ans-content').html("En acceptant que leurs ados reçoivent des ami(e)s en leur absence, Isabelle et Éric feront preuve d’une saine tolérance. ");
+//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+//            $('#lc-ans-header').html("Tout à fait!");
+//            $('#lc-ans-content').html("En acceptant que leurs ados reçoivent des ami(e)s en leur absence, Isabelle et Éric feront preuve d’une saine tolérance. ");
+            $(".ans-right").find("img").hide();
+            $("#l-c-footer-text").hide();
             /* --- Wrong Answer --- */
             //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
             //$('#lc-ans-header').text("that's not the best option.");
@@ -964,9 +1080,11 @@ function fnSlideWiseContentManage(slide){
             $('#rc-opt-2').html('"' + "No, you cannot have any alcohol.But it's true that we've never actually speoken about this. As we do for everything else, we're going to take the time to discuss this and establish some ground rules." + '"');
             $('#rc-opt-3').html('"' + "Out of the question.If you have any beer, you'll never be allowed to have any friends over again.Got it?" + '"');
             $('#rc-footer-confirm').removeClass('collapse');
-            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-            $('#lc-ans-header').html("Tout à fait!");
-            $('#lc-ans-content').html("L’encadrement fait partie du contrôle parental. Isabelle et Éric doivent fixer des règles et exiger qu’elles soient respectées. Toutefois, la menace d’une punition excessive est inutile. De plus, des règles et attentes claires en ce qui a trait à l’alcool, au cannabis ou aux autres drogues protègent les jeunes des problèmes de consommation.");
+//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+//            $('#lc-ans-header').html("Tout à fait!");
+//            $('#lc-ans-content').html("L’encadrement fait partie du contrôle parental. Isabelle et Éric doivent fixer des règles et exiger qu’elles soient respectées. Toutefois, la menace d’une punition excessive est inutile. De plus, des règles et attentes claires en ce qui a trait à l’alcool, au cannabis ou aux autres drogues protègent les jeunes des problèmes de consommation.");
+            $(".ans-right").find("img").hide();
+            $("#l-c-footer-text").hide();
             /* --- Wrong Answer --- */
             //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
             //$('#lc-ans-header').text("that's not the best option.");
@@ -1035,9 +1153,11 @@ function fnSlideWiseContentManage(slide){
             $('#rc-opt-2').html('"' + "You always do what you want! We'll never get anywere with you! Wait untill your father gets homeâ€¦" + '"');
             $('#rc-opt-3').html('"' + "Ok,I am in no state to agure,so let's drop it.Don't tell your father and we'll forget it even happened." + '"');
             $('#rc-footer-confirm').removeClass('collapse');
-            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-            $('#lc-ans-header').html("Tout à fait!");
-            $('#lc-ans-content').html("Lorsque c’est possible, Isabelle devrait exercer son autorité parentale par des négociations avec ses ados (style disciplinaire inductif). Mais dans ce cas-ci, une règle a été brisée en toute conscience. La punition (style punitif) est donc acceptable. Isabelle doit cependant éviter l’agressivité ou les menaces (style coercitif), autant que l’absence de discipline (style permissif).");
+//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+//            $('#lc-ans-header').html("Tout à fait!");
+//            $('#lc-ans-content').html("Lorsque c’est possible, Isabelle devrait exercer son autorité parentale par des négociations avec ses ados (style disciplinaire inductif). Mais dans ce cas-ci, une règle a été brisée en toute conscience. La punition (style punitif) est donc acceptable. Isabelle doit cependant éviter l’agressivité ou les menaces (style coercitif), autant que l’absence de discipline (style permissif).");
+            $(".ans-right").find("img").hide();
+            $("#l-c-footer-text").hide();
             /* --- Wrong Answer --- */
             //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
             //$('#lc-ans-header').text("that's not the best option.");
@@ -1182,9 +1302,11 @@ function fnSlideWiseContentManage(slide){
             $('#rc-opt-2').html('"' + "Don't tell me you've become a pothead like your cousion? Honestly, I throught you were smarter than that." + '"');
             $('#rc-opt-3').html('"' + "I would really like us to talk about it.How often do you smoke?" + '"');
             $('#rc-footer-confirm').removeClass('collapse');
-            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-            $('#lc-ans-header').html("Tout à fait!");
-            $('#lc-ans-content').html("Bien que les conflits soient inévitables dans une famille, il faut éviter que ceux-ci dégénèrent au point de blesser, humilier ou faire beaucoup de peine à l’adolescent. Éric devrait tenter d’en savoir plus en évitant de critiquer Alexandra et de lui faire des remarques désagréables. Il ne doit pas laisser aller sa colère au point de dire des insultes, des mots blessants ou des menaces.");
+//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+//            $('#lc-ans-header').html("Tout à fait!");
+//            $('#lc-ans-content').html("Bien que les conflits soient inévitables dans une famille, il faut éviter que ceux-ci dégénèrent au point de blesser, humilier ou faire beaucoup de peine à l’adolescent. Éric devrait tenter d’en savoir plus en évitant de critiquer Alexandra et de lui faire des remarques désagréables. Il ne doit pas laisser aller sa colère au point de dire des insultes, des mots blessants ou des menaces.");
+            $(".ans-right").find("img").hide();
+            $("#l-c-footer-text").hide();
             /* --- Wrong Answer --- */
             //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
             //$('#lc-ans-header').text("that's not the best option.");
@@ -1218,9 +1340,11 @@ function fnSlideWiseContentManage(slide){
             $('#rc-opt-2').html('"' + "Just pot? And after that, just cocaine and then you're just a drug addict! It's just your life after all." + '"');
             $('#rc-opt-3').html('"' + "Hold on, pot is drug like any other and it's bad for you! If you use it regularly, it'll have the, it will have the exact opposite effects from what you described." + '"');
             $('#rc-footer-confirm').removeClass('collapse');
-            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-            $('#lc-ans-header').html("Tout à fait!");
-            $('#lc-ans-content').html("Éric devrait poursuivre la discussion et informer sa fille, sans se mettre en colère. Le cannabis est une drogue et sa consommation doit être prise au sérieux. Ses impacts, notamment sur la mémoire, sur la concentration et sur la motivation entraînent des troubles scolaires importants. Les relations avec les amis et la famille peuvent également être affectées.");
+//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+//            $('#lc-ans-header').html("Tout à fait!");
+//            $('#lc-ans-content').html("Éric devrait poursuivre la discussion et informer sa fille, sans se mettre en colère. Le cannabis est une drogue et sa consommation doit être prise au sérieux. Ses impacts, notamment sur la mémoire, sur la concentration et sur la motivation entraînent des troubles scolaires importants. Les relations avec les amis et la famille peuvent également être affectées.");
+            $(".ans-right").find("img").hide();
+            $("#l-c-footer-text").hide();
             /* --- Wrong Answer --- */
             //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
             //$('#lc-ans-header').text("that's not the best option.");
@@ -1254,9 +1378,11 @@ function fnSlideWiseContentManage(slide){
             $('#rc-opt-2').text('"' + "Clearly, You're not mature enough to find a soluation. For now, you'll come straight home after school to do your homework." + '"');
             $('#rc-opt-3').text('"' + "It's simple-you are going to improve your grades and your mother and I never want to hear about drugs again." + '"');
             $('#rc-footer-confirm').removeClass('collapse');
-            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-            $('#lc-ans-header').text("Tout à fait!");
-            $('#lc-ans-content').text("Quand les intérêts de tout le monde sont compatibles, il vaut mieux utiliser une stratégie de collaboration où tout le monde y gagne. En cas d’urgence, Éric pourrait imposer ses conditions (stratégie de compétition); Alexandra serait alors conciliante (stratégie d’accommodation), mais en sortirait frustrée et donc perdante. Enfin, refuser de discuter du conflit (stratégie d’évitement) amènerait le pire résultat possible.");
+//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+//            $('#lc-ans-header').text("Tout à fait!");
+//            $('#lc-ans-content').text("Quand les intérêts de tout le monde sont compatibles, il vaut mieux utiliser une stratégie de collaboration où tout le monde y gagne. En cas d’urgence, Éric pourrait imposer ses conditions (stratégie de compétition); Alexandra serait alors conciliante (stratégie d’accommodation), mais en sortirait frustrée et donc perdante. Enfin, refuser de discuter du conflit (stratégie d’évitement) amènerait le pire résultat possible.");
+            $(".ans-right").find("img").hide();
+            $("#l-c-footer-text").hide();
             /* --- Wrong Answer --- */
             //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
             //$('#lc-ans-header').text("that's not the best option.");
@@ -1364,6 +1490,7 @@ function fnSlideWiseEffectManage(curTime,singleObj){
             {
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
                     fnDisableNextPrev();
+
                     $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(1000,function(){
                         fnEnableNextPrev();
                     });
@@ -1436,6 +1563,8 @@ function fnSlideWiseConversationManage(curTime,singleObj){
             break;
 
         default:
+            console.log("default section");
+            $(".popup-conversation").html("");
             break;
     }
 };
@@ -1622,4 +1751,5 @@ function tglclass4() {
         }
         fnSlideWiseContentManage($(this).attr("name"));
     })
-}
+};
+

@@ -7933,3 +7933,18 @@ button.close {
     margin: 3% 1.5%;
     line-height: 1.25;
 }
+
+.capsule-model .main-div .content-view-1 .right-content .r-c-main-div .r-c-content .rc-content-option input[type="radio"] + label.ans-right img {
+    /*display: inline-block;*/
+    position: relative;
+    top: -12px;
+    left: -8px;
+}
+
+/*.capsule-model .main-div .content-view-1 .right-content .r-c-main-div .r-c-content .rc-content-option input[type="radio"] + label.ans-right {*/
+    /*background-image: url('../Images/5tiU3H7Gp43_DX112_DY112_CX46_CY56.png') !important;*/
+    /*background-repeat: no-repeat !important;*/
+    /*width: 46px !important;*/
+    /*height: 56px !important;*/
+    /*vertical-align: middle;*/
+/*}*/
