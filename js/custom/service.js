@@ -62,6 +62,7 @@ function startAPT() {
     $('.custom-audio-button').addClass('fade.in');
     $('#btnStart').addClass('content-collapse');
     $('#firstslideheader').addClass('content-collapse');
+    $('#welcome').removeClass('content-collapse');
     $('#slide1').removeClass('image-shadow');
     window.setTimeout(function () {
 
@@ -229,7 +230,7 @@ function fnOverlayImageContentGeneral(imgSrc,popupImageObj){
 function fnSetupContentByTimeGeneral(currTime,popupContentArr){
     for(var intIndex= 0; intIndex<popupContentArr.length;intIndex++){
 
-        /*if(currTime < popupContentArr[intIndex].startingTime){
+        if(currTime < popupContentArr[intIndex].startingTime){
          for(var i=0; i < intIndex; i++ ){
          $("#"+popupContentArr[i].imgId).attr("src",'Images/'+popupContentArr[i].imgName);
          $("#"+popupContentArr[i].imgId).css("opacity","1");
@@ -243,12 +244,12 @@ function fnSetupContentByTimeGeneral(currTime,popupContentArr){
          $("#"+popupContentArr[j].imgId).css("display","none");
 
          }
-         }*/
+         }
         if(currTime < popupContentArr[intIndex].startingTime)
         {
-//            $("#"+popupContentArr[intIndex].imgId).attr("src",'Images/'+popupContentArr[i].imgName);
-//            $("#"+popupContentArr[intIndex].imgId).fadeOut(1000,function(){$(this).removeAttr('style');});
-//            $("#"+popupContentArr[intIndex].imgId)
+            $("#"+popupContentArr[intIndex].imgId).attr("src",'Images/'+popupContentArr[i].imgName);
+            $("#"+popupContentArr[intIndex].imgId).fadeOut(1000,function(){$(this).removeAttr('style');});
+            $("#"+popupContentArr[intIndex].imgId)
         }
     }
 }
@@ -331,31 +332,130 @@ function fnAddCollapseClass(){
     $('.conversation-right').hide();
 }
 
+function fnAddCollapseClassIntroCapsule(){
+
+    $('.custom-audio-button').removeClass('fade.in');
+    $('.custom-audio-button').addClass('fade')
+
+    $("#prev").addClass('fade.in');
+    $("#next").addClass('fade.in')
+    /*---- ---------- Introduction ---------------*/
+    $('#slide-dyn').addClass('content-collapse');
+
+    /*------- Intro Welcome -----------*/
+    $("#slide2").addClass("fade");
+    $("#slide2").removeAttr("style");
+
+    /*---- ---------- Intro Bergeron ------------*/
+    $(".bergeron-header").css("display","none");
+    $("#aside-bergeron").addClass("content-collapse");
+    /*$("#bergeron-footer").addClass('content-collapse');*/
+    $("#dyn-footer").find("span").addClass("content-collapse");
+    $("#dyn-footer").find("span").removeAttr('style');
+    $("#resources-head").addClass("content-collapse");
+
+    $("#psychoactive-head").addClass("content-collapse");
+    $(".tips-header").addClass('content-collapse');
+    $("#Tips4online").addClass('content-collapse');
+    $("#tips-images").find("div").css('opacity','0');
+    $("#tips-images").find("div").css('display','none');
+
+    $(".navigation-help").addClass("content-collapse");
+
+    $("#infrom-navi").addClass("content-collapse");
+
+    $("#transition").addClass("content-collapse");
+}
+
 function fnSlideWiseContentManage(slide){
     switch (slide) {
+        case "introduction":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+
+            $('#slide1').removeClass('content-collapse')
+            $('#slide1').css('display','block')
+            $('#firstslideheader').removeClass('content-collapse');
+            $("#next").removeClass("fade.in");
+            $("#prev").removeClass("fade.in");
+            $("#next").addClass("fade");
+            $("#prev").addClass("fade");
+            $('#btnStart').removeClass('content-collapse');
+            break;
+
+        case "intro_welcome":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $("#welcome").removeClass("content-collapse");
+            $("#slide2").removeClass("fade");
+            break;
+
         case "intro_bergeron":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $('#slide-dyn').removeClass('content-collapse');
+            $("#aside-bergeron").removeClass("content-collapse");
             $("#bergeron-footer").removeClass('content-collapse');
             break;
 
-        case "intro_navigation_help":
-            console.log("intro HELP");
+        case "intro_Tips4online":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $('#slide-dyn').removeClass('content-collapse');
             $("#Tips4online").removeClass('content-collapse');
-            $(".tips-header").addClass('content-collapse');
+            $('.tips-header').removeClass("content-collapse");
+            break;
+
+        case "intro_navigation_help":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $("#infrom-navi").removeClass("content-collapse");
+            $('#slide-dyn').removeClass('content-collapse');
+            $("#Tips4online").removeClass('content-collapse');
+
             $(".navigation-help").removeClass('content-collapse');
 //            $("#tips-images").addClass('content-collapse');
             $('#tips-images').find("div").css('opacity','0');
             break;
-
+        case "intro_psychoactive_head":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $('#slide-dyn').removeClass('content-collapse');
+            $("#psychoactive-head").removeClass("content-collapse");
+            break;
         case "intro_transition":
             //show next button
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $("#transition").removeClass("content-collapse");
+            $('#slide-dyn').removeClass('content-collapse');
             $("#next").removeClass('content-collapse');
             $(".playa").css('width','85%');
             break;
 
         case "intro_menu":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
             //hide next button
-            $("#next").addClass('content-collapse');
+            $("#next").addClass('fade');
+            $("#prev").removeClass("content-collapse");
             $(".playa").css('width','93%');
+            $('#slide-dyn').removeClass('content-collapse');
             $("#slide-capsule1").addClass("collapse");
             $('#slide-menu').removeClass('content-collapse');
             $('#slide-menu').removeClass('collapse');
@@ -391,6 +491,7 @@ function fnSlideWiseContentManage(slide){
             $('.fw-header').hide();
             $('.fw-content').hide();
             $('.fw-footer').hide();
+
             break;
 
         case "capsule1_slide2":
@@ -1367,9 +1468,12 @@ function fnSlideWiseEffectManage(curTime,singleObj){
             {
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
                     fnDisableNextPrev();
+
                     $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(1000,function(){
                         fnEnableNextPrev();
                     });
+                    $('.fw-header').css('display','inline-block');
+
                 }
             }
             for(var intIndex=0;intIndex<getSlideWiseData.popupImg.length;intIndex++)
@@ -1570,4 +1674,5 @@ function tglclass4() {
         }
         fnSlideWiseContentManage($(this).attr("name"));
     })
-}
+};
+
