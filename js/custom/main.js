@@ -378,6 +378,7 @@ $(document).ready(function(){
                 fnSetupContentByTimeGeneral(getAudioCurrentTime,imgArr);
             }
         }
+        fnSlideWiseEffectRemoveOnEvent(getAudioCurrentTimeInSec,getSingleObjOfJSON);
         fnConversationRemoveOnEvent(getAudioCurrentTimeInSec,getSingleObjOfJSON);
         /*Next Indicator hide*/
         if(audio.currentTime < (duration-2)){
@@ -401,7 +402,7 @@ $(document).ready(function(){
 
     $("#audio_sliderID").on('slide',function(_event){
         if(!isSlideFlag) {
-//            fnResetContentOnSlide(_event.value);
+            fnResetContentOnSlide(_event.value);
             isSlideFlag = true;
             curValue = _event.value;
         }
