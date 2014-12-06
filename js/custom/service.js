@@ -1424,7 +1424,7 @@ function fnSlideWiseContentManage(slide){
             $('#rc-content-text').html("<span class='font-med f-w-med line-h-125 in-block'>Les conflits sont inévitables dans une famille. Ce n’est pas leur fréquence qui est problématique, mais plutôt le degré de frustration et les sentiments de colère ou d’injustice qu’ils créent chez l’adolescent.<br /><br />Alexandra devait comprendre que la consommation de cannabis n’était pas une solution à ses problèmes scolaires. En privilégiant une stratégie de collaboration et en évitant de blesser sa fille dans le conflit, Éric lui a montré qu’elle pouvait compter sur sa famille pour régler ses difficultés.</span>");
             $('#rc-footer-span').html("");
             $('#rc-footer-text').html("<span class='text-uppercase f-w-med'>Et vous?</span>");
-            $('#rc-footer-text').html("<ul class='f-w-med'><li><span>Quelle est votre stratégie de résolution de conflits?</span></li></ul>");
+            $('#rc-footer-text').append("<ul class='f-w-med'><li><span>Quelle est votre stratégie de résolution de conflits?</span></li></ul>");
             break;
 
         case "capsule4_slide11":
@@ -1439,9 +1439,9 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').html("");
             $('.fw-content').addClass('cap1-last-slide');
             $('.fw-content').html("<div><span class='orange text-uppercase font-x-lg'>Félicitations!</span></div>");
-            $('.fw-content').html("<div><span class='text-uppercase font-med'>En terminant cette capsule, vous avez obtenu une nouvelle fiche d’information!<br /><br />Consultez-les, ainsi que le tableau des croyances en matière de psychotropes, pour compléter votre formation :</span></div>");
-            $('.fw-content').html("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>information sheet</span></th><th><span class='text-uppercase orange'>common beliefs and misconceptions covered in the capsule</span></th></tr></thead><tbody><tr><td class='carousel'><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(click to consult)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>CONFLICT RESOLUTION STRATEGIS</span></div></td><td><span>Go to the next screen to return to the main menu.<br />4-5-9-11-16-17-18-19-21</span></td></tr><tr><td><span>The information sheet is now in the Resources tab.</span></td><td><span>Consult the chart in the Resources tab in order to see the arguments used against these misconceptions.</span></td></tr></tbody></table>");
-            $('.fw-content').html("<span class='font-med nxt-page-msg'>Passez à l’écran suivant pour retourner au menu principal.</span>");
+            $('.fw-content').append("<div><span class='text-uppercase font-med'>En terminant cette capsule, vous avez obtenu une nouvelle fiche d’information!<br /><br />Consultez-les, ainsi que le tableau des croyances en matière de psychotropes, pour compléter votre formation :</span></div>");
+            $('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>information sheet</span></th><th><span class='text-uppercase orange'>common beliefs and misconceptions covered in the capsule</span></th></tr></thead><tbody><tr><td class='carousel'><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(click to consult)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>CONFLICT RESOLUTION STRATEGIS</span></div></td><td><span>Go to the next screen to return to the main menu.<br />4-5-9-11-16-17-18-19-21</span></td></tr><tr><td><span>The information sheet is now in the Resources tab.</span></td><td><span>Consult the chart in the Resources tab in order to see the arguments used against these misconceptions.</span></td></tr></tbody></table>");
+            $('.fw-content').append("<span class='font-med nxt-page-msg'>Passez à l’écran suivant pour retourner au menu principal.</span>");
             $('.cust-span-em').css('font-size', '60%');
             break;
 
