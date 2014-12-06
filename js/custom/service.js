@@ -110,7 +110,7 @@ function fnOverlayImageContentOnWelcomeSlide(imgSrc,data){
 };
 
 function fnOverlayContentOnBergeronSlide(data){
-
+    console.log("Call on update");
     $('.'+data.contentClass).css('opacity',"1");
 
     $('.'+data.contentClass).fadeTo(1000, 0, function () {
@@ -221,6 +221,7 @@ function fnOverlayImageContentGeneral(imgSrc,popupImageObj){
 //    $('#'+popupImageObj.imgId).css('display','block');
     //$('#'+popupImageObj.imgId).css('opacity','1');
     $('#'+popupImageObj.imgId).removeAttr('style');
+    $('#'+popupImageObj.imgId).css('opacity','1');
     $('#'+popupImageObj.imgId).fadeTo(1000, 0, function () {
         $('#'+popupImageObj.imgId).attr('src',imgSrc+popupImageObj.imgName);
         $('#'+popupImageObj.imgId).removeClass('content-collapse');

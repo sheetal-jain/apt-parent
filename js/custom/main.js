@@ -286,7 +286,6 @@ $(document).ready(function(){
         $("#audio_sliderID").attr('data-slider-value',getAudioCurrentTimeInSec);
         if(getSingleObjOfJSON.popupContent != undefined && getSingleObjOfJSON.popupContent.length > 0)
         {
-//            nextStartTime = getSingleObjOfJSON.popupContent[0].startingTime;
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupContent.length;intIndex++)
             {
 
@@ -443,6 +442,9 @@ $(document).ready(function(){
                     startAPT();
                 }
                 else{
+                    isAudioFlag = false;
+                    isImgFlag = false;
+                    nextStartTime = "0";
                     $('.custom-audio-button').removeClass('fade');
                     $('.custom-audio-button').addClass('fade.in');
                     $('#slide1').addClass('content-collapse');
