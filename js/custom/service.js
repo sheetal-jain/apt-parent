@@ -1522,6 +1522,49 @@ function fnSlideWiseEffectManage(curTime,singleObj){
     }
 };
 
+function fnSlideWiseEffectRemoveOnEvent(curTime,singleObj){
+    var getSlideWiseData = singleObj;
+    switch (getSlideWiseData.name) {
+        case "capsule1_slide1":
+        case "capsule1_slide7":
+        case "capsule1_slide9":
+        case "capsule1_slide12":
+        case "capsule2_slide1":
+        case "capsule3_slide1":
+        case "capsule4_slide1":
+        case "capsule3_slide8":
+            for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
+            {
+                if(getSlideWiseData.popupContent[intIndex].startingTime < curTime  && curTime <= getSlideWiseData.popupContent[intIndex].endingTime){
+                    fnDisableNextPrev();
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(1000,function(){
+                        fnEnableNextPrev();
+                    });
+                    $('.fw-header').css('display','inline-block');
+                }
+                else{
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).hide();
+                }
+            }
+            for(var intIndex=0;intIndex<getSlideWiseData.popupImg.length;intIndex++)
+            {
+                if(getSlideWiseData.popupImg[intIndex].startingTime <= curTime  && curTime <= getSlideWiseData.popupImg[intIndex].endingTime){
+                    fnDisableNextPrev();
+                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeIn(1000,function(){
+                        fnEnableNextPrev();
+                    });
+                }
+                else{
+                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(1000);
+                }
+            }
+            break;
+
+        default:
+            break;
+    }
+};
+
 /*--------------Slide wise Conversation manage---------*/
 function fnSlideWiseConversationManage(curTime,singleObj){
     var getSlideWiseData = singleObj;
@@ -1569,7 +1612,6 @@ function fnSlideWiseConversationManage(curTime,singleObj){
             break;
 
         default:
-            console.log("default section");
             $(".popup-conversation").html("");
             break;
     }
