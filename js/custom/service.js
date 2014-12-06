@@ -250,31 +250,6 @@ function fnOverlayImageContentGeneral(imgSrc,popupImageObj){
     }).fadeTo(500, 1);*/
 }
 
-<<<<<<< HEAD
-function fnSetupContentByTimeGeneral(currTime,popupContentArr){
-    for(var intIndex= 0; intIndex<popupContentArr.length;intIndex++){
-
-        if(currTime < popupContentArr[intIndex].startingTime){
-         for(var i=0; i < intIndex; i++ ){
-         $("#"+popupContentArr[i].imgId).attr("src",'Images/'+popupContentArr[i].imgName);
-         $("#"+popupContentArr[i].imgId).css("opacity","1");
-//         $("#"+popupContentArr[i].imgId).css("display","inline");
-         //                break;
-         }
-         }else{
-         for(var j= intIndex; j< popupContentArr.length; j++){
-         $("#"+popupContentArr[j].imgId).removeAttr("src");
-         $("#"+popupContentArr[j].imgId).css("opacity","0");
-         $("#"+popupContentArr[j].imgId).css("display","none");
-
-         }
-         }
-        if(currTime < popupContentArr[intIndex].startingTime)
-        {
-            $("#"+popupContentArr[intIndex].imgId).attr("src",'Images/'+popupContentArr[i].imgName);
-            $("#"+popupContentArr[intIndex].imgId).fadeOut(1000,function(){$(this).removeAttr('style');});
-            $("#"+popupContentArr[intIndex].imgId)
-=======
 function fnOverlayImageContentByTimeGeneral(curTime,imgArr){
     for(var intIndex = 0;intIndex<imgArr.length;intIndex++)
     {
@@ -298,7 +273,6 @@ function fnOverlayImageContentByTimeGeneral(curTime,imgArr){
             $('#'+imgArr[intIndex].imgId).addClass('content-collapse');
             $('#'+imgArr[intIndex].imgId).find('img').removeAttr('src');
             $('#'+imgArr[intIndex].imgId).find('span').text("");
->>>>>>> 40d6099e50253c42b8965b1c65ce862dd77f4bae
         }
     }
 };
@@ -321,11 +295,7 @@ function fnAddOrRemoveElementClass(){
 
 
 function fnAddCollapseClass(){
-<<<<<<< HEAD
-=======
     stTime = "";
-    $(".popup-conversation").html("");
->>>>>>> 40d6099e50253c42b8965b1c65ce862dd77f4bae
     $(".popup-conversation").removeAttr("style");
     $(".popup-conversation").html("");
 
@@ -1541,6 +1511,7 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClassIntroCapsule();
             $('.fw-content').removeAttr("style");
             $('#slide1').addClass("content-collapse");
+            $('#slide1').removeAttr('style');
             $('#slide1').css("dispaly","none");
 
             $('.playa').css("width",'85%');
@@ -1790,35 +1761,7 @@ function fnCreatePopupOnEvent(popupClass,content,position,startTime){
     $('#' + popupPos).parent().parent().css('left', position.left + 'px');
     $('#' + popupPos).find('span').text(content);
 };
-function resource(){
-var capw = $('.image-shadow').width();
-var caph = $('.image-shadow').height();
-//alert(capw + ' - ' + caph);
-$('.capsule-model').css('width', capw);
-$('.capsule-model').css('height', caph);
 
-$('#welcome').addClass('content-collapse');
-$('#slide1').addClass('content-collapse');
-$('#slide2').addClass('collapse');
-$('#slide-dyn').removeClass('collapse');
-$('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
-//$('#bergeron-footer').removeClass('collapse');
-$('#footer-next-indicator').removeClass('collapse');
-// --- Collapse --- //
-$('.tips-header').addClass('collapse');
-$('#tips-images').addClass('collapse');
-// --- Show --- //
-$('.navigation-help').addClass('collapse');
-$('#infrom-navi').addClass('collapse');
-$('#btnstart').addClass('collapse');
-$('#slide-capsule1').removeClass('collapse');
-$('.full-width-content').removeClass('collapse');
-$('.fw-content').removeClass('collapse');
-$('.fw-header').addClass('collapse');
-$('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>resources</span><span class='in-block font-lg'>Click the information sheets and the common beliefs and misconceptions documents to consult them.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>common beliefs and misconceptions discussed in the capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>common beliefs and misconceptions documents</span></div></div><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Psychoactive substances</span></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>Infromation sheets :</span></li></ul><div><div class='res-box'><span class='font-sm'>Meaningful relationship</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>communicate effectively</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>parenting practices</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>conflict resolution</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Click on Next to continue.</span></div></div>");
-}
-
-<<<<<<< HEAD
 function help() {
     var scrw = $(window).width();
     $('#welcome').addClass('content-collapse');
@@ -1853,12 +1796,10 @@ function help() {
     $('#infrom-navi').removeClass('content-collapse');
     $('#btnstart').addClass('content-collapse');
     $('#help-header').html("<span class='text-upper'>Here are the main elements of your interactive environment.</span>");
-=======
+}
+
 function resource() {
     fnSlideWiseContentManage("resource")
-
-
->>>>>>> 40d6099e50253c42b8965b1c65ce862dd77f4bae
 }
 
 
