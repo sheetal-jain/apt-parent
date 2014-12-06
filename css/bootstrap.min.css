@@ -426,20 +426,37 @@ audio {
 }
 
 #bergeron-footer {
-    margin-left: 10%;
+    position: absolute;
+    bottom: -25px;
+    left: -18px;
+    width: 100%;
 }
 
-    #bergeron-footer span {
-        background-color: rgba(0,136,140,0.7);
-        padding: 20px 15px;
-        text-transform: uppercase;
-        margin-right: 1.5%;
-        font-size: 115%;
-    }
+#bergeron-footer span {
+    position: absolute;
+    bottom: -13px;
+    background-color: rgba(0,136,140,0.7);
+    padding: 20px 15px;
+    text-transform: uppercase;
+    margin-right: 1.5%;
+    font-size: 115%;
+}
 
-        #bergeron-footer span:last-child {
-            margin-left: 2.5%;
-        }
+#bergeron-footer #bergeron-name-1 {
+    left: 10%;
+}
+
+#bergeron-footer #bergeron-name-2 {
+    left: 23%;
+}
+
+#bergeron-footer #bergeron-name-3 {
+    left: 36%;
+}
+
+#bergeron-footer #bergeron-name-4 {
+    left: 48%;
+}
 
 #footer-next-indicator {
     position: absolute;

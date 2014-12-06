@@ -282,7 +282,7 @@ $(document).ready(function(){
     audio.addEventListener('timeupdate',function(event){
         getAudioCurrentTime = this.currentTime;
         getAudioCurrentTimeInSec = Math.floor(this.currentTime);
-        slider.setValue(Math.round(this.currentTime));
+        slider.setValue(this.currentTime);
         $("#audio_sliderID").attr('data-slider-value',getAudioCurrentTimeInSec);
         if(getSingleObjOfJSON.popupContent != undefined && getSingleObjOfJSON.popupContent.length > 0)
         {
