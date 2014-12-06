@@ -43,34 +43,35 @@
         "name":"intro_bergeron",
         "imgName" : "69oYqVh5uf0_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6l4Qheq8nL6_22050_80.mp3",""],
-        "popupContent":[{
-            "contentId":"",
-            "contentClass":"bergeron-header",
-            "startingTime":"1",
-            "endingTime":"20"
-        },
+        "popupContent":[
             {
                 "contentId":"",
-                "contentClass":"michael",
+                "contentClass":"bergeron-header",
+                "startingTime":"1",
+                "endingTime":"20"
+            },
+            {
+                "contentId":"",
+                "contentClass":"john",
                 "startingTime":"5",
                 "endingTime":"20"
             },
             {
                 "contentId":"",
                 "contentClass":"jennifer",
-                "startingTime":"7",
+                "startingTime":"6",
                 "endingTime":"20"
             },
             {
                 "contentId":"",
-                "contentClass":"john",
-                "startingTime":"11",
+                "contentClass":"michael",
+                "startingTime":"10",
                 "endingTime":"20"
             },
             {
                 "contentId":"",
                 "contentClass":"emma",
-                "startingTime":"13",
+                "startingTime":"11",
                 "endingTime":"20"
             }],
         "popupImg":[]

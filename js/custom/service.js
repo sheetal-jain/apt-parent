@@ -110,12 +110,14 @@ function fnOverlayImageContentOnWelcomeSlide(imgSrc,data){
 };
 
 function fnOverlayContentOnBergeronSlide(data){
-    console.log("Call on update");
-    $('.'+data.contentClass).css('opacity',"1");
-
-    $('.'+data.contentClass).fadeTo(1000, 0, function () {
+    $('.'+data.contentClass).fadeIn('1500',function(){
+        $('.'+data.contentClass).css('opacity',"1");
         $('.'+data.contentClass).removeClass('content-collapse');
-    }).fadeTo(500, 1);
+    });
+
+//    $('.'+data.contentClass).fadeTo(1000, 0, function () {
+//      $('.'+data.contentClass).removeClass('content-collapse');
+//    }).fadeTo(500, 1);
 };
 
 function fnOverlayImageContentOnGatherResourcesSlide(data){
@@ -139,7 +141,7 @@ function fnSetupContentByTimeOnWelcomeSlide(curTime,imgArr)
         fnFadeEffectRemove(imgArr[3].imgContentId);
 
     }
-    else if(curTime > imgArr[0].startingTime && curTime < imgArr[0].endingTime)
+    else if(curTime >= imgArr[0].startingTime && curTime <= imgArr[0].endingTime)
     {
         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[0]);
 
@@ -147,7 +149,7 @@ function fnSetupContentByTimeOnWelcomeSlide(curTime,imgArr)
         fnFadeEffectRemove(imgArr[2].imgContentId);
         fnFadeEffectRemove(imgArr[3].imgContentId);
     }
-    else if(curTime > imgArr[1].startingTime && curTime < imgArr[1].endingTime)
+    else if(curTime >= imgArr[1].startingTime && curTime <= imgArr[1].endingTime)
     {
         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[0]);
         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[1]);
@@ -156,7 +158,7 @@ function fnSetupContentByTimeOnWelcomeSlide(curTime,imgArr)
         fnFadeEffectRemove(imgArr[3].imgContentId);
 
     }
-    else if(curTime > imgArr[2].startingTime && curTime < imgArr[2].endingTime)
+    else if(curTime >= imgArr[2].startingTime && curTime <= imgArr[2].endingTime)
     {
         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[0]);
         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[1]);
@@ -164,7 +166,7 @@ function fnSetupContentByTimeOnWelcomeSlide(curTime,imgArr)
 
         fnFadeEffectRemove(imgArr[3].imgContentId);
     }
-    else if(curTime > imgArr[3].startingTime && curTime < imgArr[3].endingTime)
+    else if(curTime >= imgArr[3].startingTime && curTime <= imgArr[3].endingTime)
     {
         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[0]);
         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[1]);
@@ -180,7 +182,7 @@ function fnFadeEffectRemove(_id){
 //        $(this).removeClass('fade.in');
 //        $(this).addClass('fade');
 //    });
-    $("#"+_id).html("");
+    $("#"+_id).hide();
 };
 
 
@@ -226,6 +228,7 @@ function fnOverlayImageContentGeneral(imgSrc,popupImageObj){
         $('#'+popupImageObj.imgId).attr('src',imgSrc+popupImageObj.imgName);
         $('#'+popupImageObj.imgId).removeClass('content-collapse');
     }).fadeTo(500, 1);
+
 }
 
 function fnSetupContentByTimeGeneral(currTime,popupContentArr){
@@ -359,8 +362,9 @@ function fnAddCollapseClassIntroCapsule(){
     $("#psychoactive-head").addClass("content-collapse");
     $(".tips-header").addClass('content-collapse');
     $("#Tips4online").addClass('content-collapse');
+    $("#tips-images").find("div").removeAttr("style");
     $("#tips-images").find("div").css('opacity','0');
-    $("#tips-images").find("div").css('display','none');
+//    $("#tips-images").find("div").css('display','none');
 
     $(".navigation-help").addClass("content-collapse");
 
@@ -1719,8 +1723,12 @@ function resource() {
     $('.fw-content').append("<span class='orange text-upper'>resources</span>");
 }
 
-
-
+function refreshContentOnReload(){
+    $("#tips-images").find('div').addClass("content-collapse");
+    $("#tips-images").find('div').css("opacity",'0').css('display','none');
+    $("#tips-images").find('img').addClass("content-collapse");
+    $("#tips-images").find('img').css("opacity",'0');
+}
 
 function tglclass() {
     //alert("toggle-introduction")

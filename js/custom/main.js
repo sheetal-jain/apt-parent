@@ -41,16 +41,21 @@ $(document).ready(function(){
                     curIdx = i;
                 }
                 else if(current_page_cookie == 'intro_welcome'){
+                    isImgFlag = false;
+                    isAudioFlag = false;
                     $('#slide-dyn').addClass('content-collapse');
                     $('#slide2').css('display','none');
                     $('#slide1').attr('src', 'Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png');
                     $('#slide1').css('display','inline');
                     showLoader('#slide1');
                     setCollapseClassToScreen(obj.name);
+                    getTopicWiseData(i);
                     curIdx = i;
                     startAPT();
                 }
                 else{
+                    isImgFlag = false;
+                    isAudioFlag = false;
                     $('.custom-audio-button').removeClass('fade');
                     $('.custom-audio-button').addClass('fade.in');
                     $('#slide1').addClass('content-collapse');
@@ -286,35 +291,42 @@ $(document).ready(function(){
         $("#audio_sliderID").attr('data-slider-value',getAudioCurrentTimeInSec);
         if(getSingleObjOfJSON.popupContent != undefined && getSingleObjOfJSON.popupContent.length > 0)
         {
+            if(getSingleObjOfJSON.name == "intro_welcome"){
+                nextStartTime = getSingleObjOfJSON.popupContent[0].startingTime;
+            }
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupContent.length;intIndex++)
             {
-
                 if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime && !isAudioFlag)
                 {
-//                    if(getSingleObjOfJSON.name == "intro_bergeron" ){
+                    console.log(isAudioFlag);
+//                    if(getSingleObjOfJSON.name == "intro_bergeron"){
                     fnOverlayContentOnBergeronSlide(getSingleObjOfJSON.popupContent[intIndex]);
                     if(getSingleObjOfJSON.popupContent[intIndex+1] != undefined){
-                        nextStartTime = getSingleObjOfJSON.popupContent[intIndex+1].startingTime;
-                    }
+                            nextStartTime = getSingleObjOfJSON.popupContent[intIndex+1].startingTime;
+                            console.log(nextStartTime);
+                            isAudioFlag = true;
+                        }
 //                    }
-
                     isAudioFlag = true;
                 }
-                if( getAudioCurrentTimeInSec == (nextStartTime-1)  )
+
+                if(getAudioCurrentTimeInSec == (nextStartTime-1))
                 {
                     isAudioFlag = false;
                 }
             }
 
         }
-
         if(getSingleObjOfJSON.popupImg != undefined && getSingleObjOfJSON.popupImg.length > 0)
         {
-//            nextImgStartTime = getSingleObjOfJSON.popupImg[0].startingTime;
+            if(getSingleObjOfJSON.name == "intro_welcome"){
+                nextImgStartTime = getSingleObjOfJSON.popupImg[0].startingTime;
+            }
             for(var intIndex = 0;intIndex<getSingleObjOfJSON.popupImg.length;intIndex++)
             {
                 if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].startingTime && !isImgFlag)
                 {
+                    console.log("Inside intro function");
                     if(getSingleObjOfJSON.name == "intro_welcome") {
                         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, getSingleObjOfJSON.popupImg[intIndex]);
                     }
@@ -348,11 +360,33 @@ $(document).ready(function(){
         }
 
     },false);
-
+    /*---------------Reset slide Content on Audio Start------------------*/
+    $("#btnPlay").click(function(){
+        if(Math.floor(audio.currentTime) == Math.floor(audio.duration))
+        {
+            $(".popup-conversation").html("");
+            isAudioFlag = false
+            isImgFlag = false;
+            fnResetContentOnSlide(0);
+            if(getSingleObjOfJSON.name == "intro_bergeron"){
+                refreshPopupContent(objAPT_JSON[curIdx].popupContent);
+            }else if(getSingleObjOfJSON.name == "intro_Tips4online"){
+                refreshPopupContent(objAPT_JSON[curIdx].popupContent);
+            }
+//            refreshContentOnReload();
+        }
+    });
     /*-------------- Reset Slide content on Audio Reload ----------------*/
     $("#replayBtn").click(function(){
         $(".popup-conversation").html("");
+        isAudioFlag = false
+        isImgFlag = false;
         fnResetContentOnSlide(0);
+        if(getSingleObjOfJSON.name == "intro_bergeron"){
+            refreshPopupContent(objAPT_JSON[curIdx].popupContent);
+        }else if(getSingleObjOfJSON.name == "intro_Tips4online"){
+            refreshPopupContent(objAPT_JSON[curIdx].popupContent);
+        }
     });
 
     //when sliding or replay the content and effect mange
