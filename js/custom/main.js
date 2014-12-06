@@ -416,9 +416,11 @@ $(document).ready(function(){
         jQuery.each(objAPT_JSON,function(i,obj){
             if(obj.name == slide){
                 if(slide == 'introduction'){
-                    fnAddCollapseClass();
+
                     $('#slide1').attr('src',imgSrcBase+obj.imgName);
                     fnSlideWiseContentManage(slide);
+                    $(".popup-conversation").css("display","none");
+                    $(".popup-conversation").html("");
                     showLoader('#slide1');
                     $(".playa").removeAttr("style");
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
@@ -426,12 +428,16 @@ $(document).ready(function(){
                     curIdx = i;
                 }
                 else if(slide == 'intro_welcome'){
-                    $('#slide-dyn').addClass('content-collapse');
-                    $('#slide2').css('display','none');
+//                    $('#slide-dyn').addClass('content-collapse');
+//                    $('#slide2').css('display','none');
                     $('#slide1').attr('src', 'Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png');
                     $('#slide1').css('display','inline');
+                    fnSlideWiseContentManage(slide);
+                    $(".popup-conversation").css("display","none");
+                    $(".popup-conversation").html("");
                     showLoader('#slide1');
                     setCollapseClassToScreen(obj.name);
+
                     changeCookieValue(slide);
                     curIdx = i;
                     startAPT();

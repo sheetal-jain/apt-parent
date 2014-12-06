@@ -270,6 +270,8 @@ function fnAddOrRemoveElementClass(){
 
 
 function fnAddCollapseClass(){
+    $(".popup-conversation").html("");
+    $(".popup-conversation").removeAttr("style");
     $('#slide-menu').addClass('collapse');
     $('#rc-content-text').addClass('collapse');
     $('.content-view-1').addClass('collapse');
@@ -326,13 +328,16 @@ function fnAddCollapseClass(){
     $('#conv4-slide9').addClass('collapse');
 
     /*-------------- conversation popup hide-----------*/
-    $('.popup-conversation').removeClass('collapse');
+
+     fnAddCollapseClassIntroCapsule();
+    $('#slide-dyn').removeClass('content-collapse');
 }
 
 function fnAddCollapseClassIntroCapsule(){
     $('.custom-audio-button').removeClass('fade.in');
     $('.custom-audio-button').addClass('fade')
-
+    $("#prev").removeClass('fade');
+    $("#next").removeClass('fade')
     $("#prev").addClass('fade.in');
     $("#next").addClass('fade.in')
     /*---- ---------- Introduction ---------------*/
@@ -362,7 +367,6 @@ function fnAddCollapseClassIntroCapsule(){
 
     $("#transition").addClass("content-collapse");
 
-    $('.popup-conversation').addClass('collapse');
 }
 
 function fnSlideWiseContentManage(slide){
@@ -397,6 +401,8 @@ function fnSlideWiseContentManage(slide){
             $("#next").removeClass("fade");
             $("#prev").removeClass("fade");
             $('#slide-dyn').removeClass('content-collapse');
+            $(".bergeron-header").removeAttr("style");
+            $(".bergeron-header").css("opacity","0");
             $("#aside-bergeron").removeClass("content-collapse");
             $("#bergeron-footer").removeClass('content-collapse');
             break;
