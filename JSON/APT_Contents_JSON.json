@@ -48,31 +48,31 @@
                 "contentId":"",
                 "contentClass":"bergeron-header",
                 "startingTime":"1",
-                "endingTime":"20"
+                "endingTime":"23"
             },
             {
                 "contentId":"",
                 "contentClass":"john",
                 "startingTime":"5",
-                "endingTime":"20"
+                "endingTime":"23"
             },
             {
                 "contentId":"",
                 "contentClass":"jennifer",
                 "startingTime":"6",
-                "endingTime":"20"
+                "endingTime":"23"
             },
             {
                 "contentId":"",
                 "contentClass":"michael",
                 "startingTime":"10",
-                "endingTime":"20"
+                "endingTime":"23"
             },
             {
                 "contentId":"",
                 "contentClass":"emma",
                 "startingTime":"11",
-                "endingTime":"20"
+                "endingTime":"23"
             }],
         "popupImg":[]
     },
@@ -102,46 +102,16 @@
         "name":"intro_Tips4online",
         "imgName" : "5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png",
         "audioName":["5vkMr75bsLP_22050_80.mp3",""],
-        "popupContent":[
+        "popupContent":[],
+        "popupImg":[
             {
-                "contentId":"",
-                "contentClass":"slide-content-1",
+                "imgName":"6lavtVoHLVD_DX542_DY542_CX172_CY271.png",
                 "startingTime":"5",
-                "endingTime":"24"
+                "endingTime":"24",
+                "imgId":"slide-content-1",
+                "imgContentId":"slide-content-1",
+                "imgContent":"LE PROGRAMME COMPORTE UNE NARRATION. VOUS DEVEZ DONC RÉGLER LE VOLUME DE VOTRE ORDINATEUR."
             },
-            {
-                "contentId":"",
-                "contentClass":"slide-content-2",
-                "startingTime":"12",
-                "endingTime":"24"
-            },
-            {
-                "contentId":"",
-                "contentClass":"slide-content-3",
-                "startingTime":"14",
-                "endingTime":"24"
-            },
-            {
-                "contentId":"",
-                "contentClass":"slide-content-4",
-                "startingTime":"20",
-                "endingTime":"24"
-            },
-            {
-                "contentId":"",
-                "contentClass":"slide-content-5",
-                "startingTime":"23",
-                "endingTime":"24"
-            }
-        ],
-        "popupImg":[{
-            "imgName":"6lavtVoHLVD_DX542_DY542_CX172_CY271.png",
-            "startingTime":"5",
-            "endingTime":"24",
-            "imgId":"slide-content-1",
-            "imgContentId":"slide-content-1",
-            "imgContent":"LE PROGRAMME COMPORTE UNE NARRATION. VOUS DEVEZ DONC RÉGLER LE VOLUME DE VOTRE ORDINATEUR."
-        },
             {
                 "imgName":"5rU7ZnG90Fx_DX542_DY542_CX172_CY271.png",
                 "startingTime":"12",

@@ -1,6 +1,7 @@
 /**
  * Created by VJ on 25/11/14.
  */
+var stTime = "";
 function fnGetDataFromServer(url)
 {
     return $.ajax({
@@ -127,7 +128,6 @@ function fnOverlayImageContentOnGatherResourcesSlide(data){
         $('#nested-slide4-1').attr('src',"Images/6qB0JuNQzGI_DX1088_DY1088_CX544_CY303.jpg");
         $('#nested-slide4-1').removeClass('content-collapse');
     }).fadeTo(500, 1);
-
 };
 
 function fnSetupContentByTimeOnWelcomeSlide(curTime,imgArr)
@@ -175,6 +175,22 @@ function fnSetupContentByTimeOnWelcomeSlide(curTime,imgArr)
         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, imgArr[3]);
     }
 }
+function fnSetupContentByTimeOnBergeronSlide(curTime,contArr)
+{
+    for(var intIndex = 0;intIndex<contArr.length;intIndex++)
+    {
+        var contClass = '.'+contArr[intIndex].contentClass;
+        if(contArr[intIndex].startingTime <= curTime  && curTime <= contArr[intIndex].endingTime){
+            $(contClass).fadeIn('1500',function(){
+                $(contClass).css('opacity',"1");
+                $(contClass).removeClass('content-collapse');
+            });
+        }
+        else{
+            $(contClass).hide();
+        }
+    }
+};
 
 function fnFadeEffectRemove(_id){
 //    $("#"+_id).fadeOut(1000, function() {
@@ -221,17 +237,20 @@ function loadNextPageImages(nextObj){
 }
 
 function fnOverlayImageContentGeneral(imgSrc,popupImageObj){
-//    $('#'+popupImageObj.imgId).css('display','block');
-    //$('#'+popupImageObj.imgId).css('opacity','1');
-    $('#'+popupImageObj.imgId).removeAttr('style');
-    $('#'+popupImageObj.imgId).css('opacity','1');
-    $('#'+popupImageObj.imgId).fadeTo(1000, 0, function () {
-        $('#'+popupImageObj.imgId).attr('src',imgSrc+popupImageObj.imgName);
-        $('#'+popupImageObj.imgId).removeClass('content-collapse');
-    }).fadeTo(500, 1);
+    var imgId = '#'+popupImageObj.imgId;
+    $(imgId).removeAttr('style');
+    $(imgId).find('img').attr('src',imgSrc+popupImageObj.imgName);
+    $(imgId).find('span').text(popupImageObj.imgContent);
+    $(imgId).removeClass('content-collapse');
 
+    /*$(imgId).fadeTo(1000,0,function(){
+        $(imgId).find('img').attr('src',imgSrc+popupImageObj.imgName);
+        $(imgId).find('span').text(popupImageObj.imgContent);
+        $(imgId).removeClass('content-collapse');
+    }).fadeTo(500, 1);*/
 }
 
+<<<<<<< HEAD
 function fnSetupContentByTimeGeneral(currTime,popupContentArr){
     for(var intIndex= 0; intIndex<popupContentArr.length;intIndex++){
 
@@ -255,9 +274,35 @@ function fnSetupContentByTimeGeneral(currTime,popupContentArr){
             $("#"+popupContentArr[intIndex].imgId).attr("src",'Images/'+popupContentArr[i].imgName);
             $("#"+popupContentArr[intIndex].imgId).fadeOut(1000,function(){$(this).removeAttr('style');});
             $("#"+popupContentArr[intIndex].imgId)
+=======
+function fnOverlayImageContentByTimeGeneral(curTime,imgArr){
+    for(var intIndex = 0;intIndex<imgArr.length;intIndex++)
+    {
+        if(imgArr[intIndex].startingTime <= curTime  && curTime <= imgArr[intIndex].endingTime){
+            var imgId = '#'+imgArr.imgId;
+            var imgPath = "Images/"+imgArr[intIndex].imgName;
+            var imgContent = imgArr[intIndex].imgContent;
+            $(imgId).removeAttr('style');
+            $(imgId).find('img').attr('src',imgPath);
+            $(imgId).find('span').text(imgContent);
+            $(imgId).removeClass('content-collapse');
+
+            /*$('#'+imgArr[intIndex].imgId).fadeTo(100,0,function(){
+                $(this).find('img').attr('src',imgPath);
+                $(this).find('span').text(imgContent);
+                $(this).removeClass('content-collapse');
+            }).fadeTo(500, 1);*/
+        }
+        else{
+//            $('#'+imgArr[intIndex].imgId).css('opacity','0');
+            $('#'+imgArr[intIndex].imgId).addClass('content-collapse');
+            $('#'+imgArr[intIndex].imgId).find('img').removeAttr('src');
+            $('#'+imgArr[intIndex].imgId).find('span').text("");
+>>>>>>> 40d6099e50253c42b8965b1c65ce862dd77f4bae
         }
     }
-}
+};
+
 function fnSetModelScreen(){
     var capw = $('.image-shadow').width();
     var caph = $('.image-shadow').height();
@@ -265,7 +310,8 @@ function fnSetModelScreen(){
     $('.capsule-model').css('width', capw);
     $('.capsule-model').css('height', caph);
 
-}
+};
+
 function fnAddOrRemoveElementClass(){
     $("#bergeron-footer").addClass('content-collapse');
     $(".navigation-help").addClass('content-collapse');
@@ -275,6 +321,11 @@ function fnAddOrRemoveElementClass(){
 
 
 function fnAddCollapseClass(){
+<<<<<<< HEAD
+=======
+    stTime = "";
+    $(".popup-conversation").html("");
+>>>>>>> 40d6099e50253c42b8965b1c65ce862dd77f4bae
     $(".popup-conversation").removeAttr("style");
     $(".popup-conversation").html("");
 
@@ -1485,6 +1536,28 @@ function fnSlideWiseContentManage(slide){
             $('#capsule4').css('opacity', '1');
             // --- Show --- //
             break;
+        case "resource":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+            $('.fw-content').removeAttr("style");
+            $('#slide1').addClass("content-collapse");
+            $('#slide1').css("dispaly","none");
+
+            $('.playa').css("width",'85%');
+            $('#btnStart').addClass('content-collapse');
+            $('#firstslideheader').addClass('content-collapse');
+
+            $('#slide-dyn').removeClass('content-collapse');
+            $('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
+            //$('#bergeron-footer').removeClass('collapse');
+            $('#footer-next-indicator').removeClass('collapse');
+
+            $('#slide-capsule1').removeClass('collapse');
+            $('.full-width-content').removeClass('collapse');
+            $('.fw-content').removeClass('collapse');
+            $('.fw-content').html("");
+            $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>resources</span><span class='in-block font-lg'>Click the information sheets and the common beliefs and misconceptions documents to consult them.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>common beliefs and misconceptions discussed in the capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>common beliefs and misconceptions documents</span></div></div><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Psychoactive substances</span></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>Infromation sheets :</span></li></ul><div><div class='res-box'><span class='font-sm'>Meaningful relationship</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>communicate effectively</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>parenting practices</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>conflict resolution</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Click on Next to continue.</span></div></div>");
+            break;
         default:
 //            console.log("Default Call In fnSlideWiseAddOrRemoveElementClass function");
     }
@@ -1678,8 +1751,9 @@ function fnConversationRemoveOnEvent(curTime,singleObj){
     }
 };
 
-var stTime = "";
+
 function fnCreatePopup(popupClass,content,position,startTime){
+
     if(stTime != startTime){
         stTime = startTime;
         var popupPos = "talkbubble-"+popupClass.split("-")[1];
@@ -1744,6 +1818,7 @@ $('.fw-header').addClass('collapse');
 $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>resources</span><span class='in-block font-lg'>Click the information sheets and the common beliefs and misconceptions documents to consult them.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>common beliefs and misconceptions discussed in the capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>common beliefs and misconceptions documents</span></div></div><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Psychoactive substances</span></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>Infromation sheets :</span></li></ul><div><div class='res-box'><span class='font-sm'>Meaningful relationship</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>communicate effectively</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>parenting practices</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>conflict resolution</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Click on Next to continue.</span></div></div>");
 }
 
+<<<<<<< HEAD
 function help() {
     var scrw = $(window).width();
     $('#welcome').addClass('content-collapse');
@@ -1778,6 +1853,12 @@ function help() {
     $('#infrom-navi').removeClass('content-collapse');
     $('#btnstart').addClass('content-collapse');
     $('#help-header').html("<span class='text-upper'>Here are the main elements of your interactive environment.</span>");
+=======
+function resource() {
+    fnSlideWiseContentManage("resource")
+
+
+>>>>>>> 40d6099e50253c42b8965b1c65ce862dd77f4bae
 }
 
 
