@@ -158,22 +158,17 @@ $(document).ready(function(){
             fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
         }
         fnSlideWiseContentManage(getScreenName);
-
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         $('#slide-dyn').removeClass('content-collapse');
         showLoader('#slide-dyn');
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
-
 //        if(objAPT_JSON[curIdx+1]){
 //            loadNextPageImages(objAPT_JSON[curIdx+1]);
 //        }
-
         changeCookieValue(objAPT_JSON[curIdx].name);
-
         if(objAPT_JSON[curIdx+1] != undefined){
             preloadImages(objAPT_JSON[curIdx+1]);
         }
-
         getTopicWiseData(curIdx);
     });
 
@@ -298,15 +293,13 @@ $(document).ready(function(){
             {
                 if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].startingTime && !isAudioFlag)
                 {
-                    console.log(isAudioFlag);
-//                    if(getSingleObjOfJSON.name == "intro_bergeron"){
+                    if(getSingleObjOfJSON.name == "intro_bergeron"){
                     fnOverlayContentOnBergeronSlide(getSingleObjOfJSON.popupContent[intIndex]);
                     if(getSingleObjOfJSON.popupContent[intIndex+1] != undefined){
                             nextStartTime = getSingleObjOfJSON.popupContent[intIndex+1].startingTime;
-                            console.log(nextStartTime);
                             isAudioFlag = true;
                         }
-//                    }
+                    }
                     isAudioFlag = true;
                 }
 
@@ -326,17 +319,17 @@ $(document).ready(function(){
             {
                 if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupImg[intIndex].startingTime && !isImgFlag)
                 {
-                    console.log("Inside intro function");
                     if(getSingleObjOfJSON.name == "intro_welcome") {
                         fnOverlayImageContentOnWelcomeSlide(imgSrcBase, getSingleObjOfJSON.popupImg[intIndex]);
                     }
                     else if(getSingleObjOfJSON.name == "intro_resource"){
                         fnOverlayImageContentOnGatherResourcesSlide(getSingleObjOfJSON.popupImg[intIndex]);
                     }else{
+
                         if(getSingleObjOfJSON.popupImg[intIndex+1] != undefined){
                             nextImgStartTime = getSingleObjOfJSON.popupImg[intIndex+1].startingTime;
                         }
-                        fnOverlayImageContentGeneral(imgSrcBase,getSingleObjOfJSON.popupImg[intIndex])
+                        fnOverlayImageContentGeneral(imgSrcBase,getSingleObjOfJSON.popupImg[intIndex]);
                     }
                     isImgFlag = true;
                 }
@@ -406,17 +399,24 @@ $(document).ready(function(){
                 var imgArr = getSingleObjOfJSON.popupImg;
                 fnSetupContentByTimeOnWelcomeSlide(getAudioCurrentTime,imgArr);
                 isAudioFlag = false;
-            }
-            else{
-                fnSetupContentByTimeGeneral(getAudioCurrentTime,imgArr);
+            }else if(getSingleObjOfJSON.name == "intro_Tips4online") {
+                var imgArr = getSingleObjOfJSON.popupImg;
+                fnOverlayImageContentByTimeGeneral(getAudioCurrentTime,imgArr);
+                isImgFlag = false;
             }
         }
         fnSlideWiseEffectRemoveOnEvent(getAudioCurrentTimeInSec,getSingleObjOfJSON);
         if(getSingleObjOfJSON.popupContent != undefined){
-            for(var intIndex = 0; intIndex<getSingleObjOfJSON.popupContent.length;intIndex++)
-            {
-                if(getSingleObjOfJSON.popupContent[intIndex].startingTime != value){
-                    fnConversationRemoveOnEvent(getAudioCurrentTimeInSec,getSingleObjOfJSON);
+            if(getSingleObjOfJSON.name == "intro_bergeron"){
+                var contArr = getSingleObjOfJSON.popupContent;
+                fnSetupContentByTimeOnBergeronSlide(getAudioCurrentTime,contArr);
+                isAudioFlag = false;
+            }else{
+                for(var intIndex = 0; intIndex<getSingleObjOfJSON.popupContent.length;intIndex++)
+                {
+                    if(getSingleObjOfJSON.popupContent[intIndex].startingTime != value){
+                        fnConversationRemoveOnEvent(getAudioCurrentTimeInSec,getSingleObjOfJSON);
+                    }
                 }
             }
         }
