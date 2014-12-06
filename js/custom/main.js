@@ -6,6 +6,7 @@ var curIdx = 0;
 var isAudioFlag = false;
 var isImgFlag = false;
 var isSlideFlag = false;
+var isSliderDraggable = false;
 var curValue = 0;
 var sliderMouse = {mouseDown:0};
 var getAudioCurrentTime,duration,getAudioCurrentTimeInSec;
@@ -344,7 +345,6 @@ $(document).ready(function(){
                 }
             }
         }
-
         fnSlideWiseEffectManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
         fnSlideWiseConversationManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
         /*Show Next Indicator*/
@@ -360,7 +360,10 @@ $(document).ready(function(){
 
     /*-------------- Reset Slide content on Audio Reload ----------------*/
     $("#replayBtn").click(function(){
+//        audio.off('timeupdate');
+//        $(".popup-conversation").html("");
         fnResetContentOnSlide(0);
+//        audio.on('timeupdate');
     });
 
     //when sliding or replay the content and effect mange
@@ -385,7 +388,7 @@ $(document).ready(function(){
                 fnSetupContentByTimeGeneral(getAudioCurrentTime,imgArr);
             }
         }
-
+        fnConversationRemoveOnEvent(getAudioCurrentTimeInSec,getSingleObjOfJSON);
         /*Next Indicator hide*/
         if(audio.currentTime < (duration-2)){
             $("#footer-next-indicator").addClass("content-collapse");
@@ -401,9 +404,14 @@ $(document).ready(function(){
         fnResetContentOnSlide(sliderMouse.mouseDown);
     });
 
+    $("#audio_sliderID").on('slideStop',function(_event){
+        sliderMouse.mouseDown = _event.value;
+        fnResetContentOnSlide(sliderMouse.mouseDown);
+    });
+
     $("#audio_sliderID").on('slide',function(_event){
         if(!isSlideFlag) {
-            fnResetContentOnSlide(_event.value);
+//            fnResetContentOnSlide(_event.value);
             isSlideFlag = true;
             curValue = _event.value;
         }
@@ -412,7 +420,6 @@ $(document).ready(function(){
             isSlideFlag = false;
         }
     });
-
 
     function fnSetupPageFromMenu(slide){
         jQuery.each(objAPT_JSON,function(i,obj){

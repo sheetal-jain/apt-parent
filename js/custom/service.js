@@ -325,10 +325,7 @@ function fnAddCollapseClass(){
     $('#conv4-slide9').addClass('collapse');
 
     /*-------------- conversation popup hide-----------*/
-    $('.conversation-top').hide();
-    $('.conversation-bottom').hide();
-    $('.conversation-left').hide();
-    $('.conversation-right').hide();
+    $('.popup-conversation').html("");
 }
 
 function fnSlideWiseContentManage(slide){
@@ -1394,6 +1391,7 @@ function fnSlideWiseEffectManage(curTime,singleObj){
                     $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(1000,function(){
                         fnEnableNextPrev();
                     });
+                    $('.fw-header').css('display','inline-block');
                 }
             }
             for(var intIndex=0;intIndex<getSlideWiseData.popupImg.length;intIndex++)
@@ -1407,16 +1405,15 @@ function fnSlideWiseEffectManage(curTime,singleObj){
                 if(curTime == getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
                     $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(1000);
                 }
-                if(curTime == getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
-                    $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(2000);
-                }
             }
+            break;
+
+        default:
             break;
     }
 };
 
 /*--------------Slide wise Conversation manage---------*/
-var isPopupFlag = false;
 function fnSlideWiseConversationManage(curTime,singleObj){
     var getSlideWiseData = singleObj;
     switch (getSlideWiseData.name) {
@@ -1434,8 +1431,10 @@ function fnSlideWiseConversationManage(curTime,singleObj){
         case "capsule2_slide9":
         case "capsule2_slide11":
         case "capsule3_slide4":
+        case "capsule3_slide6":
         case "capsule3_slide7":
         case "capsule3_slide9":
+        case "capsule3_slide11":
         case "capsule4_slide3":
         case "capsule4_slide5":
         case "capsule4_slide7":
@@ -1445,53 +1444,104 @@ function fnSlideWiseConversationManage(curTime,singleObj){
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
                     var popupPosition = getSlideWiseData.popupContent[intIndex].position;
                     var contentText = getSlideWiseData.popupContent[intIndex].contentText;
-                    var contentClass = '.'+getSlideWiseData.popupContent[intIndex].contentClass;
-                    $(contentClass).css('top',popupPosition.top+'px');
-                    $(contentClass).css('left',popupPosition.left+'px');
-                    $(contentClass).find('span').html(contentText);
+                    var contentClass = getSlideWiseData.popupContent[intIndex].contentClass;
                     fnDisableNextPrev();
-                    $(contentClass).fadeIn(1000,function(){
-                        $(this).css('position','absolute');
+                    fnCreatePopup(contentClass,contentText,popupPosition,getSlideWiseData.popupContent[intIndex].startingTime);
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(1000,function() {
                         fnEnableNextPrev();
-                    });
+                    })
                 }
                 if(curTime == getSlideWiseData.popupContent[intIndex].endingTime){
-                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(1000);
+                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(1000,function(){
+                        $(this).remove();
+                    });
                 }
             }
             break;
 
+        default:
+            break;
+    }
+};
+
+function fnConversationRemoveOnEvent(curTime,singleObj){
+    var getSlideWiseData = singleObj;
+    switch (getSlideWiseData.name) {
+        case "capsule1_slide3":
+        case "capsule1_slide5":
+        case "capsule1_slide6":
+        case "capsule1_slide8":
+        case "capsule1_slide10":
+        case "capsule1_slide12":
+        case "capsule1_slide14":
+        case "capsule2_slide3":
+        case "capsule2_slide5":
+        case "capsule2_slide7":
+        case "capsule2_slide8":
+        case "capsule2_slide9":
+        case "capsule2_slide11":
+        case "capsule3_slide4":
         case "capsule3_slide6":
+        case "capsule3_slide7":
+        case "capsule3_slide9":
         case "capsule3_slide11":
+        case "capsule4_slide3":
+        case "capsule4_slide5":
+        case "capsule4_slide7":
+        case "capsule4_slide9":
             for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
             {
-                if(curTime == getSlideWiseData.popupContent[intIndex].startingTime && !isPopupFlag){
-                    var popupPosition = getSlideWiseData.popupContent[intIndex].position;
-                    var contentText = getSlideWiseData.popupContent[intIndex].contentText;
-                    var contentClass = '.'+getSlideWiseData.popupContent[intIndex].contentClass;
-                    $(contentClass).css('top',popupPosition.top+'px');
-                    $(contentClass).css('left',popupPosition.left+'px');
-                    $(contentClass).find('span').text(contentText);
-                    fnDisableNextPrev();
-                    $(contentClass).fadeIn(1000,function(){
-                        $(this).css('position','absolute');
-                        fnEnableNextPrev();
-                    });
-                    isPopupFlag = true;
-                }
-                if(curTime == getSlideWiseData.popupContent[intIndex].endingTime){
-                    $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeOut(1000);
-                    isPopupFlag = false;
+                var popupPosition = getSlideWiseData.popupContent[intIndex].position;
+                var contentText = getSlideWiseData.popupContent[intIndex].contentText;
+                var contentClass =getSlideWiseData.popupContent[intIndex].contentClass;
+
+                if(getSlideWiseData.popupContent[intIndex].startingTime <= curTime  && curTime <= getSlideWiseData.popupContent[intIndex].endingTime){
+                    fnCreatePopupOnEvent(contentClass,contentText,popupPosition,getSlideWiseData.popupContent[intIndex].startingTime);
                 }
             }
             break;
         default:
-            $('.conversation-top').hide();
-            $('.conversation-bottom').hide();
-            $('.conversation-left').hide();
-            $('.conversation-right').hide();
             break;
     }
+};
+
+var stTime = "";
+function fnCreatePopup(popupClass,content,position,startTime){
+    if(stTime != startTime){
+        stTime = startTime;
+        var popupPos = "talkbubble-"+popupClass.split("-")[1];
+        var html = '';
+        html += '<div class="convertion '+popupClass+'">';
+        html += '    <div>';
+        html += '       <div id='+popupPos+'>';
+        html += '           <span></span>';
+        html += '        </div>';
+        html += '   </div>';
+        html += '</div>';
+
+        $(html).appendTo('.popup-conversation');
+        $('#'+popupPos).parent().parent().css('display','none');
+        $('#'+popupPos).parent().parent().css('top',position.top+'px');
+        $('#'+popupPos).parent().parent().css('left',position.left+'px');
+        $('#'+popupPos).find('span').text(content);
+    }
+};
+
+function fnCreatePopupOnEvent(popupClass,content,position,startTime){
+    var popupPos = "talkbubble-" + popupClass.split("-")[1];
+    var html = '';
+    html += '<div class="convertion ' + popupClass + '">';
+    html += '    <div>';
+    html += '       <div id=' + popupPos + '>';
+    html += '           <span></span>';
+    html += '        </div>';
+    html += '   </div>';
+    html += '</div>';
+
+    $('.popup-conversation').html(html);
+    $('#' + popupPos).parent().parent().css('top', position.top + 'px');
+    $('#' + popupPos).parent().parent().css('left', position.left + 'px');
+    $('#' + popupPos).find('span').text(content);
 };
 
 function resource() {
@@ -1515,6 +1565,8 @@ function resource() {
     $('.fw-header').addClass('collapse');
     $('.fw-content').append("<span class='orange text-upper'>resources</span>");
 }
+
+
 
 
 function tglclass() {
