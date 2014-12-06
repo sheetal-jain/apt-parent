@@ -110,6 +110,7 @@ function fnOverlayImageContentOnWelcomeSlide(imgSrc,data){
 };
 
 function fnOverlayContentOnBergeronSlide(data){
+    $('.'+data.contentClass).css('opacity',"1");
     $('.'+data.contentClass).fadeIn('1500',function(){
         $('.'+data.contentClass).css('opacity',"1");
         $('.'+data.contentClass).removeClass('content-collapse');
@@ -238,7 +239,7 @@ function fnSetupContentByTimeGeneral(currTime,popupContentArr){
          for(var i=0; i < intIndex; i++ ){
          $("#"+popupContentArr[i].imgId).attr("src",'Images/'+popupContentArr[i].imgName);
          $("#"+popupContentArr[i].imgId).css("opacity","1");
-         $("#"+popupContentArr[i].imgId).css("display","inline");
+//         $("#"+popupContentArr[i].imgId).css("display","inline");
          //                break;
          }
          }else{
@@ -274,8 +275,9 @@ function fnAddOrRemoveElementClass(){
 
 
 function fnAddCollapseClass(){
-    $(".popup-conversation").html("");
     $(".popup-conversation").removeAttr("style");
+    $(".popup-conversation").html("");
+
     $('#slide-menu').addClass('collapse');
     $('#rc-content-text').addClass('collapse');
     $('.content-view-1').addClass('collapse');
@@ -288,6 +290,7 @@ function fnAddCollapseClass(){
 
     $('#rc-footer-confirm').addClass('collapse');
     $('#l-c-footer-text').addClass('collapse');
+    $("#l-c-footer-text").hide();
     $('#l-c-footer-img').addClass('collapse');
     $('.fw-header').addClass('collapse');
     $('.fw-content').addClass('collapse');
@@ -534,6 +537,7 @@ function fnSlideWiseContentManage(slide){
         case "capsule1_slide4":
             fnAddCollapseClass();
             $('.r-c-header').removeClass('collapse');
+            $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#rc-footer-confirm').removeClass('collapse');
             $('#l-c-footer-text').removeClass('collapse');
@@ -622,6 +626,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide11":
             fnAddCollapseClass();
+            $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#lc-footer-img').attr('src', 'Images/6j2V7CHeU3S_DX1110_DY1110_CX555_CY80.png');
@@ -660,6 +665,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide13":
             fnAddCollapseClass();
+            $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('.r-c-header').removeClass('collapse');
@@ -807,6 +813,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide4":
             fnAddCollapseClass();
+            $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#lc-footer-img').attr('src', 'Images/5x6jNaSP9Di_DX1110_DY1110_CX555_CY92.png');
@@ -843,6 +850,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide6":
             fnAddCollapseClass();
+            $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#lc-footer-img').attr('src', 'Images/5jtfXPcnPam_DX1110_DY1110_CX555_CY92.png');
@@ -899,6 +907,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide10":
             fnAddCollapseClass();
+            $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#lc-footer-img').attr('src', 'Images/5jbpvP1X5sc_DX1110_DY1110_CX555_CY92.png');
@@ -1036,6 +1045,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide3":
             fnAddCollapseClass();
+            $("#next").css("pointer-events",'none');
             $('#rc-content-text').html("");
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1077,6 +1087,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide5":
             fnAddCollapseClass();
+            $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5oPmf5gNdcB_DX1890_DY1890_CX945_CY530.png');
@@ -1150,6 +1161,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide10":
             fnAddCollapseClass();
+            $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5bE88RUwxo8_DX1890_DY1890_CX945_CY530.png');
@@ -1193,11 +1205,12 @@ function fnSlideWiseContentManage(slide){
             $('#lc-footer-img').attr('src', 'Images/6mrCcUKMe7X_DX1110_DY1110_CX555_CY92.png');
             $('.r-c-header').addClass('collapse');
             $('#rc-content-text').removeClass('collapse');
+            $('#rc-footer-text').removeClass("collapse");
             $('#rc-content-text').html("");
             $('#rc-content-text').html("<span class='font-med f-w-med line-h-125 in-block'>Les bonnes pratiques parentales font référence au <span class='orange'>contrôle parental</span> (composé d’encadrement et d’autorisation), à la <span class='orange'>tolérance</span> et au <span class='orange'>style disciplinaire inductif</span> (fondé sur la négociation).<br /><br />Alexandra et Vincent savaient qu’ils devaient demander l’autorisation de recevoir des amis à la maison en l’absence de leurs parents. En acceptant tout en fixant des règles claires, Éric et Isabelle ont fait preuve une tolérance et un bon encadrement. Ils ont également agi pour protéger leurs enfants des risques d’une consommation d’alcool prématurée. Lorsque les règles ont été brisées, il était acceptable qu’Isabelle exerce un style disciplinaire punitif, sans agressivité.</span>");
             $('#rc-footer-span').html("");
             $('#rc-footer-text').html("<span class='text-uppercase f-w-med'>Et vous?</span>");
-            $('#rc-footer-text').html("<ul class='f-w-med'><li><span>Comment exercez-vous votre contrôle parental?</span></li><li><span>Quel est votre seuil de tolérance?</span></li><li><span>Quel est votre style disciplinaire?</span></li></ul>");
+            $('#rc-footer-text').append("<ul class='f-w-med'><li><span>Comment exercez-vous votre contrôle parental?</span></li><li><span>Quel est votre seuil de tolérance?</span></li><li><span>Quel est votre style disciplinaire?</span></li></ul>");
             break;
 
         case "capsule3_slide13":
@@ -1299,6 +1312,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide4":
             fnAddCollapseClass();
+            $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/60XdPzwDQGP_DX1890_DY1890_CX945_CY530.png');
@@ -1337,6 +1351,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide6":
             fnAddCollapseClass();
+            $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5ZPM7UaofLE_DX1890_DY1890_CX945_CY530.png');
@@ -1375,6 +1390,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide8":
             fnAddCollapseClass();
+            $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5dbjW9897cg_DX1890_DY1890_CX945_CY530.png');
@@ -1700,28 +1716,70 @@ function fnCreatePopupOnEvent(popupClass,content,position,startTime){
     $('#' + popupPos).parent().parent().css('left', position.left + 'px');
     $('#' + popupPos).find('span').text(content);
 };
+function resource(){
+var capw = $('.image-shadow').width();
+var caph = $('.image-shadow').height();
+//alert(capw + ' - ' + caph);
+$('.capsule-model').css('width', capw);
+$('.capsule-model').css('height', caph);
 
-function resource() {
-    $('#welcome').addClass('collapse');
-    $('#slide1').addClass('collapse');
-    $('#slide2').addClass('collapse');
-    $('#slide-dyn').removeClass('collapse');
+$('#welcome').addClass('content-collapse');
+$('#slide1').addClass('content-collapse');
+$('#slide2').addClass('collapse');
+$('#slide-dyn').removeClass('collapse');
+$('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
+//$('#bergeron-footer').removeClass('collapse');
+$('#footer-next-indicator').removeClass('collapse');
+// --- Collapse --- //
+$('.tips-header').addClass('collapse');
+$('#tips-images').addClass('collapse');
+// --- Show --- //
+$('.navigation-help').addClass('collapse');
+$('#infrom-navi').addClass('collapse');
+$('#btnstart').addClass('collapse');
+$('#slide-capsule1').removeClass('collapse');
+$('.full-width-content').removeClass('collapse');
+$('.fw-content').removeClass('collapse');
+$('.fw-header').addClass('collapse');
+$('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>resources</span><span class='in-block font-lg'>Click the information sheets and the common beliefs and misconceptions documents to consult them.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>common beliefs and misconceptions discussed in the capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>common beliefs and misconceptions documents</span></div></div><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Psychoactive substances</span></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>Infromation sheets :</span></li></ul><div><div class='res-box'><span class='font-sm'>Meaningful relationship</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>communicate effectively</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>parenting practices</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>conflict resolution</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Click on Next to continue.</span></div></div>");
+}
+
+function help() {
+    var scrw = $(window).width();
+    $('#welcome').addClass('content-collapse');
+    $('#slide1').addClass('content-collapse');
+    $('#slide1').css('display','none');
+    $("#firstslideheader").addClass('content-collapse');
+    $("#next").removeClass("fade");
+    $("#prev").removeClass("fade");
+    $("#next").addClass("fade.in");
+    $("#prev").addClass("fade.in");
+    $('#slide2').addClass('content-collapse');
+    $('#slide-dyn').removeClass('content-collapse');
     $('#slide-dyn').attr('src', 'Images/5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png');
     //$('#bergeron-footer').removeClass('collapse');
     $('#footer-next-indicator').removeClass('collapse');
     // --- Collapse --- //
-    $('.tips-header').addClass('collapse');
-    $('#tips-images').addClass('collapse');
+    $('.tips-header').addClass('content-collapse');
+    $('#tips-images').addClass('content-collapse');
     // --- Show --- //
-    $('.navigation-help').addClass('collapse');
-    $('#infrom-navi').addClass('collapse');
-    $('#btnstart').addClass('collapse');
-    $('#slide-capsule1').removeClass('collapse');
-    $('.full-width-content').removeClass('collapse');
-    $('.fw-content').removeClass('collapse');
-    $('.fw-header').addClass('collapse');
-    $('.fw-content').append("<span class='orange text-upper'>resources</span>");
+    if (scrw <= 600) {
+        $('.well').css('width', '75%');
+    }
+    else if (scrw <= 768) {
+        $('.well').css('width', '80%');
+    }
+    else {
+        $('.well').css('width', '85%');
+    }
+    $('#audwelcom').css('margin-right', '15px');
+    $('.custom-audio-button').removeClass('content-collapse');
+    $('.navigation-help').removeClass('content-collapse');
+    $('#infrom-navi').removeClass('content-collapse');
+    $('#btnstart').addClass('content-collapse');
+    $('#help-header').html("<span class='text-upper'>Here are the main elements of your interactive environment.</span>");
 }
+
 
 function refreshContentOnReload(){
     $("#tips-images").find('div').addClass("content-collapse");

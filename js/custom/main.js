@@ -228,11 +228,16 @@ $(document).ready(function(){
 
     /*----------------------Model call on capsule click----------------------------------------*/
     $("#capsule1").click(function(){
+
         curIdx = (curIdx+1) % max;
+//        console.log(objAPT_JSON[curIdx].name);
+
         fnSetModelScreen();
-        fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
+        getFirstSlideofCapsule(objAPT_JSON,"capsule1_slide1");
+        /*fnSlideWiseContentManage(objAPT_JSON[curIdx].name);
         changeCookieValue(objAPT_JSON[curIdx].name)
-        getTopicWiseData(curIdx);
+        getTopicWiseData(curIdx);*/
+
     });
 
     $("#capsule2").click(function(){
@@ -525,7 +530,7 @@ $(document).ready(function(){
     $('input[type=radio]').click(function(){
         selectedOption = $(this).val();
     });
-    $('#rc-footer-confirm').click(function(){
+    $('#validate-answer').click(function(){
         console.log(selectedOption);
         if(selectedOption != undefined){
             for(var i = 0; i < answer_JSON.length; i++)
@@ -540,6 +545,7 @@ $(document).ready(function(){
                         $('#right'+answer_JSON[i].rightOption).show();
                         $('#lc-footer-img').hide();
                         setupAudioControls(audioSrcBase_mp3+answer_JSON[i].positiveFeedback.audio[0]);
+                        $("#next").css("pointer-events",'auto');
                     }
                     else{
                         $("#l-c-footer-text").show();
@@ -549,7 +555,9 @@ $(document).ready(function(){
                         $('#lc-footer-img').hide();
                         $('#right'+answer_JSON[i].rightOption).show();
                         setupAudioControls(audioSrcBase_mp3+answer_JSON[i].negativeFeedback.audio[0]);
+                        $("#next").css("pointer-events",'auto');
                     }
+
                 }
             }
         }
