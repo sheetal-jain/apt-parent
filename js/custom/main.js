@@ -351,7 +351,7 @@ $(document).ready(function(){
     /*-------------- Reset Slide content on Audio Reload ----------------*/
     $("#replayBtn").click(function(){
 //        audio.off('timeupdate');
-//        $(".popup-conversation").html("");
+        $(".popup-conversation").html("");
         fnResetContentOnSlide(0);
 //        audio.on('timeupdate');
     });
