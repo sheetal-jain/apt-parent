@@ -458,6 +458,7 @@ $(document).ready(function(){
                     $('#slide-dyn').removeClass('content-collapse');
                     showLoader('#slide-dyn');
                     $("#dyn-footer").find("span").addClass("content-collapse");
+                    $("#dyn-footer").find("span").addClass("content-collapse");
                     $("#dyn-footer").find("span").removeAttr('style');
                     $($("div.screen[name="+slide+"]")).removeClass('content-collapse');
                     $($("div.screen:not(.screen[name="+slide+"])")).addClass('content-collapse');
@@ -479,6 +480,42 @@ $(document).ready(function(){
             }
         });
     }
+
+    answer_JSON = JSON.parse(fnGetDataFromServer('JSON/answer.json').responseText);
+    var selectedOption;
+    var rightImgUrl = "Images/6ZhqSSk0Exm_DX72_DY72_CX36_CY36.png";
+    $('input[type=radio]').click(function(){
+        selectedOption = $(this).val();
+    });
+    $('#rc-footer-confirm').click(function(){
+        console.log(selectedOption);
+        if(selectedOption != undefined){
+            for(var i = 0; i < answer_JSON.length; i++)
+            {
+                if(getSingleObjOfJSON.name == answer_JSON[i].slideName){
+                    if( answer_JSON[i].rightOption == selectedOption){
+                        $("#l-c-footer-text").show();
+                        $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+                        $('#lc-ans-header').html("Tout à fait!");
+                        $('#lc-ans-content').html(answer_JSON[i].positiveFeedback.text);
+                        $('#option'+answer_JSON[i].rightOption).css('background-image', 'url('+ rightImgUrl +')');
+                        $('#right'+answer_JSON[i].rightOption).show();
+                        $('#lc-footer-img').hide();
+                        setupAudioControls(audioSrcBase_mp3+answer_JSON[i].positiveFeedback.audio[0]);
+                    }
+                    else{
+                        $("#l-c-footer-text").show();
+                        $('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
+                        $('#lc-ans-header').html("Ce n’est pas le meilleur choix.");
+                        $('#lc-ans-content').html(answer_JSON[i].negativeFeedback.text);
+                        $('#lc-footer-img').hide();
+                        $('#right'+answer_JSON[i].rightOption).show();
+                        setupAudioControls(audioSrcBase_mp3+answer_JSON[i].negativeFeedback.audio[0]);
+                    }
+                }
+            }
+        }
+    })
 });
 
 
