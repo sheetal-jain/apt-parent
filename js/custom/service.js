@@ -1490,6 +1490,28 @@ function fnSlideWiseContentManage(slide){
             $('#capsule4').css('opacity', '1');
             // --- Show --- //
             break;
+        case "resource":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+            $('.fw-content').removeAttr("style");
+            $('#slide1').addClass("content-collapse");
+            $('#slide1').css("dispaly","none");
+
+            $('.playa').css("width",'85%');
+            $('#btnStart').addClass('content-collapse');
+            $('#firstslideheader').addClass('content-collapse');
+
+            $('#slide-dyn').removeClass('content-collapse');
+            $('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
+            //$('#bergeron-footer').removeClass('collapse');
+            $('#footer-next-indicator').removeClass('collapse');
+
+            $('#slide-capsule1').removeClass('collapse');
+            $('.full-width-content').removeClass('collapse');
+            $('.fw-content').removeClass('collapse');
+            $('.fw-content').html("");
+            $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>resources</span><span class='in-block font-lg'>Click the information sheets and the common beliefs and misconceptions documents to consult them.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>common beliefs and misconceptions discussed in the capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>common beliefs and misconceptions documents</span></div></div><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Psychoactive substances</span></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>Infromation sheets :</span></li></ul><div><div class='res-box'><span class='font-sm'>Meaningful relationship</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>communicate effectively</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>parenting practices</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>conflict resolution</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Click on Next to continue.</span></div></div>");
+            break;
         default:
 //            console.log("Default Call In fnSlideWiseAddOrRemoveElementClass function");
     }
@@ -1724,25 +1746,9 @@ function fnCreatePopupOnEvent(popupClass,content,position,startTime){
 };
 
 function resource() {
-    $('#welcome').addClass('collapse');
-    $('#slide1').addClass('collapse');
-    $('#slide2').addClass('collapse');
-    $('#slide-dyn').removeClass('collapse');
-    $('#slide-dyn').attr('src', 'Images/5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png');
-    //$('#bergeron-footer').removeClass('collapse');
-    $('#footer-next-indicator').removeClass('collapse');
-    // --- Collapse --- //
-    $('.tips-header').addClass('collapse');
-    $('#tips-images').addClass('collapse');
-    // --- Show --- //
-    $('.navigation-help').addClass('collapse');
-    $('#infrom-navi').addClass('collapse');
-    $('#btnstart').addClass('collapse');
-    $('#slide-capsule1').removeClass('collapse');
-    $('.full-width-content').removeClass('collapse');
-    $('.fw-content').removeClass('collapse');
-    $('.fw-header').addClass('collapse');
-    $('.fw-content').append("<span class='orange text-upper'>resources</span>");
+    fnSlideWiseContentManage("resource")
+
+
 }
 
 function refreshContentOnReload(){
