@@ -1647,8 +1647,7 @@ function fnConversationRemoveOnEvent(curTime,singleObj){
                 var popupPosition = getSlideWiseData.popupContent[intIndex].position;
                 var contentText = getSlideWiseData.popupContent[intIndex].contentText;
                 var contentClass =getSlideWiseData.popupContent[intIndex].contentClass;
-
-                if(getSlideWiseData.popupContent[intIndex].startingTime <= curTime  && curTime <= getSlideWiseData.popupContent[intIndex].endingTime){
+                if(getSlideWiseData.popupContent[intIndex].startingTime < curTime  && curTime <= getSlideWiseData.popupContent[intIndex].endingTime){
                     fnCreatePopupOnEvent(contentClass,contentText,popupPosition,getSlideWiseData.popupContent[intIndex].startingTime);
                 }
             }

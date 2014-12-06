@@ -336,7 +336,9 @@ $(document).ready(function(){
             }
         }
         fnSlideWiseEffectManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
+
         fnSlideWiseConversationManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
+
         /*Show Next Indicator*/
         if(getAudioCurrentTimeInSec == (Math.floor(duration) - 2))
         {
@@ -350,10 +352,8 @@ $(document).ready(function(){
 
     /*-------------- Reset Slide content on Audio Reload ----------------*/
     $("#replayBtn").click(function(){
-//        audio.off('timeupdate');
         $(".popup-conversation").html("");
         fnResetContentOnSlide(0);
-//        audio.on('timeupdate');
     });
 
     //when sliding or replay the content and effect mange
@@ -379,7 +379,14 @@ $(document).ready(function(){
             }
         }
         fnSlideWiseEffectRemoveOnEvent(getAudioCurrentTimeInSec,getSingleObjOfJSON);
-        fnConversationRemoveOnEvent(getAudioCurrentTimeInSec,getSingleObjOfJSON);
+        if(getSingleObjOfJSON.popupContent != undefined){
+            for(var intIndex = 0; intIndex<getSingleObjOfJSON.popupContent.length;intIndex++)
+            {
+                if(getSingleObjOfJSON.popupContent[intIndex].startingTime != value){
+                    fnConversationRemoveOnEvent(getAudioCurrentTimeInSec,getSingleObjOfJSON);
+                }
+            }
+        }
         /*Next Indicator hide*/
         if(audio.currentTime < (duration-2)){
             $("#footer-next-indicator").addClass("content-collapse");
