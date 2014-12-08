@@ -485,7 +485,7 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
             //hide next button
-            $("#next").addClass('fade');
+            $("#next").addClass('content-collapse');
             $("#prev").removeClass("content-collapse");
             $(".playa").css('width','93%');
             $('#slide-dyn').removeClass('content-collapse');
