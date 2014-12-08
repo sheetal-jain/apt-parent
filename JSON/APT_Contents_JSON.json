@@ -1524,5 +1524,12 @@
         "audioName":["6AdM43Vt4JX_22050_80.mp3",""],
         "popupContent":[],
         "popupImg":[]
+    },
+    {
+        "name":"thankYou",
+        "imgName" : "5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["6l4Qheq8nL6_22050_80_sec5.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
     }
 ]

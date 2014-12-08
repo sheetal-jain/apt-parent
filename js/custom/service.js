@@ -1484,8 +1484,8 @@ function fnSlideWiseContentManage(slide){
 
         case "intro_menuAfterCap4":
             //hide next button
-            $("#next").addClass('content-collapse');
-            $(".playa").css('width','93%');
+//            $("#next").addClass('content-collapse');
+            $(".playa").css('width','85%');
 
             $('#slide-capsule1').addClass('collapse');
             $('#slide-menu').removeClass('content-collapse');
@@ -1528,6 +1528,36 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').removeClass('collapse');
             $('.fw-content').html("");
             $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>resources</span><span class='in-block font-lg'>Click the information sheets and the common beliefs and misconceptions documents to consult them.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>common beliefs and misconceptions discussed in the capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>common beliefs and misconceptions documents</span></div></div><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Psychoactive substances</span></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>Infromation sheets :</span></li></ul><div><div class='res-box'><span class='font-sm'>Meaningful relationship</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>communicate effectively</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>parenting practices</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>conflict resolution</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Click on Next to continue.</span></div></div>");
+            break;
+
+        case "thankYou":
+            fnAddCollapseClass();
+//            fnAddCollapseClassIntroCapsule();
+            $('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
+            $('#slide-capsule1').removeClass('collapse');
+            $('.full-width-content').removeClass('collapse');
+            $('.content-view-1').addClass('collapse');
+            $('#slide-menu').addClass('collapse');
+            $('.fw-content').removeClass('collapse');
+            $('.fw-content').removeAttr('style');
+            $('.fw-content').removeClass('cap1-last-slide');
+            $('.fw-content').html("");
+            $('.fw-content').append("<div id='slide-thanks'><div class='in-block v-align-m'><img src='Images/image003.jpg' alt='' /></div><div class='in-block v-align-m custom-margin-left'><span class='font-xx-lg'>APTE Parents</span></div></div>");
+            $('.fw-content').append("<div class='text-center custom-margin-top'><span class='orange f-w-med font-x-lg'>Remerciements et crédits</span></div>");
+            $('.fw-content').append("<div class='text-center'><span class='orange f-w-med font-m-lg'>Centre québécois de lutte aux dépendances (CQLD)</span></div>");
+            $('.fw-content').append("<div class='custom-margin-top text-center'><div class='in-block v-align-m col-mid-width-6 font-med'><span>Pierre Vaugeois<br />Geneviève Lefebvre</span></div><div class='in-block v-align-m col-mid-width-6'><span>Directeur scientifique<br />Directrice générale </span></div></div>");
+            $('.fw-content').append("<div class='custom-margin-top text-center'><div class='in-block v-align-m col-mid-width-6 font-med'><span class='orange block'>Production</span><span>Ellicom inc.</span></div><div class='in-block v-align-m col-mid-width-6'><span class='orange block'>Soutien financier</span><span>Santé Canada</span></div></div>");
+            $('.fw-content').append("<div class='custom-margin-top text-center font-med'><div class='col-mid-width-6 in-block'><span class='orange block'>Réalisation</span><span>Centre québécois de lutte aux dépendances (CQLD) Dépôt légal, Bibliothèque et Archives nationales du Canada 2014.</span><span class='orange text-upper f-w-med block'>isbn</span><span>978-0-9881422-3-7</span></div></div>");
+            //$('.fw-header').addClass('collapse');
+            //$('.fw-footer').addClass('collapse');
+            //$('.fw-content').removeClass('collapse');
+            //$('.fw-content').empty();
+            //$('.fw-content').addClass('cap1-last-slide');
+            //$('.fw-content').append("<div><span class='orange text-uppercase font-x-lg'>congratulations!</span></div>");
+            //$('.fw-content').append("<div><span class='text-uppercase font-med'>to conclude this training capsule, you have received a new information sheet!<br /><br />In order to complete your training, consult the information sheet as well as the common beliefs and misconceptions document:</span></div>");
+            //$('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>information sheet</span></th><th><span class='text-uppercase orange'>common beliefs and misconceptions covered in the capsule</span></th></tr></thead><tbody><tr><td class='carousel'><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(click to consult)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>CONFLICT RESOLUTION STRATEGIS</span></div></td><td><span>Go to the next screen to return to the main menu.<br />4-5-9-11-16-17-18-19-21</span></td></tr><tr><td><span>The information sheet is now in the Resources tab.</span></td><td><span>Consult the chart in the Resources tab in order to see the arguments used against these misconceptions.</span></td></tr></tbody></table>");
+            //$('.fw-content').append("<span class='font-med nxt-page-msg'>Go to the next screen to return to the main menu.</span>");
+            //$('.cust-span-em').css('font-size', '60%');
             break;
         default:
 //            console.log("Default Call In fnSlideWiseAddOrRemoveElementClass function");
@@ -1763,23 +1793,25 @@ function fnCreatePopupOnEvent(popupClass,content,position,startTime){
 };
 
 function help() {
+    fnAddCollapseClass();
+    fnAddCollapseClassIntroCapsule();
     var scrw = $(window).width();
     $('#welcome').addClass('content-collapse');
-    $('#slide1').addClass('content-collapse');
-    $('#slide1').css('display','none');
-    $("#firstslideheader").addClass('content-collapse');
+//    $('#slide1').addClass('content-collapse');
+//    $('#slide1').css('display','none')
+//    $("#firstslideheader").addClass('content-collapse');
     $("#next").removeClass("fade");
     $("#prev").removeClass("fade");
     $("#next").addClass("fade.in");
     $("#prev").addClass("fade.in");
-    $('#slide2').addClass('content-collapse');
+//    $('#slide2').addClass('content-collapse');
     $('#slide-dyn').removeClass('content-collapse');
     $('#slide-dyn').attr('src', 'Images/5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png');
     //$('#bergeron-footer').removeClass('collapse');
     $('#footer-next-indicator').removeClass('collapse');
     // --- Collapse --- //
-    $('.tips-header').addClass('content-collapse');
-    $('#tips-images').addClass('content-collapse');
+//    $('.tips-header').addClass('content-collapse');
+//    $('#tips-images').addClass('content-collapse');
     // --- Show --- //
     if (scrw <= 600) {
         $('.well').css('width', '75%');
@@ -1794,7 +1826,7 @@ function help() {
     $('.custom-audio-button').removeClass('content-collapse');
     $('.navigation-help').removeClass('content-collapse');
     $('#infrom-navi').removeClass('content-collapse');
-    $('#btnstart').addClass('content-collapse');
+//    $('#btnstart').addClass('content-collapse');
     $('#help-header').html("<span class='text-upper'>Here are the main elements of your interactive environment.</span>");
 }
 

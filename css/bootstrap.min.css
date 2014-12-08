@@ -905,6 +905,7 @@ audio {
                             position: relative;
                             width: 100%;
                             text-align: center;
+                            z-index: 9999;
                         }
 
                             .capsule-model .main-div .content-view-1 .right-content .r-c-main-div .r-c-footer #rc-footer-confirm div {
@@ -4259,63 +4260,94 @@ tbody.collapse.in {
     font-size: 14px;
     text-align: left;
     list-style: none;
-    background-color: rgba(0,0,0,.6);
+    background-color: #F3F3F3;
+    border: 2px solid #BFBFBF;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
-    border: 1px solid #ccc;
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: 4px;
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px !important;
+    color: #363636;
 }
 
-    .dropdown-menu.pull-right {
-        right: 0;
-        left: auto;
-    }
+.dropdown-menu.pull-right {
+    right: 0;
+    left: auto;
+}
 
-    .dropdown-menu .divider {
-        height: 1px;
-        margin: 9px 0;
-        overflow: hidden;
-        background-color: #e5e5e5;
-    }
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
 
-    .dropdown-menu > li > a {
-        display: block;
-        padding: 3px 20px;
-        clear: both;
-        font-weight: 400;
-        line-height: 1.42857143;
-        /*color: #333;*/
-        white-space: nowrap;
-        font-size: 11px;
-    }
+.dropdown-menu li.active {
+    color: #989898;
+}
 
-        .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-            color: #262626;
-            text-decoration: none;
-            background-color: #f5f5f5;
-        }
+.dropdown-menu li.active li {
+    color: #363636;
+}
 
-    .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-        color: #fff;
-        text-decoration: none;
-        background-color: #428bca;
-        outline: 0;
-    }
+.dropdown-menu li {
+    border-bottom: 1px solid #E3E3E3;
+}
 
-    .dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
-        color: #777;
-    }
+.dropdown-menu li .toggle-header {
+    padding: 1% 1.5%;
+    /*border-bottom: 1px solid #E3E3E3;*/
+}
 
-        .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
-            text-decoration: none;
-            cursor: not-allowed;
-            background-color: transparent;
-            background-image: none;
-            filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-        }
+.dropdown-menu li .toggle-header:hover {
+    background-color: #E6E6E6;
+}
+
+.dropdown-menu .tgldt li {
+    padding: 0.5% 1%;
+}
+
+.dropdown-menu .tgldt li:hover {
+    background-color: #E6E6E6;
+}
+
+.dropdown-menu > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    /*color: #333;*/
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #428bca;
+    outline: 0;
+}
+
+.dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+    color: #777;
+}
+
+.dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+    text-decoration: none;
+    cursor: not-allowed;
+    background-color: transparent;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
 
 .open > .dropdown-menu {
     display: block;
@@ -7914,9 +7946,8 @@ button.close {
 
 .cust-toggle-menu li {
     border-bottom: 1px solid rgba(255,255,255,0.15);
-    padding: 3px 0;
+    /*padding: 1% 1.5%;*/
     list-style: none;
-    cursor: pointer;
 }
 
 .cust-toggle-menu li ul {
@@ -7927,7 +7958,6 @@ button.close {
     border-bottom: none;
     list-style: none;
     padding: 0;
-    cursor: pointer;
 }
 
 .cust-toggle-menu li:last-child {
@@ -7939,7 +7969,7 @@ button.close {
 }*/
 
 .cust-toggle-menu li li:hover {
-    color: #FBF489;
+    color: #363636;
 }
 
 #help-header {
@@ -8127,4 +8157,15 @@ button.close {
     right: 0;
     margin-right: 3.5%;
     height: 90%;
+}
+
+#slide-thanks {
+    margin-top: 4%;
+}
+
+.v-align-m {
+    vertical-align: middle;
+}
+.col-mid-width-6 {
+    width: 50%;
 }
