@@ -254,14 +254,14 @@ function fnOverlayImageContentByTimeGeneral(curTime,imgArr){
     for(var intIndex = 0;intIndex<imgArr.length;intIndex++)
     {
         if(imgArr[intIndex].startingTime <= curTime  && curTime <= imgArr[intIndex].endingTime){
-            var imgId = '#'+imgArr.imgId;
+            var imgId = '#'+imgArr[intIndex].imgId;
             var imgPath = "Images/"+imgArr[intIndex].imgName;
             var imgContent = imgArr[intIndex].imgContent;
-            $(imgId).removeAttr('style');
+//            $(imgId).removeAttr('style');
+            $(imgId).css('opacity','1');
             $(imgId).find('img').attr('src',imgPath);
             $(imgId).find('span').text(imgContent);
             $(imgId).removeClass('content-collapse');
-
             /*$('#'+imgArr[intIndex].imgId).fadeTo(100,0,function(){
                 $(this).find('img').attr('src',imgPath);
                 $(this).find('span').text(imgContent);
@@ -269,9 +269,9 @@ function fnOverlayImageContentByTimeGeneral(curTime,imgArr){
             }).fadeTo(500, 1);*/
         }
         else{
-//            $('#'+imgArr[intIndex].imgId).css('opacity','0');
+            $('#'+imgArr[intIndex].imgId).css('opacity','0');
             $('#'+imgArr[intIndex].imgId).addClass('content-collapse');
-            $('#'+imgArr[intIndex].imgId).find('img').removeAttr('src');
+//            $('#'+imgArr[intIndex].imgId).find('img').removeAttr('src');
             $('#'+imgArr[intIndex].imgId).find('span').text("");
         }
     }
