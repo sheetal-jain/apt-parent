@@ -307,7 +307,6 @@ $(document).ready(function(){
                     }
                     isAudioFlag = true;
                 }
-
                 if(getAudioCurrentTimeInSec == (nextStartTime-1))
                 {
                     isAudioFlag = false;
