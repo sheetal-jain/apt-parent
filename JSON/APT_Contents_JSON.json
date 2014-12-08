@@ -7,7 +7,7 @@
     },
     {   "name":"intro_welcome",
         "imgName" : "5eexq4u95MM_DX1890_DY1890_CX945_CY530.png",
-        "audioName":["6n7vVfJToNo_22050_80.mp3","welcome.ogg"],
+        "audioName":["5o9WZxZaHdo_22050_80.mp3",""],
         "popupContent":[],
         "popupImg":[
             {
@@ -15,28 +15,28 @@
                 "startingTime":"31",
                 "endingTime":"34",
                 "imgContentId":"slide2-popup1",
-                "imgContent":"A Meaningful relationship beetween parents and abolescents"
+                "imgContent":"Une relation de qualité entre parents et adolescents"
             },
             {
                 "imgName":"6K0H83j0f1I_DX872_DY872_CX396_CY436.jpg",
                 "startingTime":"35",
                 "endingTime":"38",
                 "imgContentId":"slide2-popup2",
-                "imgContent":"Effective communication between parents and abolescents"
+                "imgContent":"Une communication efficace entre parents et adolescents"
             },
             {
                 "imgName":"6EfEzBvAYYB_DX872_DY872_CX396_CY436.jpg",
                 "startingTime":"39",
                 "endingTime":"41",
                 "imgContentId":"slide2-popup3",
-                "imgContent":"Good parenting practices (discipline)"
+                "imgContent":"De bonnes pratiques parentales (discipline)"
             },
             {
                 "imgName":"6SsaP2G5oAw_DX872_DY872_CX396_CY436.jpg",
                 "startingTime":"42",
                 "endingTime":"45",
                 "imgContentId":"slide2-popup4",
-                "imgContent":"Appropriate conflict resolution strategies"
+                "imgContent":"De bonnes stratégies de résolution de conflits"
             }]
     },
     {
