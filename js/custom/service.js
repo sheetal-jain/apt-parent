@@ -1564,13 +1564,15 @@ function fnSlideWiseContentManage(slide){
     }
 
     $('.convertion').addClass('collapse');
-}
+};
+
 function fnDisableNextPrev(){
     $("#next").css("pointer-events","none");
     $("#next").css("cursor","default");
     $("#prev").css("pointer-events","none");
     $("#prev").css("cursor","default");
 };
+
 function fnEnableNextPrev(){
     $("#next").removeAttr("style");
     $("#prev").removeAttr("style");
@@ -1752,9 +1754,7 @@ function fnConversationRemoveOnEvent(curTime,singleObj){
     }
 };
 
-
 function fnCreatePopup(popupClass,content,position,startTime){
-
     if(stTime != startTime){
         stTime = startTime;
         var popupPos = "talkbubble-"+popupClass.split("-")[1];
