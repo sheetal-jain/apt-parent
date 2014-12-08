@@ -95,7 +95,7 @@ $(document).ready(function(){
     preloadImages(objAPT_JSON[1]);
     var slider = new Slider("#audio_sliderID", {
         range: false,
-        tooltip: 'always',
+        tooltip: 'hide',
         precision: 0,
         formatter: function(value) {
             return Math.round(value);
