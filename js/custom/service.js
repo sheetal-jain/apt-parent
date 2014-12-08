@@ -512,7 +512,8 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').removeClass('collapse');
             $('.fw-content').html("");
             $('.fw-content').append("<span class='font-xx-lg'>01</span>");
-            $('#fw-header-1').css('display','inline');
+//            $('#fw-header-1').css('display','inline');
+            $('#fw-header-1').css('margin-left', '-47px');
             $('#fw-header-1').text('');
             $('#fw-header-1').text('Établir des relations de qualité entre');
             $('#fw-header-2').text('parents et adolescents');
@@ -537,7 +538,8 @@ function fnSlideWiseContentManage(slide){
             $('#lc-content').html("");
             $('#lc-content').append("<span class='font-xx-lg'>01</span>");
 
-            $('#lc-header-1').css('display','inline');
+//            $('#lc-header-1').css('display','inline');
+            $('#lc-header-1').css('margin-left', '-47px');
             $('#lc-header-1').text('Établir des relations de qualité entre');
             $('#lc-header-2').text('parents et adolescents');
             $('#rc-content-text').removeClass('collapse');
@@ -787,9 +789,9 @@ function fnSlideWiseContentManage(slide){
             $('.full-width-content').removeClass('collapse');
             $('.fw-header').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
-            $('#fw-header-1').css('display','inline');
+//            $('#fw-header-1').css('display','inline');
             $('#fw-header-1').html('Communiquer efficacement avec');
-//            $('#fw-header-1').css('margin-left', '-35px');
+            $('#fw-header-1').css('margin-left', '-40px');
             $('#fw-header-2').html('vos adolescents');
             $('#fw-footer-lr').removeClass('collapse');
             $('#fw-footer-img').addClass('collapse');
@@ -817,7 +819,7 @@ function fnSlideWiseContentManage(slide){
             $('#rc-footer-text').html("<span id='rc-footer-span' class='font-med'>Pour commencer, passez à l’écran suivant.</span>");
             $('.l-c-header').removeClass('collapse');
             $('#lc-header-1').html('Communiquer efficacement avec');
-            $('#lc-header-1').css('margin-left', '-35px');
+            $('#lc-header-1').css('margin-left', '-40px');
             $('#lc-header-2').html('vos adolescents');
             $('#lc-content').html("<span class='font-xx-lg'>02</span>");
             break;
@@ -1034,7 +1036,7 @@ function fnSlideWiseContentManage(slide){
             $('.fw-header').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-header-1').html('Exercer de bonnes ');
-            $('#fw-header-1').css('margin-left', '-16px');
+            $('#fw-header-1').css('margin-left', '-22px');
             $('#fw-header-2').html('parenting practices');
             $('#fw-footer-lr').removeClass('collapse');
             $('#fw-day').html('Vendredi');
@@ -1057,7 +1059,7 @@ function fnSlideWiseContentManage(slide){
             $('.l-c-header').removeClass('collapse');
             $('#rc-content-select').addClass('collapse');
             $('#lc-header-1').html('Exercer de bonnes ');
-            $('#lc-header-1').css('margin-left', '-16px');
+            $('#lc-header-1').css('margin-left', '-22px');
             $('#lc-header-2').html('parenting practices');
             $('#lc-content').removeClass('collapse');
             $('#lc-content').html("");
