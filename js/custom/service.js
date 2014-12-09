@@ -396,6 +396,7 @@ function fnAddCollapseClass(){
     $('#slide-dyn').removeClass('content-collapse');
 
     $('#help-header').hide();
+    fnShowNextButton();
 }
 
 function fnAddCollapseClassIntroCapsule(){
@@ -432,6 +433,7 @@ function fnAddCollapseClassIntroCapsule(){
     $("#infrom-navi").addClass("content-collapse");
 
     $("#transition").addClass("content-collapse");
+    fnShowNextButton();
 
 }
 function fnHideNextButton(){
