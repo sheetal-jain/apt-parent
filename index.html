@@ -15,25 +15,35 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <!-- Font Awesome -->
     <!--<script src="js/script.js" type="text/javascript"></script>-->
+    <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
 </head>
 <body>
-    <header>
+<div class="interstitial white"></div>
+<span class="loading" id="loadingSpinner" style="left: 633px; top: 164px;"></span>
+<script type="text/javascript">
+    $(".interstitial").css("height",window.innerHeight);
+    $("#loadingSpinner").css("left", (window.innerWidth/2) - 50);
+    $("#loadingSpinner").css("top", (window.innerHeight/2) - 50);
+
+</script>
+
+<header>
     </header>
     <div class="container-fluid">
         <div id="firstprogram" class="row">
             <br />
             <div class="col-md-9 col-md-offset-1-5">
                 <div class="col-md-12">
-                    <strong>APT Parents Section</strong>
+                    <strong>Section APTE Parents</strong>
                 </div>
             </div>
             <div class="col-md-9 col-md-offset-1-5">
                 <div class="col-md-12">
                     <div class="pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="javascript:void(0)" onclick="help();">Aide</a></li>
+                            <li><a href="javascript:void(0)" id="help">Aide</a></li>
                             <li class="divider-vertical"></li>
-                            <li><a href="javascript:void(0)" onclick="resource();">Ressources</a></li>
+                            <li><a href="javascript:void(0)" id="resource">Ressources</a></li>
                             <li class="divider-vertical"></li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Table des matières</a>
                                 <ul class="dropdown-menu cust-toggle-menu">
@@ -56,7 +66,7 @@
                                     </li>
                                     <li>
                                         <div id="toggle-header1" class="toggle-header" onclick="tglclass1();" name="capsule1_slide1">
-                                            <span>Capsule 1: Establish meaningful relationship...</span>
+                                            <span>Capsule 1: Établir des relations de qualité entre parents et adolescents</span>
                                         </div>
                                         <div id="tgldtl1" class="tgldt" style="display: none">
                                             <ul>
@@ -76,7 +86,7 @@
                                     </li>
                                     <li>
                                         <div id="toggle-header2" class="toggle-header" onclick="tglclass2();" name="capsule2_slide1">
-                                            <span>Capsule 2: Communicate effectively with you...</span>
+                                            <span>Capsule 2: Communiquer efficacement avec vos adolescents</span>
                                         </div>
                                         <div id="tgldtl2" class="tgldt" style="display: none">
                                             <ul>
@@ -92,7 +102,7 @@
                                     </li>
                                     <li>
                                         <div id="toggle-header3" class="toggle-header" onclick="tglclass3();" name="capsule3_slide1">
-                                            <span>Capsule 3: Applying good parental practices...</span>
+                                            <span>Capsule 3: Exercer de bonnes pratiques parentales</span>
                                         </div>
                                         <div id="tgldtl3" class="tgldt" style="display: none">
                                             <ul>
@@ -111,7 +121,7 @@
                                     </li>
                                     <li>
                                         <div id="toggle-header4" class="toggle-header" onclick="tglclass4();" name="capsule4_slide1">
-                                            <span>Capsule 4: Solve conflicts between parents an...</span>
+                                            <span>Capsule 4: Résoudre les conflits entre parents et adolescents</span>
                                         </div>
                                         <div id="tgldtl4" class="tgldt" style="display: none">
                                             <ul>
@@ -141,7 +151,7 @@
                         <span class="header-span" style="margin-left: 50px;margin-right: -60px;">Section</span>
                         <span class="header">APTE Parents</span>
                     </div>
-                    <!--<img src="Images/spinner.png" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top: 50%;left: 50%;"/>-->
+                    <span class="loading" id="loadingSpinnerSlide" style="display:none"></span>
                     <img id="slide1" class="img-responsive  col-mid-width-12" src="Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png" alt="" />
 
                     <!-- Welcome Programme -->
@@ -258,25 +268,25 @@
                         <!-- Navigation Help -->
                         <div id="infrom-navi" class="slide-content content-collapse screen" name="intro_navigation_help">
                             <div class="navi-help">
-                                <span>Navigation help</span>
+                                <span>Aide à la navigation</span>
                             </div>
                             <div class="inform">
-                                <span>Infromation files and documents about psychoactive substances</span>
+                                <span>Tableau des croyances, Fiches d'Information et documents sur les psychotropes</span>
                             </div>
                             <div class="vol">
                                 <span>Volume</span>
                             </div>
                             <div class="play">
-                                <span>Pause / Play</span>
+                                <span>Mettre en Pause / Redémarrer</span>
                             </div>
                             <div class="seekbar">
-                                <span>Progress bar</span>
+                                <span>Barre de progression</span>
                             </div>
                             <div class="prev-scr">
-                                <span>Previous screen</span>
+                                <span>écran précédent</span>
                             </div>
                             <div class="next-scr">
-                                <span>Next screen</span>
+                                <span>écran suivant</span>
                             </div>
                         </div>
                         <!-- Navigation Help -->
@@ -527,9 +537,9 @@
             </div>
         </div>
     </div>
-<div id="overlay">
-    <img src="Images/spinner.gif" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top:50%;left: 50%;"/>
-</div>
+<!--<div id="overlay">
+    <img src="Images/spinner.png" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top:50%;left: 50%;"/>
+</div>-->
 
     <!--Vendor JS-->
     <script type="text/javascript" src="js/vendor/jquery.min.js"></script>

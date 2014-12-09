@@ -49,10 +49,13 @@ function showLoader(imgId){
 
     var myImg = new Image();
     myImg.src = $(imgId).attr('src');
-    $("#overlay").show();
+    console.log();
+    $("#loadingSpinnerSlide").css("left", ($(".image-shadow").width()/2) - 50);
+    $("#loadingSpinnerSlide").css("top", ($(".image-shadow").height()/2) - 50);
+    $("#loadingSpinnerSlide").show();
     myImg.onload = function(){
         fnSetModelScreen();
-        $("#overlay").hide();
+        $("#loadingSpinnerSlide").hide();
     }
 
     /*console.log(imgSrc == $(imgId).attr('src')," ===== ",imgSrc," ===== ",$(imgId).attr('src'));
@@ -1561,7 +1564,7 @@ function fnSlideWiseContentManage(slide){
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
             $('.fw-content').html("");
-            $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>resources</span><span class='in-block font-lg'>Click the information sheets and the common beliefs and misconceptions documents to consult them.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>common beliefs and misconceptions discussed in the capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>common beliefs and misconceptions documents</span></div></div><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Psychoactive substances</span></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>Infromation sheets :</span></li></ul><div><div class='res-box'><span class='font-sm'>Meaningful relationship</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>communicate effectively</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>parenting practices</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>conflict resolution</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Click on Next to continue.</span></div></div>");
+            $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>ressources</span><span class='in-block font-lg'>Cliquez sur les fiches d'informations obtenues et les croyances pour les consulter.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>CROYANCES discutées dans les capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Tableaux des croyances</span></div></div><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Les psychotropes</span></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>FICHES d'Informations obtenues:</span></li></ul><div><div class='res-box'><span class='font-sm'>Reation de qualité</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>Communiquer efficacement</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>Pratiques parentales</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>Résoudre les conflits</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Cliquez sur Suivant pour continuer.</span></div></div>");
             changeCookieValue("resource")
             break;
 
@@ -1878,11 +1881,6 @@ function help() {
 //    $('#btnstart').addClass('content-collapse');
     $('#help-header').html("<span class='text-upper'>Here are the main elements of your interactive environment.</span>");
 }
-
-function resource() {
-    fnSlideWiseContentManage("resource")
-}
-
 
 function refreshContentOnReload(){
     $("#tips-images").find('div').addClass("content-collapse");
