@@ -22,22 +22,34 @@ function changeCookieValue(newValue) {
 }
 
 function preloadImages(JSONObj){
+//    console.log(JSONObj);
     var imagesArr = [];
+    var audiosArr = [];
+
     imagesArr.push(JSONObj.imgName);
+//    audiosArr.push(JSONObj.audioName);
     jQuery.each(JSONObj.popupImg,function(i,obj){
         imagesArr.push(obj.imgName)
     });
+
+    jQuery.each(JSONObj.audioName,function(i,obj){
+        if(obj != "" || obj != undefined){
+            audiosArr.push(obj);
+        }
+    });
+
     $.preload(imagesArr);
+    $.preloadAudio(audiosArr);
 }
 
-function loadAudio(uri)
+/*function loadAudio(uri)
 {
     var audio = new Audio();
     //audio.onload = isAppLoaded; // It doesn't works!
     audio.addEventListener('canplaythrough', isAudioLoaded, false); // It works!!
     audio.src = uri;
     return audio;
-}
+}*/
 
 function isAudioLoaded(){
 //    console.log("Loaded");
@@ -248,7 +260,7 @@ function refreshPopupContent(popupContentArr){
 
 
 function setupAudioControls(audioName){
-    var aud = loadAudio(audioName);
+//    var aud = loadAudio(audioName);
 //    console.log(audioName);
     $("#mp3source").attr('src', audioName);
     $('#APT_Audio_Controls').trigger('load');

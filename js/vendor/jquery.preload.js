@@ -16,4 +16,19 @@
     // reverse loop run faster
     for( ; i-- ; ) tmp.push( $( '<img />' ).attr( 'src', 'Images/'+imgs[ i ]));
   };
+
+    $.preloadAudio = function(){
+        var auds = Object.prototype.toString.call( arguments[ 0 ]) === '[object Array]'
+            ? arguments[ 0 ] : arguments;
+
+        var tmp = [];
+        var i   = auds.length;
+
+        // reverse loop run faster
+//        for( ; i-- ; ) tmp.push( $( '<img />' ).attr( 'src', 'Audio/'+imgs[ i ]));
+        for( ; i-- ; ) {
+            var audioFile = new Image();
+            audioFile.src = "Audio/FR/mp3/"+auds[i]
+        };
+    }
 })( jQuery );
