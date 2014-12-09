@@ -15,9 +15,19 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <!-- Font Awesome -->
     <!--<script src="js/script.js" type="text/javascript"></script>-->
+    <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
 </head>
 <body>
-    <header>
+<div class="interstitial white"></div>
+<span class="loading" id="loadingSpinner" style="left: 633px; top: 164px;"></span>
+<script type="text/javascript">
+    $(".interstitial").css("height",window.innerHeight);
+    $("#loadingSpinner").css("left", (window.innerWidth/2) - 50);
+    $("#loadingSpinner").css("top", (window.innerHeight/2) - 50);
+
+</script>
+
+<header>
     </header>
     <div class="container-fluid">
         <div id="firstprogram" class="row">
@@ -141,7 +151,7 @@
                         <span class="header-span" style="margin-left: 50px;margin-right: -60px;">Section</span>
                         <span class="header">APTE Parents</span>
                     </div>
-                    <!--<img src="Images/spinner.png" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top: 50%;left: 50%;"/>-->
+                    <span class="loading" id="loadingSpinnerSlide" style="display:none"></span>
                     <img id="slide1" class="img-responsive  col-mid-width-12" src="Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png" alt="" />
 
                     <!-- Welcome Programme -->
@@ -530,9 +540,9 @@
             </div>
         </div>
     </div>
-<div id="overlay">
-    <img src="Images/spinner.gif" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top:50%;left: 50%;"/>
-</div>
+<!--<div id="overlay">
+    <img src="Images/spinner.png" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top:50%;left: 50%;"/>
+</div>-->
 
     <!--Vendor JS-->
     <script type="text/javascript" src="js/vendor/jquery.min.js"></script>

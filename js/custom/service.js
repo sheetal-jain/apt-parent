@@ -49,10 +49,13 @@ function showLoader(imgId){
 
     var myImg = new Image();
     myImg.src = $(imgId).attr('src');
-    $("#overlay").show();
+    console.log();
+    $("#loadingSpinnerSlide").css("left", ($(".image-shadow").width()/2) - 50);
+    $("#loadingSpinnerSlide").css("top", ($(".image-shadow").height()/2) - 50);
+    $("#loadingSpinnerSlide").show();
     myImg.onload = function(){
         fnSetModelScreen();
-        $("#overlay").hide();
+        $("#loadingSpinnerSlide").hide();
     }
 
     /*console.log(imgSrc == $(imgId).attr('src')," ===== ",imgSrc," ===== ",$(imgId).attr('src'));
@@ -431,6 +434,18 @@ function fnAddCollapseClassIntroCapsule(){
     $("#transition").addClass("content-collapse");
 
 }
+function fnHideNextButton(){
+    $("#next").addClass('content-collapse');
+    $("#prev").removeClass("content-collapse");
+    $(".playa").css('width','93%');
+    $("#prev").css('margin-left','60px');
+};
+
+function fnShowNextButton(){
+    $("#next").removeClass('content-collapse');
+    $(".playa").css('width','87%');
+    $("#prev").removeAttr("style");
+};
 
 function fnSlideWiseContentManage(slide){
     switch (slide) {
@@ -504,6 +519,7 @@ function fnSlideWiseContentManage(slide){
             break;
         case "intro_transition":
             //show next button
+            fnShowNextButton();
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
 
@@ -511,17 +527,14 @@ function fnSlideWiseContentManage(slide){
             $("#prev").removeClass("fade");
             $("#transition").removeClass("content-collapse");
             $('#slide-dyn').removeClass('content-collapse');
-            $("#next").removeClass('content-collapse');
-            $(".playa").css('width','87%');
+
             break;
 
         case "intro_menu":
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
             //hide next button
-            $("#next").addClass('content-collapse');
-            $("#prev").removeClass("content-collapse");
-            $(".playa").css('width','93%');
+            fnHideNextButton();
             $('#slide-dyn').removeClass('content-collapse');
             $("#slide-capsule1").addClass("collapse");
             $('#slide-menu').removeClass('content-collapse');
@@ -531,8 +544,7 @@ function fnSlideWiseContentManage(slide){
         case "capsule1_slide1":
             setupAudioControls('Audio/FR/mp3/6CYh8nauv4Z_22050_80.mp3')
             //show next button
-            $("#next").removeClass('content-collapse');
-            $(".playa").css('width','87%');
+            fnShowNextButton();
             // --- Add Collapse --- //
             fnAddCollapseClass();
             // --- Show --- //
@@ -773,8 +785,7 @@ function fnSlideWiseContentManage(slide){
         case "capsule1_slide16":
             fnAddCollapseClass();
             $('.fw-content').show();
-            $("#next").removeClass('content-collapse');
-            $(".playa").css('width','87%');
+            fnShowNextButton();
             $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
@@ -782,14 +793,15 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').addClass('cap1-last-slide');
             $('.fw-content').html("<div><span class='orange text-uppercase font-x-lg'>Félicitations!</span></div>");
             $('.fw-content').append("<div><span class='text-uppercase font-med'>En terminant cette capsule, vous avez obtenu une nouvelle fiche d’information!<br /><br />Consultez-la, ainsi que le tableau des croyances en matière de psychotropes, pour compléter votre formation :</span></div>");
-            $('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>FICHES D'INFORMATIONS OBTENUES</span></th><th><span class='text-uppercase orange'>CROYANCES DISCUTÉES DANS LES CAPSULES</span></th></tr></thead><tbody><tr><td class='carousel'><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(cliquez pour consulter)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>proximité émotionnelle</span></div></td><td><span>Prenez en note les numèros de croyances à consulter ;<br />2-6-7-8-10-12-13-14-15</span></td></tr><tr><td><span>La fiche est maintenant disponible dans l'onglet Ressources.</span></td><td><span>Consultez le tableau dans l'onglet Ressources pour voir les arguments utilisés pour y faire face.</span></td></tr></tbody></table>");
+            $('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>FICHES D'INFORMATIONS OBTENUES</span></th><th><span class='text-uppercase orange'>CROYANCES DISCUTÉES DANS LES CAPSULES</span></th></tr></thead><tbody><tr><td class='carousel'><div class='custom-img'><img class='download_resource img-responsive' name='proximite_emotionnelle' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span class='default_cursor'>(cliquez pour consulter)</span><span class='download_resource text-upper cust-span-em' name='proximite_emotionnelle'><span class='fa fa-angle-double-right'></span>proximité émotionnelle</span></div></td><td><span>Prenez en note les numèros de croyances à consulter ;<br />2-6-7-8-10-12-13-14-15</span></td></tr><tr><td><span>La fiche est maintenant disponible dans l'onglet Ressources.</span></td><td><span>Consultez le tableau dans l'onglet Ressources pour voir les arguments utilisés pour y faire face.</span></td></tr></tbody></table>");
             $('.fw-content').append("<span class='font-med nxt-page-msg'>Passez à l’écran suivant pour retourner au menu principal.</span>");
+            fnResourceDownloadClickEvent();
+
             break;
 
         case "intro_menuAfterCap1":
             //hide next button
-            $("#next").addClass('content-collapse');
-            $(".playa").css('width','93%');
+            fnHideNextButton();
 
             // --- Add Collapse --- //
             $('#slide-menu').removeClass('collapse');
@@ -810,8 +822,7 @@ function fnSlideWiseContentManage(slide){
         case "capsule2_slide1":
             setupAudioControls('Audio/FR/mp3/6KADunyRYy4_22050_80.mp3');
             //show next button
-            $("#next").removeClass('content-collapse');
-            $(".playa").css('width','87%');
+            fnShowNextButton();
             fnAddCollapseClass();
             $('.fw-content').html("");
             $('.fw-content').removeClass('collapse');
@@ -1018,22 +1029,21 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('#slide-capsule1').removeClass('collapse');
             $('.fw-content').show();
-            $("#next").removeClass('content-collapse');
-            $(".playa").css('width','87%');
+            fnShowNextButton();
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
             $('.fw-content').html("");
             $('.fw-content').addClass('cap2-last-slide');
             $('.fw-content').html("<div><span class='orange text-uppercase font-x-lg'>Félicitations! </span></div>");
             $('.fw-content').append("<div><span class='text-uppercase font-med'>En terminant cette capsule, vous avez obtenu de nouvelles fiches d’information!<br /><br />Consultez-les, ainsi que le tableau des croyances en matière de psychotropes, pour compléter votre formation :</span></div>");
-            $('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>FICHES D'INFORMATIONS OBTENUES</span></th><th><span class='text-uppercase orange'>CROYANCES DISCUTÉES DANS LES CAPSULES</span></th></tr></thead><tbody><tr><td class='carousel wth-o-padd'><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(cliquez pour consulter)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>OUVERTURE À LA COMMUNICATION</span></div><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(cliquez pour consulter)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>informations parentale</span></div><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(cliquez pour consulter)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>messages préventifs</span></div></td><td class='v-align-t'><span>Prenez en note les numèros de croyances à consulter ;<br />1-20-22-23</span></td></tr><tr><td><span>La fiche est maintenant disponible dans l'onglet Ressources.</span></td><td><span>Consultez le tableau dans l'onglet Ressources pour voir les arguments utilisés pour y faire face.</span></td></tr></tbody></table>");
+            $('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>FICHES D'INFORMATIONS OBTENUES</span></th><th><span class='text-uppercase orange'>CROYANCES DISCUTÉES DANS LES CAPSULES</span></th></tr></thead><tbody><tr><td class='carousel wth-o-padd'><div class='custom-img'><img class='download_resource img-responsive' name='ouverture_communication' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /></a><span class='default_cursor'>(cliquez pour consulter)</span><span class='download_resource text-upper cust-span-em' name='ouverture_communication'><span class='fa fa-angle-double-right'></span>OUVERTURE À LA COMMUNICATION</span></div><div class='custom-img'><img class='download_resource img-responsive' name='information_parentale' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span class='default_cursor'>(cliquez pour consulter)</span><span class='download_resource text-upper cust-span-em' name='information_parentale'><span class='fa fa-angle-double-right'></span>informations parentale</span></div><div class='custom-img'><img class='download_resource img-responsive' name='messages_preventifs' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span class='default_cursor'>(cliquez pour consulter)</span><span class='download_resource text-upper cust-span-em' name='messages_preventifs'><span class='fa fa-angle-double-right'></span>messages préventifs</span></div></td><td class='v-align-t'><span>Prenez en note les numèros de croyances à consulter ;<br />1-20-22-23</span></td></tr><tr><td><span>La fiche est maintenant disponible dans l'onglet Ressources.</span></td><td><span>Consultez le tableau dans l'onglet Ressources pour voir les arguments utilisés pour y faire face.</span></td></tr></tbody></table>");
             $('.fw-content').append("<span class='font-med nxt-page-msg'>Passez à l’écran suivant pour retourner au menu principal.</span>");
+            fnResourceDownloadClickEvent();
             break;
 
         case "intro_menuAfterCap2":
             //hide next button
-            $("#next").addClass('content-collapse');
-            $(".playa").css('width','93%');
+            fnHideNextButton();
 
             $('#slide-capsule1').addClass('collapse');
             $('#slide-menu').removeClass('content-collapse');
@@ -1055,8 +1065,7 @@ function fnSlideWiseContentManage(slide){
         case "capsule3_slide1":
             setupAudioControls('Audio/FR/mp3/6Oyf4dGZ7ed_22050_80.mp3');
             //show next button
-            $("#next").removeClass('content-collapse');
-            $(".playa").css('width','87%');
+            fnShowNextButton();
             fnAddCollapseClass();
             $('.fw-content').html("");
             $('.fw-content').removeClass('collapse');
@@ -1274,8 +1283,7 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('#slide-capsule1').removeClass('collapse');
             $('.fw-content').show();
-            $("#next").removeClass('content-collapse');
-            $(".playa").css('width','87%');
+            fnShowNextButton();
             $('#slide-dyn').attr('src', 'Images/6kSF2jw7moU_DX1890_DY1890_CX945_CY530.png');
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
@@ -1283,13 +1291,13 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').addClass('cap2-last-slide');
             $('.fw-content').html("<div><span class='orange text-uppercase font-x-lg'>Félicitations!</span></div>");
             $('.fw-content').append("<div><span class='text-uppercase font-med'>En terminant cette capsule, vous avez obtenu de nouvelles fiches d’information!<br /><br />Consultez-les, ainsi que le tableau des croyances en matière de psychotropes, pour compléter votre formation :</span></div>");
-            $('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>FICHES D'INFORMATIONS OBTENUES</span></th><th><span class='text-uppercase orange'>CROYANCES DISCUTÉES DANS LES CAPSULES</span></th></tr></thead><tbody><tr><td class='carousel wth-o-padd'><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(cliquez pour consulter)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>LE CONTRÔLE PARENTAL</span></div><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(cliquez pour consulter)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>LES STYLES DISCIPLINAIRES</span></div><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(cliquez pour consulter)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>LA TOLÉRANCE</span></div></td><td class='v-align-t'><span>Prenez en note les numèros de croyances à consulter ;<br />1-2-3</span></td></tr><tr><td><span>La fiche est maintenant disponible dans l'onglet Ressources.</span></td><td><span>Consultez le tableau dans l'onglet Ressources pour voir les arguments utilisés pour y faire face.</span></td></tr></tbody></table>");
+            $('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>FICHES D'INFORMATIONS OBTENUES</span></th><th><span class='text-uppercase orange'>CROYANCES DISCUTÉES DANS LES CAPSULES</span></th></tr></thead><tbody><tr><td class='carousel wth-o-padd'><div class='custom-img'><img class='download_resource img-responsive' name='controle_parental' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span class='default_cursor'>(cliquez pour consulter)</span><span class='download_resource text-upper cust-span-em' name='controle_parental'><span class='fa fa-angle-double-right'></span>LE CONTRÔLE PARENTAL</span></div><div class='custom-img'><img class='download_resource img-responsive' name='styles_disciplinaires' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span class='default_cursor'>(cliquez pour consulter)</span><span class='download_resource text-upper cust-span-em' name='styles_disciplinaires'><span class='fa fa-angle-double-right'></span>LES STYLES DISCIPLINAIRES</span></div><div class='custom-img'><img class='download_resource img-responsive' name='tolerance' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span class='default_cursor'>(cliquez pour consulter)</span><span class='download_resource text-upper cust-span-em' name='tolerance'><span class='fa fa-angle-double-right'></span>LA TOLÉRANCE</span></div></td><td class='v-align-t'><span>Prenez en note les numèros de croyances à consulter ;<br />1-2-3</span></td></tr><tr><td><span>La fiche est maintenant disponible dans l'onglet Ressources.</span></td><td><span>Consultez le tableau dans l'onglet Ressources pour voir les arguments utilisés pour y faire face.</span></td></tr></tbody></table>");
             $('.fw-content').append("<span class='font-med nxt-page-msg'>Passez à l’écran suivant pour retourner au menu principal.</span>");
+            fnResourceDownloadClickEvent();
             break;
         case "intro_menuAfterCap3":
             //hide next button
-            $("#next").addClass('content-collapse');
-            $(".playa").css('width','93%');
+            fnHideNextButton();
 
             $('#slide-capsule1').addClass('collapse');
             $('#slide-menu').removeClass('content-collapse');
@@ -1312,8 +1320,7 @@ function fnSlideWiseContentManage(slide){
             break;
         case "capsule4_slide1":
             //show next button
-            $("#next").removeClass('content-collapse');
-            $(".playa").css('width','87%');
+            fnShowNextButton();
             fnAddCollapseClass();
             $('.fw-content').html();
             $('.fw-content').removeClass('collapse');
@@ -1504,8 +1511,7 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('#slide-capsule1').removeClass('collapse');
             $('.fw-content').show();
-            $("#next").removeClass('content-collapse');
-            $(".playa").css('width','87%');
+            fnShowNextButton();
             $('#slide-dyn').attr('src', 'Images/5fIEnF5ZlqL_DX1890_DY1890_CX945_CY530.png');
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
@@ -1513,9 +1519,10 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').addClass('cap1-last-slide');
             $('.fw-content').html("<div><span class='orange text-uppercase font-x-lg'>Félicitations!</span></div>");
             $('.fw-content').append("<div><span class='text-uppercase font-med'>En terminant cette capsule, vous avez obtenu une nouvelle fiche d’information!<br /><br />Consultez-les, ainsi que le tableau des croyances en matière de psychotropes, pour compléter votre formation :</span></div>");
-                $('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>FICHES d'Informations obtenues</span></th><th><span class='text-uppercase orange'>CROYANCES DISCUTÉES DANS LES CAPSULES</span></th></tr></thead><tbody><tr><td class='carousel'><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(cliquez pour consulter)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>LES STRATÉGIES DE RÉSOLUTION DE CONFLITS</span></div></td><td><span>Prenez en note les numèros de croyances à consulter<br />4-5-9-11-16-17-18-19-21</span></td></tr><tr><td><span>La fiche est maintenant disponible dans l'onglet Ressources.</span></td><td><span>Consultez le tableau dans l'onglet Ressources pour voir les arguments utilisés pour y faire face.</span></td></tr></tbody></table>");
+            $('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>FICHES d'Informations obtenues</span></th><th><span class='text-uppercase orange'>CROYANCES DISCUTÉES DANS LES CAPSULES</span></th></tr></thead><tbody><tr><td class='carousel'><div class='custom-img'><img class='download_resource img-responsive' name='resolution_conflit' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span class='default_cursor'>(cliquez pour consulter)</span><span class='download_resource text-upper cust-span-em' name='resolution_conflit'><span class='fa fa-angle-double-right'></span>LES STRATÉGIES DE RÉSOLUTION DE CONFLITS</span></div></td><td><span>Prenez en note les numèros de croyances à consulter<br />4-5-9-11-16-17-18-19-21</span></td></tr><tr><td><span>La fiche est maintenant disponible dans l'onglet Ressources.</span></td><td><span>Consultez le tableau dans l'onglet Ressources pour voir les arguments utilisés pour y faire face.</span></td></tr></tbody></table>");
             $('.fw-content').append("<span class='font-med nxt-page-msg'>Passez à l’écran suivant pour retourner au menu principal.</span>");
             $('.cust-span-em').css('font-size', '60%');
+            fnResourceDownloadClickEvent();
             break;
 
         case "intro_menuAfterCap4":
@@ -1563,7 +1570,8 @@ function fnSlideWiseContentManage(slide){
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
             $('.fw-content').html("");
-            $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>ressources</span><span class='in-block font-lg'>Cliquez sur les fiches d'informations obtenues et les croyances pour les consulter.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>CROYANCES discutées dans les capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Tableaux des croyances</span></div></div><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Les psychotropes</span></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>FICHES d'Informations obtenues:</span></li></ul><div><div class='res-box'><span class='font-sm'>Reation de qualité</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>Communiquer efficacement</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>Pratiques parentales</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>Résoudre les conflits</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Cliquez sur Suivant pour continuer.</span></div></div>");
+            $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>ressources</span><span class='in-block font-lg'>Cliquez sur les fiches d'informations obtenues et les croyances pour les consulter.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>CROYANCES discutées dans les capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='croyances' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='croyances'>Tableaux des croyances</span></div></div><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='psychotropes' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='psychotropes'>Les psychotropes</span></a></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>FICHES d'Informations obtenues:</span></li></ul><div><div class='res-box'><span class='font-sm'>Reation de qualité</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>Communiquer efficacement</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>Pratiques parentales</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>Résoudre les conflits</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Cliquez sur Suivant pour continuer.</span></div></div>");
+            fnResourceDownloadClickEvent();
             break;
 
         case "help":
@@ -1630,6 +1638,14 @@ function fnSlideWiseContentManage(slide){
             //$('.fw-content').append("<span class='font-med nxt-page-msg'>Go to the next screen to return to the main menu.</span>");
             //$('.cust-span-em').css('font-size', '60%');
             break;
+
+        case "help":
+            fnAddCollapseClass();
+            help();
+            console.log("in help");
+            changeCookieValue("help");
+            break;
+
         default:
 //            console.log("Default Call In fnSlideWiseAddOrRemoveElementClass function");
     }
@@ -1637,6 +1653,17 @@ function fnSlideWiseContentManage(slide){
     $('.convertion').addClass('collapse');
 };
 
+function fnResourceDownloadClickEvent(){
+    $(".download_resource").click(function(){
+        var resourcePath = 'external_files/'+$(this).attr('name')+'.pdf';
+        download_resource(resourcePath);
+
+    });
+}
+function download_resource(path){
+    window.open(path,'_blank');
+//    window.location = path;
+}
 function fnDisableNextPrev(){
     $("#next").css("pointer-events","none");
     $("#next").css("cursor","default");
