@@ -102,13 +102,15 @@ $(document).ready(function(){
                 preloadImages(objAPT_JSON[i-1]);
             }
         });
-        
+
         /*------------ Load Resource and help screen--------------------*/
         if(current_page_cookie == 'resource'){
             fnSlideWiseContentManage("resource");
+            setupAudioControls( 'Audio/FR/mp3/6l4Qheq8nL6_22050_80_sec5.mp3');
         }
         else if(current_page_cookie == 'help'){
             fnSlideWiseContentManage("help");
+            setupAudioControls( 'Audio/FR/mp3/6l4Qheq8nL6_22050_80_sec5.mp3');
         }
     }else{
         $.cookie('current_page',objAPT_JSON[0].name, { expires: 7 });
@@ -529,12 +531,14 @@ $(document).ready(function(){
     $("#resource").click(function(){
         fnSlideWiseContentManage("resource");
         changeCookieValue("resource");
+        setupAudioControls( 'Audio/FR/mp3/6l4Qheq8nL6_22050_80_sec5.mp3');
     });
 
     /*------------ When Click on help Link in menu-----------------------*/
     $("#help").click(function(){
         fnSlideWiseContentManage("help");
         changeCookieValue("help");
+        setupAudioControls( 'Audio/FR/mp3/6l4Qheq8nL6_22050_80_sec5.mp3');
     });
 
     function fnSetupPageFromMenu(slide){

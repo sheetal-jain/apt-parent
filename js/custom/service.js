@@ -1571,6 +1571,7 @@ function fnSlideWiseContentManage(slide){
             $('#slide1').addClass('content-collapse');
             $('#slide1').css('display','none')
             $("#firstslideheader").addClass('content-collapse');
+            $('#btnStart').addClass('content-collapse');
             $("#next").removeClass("fade");
             $("#prev").removeClass("fade");
             $("#next").addClass("fade.in");
