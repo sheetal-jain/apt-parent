@@ -464,7 +464,8 @@ function fnSlideWiseContentManage(slide){
         case "introduction":
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
-
+            console.log("Inside Switch");
+            $("#slide-dyn").addClass("content-collapse");
             $('#slide1').removeClass('content-collapse')
             $('#slide1').css('display','block')
             $('#firstslideheader').removeClass('content-collapse');
@@ -1541,7 +1542,7 @@ function fnSlideWiseContentManage(slide){
         case "intro_menuAfterCap4":
             //hide next button
 //            $("#next").addClass('content-collapse');
-            $(".playa").css('width','87%');
+            fnShowNextButton();
 
             $('#slide-capsule1').addClass('collapse');
             $('#slide-menu').removeClass('content-collapse');
@@ -1625,6 +1626,7 @@ function fnSlideWiseContentManage(slide){
 
         case "thankYou":
             fnAddCollapseClass();
+            fnHideNextButton();
 //            fnAddCollapseClassIntroCapsule();
             $('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
             $('#slide-capsule1').removeClass('collapse');

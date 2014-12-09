@@ -52,6 +52,7 @@ $(document).ready(function(){
                     $('#slide2').addClass('fade');
                     $(".playa").removeAttr("style");
                     curIdx = i;
+                    getTopicWiseData(i);
                 }
                 else if(current_page_cookie == 'intro_welcome'){
                     isImgFlag = false;
@@ -398,8 +399,17 @@ $(document).ready(function(){
                 getSingleObjOfJSON.name == "capsule3_slide10" ||
                 getSingleObjOfJSON.name == "capsule4_slide4" ||
                 getSingleObjOfJSON.name == "capsule4_slide6" ||
-                getSingleObjOfJSON.name == "capsule4_slide8"
-                ) &&  mp3source== "6l4Qheq8nL6_22050_80_sec5.mp3"){
+                getSingleObjOfJSON.name == "capsule4_slide8" ||
+                getSingleObjOfJSON.name == "introduction" ||
+                getSingleObjOfJSON.name == "intro_menu" ||
+                getSingleObjOfJSON.name == "intro_menuAfterCap1" ||
+                getSingleObjOfJSON.name == "intro_menuAfterCap2" ||
+                getSingleObjOfJSON.name == "intro_menuAfterCap3" ||
+                getSingleObjOfJSON.name == "intro_menuAfterCap4" ||
+                getSingleObjOfJSON.name == "thankYou"
+                ) &&  (mp3source== "6l4Qheq8nL6_22050_80_sec5.mp3" ||
+                       mp3source== "6AdM43Vt4JX_22050_80.mp3" ||
+                       mp3source== "5nOPrNSAfIb_22050_80.mp3")){
                 $("#footer-next-indicator").addClass("content-collapse");
             }
             else{
@@ -498,8 +508,17 @@ $(document).ready(function(){
                 getSingleObjOfJSON.name == "capsule3_slide10" ||
                 getSingleObjOfJSON.name == "capsule4_slide4" ||
                 getSingleObjOfJSON.name == "capsule4_slide6" ||
-                getSingleObjOfJSON.name == "capsule4_slide8"
-                ) &&  mp3source== "6l4Qheq8nL6_22050_80_sec5.mp3"){
+                getSingleObjOfJSON.name == "capsule4_slide8" ||
+                getSingleObjOfJSON.name == "introduction" ||
+                getSingleObjOfJSON.name == "intro_menu" ||
+                getSingleObjOfJSON.name == "intro_menuAfterCap1" ||
+                getSingleObjOfJSON.name == "intro_menuAfterCap2" ||
+                getSingleObjOfJSON.name == "intro_menuAfterCap3" ||
+                getSingleObjOfJSON.name == "intro_menuAfterCap4" ||
+                getSingleObjOfJSON.name == "thankYou"
+                ) &&  (mp3source== "6l4Qheq8nL6_22050_80_sec5.mp3" ||
+                       mp3source== "6AdM43Vt4JX_22050_80.mp3" ||
+                       mp3source== "5nOPrNSAfIb_22050_80.mp3")){
                 $("#footer-next-indicator").addClass("content-collapse");
             }
             else{
@@ -549,7 +568,7 @@ $(document).ready(function(){
         jQuery.each(objAPT_JSON,function(i,obj){
             if(obj.name == slide){
                 if(slide == 'introduction'){
-
+                    $("#slide-dyn").addClass("content-collapse");
                     $('#slide1').attr('src',imgSrcBase+obj.imgName);
                     fnSlideWiseContentManage(slide);
                     $(".popup-conversation").css("display","none");
