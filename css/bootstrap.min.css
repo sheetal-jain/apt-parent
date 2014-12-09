@@ -197,6 +197,18 @@ td, th {
     height: 13px;
 }
 
+.col-mid-width-12 {
+    width: 100%;
+}
+
+.col-mid-width-6 {
+    width: 50%;
+}
+
+.col-md-offset-1-5 {
+    margin-left: 12.5%;
+}
+
 .image-shadow {
     box-shadow: 0 10px 10px 0 rgba(0,0,0,0.9);
     display: inline-block;

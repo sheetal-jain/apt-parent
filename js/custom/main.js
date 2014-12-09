@@ -18,7 +18,11 @@ var audioSrcBase_ogg = 'ogg/';
 var audio = document.getElementById("APT_Audio_Controls");
 
 $(document).ready(function(){
-
+    /*$(window).resize(function(){
+        $('.capsule-model').css('width',  $(window).height());
+        $('.capsule-model').css('height', $(window).width());
+//        fnSetModelScreen();
+    });*/
     //get Content from json
     objAPT_JSON = JSON.parse(fnGetDataFromServer('JSON/APT_Contents_JSON.json').responseText);
     max =objAPT_JSON.length;
@@ -59,7 +63,7 @@ $(document).ready(function(){
                     $('.custom-audio-button').removeClass('fade');
                     $('.custom-audio-button').addClass('fade.in');
                     $('#slide1').addClass('content-collapse');
-                    $('.playa').css("width",'85%');
+                    $('.playa').css("width",'87%');
                     $('#btnStart').addClass('content-collapse');
                     $('#firstslideheader').addClass('content-collapse');
                     $('a.custom-audio-button').addClass('fade.in');
@@ -494,7 +498,7 @@ $(document).ready(function(){
                     $('.custom-audio-button').addClass('fade.in');
                     $('#slide1').addClass('content-collapse');
                     $('#slide1').css('display','none');
-                    $('.playa').css("width",'85%');
+                    $('.playa').css("width",'87%');
                     $('#btnStart').addClass('content-collapse');
                     $('#firstslideheader').addClass('content-collapse');
                     $('a.custom-audio-button').addClass('fade.in');

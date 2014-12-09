@@ -56,7 +56,7 @@ function startAPT() {
         $('.well').css('width', '80%');
     }
     else {
-        $('.well').css('width', '85%');
+        $('.well').css('width', '87%');
     }
     $('#APT_Audio_Controls').css('margin-right', '15px');
     $('.custom-audio-button').removeClass('fade');
@@ -283,6 +283,8 @@ function fnSetModelScreen(){
 
     $('.capsule-model').css('width', capw);
     $('.capsule-model').css('height', caph);
+    $('.img-loader').css('top',capw/2);
+    $('.img-loader').css('top',caph/2);
 
 };
 
@@ -478,7 +480,7 @@ function fnSlideWiseContentManage(slide){
             $("#transition").removeClass("content-collapse");
             $('#slide-dyn').removeClass('content-collapse');
             $("#next").removeClass('content-collapse');
-            $(".playa").css('width','85%');
+            $(".playa").css('width','87%');
             break;
 
         case "intro_menu":
@@ -498,7 +500,7 @@ function fnSlideWiseContentManage(slide){
             setupAudioControls('Audio/FR/mp3/6CYh8nauv4Z_22050_80.mp3')
             //show next button
             $("#next").removeClass('content-collapse');
-            $(".playa").css('width','85%');
+            $(".playa").css('width','87%');
             // --- Add Collapse --- //
             fnAddCollapseClass();
             // --- Show --- //
@@ -740,7 +742,7 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('.fw-content').show();
             $("#next").removeClass('content-collapse');
-            $(".playa").css('width','85%');
+            $(".playa").css('width','87%');
             $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
@@ -777,7 +779,7 @@ function fnSlideWiseContentManage(slide){
             setupAudioControls('Audio/FR/mp3/6KADunyRYy4_22050_80.mp3');
             //show next button
             $("#next").removeClass('content-collapse');
-            $(".playa").css('width','85%');
+            $(".playa").css('width','87%');
             fnAddCollapseClass();
             $('.fw-content').html("");
             $('.fw-content').removeClass('collapse');
@@ -985,7 +987,7 @@ function fnSlideWiseContentManage(slide){
             $('#slide-capsule1').removeClass('collapse');
             $('.fw-content').show();
             $("#next").removeClass('content-collapse');
-            $(".playa").css('width','85%');
+            $(".playa").css('width','87%');
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
             $('.fw-content').html("");
@@ -1022,7 +1024,7 @@ function fnSlideWiseContentManage(slide){
             setupAudioControls('Audio/FR/mp3/6Oyf4dGZ7ed_22050_80.mp3');
             //show next button
             $("#next").removeClass('content-collapse');
-            $(".playa").css('width','85%');
+            $(".playa").css('width','87%');
             fnAddCollapseClass();
             $('.fw-content').html("");
             $('.fw-content').removeClass('collapse');
@@ -1241,7 +1243,7 @@ function fnSlideWiseContentManage(slide){
             $('#slide-capsule1').removeClass('collapse');
             $('.fw-content').show();
             $("#next").removeClass('content-collapse');
-            $(".playa").css('width','85%');
+            $(".playa").css('width','87%');
             $('#slide-dyn').attr('src', 'Images/6kSF2jw7moU_DX1890_DY1890_CX945_CY530.png');
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
@@ -1279,7 +1281,7 @@ function fnSlideWiseContentManage(slide){
         case "capsule4_slide1":
             //show next button
             $("#next").removeClass('content-collapse');
-            $(".playa").css('width','85%');
+            $(".playa").css('width','87%');
             fnAddCollapseClass();
             $('.fw-content').html();
             $('.fw-content').removeClass('collapse');
@@ -1471,7 +1473,7 @@ function fnSlideWiseContentManage(slide){
             $('#slide-capsule1').removeClass('collapse');
             $('.fw-content').show();
             $("#next").removeClass('content-collapse');
-            $(".playa").css('width','85%');
+            $(".playa").css('width','87%');
             $('#slide-dyn').attr('src', 'Images/5fIEnF5ZlqL_DX1890_DY1890_CX945_CY530.png');
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
@@ -1487,7 +1489,7 @@ function fnSlideWiseContentManage(slide){
         case "intro_menuAfterCap4":
             //hide next button
 //            $("#next").addClass('content-collapse');
-            $(".playa").css('width','85%');
+            $(".playa").css('width','87%');
 
             $('#slide-capsule1').addClass('collapse');
             $('#slide-menu').removeClass('content-collapse');
@@ -1516,7 +1518,7 @@ function fnSlideWiseContentManage(slide){
             $('#slide1').removeAttr('style');
             $('#slide1').css("dispaly","none");
 
-            $('.playa').css("width",'85%');
+            $('.playa').css("width",'87%');
             $('#btnStart').addClass('content-collapse');
             $('#firstslideheader').addClass('content-collapse');
 
@@ -1822,7 +1824,7 @@ function help() {
         $('.well').css('width', '80%');
     }
     else {
-        $('.well').css('width', '85%');
+        $('.well').css('width', '87%');
     }
     $('#audwelcom').css('margin-right', '15px');
     $('.custom-audio-button').removeClass('content-collapse');
