@@ -577,6 +577,7 @@ $(document).ready(function(){
                     $(".playa").removeAttr("style");
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
                     changeCookieValue(slide);
+                    getTopicWiseData(i);
                     curIdx = i;
                 }
                 else if(slide == 'intro_welcome'){
@@ -591,6 +592,7 @@ $(document).ready(function(){
                     setCollapseClassToScreen(obj.name);
 
                     changeCookieValue(slide);
+                    getTopicWiseData(i);
                     curIdx = i;
                     startAPT();
                 }
