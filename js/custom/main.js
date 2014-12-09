@@ -373,7 +373,25 @@ $(document).ready(function(){
         /*Show Next Indicator*/
         if(getAudioCurrentTimeInSec == (Math.floor(duration) - 2))
         {
-            $("#footer-next-indicator").removeClass("content-collapse");
+            var mp3source=$("#mp3source").attr("src").split("/").pop();
+            if((getSingleObjOfJSON.name == "capsule1_slide4" ||
+                getSingleObjOfJSON.name == "capsule1_slide11" ||
+                getSingleObjOfJSON.name == "capsule1_slide13" ||
+                getSingleObjOfJSON.name == "capsule2_slide4" ||
+                getSingleObjOfJSON.name == "capsule2_slide6" ||
+                getSingleObjOfJSON.name == "capsule2_slide10" ||
+                getSingleObjOfJSON.name == "capsule3_slide3" ||
+                getSingleObjOfJSON.name == "capsule3_slide5" ||
+                getSingleObjOfJSON.name == "capsule3_slide10" ||
+                getSingleObjOfJSON.name == "capsule4_slide4" ||
+                getSingleObjOfJSON.name == "capsule4_slide6" ||
+                getSingleObjOfJSON.name == "capsule4_slide8"
+                ) &&  mp3source== "6l4Qheq8nL6_22050_80_sec5.mp3"){
+                $("#footer-next-indicator").addClass("content-collapse");
+            }
+            else{
+                $("#footer-next-indicator").removeClass("content-collapse");
+            }
         }else if(getAudioCurrentTimeInSec == 0)
         {
             $("#footer-next-indicator").addClass("content-collapse");
@@ -453,7 +471,25 @@ $(document).ready(function(){
         }
         else
         {
-            $("#footer-next-indicator").removeClass("content-collapse");
+            var mp3source=$("#mp3source").attr("src").split("/").pop();
+            if((getSingleObjOfJSON.name == "capsule1_slide4" ||
+                getSingleObjOfJSON.name == "capsule1_slide11" ||
+                getSingleObjOfJSON.name == "capsule1_slide13" ||
+                getSingleObjOfJSON.name == "capsule2_slide4" ||
+                getSingleObjOfJSON.name == "capsule2_slide6" ||
+                getSingleObjOfJSON.name == "capsule2_slide10" ||
+                getSingleObjOfJSON.name == "capsule3_slide3" ||
+                getSingleObjOfJSON.name == "capsule3_slide5" ||
+                getSingleObjOfJSON.name == "capsule3_slide10" ||
+                getSingleObjOfJSON.name == "capsule4_slide4" ||
+                getSingleObjOfJSON.name == "capsule4_slide6" ||
+                getSingleObjOfJSON.name == "capsule4_slide8"
+                ) &&  mp3source== "6l4Qheq8nL6_22050_80_sec5.mp3"){
+                $("#footer-next-indicator").addClass("content-collapse");
+            }
+            else{
+                $("#footer-next-indicator").removeClass("content-collapse");
+            }
         }
     }
 
