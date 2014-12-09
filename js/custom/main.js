@@ -102,6 +102,14 @@ $(document).ready(function(){
                 preloadImages(objAPT_JSON[i-1]);
             }
         });
+        
+        /*------------ Load Resource and help screen--------------------*/
+        if(current_page_cookie == 'resource'){
+            fnSlideWiseContentManage("resource");
+        }
+        else if(current_page_cookie == 'help'){
+            fnSlideWiseContentManage("help");
+        }
     }else{
         $.cookie('current_page',objAPT_JSON[0].name, { expires: 7 });
         $('.custom-audio-button').addClass('fade');
@@ -283,7 +291,7 @@ $(document).ready(function(){
                 break;
             }
         }
-        changeCookieValue(screenName)
+        changeCookieValue(screenName);
         getTopicWiseData(curIdx);
     }
 
@@ -398,6 +406,7 @@ $(document).ready(function(){
         }
 
     },false);
+
     /*---------------Reset slide Content on Audio Start------------------*/
     $("#btnPlay").click(function(){
         if(Math.floor(audio.currentTime) == Math.floor(audio.duration))
@@ -414,6 +423,7 @@ $(document).ready(function(){
 //            refreshContentOnReload();
         }
     });
+
     /*-------------- Reset Slide content on Audio Reload ----------------*/
     $("#replayBtn").click(function(){
         $(".popup-conversation").html("");
@@ -518,12 +528,15 @@ $(document).ready(function(){
     /*------------ When Click on Resource Link in menu-------------------*/
     $("#resource").click(function(){
         fnSlideWiseContentManage("resource");
+        changeCookieValue("resource");
     });
 
     /*------------ When Click on help Link in menu-----------------------*/
     $("#help").click(function(){
-        help();
+        fnSlideWiseContentManage("help");
+        changeCookieValue("help");
     });
+
     function fnSetupPageFromMenu(slide){
         jQuery.each(objAPT_JSON,function(i,obj){
             if(obj.name == slide){
