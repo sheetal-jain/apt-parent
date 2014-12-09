@@ -49,10 +49,13 @@ function showLoader(imgId){
 
     var myImg = new Image();
     myImg.src = $(imgId).attr('src');
-    $("#overlay").show();
+    console.log();
+    $("#loadingSpinnerSlide").css("left", ($(".image-shadow").width()/2) - 50);
+    $("#loadingSpinnerSlide").css("top", ($(".image-shadow").height()/2) - 50);
+    $("#loadingSpinnerSlide").show();
     myImg.onload = function(){
         fnSetModelScreen();
-        $("#overlay").hide();
+        $("#loadingSpinnerSlide").hide();
     }
 
     /*console.log(imgSrc == $(imgId).attr('src')," ===== ",imgSrc," ===== ",$(imgId).attr('src'));
@@ -1635,6 +1638,14 @@ function fnSlideWiseContentManage(slide){
             //$('.fw-content').append("<span class='font-med nxt-page-msg'>Go to the next screen to return to the main menu.</span>");
             //$('.cust-span-em').css('font-size', '60%');
             break;
+
+        case "help":
+            fnAddCollapseClass();
+            help();
+            console.log("in help");
+            changeCookieValue("help");
+            break;
+
         default:
 //            console.log("Default Call In fnSlideWiseAddOrRemoveElementClass function");
     }

@@ -1,4 +1,4 @@
-
+console.log(window.height);
 var objAPT_JSON = ''
 var getSingleObjOfJSON = [];
 var getScreenName,max;
@@ -21,7 +21,8 @@ var audio = document.getElementById("APT_Audio_Controls");
     $("#preloader").hide();
 }*/
 $(window).load(function(){
-    $('#overlay').fadeOut();
+    $(".interstitial").css("display","none");
+    $('#loadingSpinner').css("display","none");
 });
 $(document).ready(function(){
 
@@ -42,7 +43,7 @@ $(document).ready(function(){
                 if(current_page_cookie == 'introduction'){
                     $('#slide-dyn').addClass('content-collapse');
                     $('#slide1').attr('src',imgSrcBase+obj.imgName);
-                    showLoader('#slide1');
+//                    showLoader('#slide1');
                     $('#firstslideheader').removeClass('content-collapse');
                     $('#btnStart').removeClass('content-collapse');
                     $('.custom-audio-button').removeClass('fade.in');
@@ -59,7 +60,7 @@ $(document).ready(function(){
                     $('#slide2').css('display','none');
                     $('#slide1').attr('src', 'Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png');
                     $('#slide1').css('display','inline');
-                    showLoader('#slide1');
+//                    showLoader('#slide1');
                     setCollapseClassToScreen(obj.name);
                     getTopicWiseData(i);
                     curIdx = i;
@@ -77,7 +78,7 @@ $(document).ready(function(){
                     $('a.custom-audio-button').addClass('fade.in');
                     $("#slide-dyn").attr('src','Images/'+obj.imgName);
                     $('#slide-dyn').removeClass('content-collapse');
-                    showLoader('#slide-dyn');
+//                    showLoader('#slide-dyn');
                     $($("div.screen[name="+current_page_cookie+"]")).removeClass('content-collapse');
                     $($("div.screen:not(.screen[name="+current_page_cookie+"])")).addClass('content-collapse');
                     $("#tips-images").find("div").css('opacity','0');
@@ -191,6 +192,7 @@ $(document).ready(function(){
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         $('#slide-dyn').removeClass('content-collapse');
         showLoader('#slide-dyn');
+        audio.currentTime = 0;
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
 //        if(objAPT_JSON[curIdx+1]){
 //            loadNextPageImages(objAPT_JSON[curIdx+1]);
@@ -249,6 +251,7 @@ $(document).ready(function(){
         }
 
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
+        audio.currentTime = 0;
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
         changeCookieValue(objAPT_JSON[curIdx].name);
         getTopicWiseData(curIdx);
