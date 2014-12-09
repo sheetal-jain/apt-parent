@@ -515,6 +515,15 @@ $(document).ready(function(){
         }
     });
 
+    /*------------ When Click on Resource Link in menu-------------------*/
+    $("#resource").click(function(){
+        fnSlideWiseContentManage("resource");
+    });
+
+    /*------------ When Click on help Link in menu-----------------------*/
+    $("#help").click(function(){
+        help();
+    });
     function fnSetupPageFromMenu(slide){
         jQuery.each(objAPT_JSON,function(i,obj){
             if(obj.name == slide){

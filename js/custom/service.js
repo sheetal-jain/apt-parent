@@ -1869,11 +1869,6 @@ function help() {
     $('#help-header').html("<span class='text-upper'>Here are the main elements of your interactive environment.</span>");
 }
 
-function resource() {
-    fnSlideWiseContentManage("resource")
-}
-
-
 function refreshContentOnReload(){
     $("#tips-images").find('div').addClass("content-collapse");
     $("#tips-images").find('div').css("opacity",'0').css('display','none');
