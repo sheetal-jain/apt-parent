@@ -452,7 +452,8 @@ function fnSlideWiseContentManage(slide){
         case "introduction":
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
-
+            console.log("Inside Switch");
+            $("#slide-dyn").addClass("content-collapse");
             $('#slide1').removeClass('content-collapse')
             $('#slide1').css('display','block')
             $('#firstslideheader').removeClass('content-collapse');
@@ -1528,7 +1529,7 @@ function fnSlideWiseContentManage(slide){
         case "intro_menuAfterCap4":
             //hide next button
 //            $("#next").addClass('content-collapse');
-            $(".playa").css('width','87%');
+            fnShowNextButton();
 
             $('#slide-capsule1').addClass('collapse');
             $('#slide-menu').removeClass('content-collapse');
@@ -1611,6 +1612,7 @@ function fnSlideWiseContentManage(slide){
 
         case "thankYou":
             fnAddCollapseClass();
+            fnHideNextButton();
 //            fnAddCollapseClassIntroCapsule();
             $('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
             $('#slide-capsule1').removeClass('collapse');
@@ -1637,13 +1639,6 @@ function fnSlideWiseContentManage(slide){
             //$('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>information sheet</span></th><th><span class='text-uppercase orange'>common beliefs and misconceptions covered in the capsule</span></th></tr></thead><tbody><tr><td class='carousel'><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(click to consult)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>CONFLICT RESOLUTION STRATEGIS</span></div></td><td><span>Go to the next screen to return to the main menu.<br />4-5-9-11-16-17-18-19-21</span></td></tr><tr><td><span>The information sheet is now in the Resources tab.</span></td><td><span>Consult the chart in the Resources tab in order to see the arguments used against these misconceptions.</span></td></tr></tbody></table>");
             //$('.fw-content').append("<span class='font-med nxt-page-msg'>Go to the next screen to return to the main menu.</span>");
             //$('.cust-span-em').css('font-size', '60%');
-            break;
-
-        case "help":
-            fnAddCollapseClass();
-            help();
-            console.log("in help");
-            changeCookieValue("help");
             break;
 
         default:
