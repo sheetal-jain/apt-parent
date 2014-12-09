@@ -29,18 +29,46 @@ function preloadImages(JSONObj){
     });
     $.preload(imagesArr);
 }
+
+function loadAudio(uri)
+{
+    var audio = new Audio();
+    //audio.onload = isAppLoaded; // It doesn't works!
+    audio.addEventListener('canplaythrough', isAudioLoaded, false); // It works!!
+    audio.src = uri;
+    return audio;
+}
+
+function isAudioLoaded(){
+//    console.log("Loaded");
+}
+
+
 var imgSrc = ""
 function showLoader(imgId){
+
+    var myImg = new Image();
+    myImg.src = $(imgId).attr('src');
+    $("#overlay").show();
+    myImg.onload = function(){
+        fnSetModelScreen();
+        $("#overlay").hide();
+    }
+
+    /*console.log(imgSrc == $(imgId).attr('src')," ===== ",imgSrc," ===== ",$(imgId).attr('src'));
+
     if(imgSrc != $(imgId).attr('src')){
         imgSrc = $(imgId).attr('src');
         $("#img-loader").show();
         $(imgId).load(function(){
-            $("#img-loader").hide();
+            console.log("hide loader");
             fnSetModelScreen();
+            $("#img-loader").hide();
         })
     }else{
+        console.log("none loader");
         $("#img-loader").css("display","none");
-    }
+    }*/
 }
 
 function startAPT() {
@@ -217,6 +245,8 @@ function refreshPopupContent(popupContentArr){
 
 
 function setupAudioControls(audioName){
+    var aud = loadAudio(audioName);
+//    console.log(audioName);
     $("#mp3source").attr('src', audioName);
     $('#APT_Audio_Controls').trigger('load');
     $('#APT_Audio_Controls').trigger('play');
@@ -1612,8 +1642,11 @@ function fnSlideWiseEffectManage(curTime,singleObj){
                         fnEnableNextPrev();
                     });
                 }
-                if(curTime == getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
+                if(curTime > getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
                     $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(1000);
+                    /*$('#fw-header-1').html('');
+                    $('#fw-header-2').html('');
+                    $('.fw-header').css("display","none");*/
                 }
             }
             break;
@@ -1656,7 +1689,9 @@ function fnSlideWiseEffectRemoveOnEvent(curTime,singleObj){
                     });
                 }
                 else{
+
                     $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(1000);
+
                 }
             }
             break;

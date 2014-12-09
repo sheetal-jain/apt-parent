@@ -31,11 +31,11 @@
                 <div class="col-md-12">
                     <div class="pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#" onclick="help();">Help</a></li>
+                            <li><a href="javascript:void(0)" onclick="help();">Aide</a></li>
                             <li class="divider-vertical"></li>
-                            <li><a href="#" onclick="resource();">Resources</a></li>
+                            <li><a href="javascript:void(0)" onclick="resource();">Ressources</a></li>
                             <li class="divider-vertical"></li>
-                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Table of content</a>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Table des matières</a>
                                 <ul class="dropdown-menu cust-toggle-menu">
                                     <li>
                                         <div id="toggle-header" class="toggle-header" onclick="tglclass();" name='introduction'>
@@ -133,7 +133,7 @@
                                 </ul>
                             </li>
                             <li class="divider-vertical"></li>
-                            <li><a href="javascript:void(0);" id="quit">Quit</a></li>
+                            <li><a href="javascript:void(0);" id="quit">Quitter</a></li>
                         </ul>
                     </div>
                 </div>
@@ -142,12 +142,13 @@
             <div class="col-md-12">
                 <div class="col-mid-width-12 image-shadow">
                     <div id="firstslideheader" class="custom-slide-header screen" name="introduction">
-                        <img src="Images/62LDxZ3ZFkg_DX488_DY488_CX244_CY100.jpg" alt="" />
+                        <img src="Images/image003.jpg" alt="" />
                         <span class="header-span" style="margin-left: 50px;margin-right: -60px;">Section</span>
                         <span class="header">APTE Parents</span>
                     </div>
-                    <img src="Images/spinner.png" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top: 50%;left: 50%;"/>
+                    <!--<img src="Images/spinner.png" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top: 50%;left: 50%;"/>-->
                     <img id="slide1" class="img-responsive  col-mid-width-12" src="Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png" alt="" />
+
                     <!-- Welcome Programme -->
                     <div id="welcome" class="screen" name="intro_welcome">
                         <div id="slide2" class="row custom-slide-position">
@@ -298,7 +299,7 @@
                                 <div>
                                     <span class="lg">MENU PRINCIPAL</span>
                                     <span class="sm">Sélectionnez une capsule pour la visionner ou sélectionnez «Ressources» pour obtenir de l’information en lien avec la fonction parentale et les psychotropes.</span>
-                                    <a href="#"><span class="fa fa-angle-double-right"></span>introduction</a>
+                                    <a href="javascript:void(0)"><span class="fa fa-angle-double-right"></span>introduction</a>
                                 </div>
                                 <div class="menu-resources">
                                     <img class="img-responsive" src="Images/6JTGQpj5dVE_B-18_DX414_DY414_CX207_CY107.png" alt="" />
@@ -531,6 +532,10 @@
             </div>
         </div>
     </div>
+<div id="overlay">
+    <img src="Images/spinner.gif" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top:50%;left: 50%;"/>
+</div>
+
     <!--Vendor JS-->
     <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>

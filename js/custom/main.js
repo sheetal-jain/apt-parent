@@ -17,12 +17,20 @@ var audioSrcBase_mp3 = 'Audio/FR/mp3/';
 var audioSrcBase_ogg = 'ogg/';
 var audio = document.getElementById("APT_Audio_Controls");
 
+/*function hideLoader(){
+    $("#preloader").hide();
+}*/
+$(window).load(function(){
+    $('#overlay').fadeOut();
+});
 $(document).ready(function(){
+
     /*$(window).resize(function(){
         $('.capsule-model').css('width',  $(window).height());
         $('.capsule-model').css('height', $(window).width());
 //        fnSetModelScreen();
     });*/
+
     //get Content from json
     objAPT_JSON = JSON.parse(fnGetDataFromServer('JSON/APT_Contents_JSON.json').responseText);
     max =objAPT_JSON.length;
@@ -87,13 +95,21 @@ $(document).ready(function(){
                     curIdx = i;
                 }
             }
+            if(objAPT_JSON[i+1] != undefined){
+                preloadImages(objAPT_JSON[i+1]);
+            }
+            if(objAPT_JSON[i-1] != undefined){
+                preloadImages(objAPT_JSON[i-1]);
+            }
         });
     }else{
         $.cookie('current_page',objAPT_JSON[0].name, { expires: 7 });
         $('.custom-audio-button').addClass('fade');
         $('#slide2').addClass('fade');
         showLoader('#slide1')
-
+        if(objAPT_JSON[1] != undefined){
+            preloadImages(objAPT_JSON[1]);
+        }
     }
 
     preloadImages(objAPT_JSON[1]);
@@ -172,6 +188,9 @@ $(document).ready(function(){
         changeCookieValue(objAPT_JSON[curIdx].name);
         if(objAPT_JSON[curIdx+1] != undefined){
             preloadImages(objAPT_JSON[curIdx+1]);
+        }
+        if(objAPT_JSON[curIdx+2] != undefined){
+            preloadImages(objAPT_JSON[curIdx+2]);
         }
         getTopicWiseData(curIdx);
     });
