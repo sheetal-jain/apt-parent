@@ -107,7 +107,7 @@
             {
                 "imgName":"6lavtVoHLVD_DX542_DY542_CX172_CY271.png",
                 "startingTime":"5",
-                "endingTime":"24",
+                "endingTime":"30",
                 "imgId":"slide-content-1",
                 "imgContentId":"slide-content-1",
                 "imgContent":"LE PROGRAMME COMPORTE UNE NARRATION. VOUS DEVEZ DONC RÉGLER LE VOLUME DE VOTRE ORDINATEUR."
@@ -115,7 +115,7 @@
             {
                 "imgName":"5rU7ZnG90Fx_DX542_DY542_CX172_CY271.png",
                 "startingTime":"12",
-                "endingTime":"24",
+                "endingTime":"30",
                 "imgId":"slide-content-2",
                 "imgContentId":"slide-content-2",
                 "imgContent":"UTILISEZ UN CASQUE D’ÉCOUTE POUR ÊTRE PLUS CONCENTRÉ."
@@ -123,7 +123,7 @@
             {
                 "imgName":"6hD3ydvjLt7_DX542_DY542_CX172_CY271.png",
                 "startingTime":"14",
-                "endingTime":"24",
+                "endingTime":"30",
                 "imgId":"slide-content-3",
                 "imgContentId":"slide-content-3",
                 "imgContent":"INFORMEZ LES GENS QUI VOUS ENTOURENT QUE VOUS ÊTES EN FORMATION. VOUS ÉVITEREZ AINSI D’ÊTRE DÉRANGÉ."
@@ -131,7 +131,7 @@
             {
                 "imgName":"6baW6GPP0CQ_DX542_DY542_CX172_CY271.png",
                 "startingTime":"20",
-                "endingTime":"24",
+                "endingTime":"30",
                 "imgId":"slide-content-4",
                 "imgContentId":"slide-content-4",
                 "imgContent":"LISEZ ATTENTIVEMENT LES CONSIGNES QUI SONT PRÉSENTÉES À L’ÉCRAN."
@@ -139,7 +139,7 @@
             {
                 "imgName":"5unXAHubqY3_DX542_DY542_CX172_CY271.png",
                 "startingTime":"23",
-                "endingTime":"24",
+                "endingTime":"30",
                 "imgId":"slide-content-5",
                 "imgContentId":"slide-content-5",
                 "imgContent":"FAITES TOUTES LES CAPSULES, À VOTRE RYTHME."
@@ -1522,6 +1522,13 @@
         "name":"intro_menuAfterCap4",
         "imgName" : "5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png",
         "audioName":["6AdM43Vt4JX_22050_80.mp3",""],
+        "popupContent":[],
+        "popupImg":[]
+    },
+    {
+        "name":"thankYou",
+        "imgName" : "5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png",
+        "audioName":["6l4Qheq8nL6_22050_80_sec5.mp3",""],
         "popupContent":[],
         "popupImg":[]
     }
