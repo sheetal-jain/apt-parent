@@ -235,6 +235,16 @@ audio {
         background-color: rgba(0,0,0,0.3);
     }
 
+.aud-control {
+    display: inline-block;
+    margin-right: 8px;
+    margin-top: 6px;
+    position: absolute;
+    right: 0;
+    width: 13.4%;
+    padding-left: 5px;
+}
+
 .custom-start-button {
     background-color: #009798;
     border: none;
