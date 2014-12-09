@@ -27,13 +27,12 @@ function preloadImages(JSONObj){
     var audiosArr = [];
 
     imagesArr.push(JSONObj.imgName);
-//    audiosArr.push(JSONObj.audioName);
     jQuery.each(JSONObj.popupImg,function(i,obj){
         imagesArr.push(obj.imgName)
     });
 
     jQuery.each(JSONObj.audioName,function(i,obj){
-        if(obj != "" || obj != undefined){
+        if(obj != "" && obj.length > 0){
             audiosArr.push(obj);
         }
     });
@@ -41,20 +40,6 @@ function preloadImages(JSONObj){
     $.preload(imagesArr);
     $.preloadAudio(audiosArr);
 }
-
-/*function loadAudio(uri)
-{
-    var audio = new Audio();
-    //audio.onload = isAppLoaded; // It doesn't works!
-    audio.addEventListener('canplaythrough', isAudioLoaded, false); // It works!!
-    audio.src = uri;
-    return audio;
-}*/
-
-function isAudioLoaded(){
-//    console.log("Loaded");
-}
-
 
 var imgSrc = ""
 function showLoader(imgId){
@@ -69,21 +54,6 @@ function showLoader(imgId){
         fnSetModelScreen();
         $("#loadingSpinnerSlide").hide();
     }
-
-    /*console.log(imgSrc == $(imgId).attr('src')," ===== ",imgSrc," ===== ",$(imgId).attr('src'));
-
-    if(imgSrc != $(imgId).attr('src')){
-        imgSrc = $(imgId).attr('src');
-        $("#img-loader").show();
-        $(imgId).load(function(){
-            console.log("hide loader");
-            fnSetModelScreen();
-            $("#img-loader").hide();
-        })
-    }else{
-        console.log("none loader");
-        $("#img-loader").css("display","none");
-    }*/
 }
 
 function startAPT() {
@@ -260,8 +230,6 @@ function refreshPopupContent(popupContentArr){
 
 
 function setupAudioControls(audioName){
-//    var aud = loadAudio(audioName);
-//    console.log(audioName);
     $("#mp3source").attr('src', audioName);
     $('#APT_Audio_Controls').trigger('load');
     $('#APT_Audio_Controls').trigger('play');

@@ -24,11 +24,14 @@
         var tmp = [];
         var i   = auds.length;
 
-        // reverse loop run faster
-//        for( ; i-- ; ) tmp.push( $( '<img />' ).attr( 'src', 'Audio/'+imgs[ i ]));
         for( ; i-- ; ) {
-            var audioFile = new Image();
-            audioFile.src = "Audio/FR/mp3/"+auds[i]
+
+            var audio = document.createElement("audio");
+            var audSrc = "Audio/FR/mp3/"+auds[i];
+
+            audio.src = audSrc;
+            audio.addEventListener("canplaythrough", function () {/*Put your code Here*/}, false);
         };
+
     }
 })( jQuery );
