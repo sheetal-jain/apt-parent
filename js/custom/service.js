@@ -153,7 +153,7 @@ function fnOverlayContentOnBergeronSlide(data){
 function fnOverlayImageContentOnGatherResourcesSlide(data){
     $('#slide-dyn').attr('src', 'Images/67mHodTVPPD_DX1890_DY1890_CX945_CY530.png').fadeTo(2000);
     $('#nested-slide4-1').fadeTo(1000, 0, function () {
-        $('#nested-slide4-1').attr('src',"Images/6qB0JuNQzGI_DX1088_DY1088_CX544_CY303.jpg");
+        $('#nested-slide4-1').attr('src',"Images/5VEQskudflI_80_DX1088_DY1088_CX544_CY304.png");
         $('#nested-slide4-1').removeClass('content-collapse');
     }).fadeTo(500, 1);
 };
