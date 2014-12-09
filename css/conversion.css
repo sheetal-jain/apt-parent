@@ -986,3 +986,96 @@
 .v-align-t {
     vertical-align: top;
 }
+
+/*---------------------Indication arrow in help screen----------------------*/
+/*---------Indicator top------------------*/
+.navi-help:before {
+    border-bottom: 35px solid #fff;
+    border-right: 2px solid #fff;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: 63%;
+    top: -33px;
+    width: 0;
+    -ms-transform: rotate(30deg); /* IE 9 */
+    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+    transform: rotate(30deg);
+}
+.inform:before {
+    border-bottom: 35px solid #fff;
+    border-right: 2px solid #fff;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: 63%;
+    top: -33px;
+    width: 0;
+    -ms-transform: rotate(-30deg); /* IE 9 */
+    -webkit-transform: rotate(-30deg); /* Chrome, Safari, Opera */
+    transform: rotate(-30deg);
+}
+/*---------Indicator bottom------------------*/
+.play:before {
+    border-bottom: 35px solid #fff;
+    border-right: 2px solid #fff;
+    bottom: -30px;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: 75%;
+    width: 0;
+    -ms-transform: rotate(46deg); /* IE 9 */
+    -webkit-transform: rotate(46deg); /* Chrome, Safari, Opera */
+    transform: rotate(46deg);
+}
+.seekbar:before {
+    border-bottom: 35px solid #fff;
+    border-right: 2px solid #fff;
+    bottom: -35px;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: 50%;
+    width: 0;
+}
+.vol:before {
+    border-bottom: 35px solid #fff;
+    border-right: 2px solid #fff;
+    bottom: -30px;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: 30%;
+    width: 0;
+    -ms-transform: rotate(-46deg); /* IE 9 */
+    -webkit-transform: rotate(-46deg); /* Chrome, Safari, Opera */
+    transform: rotate(-46deg);
+}
+.prev-scr:before {
+    border-bottom: 35px solid #fff;
+    border-right: 2px solid #fff;
+    bottom: -30px;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: 20%;
+    width: 0;
+    -ms-transform: rotate(-46deg); /* IE 9 */
+    -webkit-transform: rotate(-46deg); /* Chrome, Safari, Opera */
+    transform: rotate(-46deg);
+}
+.next-scr:before {
+    border-bottom: 35px solid #fff;
+    border-right: 2px solid #fff;
+    bottom: -32px;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: 35%;
+    width: 0;
+    -ms-transform: rotate(-35deg); /* IE 9 */
+    -webkit-transform: rotate(-35deg); /* Chrome, Safari, Opera */
+    transform: rotate(-35deg);
+}
+/*---------------------End of Indication arrow in help screen----------------------*/

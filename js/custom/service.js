@@ -391,6 +391,8 @@ function fnAddCollapseClass(){
 
      fnAddCollapseClassIntroCapsule();
     $('#slide-dyn').removeClass('content-collapse');
+
+    $('#help-header').hide();
 }
 
 function fnAddCollapseClassIntroCapsule(){
@@ -1591,11 +1593,12 @@ function fnSlideWiseContentManage(slide){
             else {
                 $('.well').css('width', '87%');
             }
+            $('#help-header').show();
             $('#audwelcom').css('margin-right', '15px');
             $('.custom-audio-button').removeClass('content-collapse');
             $('.navigation-help').removeClass('content-collapse');
             $('#infrom-navi').removeClass('content-collapse');
-            $('#help-header').html("<span class='text-upper'>Here are the main elements of your interactive environment.</span>");
+            $('#help-header').html("<span class='text-upper'>voici les principaux éléments de votre environnement interactif.</span>");
             break;
 
         case "thankYou":
