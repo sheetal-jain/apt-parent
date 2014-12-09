@@ -436,7 +436,7 @@ audio {
 }
 
 #vol_wrapper {
-    width: 10%;
+    width: 16%;
 }
 
 #dyn-footer {
@@ -7710,7 +7710,6 @@ button.close {
     #resources-head #nested-slide4-1 {
         width: 54%;
     }
-
     .span4 {
         margin-right: 0;
         width: 66%;
@@ -8182,7 +8181,9 @@ button.close {
     margin-right: 3.5%;
     height: 90%;
 }
-
+.default_cursor{
+    cursor: text;
+}
 #slide-thanks {
     margin-top: 4%;
 }

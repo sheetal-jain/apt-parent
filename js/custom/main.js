@@ -541,6 +541,7 @@ $(document).ready(function(){
         setupAudioControls( 'Audio/FR/mp3/6l4Qheq8nL6_22050_80_sec5.mp3');
     });
 
+
     function fnSetupPageFromMenu(slide){
         jQuery.each(objAPT_JSON,function(i,obj){
             if(obj.name == slide){
