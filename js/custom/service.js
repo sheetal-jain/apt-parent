@@ -391,6 +391,8 @@ function fnAddCollapseClass(){
 
      fnAddCollapseClassIntroCapsule();
     $('#slide-dyn').removeClass('content-collapse');
+
+    $('#help-header').hide();
 }
 
 function fnAddCollapseClassIntroCapsule(){
@@ -1564,6 +1566,41 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>ressources</span><span class='in-block font-lg'>Cliquez sur les fiches d'informations obtenues et les croyances pour les consulter.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>CROYANCES discutées dans les capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Tableaux des croyances</span></div></div><div class='res-img-dtl'><img src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='text-upper font-sm'>Les psychotropes</span></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>FICHES d'Informations obtenues:</span></li></ul><div><div class='res-box'><span class='font-sm'>Reation de qualité</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>Communiquer efficacement</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>Pratiques parentales</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>Résoudre les conflits</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Cliquez sur Suivant pour continuer.</span></div></div>");
             break;
 
+        case "help":
+            fnAddCollapseClass();
+            fnAddCollapseClassIntroCapsule();
+            $('#welcome').addClass('content-collapse');
+            $('#slide1').addClass('content-collapse');
+            $('#slide1').css('display','none')
+            $("#firstslideheader").addClass('content-collapse');
+            $('#btnStart').addClass('content-collapse');
+            $("#next").removeClass("fade");
+            $("#prev").removeClass("fade");
+            $("#next").addClass("fade.in");
+            $("#prev").addClass("fade.in");
+            $('#slide-dyn').removeClass('content-collapse');
+            $('#slide-dyn').attr('src', 'Images/5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png');
+            $('#footer-next-indicator').removeClass('collapse');
+
+            var scrw = $(window).width();
+            // --- Show --- //
+            if (scrw <= 600) {
+                $('.well').css('width', '75%');
+            }
+            else if (scrw <= 768) {
+                $('.well').css('width', '80%');
+            }
+            else {
+                $('.well').css('width', '87%');
+            }
+            $('#help-header').show();
+            $('#audwelcom').css('margin-right', '15px');
+            $('.custom-audio-button').removeClass('content-collapse');
+            $('.navigation-help').removeClass('content-collapse');
+            $('#infrom-navi').removeClass('content-collapse');
+            $('#help-header').html("<span class='text-upper'>voici les principaux éléments de votre environnement interactif.</span>");
+            break;
+
         case "thankYou":
             fnAddCollapseClass();
 //            fnAddCollapseClassIntroCapsule();
@@ -1830,44 +1867,6 @@ function fnCreatePopupOnEvent(popupClass,content,position,startTime){
     $('#' + popupPos).parent().parent().css('left', position.left + 'px');
     $('#' + popupPos).find('span').text(content);
 };
-
-function help() {
-    fnAddCollapseClass();
-    fnAddCollapseClassIntroCapsule();
-    var scrw = $(window).width();
-    $('#welcome').addClass('content-collapse');
-//    $('#slide1').addClass('content-collapse');
-//    $('#slide1').css('display','none')
-//    $("#firstslideheader").addClass('content-collapse');
-    $("#next").removeClass("fade");
-    $("#prev").removeClass("fade");
-    $("#next").addClass("fade.in");
-    $("#prev").addClass("fade.in");
-//    $('#slide2').addClass('content-collapse');
-    $('#slide-dyn').removeClass('content-collapse');
-    $('#slide-dyn').attr('src', 'Images/5etP8zlvdOA_DX1890_DY1890_CX945_CY530.png');
-    //$('#bergeron-footer').removeClass('collapse');
-    $('#footer-next-indicator').removeClass('collapse');
-    // --- Collapse --- //
-//    $('.tips-header').addClass('content-collapse');
-//    $('#tips-images').addClass('content-collapse');
-    // --- Show --- //
-    if (scrw <= 600) {
-        $('.well').css('width', '75%');
-    }
-    else if (scrw <= 768) {
-        $('.well').css('width', '80%');
-    }
-    else {
-        $('.well').css('width', '87%');
-    }
-    $('#audwelcom').css('margin-right', '15px');
-    $('.custom-audio-button').removeClass('content-collapse');
-    $('.navigation-help').removeClass('content-collapse');
-    $('#infrom-navi').removeClass('content-collapse');
-//    $('#btnstart').addClass('content-collapse');
-    $('#help-header').html("<span class='text-upper'>Here are the main elements of your interactive environment.</span>");
-}
 
 function refreshContentOnReload(){
     $("#tips-images").find('div').addClass("content-collapse");
