@@ -994,27 +994,27 @@
     border-bottom: 35px solid #fff;
     border-right: 2px solid #fff;
     content: "";
-    height: 0;
+    height: 45px;
     position: absolute;
-    right: 63%;
-    top: -33px;
+    right: 55%;
+    top: -40px;
     width: 0;
-    -ms-transform: rotate(30deg); /* IE 9 */
-    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
-    transform: rotate(30deg);
+    -ms-transform: rotate(40deg); /* IE 9 */
+    -webkit-transform: rotate(40deg); /* Chrome, Safari, Opera */
+    transform: rotate(40deg);
 }
 .inform:before {
     border-bottom: 35px solid #fff;
     border-right: 2px solid #fff;
     content: "";
-    height: 0;
+    height: 80px;
     position: absolute;
-    right: 63%;
-    top: -33px;
+    right: 80%;
+    top: -61px;
     width: 0;
-    -ms-transform: rotate(-30deg); /* IE 9 */
-    -webkit-transform: rotate(-30deg); /* Chrome, Safari, Opera */
-    transform: rotate(-30deg);
+    -ms-transform: rotate(-60deg); /* IE 9 */
+    -webkit-transform: rotate(-60deg); /* Chrome, Safari, Opera */
+    transform: rotate(-60deg);
 }
 /*---------Indicator bottom------------------*/
 .play:before {

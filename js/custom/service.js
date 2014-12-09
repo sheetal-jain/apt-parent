@@ -543,7 +543,7 @@ function fnSlideWiseContentManage(slide){
             break;
 
         case "capsule1_slide1":
-            setupAudioControls('Audio/FR/mp3/6CYh8nauv4Z_22050_80.mp3')
+            setupAudioControls('Audio/FR/mp3/6CYh8nauv4Z_22050_80.mp3');
             //show next button
             fnShowNextButton();
             // --- Add Collapse --- //
@@ -1320,6 +1320,7 @@ function fnSlideWiseContentManage(slide){
             // --- Show --- //
             break;
         case "capsule4_slide1":
+            setupAudioControls('Audio/FR/mp3/650d4QwzNBA_22050_80.mp3')
             //show next button
             fnShowNextButton();
             fnAddCollapseClass();
@@ -1553,12 +1554,12 @@ function fnSlideWiseContentManage(slide){
         case "resource":
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
+            fnShowNextButton();
             $('.fw-content').removeAttr("style");
             $('#slide1').addClass("content-collapse");
             $('#slide1').removeAttr('style');
             $('#slide1').css("dispaly","none");
 
-            $('.playa').css("width",'87%');
             $('#btnStart').addClass('content-collapse');
             $('#firstslideheader').addClass('content-collapse');
 
@@ -1578,6 +1579,7 @@ function fnSlideWiseContentManage(slide){
         case "help":
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
+            fnShowNextButton();
             $('#welcome').addClass('content-collapse');
             $('#slide1').addClass('content-collapse');
             $('#slide1').css('display','none')
@@ -1658,7 +1660,8 @@ function fnResourceDownloadClickEvent(){
 function download_resource(path){
     window.open(path,'_blank');
 //    window.location = path;
-}
+};
+
 function fnDisableNextPrev(){
     $("#next").css("pointer-events","none");
     $("#next").css("cursor","default");
