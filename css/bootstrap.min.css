@@ -557,7 +557,7 @@ audio {
     }
 
     #infrom-navi .navi-help {
-        left: 65%;
+        left: 63%;
         position: absolute;
         margin-top: 3%;
     }
@@ -579,12 +579,14 @@ audio {
         position: absolute;
         margin-top: 50%;
         left: 0;
+        top:-16px;
+        width: 150px;
     }
 
     #infrom-navi .seekbar {
         position: absolute;
         margin-top: 50%;
-        left: 20%;
+        left: 25%;
     }
 
     #infrom-navi .prev-scr {
@@ -707,7 +709,7 @@ audio {
 
         .menu-images .capsule-img div .sm {
             display: block;
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
             margin: 7% 0 7% 7%;
             color: #808080;
