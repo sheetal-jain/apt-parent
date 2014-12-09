@@ -52,6 +52,7 @@ $(document).ready(function(){
                     $('#slide2').addClass('fade');
                     $(".playa").removeAttr("style");
                     curIdx = i;
+                    getTopicWiseData(i);
                 }
                 else if(current_page_cookie == 'intro_welcome'){
                     isImgFlag = false;
