@@ -652,7 +652,7 @@ function fnSlideWiseContentManage(slide){
             $('.fw-footer').removeClass('collapse');
             $('#fw-day').text('Samedi soir');
             $('#fw-time').text('23 h 30');
-            $('#fw-text').text("Retour à la maison, Vincent est intoxiquè");
+            $('#fw-text').text("Retour à la maison, Vincent est intoxiqué");
             $('.fw-footer').hide();
             break;
 
@@ -1048,7 +1048,7 @@ function fnSlideWiseContentManage(slide){
             $('.content-view-1').removeClass('collapse');
             $('#rc-content-text').removeClass('collapse');
             $('#rc-content-text').html("");
-            $('#rc-content-text').html("<span class='font-med f-w-med block'>Pour bien gérer cette situation, Isabelle et Éric devront appliquer de bonnes pratiques parentales. Celles-ci incluent le contrôle parental qu’ils exercent, leur tolérance et leur style disciplinaire.<br /><br />Votre objectif est <span class='orange'>d’aider Isabelle et Éric àmettre en application ces bonnes pratiques parentales.</span> Au cours de la discussion, vous devrez également les aider à <span class='orange'>argumenter face à certaines croyances sur la consommation d’alcool.</span></span>");
+            $('#rc-content-text').html("<span class='font-med f-w-med block'>Pour bien gérer cette situation, Isabelle et Éric devront appliquer de bonnes pratiques parentales. Celles-ci incluent le contrôle parental qu’ils exercent, leur tolérance et leur style disciplinaire.<br /><br />Votre objectif est <span class='orange'>d’aider Isabelle et « Éric àmettre en » application ces bonnes pratiques parentales.</span> Au cours de la discussion, vous devrez également les aider à <span class='orange'>argumenter face à certaines croyances sur la consommation d’alcool.</span></span>");
             $('#rc-footer-text').removeClass('collapse');
             $('#rc-footer-text').html("");
             $('#rc-footer-text').html("<span id='rc-footer-span' class='font-med'>Pour commencer, passez à l’écran suivant.</span>");
