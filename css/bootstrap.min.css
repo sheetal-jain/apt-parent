@@ -384,59 +384,53 @@ audio {
     width: 97%;
 }
 
-    #bergeron-head .bergeron-header {
-        text-transform: uppercase;
-        color: #fff;
-        padding: 30px 0 0 40px;
-    }
+#bergeron-head .bergeron-header {
+    text-transform: uppercase;
+    color: #fff;
+    padding: 30px 0 0 40px;
+}
 
-        #bergeron-head .bergeron-header .header-sm {
-            font-size: 15px;
-            display: block !important;
-            line-height: 7px;
-        }
+#bergeron-head .bergeron-header .header-sm {
+    font-size: 15px;
+    display: block !important;
+    line-height: 7px;
+}
 
-        #bergeron-head .bergeron-header .header-lg {
-            font-size: 42px;
-            line-height: 50px;
-        }
-
-    #psychoactive-head #aside-psychoactive .aside-header-fn {
-        text-transform: uppercase;
-        padding: 48px 30px 48px 40px;
-        font-size: 17px;
-        color: #404040;
-    }
+#bergeron-head .bergeron-header .header-lg {
+    font-size: 42px;
+    line-height: 50px;
+}
 
 .aside-container {
     width: 36.3%;
     float: right;
     -moz-margin-start: 1.2%;
+    line-height: 1;
 }
 
-    .aside-container .aside-header {
-        text-transform: uppercase;
-        padding: 40px 30px 30px 40px;
-        font-size: 17px;
-        /*background: -webkit-linear-gradient(#d9d9d9, #c0c0c0); 
-        background: -o-linear-gradient(#d9d9d9, #c0c0c0);
-        background: -moz-linear-gradient(#d9d9d9, #c0c0c0);
-        background: linear-gradient(#d9d9d9, #c0c0c0);*/
-        color: #404040;
-    }
+.aside-container .aside-header {
+    text-transform: uppercase;
+    padding: 12% 30px 10% 40px;
+    font-size: 17px;
+    /*background: -webkit-linear-gradient(#d9d9d9, #c0c0c0);
+    background: -o-linear-gradient(#d9d9d9, #c0c0c0);
+    background: -moz-linear-gradient(#d9d9d9, #c0c0c0);
+    background: linear-gradient(#d9d9d9, #c0c0c0);*/
+    color: #404040;
+}
 
-    .aside-container .aside-content {
-        padding: 40px;
-        font-size: 17px;
-        color: #595959;
-        line-height: 20px;
-        font-weight: 500;
-    }
+.aside-container .aside-content {
+    padding: 40px;
+    font-size: 17px;
+    color: #595959;
+    line-height: 20px;
+    font-weight: 500;
+}
 
-        .aside-container .aside-content .orange {
-            color: #ED6F00;
-            font-weight: bold;
-        }
+.aside-container .aside-content .orange {
+    color: #ED6F00;
+    font-weight: bold;
+}
 
 #resources-head #nested-slide4-1 {
     position: absolute;
