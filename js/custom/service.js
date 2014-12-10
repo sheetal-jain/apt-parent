@@ -542,7 +542,7 @@ function fnSlideWiseContentManage(slide){
             break;
 
         case "capsule1_slide1":
-            setupAudioControls('Audio/FR/mp3/6CYh8nauv4Z_22050_80.mp3')
+            setupAudioControls('Audio/FR/mp3/6CYh8nauv4Z_22050_80.mp3');
             //show next button
             fnShowNextButton();
             // --- Add Collapse --- //
@@ -1319,6 +1319,7 @@ function fnSlideWiseContentManage(slide){
             // --- Show --- //
             break;
         case "capsule4_slide1":
+            setupAudioControls('Audio/FR/mp3/650d4QwzNBA_22050_80.mp3')
             //show next button
             fnShowNextButton();
             fnAddCollapseClass();
