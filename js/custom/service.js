@@ -452,7 +452,8 @@ function fnSlideWiseContentManage(slide){
         case "introduction":
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
-
+            console.log("Inside Switch");
+            $("#slide-dyn").addClass("content-collapse");
             $('#slide1').removeClass('content-collapse')
             $('#slide1').css('display','block')
             $('#firstslideheader').removeClass('content-collapse');
@@ -1529,7 +1530,7 @@ function fnSlideWiseContentManage(slide){
         case "intro_menuAfterCap4":
             //hide next button
 //            $("#next").addClass('content-collapse');
-            $(".playa").css('width','87%');
+            fnShowNextButton();
 
             $('#slide-capsule1').addClass('collapse');
             $('#slide-menu').removeClass('content-collapse');
@@ -1553,12 +1554,12 @@ function fnSlideWiseContentManage(slide){
         case "resource":
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
+            fnShowNextButton();
             $('.fw-content').removeAttr("style");
             $('#slide1').addClass("content-collapse");
             $('#slide1').removeAttr('style');
             $('#slide1').css("dispaly","none");
 
-            $('.playa').css("width",'87%');
             $('#btnStart').addClass('content-collapse');
             $('#firstslideheader').addClass('content-collapse');
 
@@ -1578,6 +1579,7 @@ function fnSlideWiseContentManage(slide){
         case "help":
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
+            fnShowNextButton();
             $('#welcome').addClass('content-collapse');
             $('#slide1').addClass('content-collapse');
             $('#slide1').css('display','none')
@@ -1612,6 +1614,7 @@ function fnSlideWiseContentManage(slide){
 
         case "thankYou":
             fnAddCollapseClass();
+            fnHideNextButton();
 //            fnAddCollapseClassIntroCapsule();
             $('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
             $('#slide-capsule1').removeClass('collapse');
@@ -1640,13 +1643,6 @@ function fnSlideWiseContentManage(slide){
             //$('.cust-span-em').css('font-size', '60%');
             break;
 
-        case "help":
-            fnAddCollapseClass();
-            help();
-            console.log("in help");
-            changeCookieValue("help");
-            break;
-
         default:
 //            console.log("Default Call In fnSlideWiseAddOrRemoveElementClass function");
     }
@@ -1664,7 +1660,8 @@ function fnResourceDownloadClickEvent(){
 function download_resource(path){
     window.open(path,'_blank');
 //    window.location = path;
-}
+};
+
 function fnDisableNextPrev(){
     $("#next").css("pointer-events","none");
     $("#next").css("cursor","default");
