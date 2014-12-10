@@ -17,7 +17,6 @@ var audioSrcBase_mp3 = 'Audio/FR/mp3/';
 var audioSrcBase_ogg = 'ogg/';
 var audio = document.getElementById("APT_Audio_Controls");
 
-
 $(window).load(function(){
     $(".interstitial").css("display","none");
     $('#loadingSpinner').css("display","none");
