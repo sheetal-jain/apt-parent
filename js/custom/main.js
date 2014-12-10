@@ -1,4 +1,4 @@
-console.log(window.height);
+
 var objAPT_JSON = ''
 var getSingleObjOfJSON = [];
 var getScreenName,max;
@@ -23,6 +23,7 @@ $(window).load(function(){
 });
 
 $(document).ready(function(){
+
     objAPT_JSON = JSON.parse(fnGetDataFromServer('JSON/APT_Contents_JSON.json').responseText);
     max =objAPT_JSON.length;
     /* RJ------------------ if cookie not exist, create one with the first slide ----------------------*/

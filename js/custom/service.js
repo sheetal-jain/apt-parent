@@ -1610,11 +1610,12 @@ function fnSlideWiseEffectManage(curTime,singleObj){
             {
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
                     fnDisableNextPrev();
-
                     $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(1000,function(){
                         fnEnableNextPrev();
                     });
-                    $('.fw-header').css('display','inline-block');
+                    if(getSlideWiseData.popupContent[intIndex].contentClass == "fw-header"){
+                        $('.'+getSlideWiseData.popupContent[intIndex].contentClass).css('display','inline-block');
+                    }
                 }
             }
             for(var intIndex=0;intIndex<getSlideWiseData.popupImg.length;intIndex++)
@@ -1625,7 +1626,7 @@ function fnSlideWiseEffectManage(curTime,singleObj){
                         fnEnableNextPrev();
                     });
                 }
-                if(curTime > getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
+                if(curTime == getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
                     $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(1000);
                     /*$('#fw-header-1').html('');
                     $('#fw-header-2').html('');
@@ -1657,7 +1658,9 @@ function fnSlideWiseEffectRemoveOnEvent(curTime,singleObj){
                     $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(1000,function(){
                         fnEnableNextPrev();
                     });
-                    $('.fw-header').css('display','inline-block');
+                    if(getSlideWiseData.popupContent[intIndex].contentClass == "fw-header"){
+                        $('.'+getSlideWiseData.popupContent[intIndex].contentClass).css('display','inline-block');
+                    }
                 }
                 else{
                     $('.'+getSlideWiseData.popupContent[intIndex].contentClass).hide();
@@ -1672,9 +1675,7 @@ function fnSlideWiseEffectRemoveOnEvent(curTime,singleObj){
                     });
                 }
                 else{
-
                     $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(1000);
-
                 }
             }
             break;
