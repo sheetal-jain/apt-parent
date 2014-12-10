@@ -70,7 +70,7 @@ function startAPT() {
 	else if (scrw <= 980) {
         $('.well').css('width', '86%');
     }
-    else if (scrw <= 1920) {
+    else if (scrw >= 1920) {
         $('.well').css('width', '91%');
         $(".aud-control").css("width","9.4%");
     }
@@ -1553,7 +1553,7 @@ function fnSlideWiseContentManage(slide){
             else if (scrw <= 980) {
                 $('.well').css('width', '86%');
             }
-            else if (scrw <= 1920) {
+            else if (scrw >= 1920) {
                 $('.well').css('width', '91%');
                 $(".aud-control").css("width","9.4%");
             }

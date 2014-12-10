@@ -8504,6 +8504,7 @@ c .interstitial {
         width: 20%;
     }
 }
+
 @media (max-width:1024px) {
     .col-md-offset-1-5 {
         margin-left: 0;
