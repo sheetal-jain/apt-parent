@@ -17,41 +17,12 @@ var audioSrcBase_mp3 = 'Audio/FR/mp3/';
 var audioSrcBase_ogg = 'ogg/';
 var audio = document.getElementById("APT_Audio_Controls");
 
-var footerImgNameArr = ['5heZxU5t7t7_DX1110_DY1110_CX555_CY80.png',
-                        '5wQcyLfzE5d_DX1110_DY1110_CX555_CY80.png',
-                        '6N5jhO1cXng_DX1110_DY1110_CX555_CY80.png',
-                        '6N5jhO1cXng_DX1110_DY1110_CX555_CY80.png',
-                        '5urXqs4mqm0_DX1110_DY1110_CX555_CY80.png',
-                        '6j2V7CHeU3S_DX1110_DY1110_CX555_CY80.png',
-                        '5itRdnRNYV6_DX1110_DY1110_CX555_CY80.png',
-                        '6L9kKi7B4bf_DX1110_DY1110_CX555_CY80.png',
-                        '5x6jNaSP9Di_DX1110_DY1110_CX555_CY92.png',
-                        '5jtfXPcnPam_DX1110_DY1110_CX555_CY92.png',
-                        '6OQ0upvvXUf_DX1110_DY1110_CX555_CY92.png',
-                        '6Lvh3hwHKG3_DX1110_DY1110_CX555_CY92.png',
-                        '5jbpvP1X5sc_DX1110_DY1110_CX555_CY92.png',
-                        '69FApGo5S5l_DX1110_DY1110_CX555_CY92.png',
-                        '63WoTp24Wi4_DX1110_DY1110_CX555_CY92.png',
-                        '5faPwXeepBG_DX1110_DY1110_CX555_CY92.png',
-                        '5vUIj0S5LRU_DX1110_DY1110_CX555_CY92.png',
-                        '6r404kBUKne_DX1110_DY1110_CX555_CY92.png',
-                        '6mrCcUKMe7X_DX1110_DY1110_CX555_CY92.png',
-                        '5j6PBcOmITF_DX1110_DY1110_CX555_CY160.png',
-                        '5wkt9k2zg90_DX1110_DY1110_CX555_CY160.png',
-                        '6LaGG0B3GPA_DX1110_DY1110_CX555_CY160.png',
-                        '5zOVHYoqrBl_DX1110_DY1110_CX555_CY160.png'];
-
-
-
-
-
 $(window).load(function(){
     $(".interstitial").css("display","none");
     $('#loadingSpinner').css("display","none");
 });
 
 $(document).ready(function(){
-    $.preload(footerImgNameArr);
     objAPT_JSON = JSON.parse(fnGetDataFromServer('JSON/APT_Contents_JSON.json').responseText);
     max =objAPT_JSON.length;
     /* RJ------------------ if cookie not exist, create one with the first slide ----------------------*/
