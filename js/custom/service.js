@@ -372,6 +372,7 @@ function fnAddCollapseClass(){
     $('#slide-dyn').removeClass('content-collapse');
 
     $('#help-header').hide();
+    $("#next").css("pointer-events",'auto');
     fnShowNextButton();
 }
 

@@ -1,6 +1,7 @@
 
 var objAPT_JSON = ''
 var getSingleObjOfJSON = [];
+var answer_JSON =[];
 var getScreenName,max;
 var curIdx = 0;
 var isAudioFlag = false;
