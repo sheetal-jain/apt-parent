@@ -43,6 +43,12 @@ $(document).ready(function(){
                     $('.custom-audio-button').addClass('fade');
                     $('#slide2').addClass('fade');
                     $(".playa").removeAttr("style");
+                    if(objAPT_JSON[i+1] != undefined){
+                        preloadImages(objAPT_JSON[i+1]);
+                    }
+                    if(objAPT_JSON[i-1] != undefined){
+                        preloadImages(objAPT_JSON[i-1]);
+                    }
                     curIdx = i;
                     getTopicWiseData(i);
                 }
@@ -56,6 +62,12 @@ $(document).ready(function(){
                     setCollapseClassToScreen(obj.name);
                     getTopicWiseData(i);
                     curIdx = i;
+                    if(objAPT_JSON[i+1] != undefined){
+                        preloadImages(objAPT_JSON[i+1]);
+                    }
+                    if(objAPT_JSON[i-1] != undefined){
+                        preloadImages(objAPT_JSON[i-1]);
+                    }
                     startAPT();
                 }
                 else{
@@ -85,15 +97,16 @@ $(document).ready(function(){
                     fnSlideWiseContentManage(current_page_cookie);
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
                     getTopicWiseData(i);
+                    if(objAPT_JSON[i+1] != undefined){
+                        preloadImages(objAPT_JSON[i+1]);
+                    }
+                    if(objAPT_JSON[i-1] != undefined){
+                        preloadImages(objAPT_JSON[i-1]);
+                    }
                     curIdx = i;
                 }
             }
-            if(objAPT_JSON[i+1] != undefined){
-                preloadImages(objAPT_JSON[i+1]);
-            }
-            if(objAPT_JSON[i-1] != undefined){
-                preloadImages(objAPT_JSON[i-1]);
-            }
+
         });
 
         /*------------ Load Resource and help screen--------------------*/
@@ -115,7 +128,7 @@ $(document).ready(function(){
         }
     }
 
-    preloadImages(objAPT_JSON[1]);
+//    preloadImages(objAPT_JSON[1]);
     var slider = new Slider("#audio_sliderID", {
         range: false,
         tooltip: 'hide',
@@ -162,7 +175,6 @@ $(document).ready(function(){
         $('#slide1').css('display','none');
         $('#slide1').addClass('content-collapse');
 
-        console.log(objAPT_JSON[curIdx].name);
         setCollapseClassToScreen(objAPT_JSON[curIdx].name);
         getScreenName = $($("div.screen")[curIdx]).attr("name");
         if(getScreenName == objAPT_JSON[curIdx].name)
@@ -359,7 +371,6 @@ $(document).ready(function(){
                 }
             }
         }
-        console.log(slide);
         if(slide != "resource")
         {
             fnSlideWiseEffectManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
@@ -564,6 +575,12 @@ $(document).ready(function(){
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
                     changeCookieValue(slide);
                     getTopicWiseData(i);
+                    if(objAPT_JSON[i+1] != undefined){
+                        preloadImages(objAPT_JSON[i+1]);
+                    }
+                    if(objAPT_JSON[i-1] != undefined){
+                        preloadImages(objAPT_JSON[i-1]);
+                    }
                     curIdx = i;
                 }
                 else if(slide == 'intro_welcome'){
@@ -580,6 +597,12 @@ $(document).ready(function(){
                     changeCookieValue(slide);
                     getTopicWiseData(i);
                     curIdx = i;
+                    if(objAPT_JSON[i+1] != undefined){
+                        preloadImages(objAPT_JSON[i+1]);
+                    }
+                    if(objAPT_JSON[i-1] != undefined){
+                        preloadImages(objAPT_JSON[i-1]);
+                    }
                     startAPT();
                 }
                 else{
@@ -612,6 +635,12 @@ $(document).ready(function(){
 
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
                     getTopicWiseData(i);
+                    if(objAPT_JSON[i+1] != undefined){
+                        preloadImages(objAPT_JSON[i+1]);
+                    }
+                    if(objAPT_JSON[i-1] != undefined){
+                        preloadImages(objAPT_JSON[i-1]);
+                    }
                     curIdx = i;
                 }
             }
@@ -626,7 +655,6 @@ $(document).ready(function(){
         selectedOption = $(this).val();
     });
     $('#validate-answer').click(function(){
-        console.log(selectedOption);
         if(selectedOption != undefined){
             for(var i = 0; i < answer_JSON.length; i++)
             {

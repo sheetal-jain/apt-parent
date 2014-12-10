@@ -22,6 +22,7 @@ function changeCookieValue(newValue) {
 }
 
 function preloadImages(JSONObj){
+
     var imagesArr = [];
     var audiosArr = [];
 
@@ -35,7 +36,6 @@ function preloadImages(JSONObj){
             audiosArr.push(obj);
         }
     });
-
     $.preload(imagesArr);
     $.preloadAudio(audiosArr);
 }
@@ -45,7 +45,6 @@ function showLoader(imgId){
 
     var myImg = new Image();
     myImg.src = $(imgId).attr('src');
-    console.log();
     $("#loadingSpinnerSlide").css("left", ($(".image-shadow").width()/2) - 50);
     $("#loadingSpinnerSlide").css("top", ($(".image-shadow").height()/2) - 50);
     $("#loadingSpinnerSlide").show();
@@ -238,7 +237,6 @@ function setupAudioControls(audioName){
 
 function refreshPopupImages(popupImageArr){
     jQuery.each(popupImageArr,function(i,obj){
-        console.log(obj.contentClass)
         $($("#"+obj.imgId)).css('opacity','0');
         $($("#"+obj.imgId)).addClass("content-collapse");
     });
@@ -450,7 +448,6 @@ function fnSlideWiseContentManage(slide){
         case "introduction":
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
-            console.log("Inside Switch");
             $("#slide-dyn").addClass("content-collapse");
             $('#slide1').removeClass('content-collapse')
             $('#slide1').css('display','block')
