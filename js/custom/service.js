@@ -2,6 +2,8 @@
  * Created by VJ on 25/11/14.
  */
 var stTime = "";
+var maxWidth = $(window).width();
+
 function fnGetDataFromServer(url)
 {
     return $.ajax({
@@ -12,8 +14,6 @@ function fnGetDataFromServer(url)
         async:false
     });
 };
-
-
 
 /* VJ ------------------ Change cookie pagewise -----------------------*/
 function changeCookieValue(newValue) {
@@ -69,6 +69,10 @@ function startAPT() {
     }
 	else if (scrw <= 980) {
         $('.well').css('width', '86%');
+    }
+    else if (scrw <= 1920) {
+        $('.well').css('width', '91%');
+        $(".aud-control").css("width","9.4%");
     }
     else {
         $('.well').css('width', '87%');
@@ -243,7 +247,6 @@ function refreshPopupImages(popupImageArr){
 function loadNextPageImages(nextObj){
     var slideImg = new Image();
     slideImg.src = nextObj.imgName;
-    console.log(slideImg.src);
 }
 
 function fnOverlayImageContentGeneral(imgSrc,popupImageObj){
@@ -416,14 +419,30 @@ function fnAddCollapseClassIntroCapsule(){
 function fnHideNextButton(){
     $("#next").addClass('content-collapse');
     $("#prev").removeClass("content-collapse");
-    $(".playa").css('width','93%');
-    $("#prev").css('margin-left','60px');
+    if(maxWidth > 1900)
+    {
+        $(".playa").css('width','95%');
+        $("#prev").css('margin-left','120px');
+        $(".aud-control").css("width","13.4%");
+    }else
+    {
+        $(".playa").css('width','93%');
+        $("#prev").css('margin-left','60px');
+    }
+
 };
 
 function fnShowNextButton(){
     $("#next").removeClass('content-collapse');
-    $(".playa").css('width','87%');
-    $("#prev").removeAttr("style");
+    if(maxWidth > 1900)
+    {
+        $(".playa").css('width','91%');
+        $("#prev").removeAttr("style");
+        $(".aud-control").css("width","9.4%");
+    }else{
+        $(".playa").css('width','87%');
+        $("#prev").removeAttr("style");
+    }
 };
 
 function fnSlideWiseContentManage(slide){
@@ -1526,17 +1545,21 @@ function fnSlideWiseContentManage(slide){
             var scrw = $(window).width();
             // --- Show --- //
             if (scrw <= 600) {
-        $('.well').css('width', '77%');
-    }
-    else if (scrw <= 768) {
-        $('.well').css('width', '82.5%');
-    }
-    else if (scrw <= 980) {
-        $('.well').css('width', '86%');
-    }
-    else {
-        $('.well').css('width', '87%');
-    }
+                $('.well').css('width', '77%');
+            }
+            else if (scrw <= 768) {
+                $('.well').css('width', '82.5%');
+            }
+            else if (scrw <= 980) {
+                $('.well').css('width', '86%');
+            }
+            else if (scrw <= 1920) {
+                $('.well').css('width', '91%');
+                $(".aud-control").css("width","9.4%");
+            }
+            else {
+                $('.well').css('width', '87%');
+            }
             $('#help-header').show();
             $('#audwelcom').css('margin-right', '15px');
             $('.custom-audio-button').removeClass('content-collapse');

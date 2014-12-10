@@ -8496,9 +8496,14 @@ c .interstitial {
     }
 }
 
-
-/*@media (max-width: 1920px) {
-}*/
+@media (max-width: 1920px) and (min-width: 1500px){
+    /*.aud-control {
+        width: 9.4%;
+    }*/
+    #vol_wrapper{
+        width: 20%;
+    }
+}
 @media (max-width:1024px) {
     .col-md-offset-1-5 {
         margin-left: 0;
