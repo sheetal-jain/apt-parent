@@ -11,6 +11,7 @@ var isSliderDraggable = false;
 var curValue = 0;
 var sliderMouse = {mouseDown:0};
 var getAudioCurrentTime,duration,getAudioCurrentTimeInSec;
+var slide = "";
 
 // For convenience
 var imgSrcBase = 'Images/';
@@ -145,12 +146,12 @@ $(document).ready(function(){
 
     /*---- --------------------- Dropdown menu header click ----------*/
     $(".toggle-header").click(function(){
-        var slide = $(this).attr("name");
+        slide = $(this).attr("name");
         fnSetupPageFromMenu(slide);
     });
 
     $(".dropdown-menu").find("li").find("ul").find("li").click(function(event){
-        var slide = $(this).attr("name");
+        slide = $(this).attr("name");
         fnSetupPageFromMenu(slide);
     });
 
@@ -183,7 +184,6 @@ $(document).ready(function(){
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         $('#slide-dyn').removeClass('content-collapse');
         showLoader('#slide-dyn');
-        audio.currentTime = 0;
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
         changeCookieValue(objAPT_JSON[curIdx].name);
         if(objAPT_JSON[curIdx+1] != undefined){
@@ -246,9 +246,7 @@ $(document).ready(function(){
 
     /*----------------------Model call on capsule click----------------------------------------*/
     $("#capsule1").click(function(){
-
         curIdx = (curIdx+1) % max;
-
         fnSetModelScreen();
         getFirstSlideofCapsule(objAPT_JSON,"capsule1_slide1");
     });
@@ -361,8 +359,11 @@ $(document).ready(function(){
                 }
             }
         }
-        fnSlideWiseEffectManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
-
+        console.log(slide);
+        if(slide != "resource")
+        {
+            fnSlideWiseEffectManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
+        }
         fnSlideWiseConversationManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
 
         /*Show Next Indicator*/
@@ -532,8 +533,12 @@ $(document).ready(function(){
 
     /*------------ When Click on Resource Link in menu-------------------*/
     $("#resource").click(function(){
-        fnSlideWiseContentManage("resource");
+        slide = $(this).attr("name");
+        $(".fw-header").stop().fadeIn();
+        $(".fw-header").stop().fadeOut();
+        $(".fw-header").css("display","none");
         changeCookieValue("resource");
+        fnSlideWiseContentManage("resource");
         setupAudioControls( 'Audio/FR/mp3/6l4Qheq8nL6_22050_80_sec5.mp3');
     });
 

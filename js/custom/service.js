@@ -1571,6 +1571,7 @@ function fnSlideWiseContentManage(slide){
         case "thankYou":
             fnAddCollapseClass();
             fnHideNextButton();
+            fnSetModelScreen();
 //            fnAddCollapseClassIntroCapsule();
             $('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
             $('#slide-capsule1').removeClass('collapse');
