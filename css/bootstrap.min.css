@@ -8529,6 +8529,10 @@ c .interstitial {
     #infrom-navi .navi-help{
         left:75%;
     }
+    #footer-next-indicator {
+        padding-right: 3.5%;
+        padding-top: 26px;
+    }
 }
 
 @media (max-width:1024px) {
