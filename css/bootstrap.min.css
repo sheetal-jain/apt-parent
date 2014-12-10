@@ -8503,6 +8503,32 @@ c .interstitial {
     #vol_wrapper{
         width: 20%;
     }
+    #infrom-navi .play{
+        left:7px;
+        top:20px;
+    }
+    #infrom-navi .seekbar{
+        top:26px;
+    }
+    #infrom-navi .vol{
+        left:67%;
+        top:26px;
+    }
+    #infrom-navi .next-scr{
+        left:93.5%;
+        top:40px;
+    }
+    #infrom-navi .prev-scr{
+        left:86%;
+        top:40px;
+    }
+    #infrom-navi .inform{
+        width:12%;
+        left:88%;
+    }
+    #infrom-navi .navi-help{
+        left:75%;
+    }
 }
 
 @media (max-width:1024px) {
