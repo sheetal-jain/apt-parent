@@ -7894,6 +7894,7 @@ button.close {
     background-image: url('../Images/6J2r6hWhjp0_80_DX138_DY138_CX68_CY69.png');
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: pointer;
     width: 72px !important;
     height: 75px;
     margin-bottom: -20px;
