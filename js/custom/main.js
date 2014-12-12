@@ -231,6 +231,7 @@ $(document).ready(function(){
             preloadImages(objAPT_JSON[curIdx+2]);
         }
         getTopicWiseData(curIdx);
+        isSliderDraggable = false;
     });
 
     // Prev image and audio on button click
@@ -281,6 +282,7 @@ $(document).ready(function(){
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         changeCookieValue(objAPT_JSON[curIdx].name);
         getTopicWiseData(curIdx);
+        isSliderDraggable = false;
     });
 
     /*----------------------Model call on capsule click----------------------------------------*/
@@ -365,6 +367,10 @@ $(document).ready(function(){
                 if(getAudioCurrentTimeInSec == (nextStartTime-1))
                 {
                     isAudioFlag = false;
+                }
+                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].endingTime && isSliderDraggable)
+                {
+                    isSliderDraggable = false;
                 }
             }
 
