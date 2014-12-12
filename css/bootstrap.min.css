@@ -4,6 +4,52 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */ /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
+@font-face {
+    font-family: 'customFonts';
+    src: url('../fonts/Helvetica%2045/HLL___1.PFB');
+    src: url('../fonts/Helvetica%2045/HLL___1.PFM');
+    src: url('../fonts/Helvetica%2045/HLLI__1.PFB');
+    src: url('../fonts/Helvetica%2045/HLLI__1.PFM');
+
+    src: url('../fonts/Helvetica%2055/HLB___1.PFB');
+    src: url('../fonts/Helvetica%2055/HLB___1.PFM');
+    src: url('../fonts/Helvetica%2055/HLBI__1.PFB');
+    src: url('../fonts/Helvetica%2055/HLB___1.PFM');
+    src: url('../fonts/Helvetica%2055/HLI___1.PFB');
+    src: url('../fonts/Helvetica%2055/HLI___1.PFM');
+    src: url('../fonts/Helvetica%2055/HLR___1.PFB');
+    src: url('../fonts/Helvetica%2055/HLR___1.PFM');
+
+    src: url('../fonts/Helvetica-Light/HVL___1.PFB');
+    src: url('../fonts/Helvetica-Light/HVL___1.PFM');
+    src: url('../fonts/Helvetica-Light/HVLO__1.PFB');
+    src: url('../fonts/Helvetica-Light/HVLO__1.PFM');
+
+    src: url('../fonts/HelveticaNeue%20Light%20Cond/HLLC__1.PFB');
+    src: url('../fonts/HelveticaNeue%20Light%20Cond/HLLC__1.PFM');
+    src: url('../fonts/HelveticaNeue%20Light%20Cond/HLLCO_1.PFB');
+    src: url('../fonts/HelveticaNeue%20Light%20Cond/HLLCO_1.PFM');
+
+    src: url('../fonts/MyriadPro/MyriadPro-Bold_4.otf');
+    src: url('../fonts/MyriadPro/MyriadPro-BoldCond_4.otf');
+    src: url('../fonts/MyriadPro/MyriadPro-BoldCondIt_4.otf');
+    src: url('../fonts/MyriadPro/MyriadPro-BoldIt_4.otf');
+    src: url('../fonts/MyriadPro/MyriadPro-Cond_4.otf');
+    src: url('../fonts/MyriadPro/MyriadPro-CondIt_4.otf');
+    src: url('../fonts/MyriadPro/MyriadPro-It_4.otf');
+    src: url('../fonts/MyriadPro/MyriadPro-Regular_4.otf');
+    src: url('../fonts/MyriadPro/MyriadPro-Semibold_4.otf');
+    src: url('../fonts/MyriadPro/MyriadPro-SemiboldIt_4.otf');
+
+    src: url('../fonts/Tahoma/tahoma.ttf');
+    src: url('../fonts/Tahoma/tahomabd.ttf');
+
+    /*src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'),url('../fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'),url('../fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'),url('../fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');*/
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 html {
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
@@ -13,6 +59,7 @@ html {
 
 body {
     margin: 0;
+    font-family: customFonts;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
@@ -2025,7 +2072,8 @@ html {
 }
 
 body {
-    font-family: Helvetica,Arial, Verdana, sans-serif;
+    font-family: customFonts;
+    /*font-family: Helvetica,Arial, Verdana, sans-serif;*/
     /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
     font-size: 14px;
     line-height: 1.42857143;
