@@ -232,6 +232,7 @@ $(document).ready(function(){
         }
         getTopicWiseData(curIdx);
         isSliderDraggable = false;
+        slide = objAPT_JSON[curIdx].name;
     });
 
     // Prev image and audio on button click
@@ -283,6 +284,7 @@ $(document).ready(function(){
         changeCookieValue(objAPT_JSON[curIdx].name);
         getTopicWiseData(curIdx);
         isSliderDraggable = false;
+        slide = objAPT_JSON[curIdx].name;
     });
 
     /*----------------------Model call on capsule click----------------------------------------*/
