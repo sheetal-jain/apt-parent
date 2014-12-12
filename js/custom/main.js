@@ -402,8 +402,9 @@ $(document).ready(function(){
         {
             fnSlideWiseEffectManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
         }
-        fnSlideWiseConversationManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
-
+        if(!isSliderDraggable){
+            fnSlideWiseConversationManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
+        }
         /*Show Next Indicator*/
         if(getAudioCurrentTimeInSec == (Math.floor(duration) - 2))
         {
@@ -450,26 +451,34 @@ $(document).ready(function(){
             isAudioFlag = false
             isImgFlag = false;
             fnResetContentOnSlide(0);
+            if(isSliderDraggable){
+                isSliderDraggable = false;
+            }
             if(getSingleObjOfJSON.name == "intro_bergeron"){
                 refreshPopupContent(objAPT_JSON[curIdx].popupContent);
             }else if(getSingleObjOfJSON.name == "intro_Tips4online"){
                 refreshPopupContent(objAPT_JSON[curIdx].popupContent);
             }
-//            refreshContentOnReload();
         }
     });
 
     /*-------------- Reset Slide content on Audio Reload ----------------*/
-    $("#replayBtn").click(function(){
+    $("#replayBtn").click(function(_event){
         $(".popup-conversation").html("");
+        stTime = "";
         isAudioFlag = false
         isImgFlag = false;
         fnResetContentOnSlide(0);
+        if(isSliderDraggable){
+            isSliderDraggable = false;
+        }
         if(getSingleObjOfJSON.name == "intro_bergeron"){
             refreshPopupContent(objAPT_JSON[curIdx].popupContent);
         }else if(getSingleObjOfJSON.name == "intro_Tips4online"){
             refreshPopupContent(objAPT_JSON[curIdx].popupContent);
         }
+        _event.stopImmediatePropagation();
+
     });
 
     //when sliding or replay the content and effect mange
@@ -506,6 +515,7 @@ $(document).ready(function(){
                 {
                     if(getSingleObjOfJSON.popupContent[intIndex].startingTime != value){
                         fnConversationRemoveOnEvent(getAudioCurrentTimeInSec,getSingleObjOfJSON);
+                        isSliderDraggable = true;
                     }
                 }
             }
@@ -550,11 +560,15 @@ $(document).ready(function(){
     $("#audio_sliderID").on('slideStart',function(_event){
         sliderMouse.mouseDown = _event.value;
         fnResetContentOnSlide(sliderMouse.mouseDown);
+        _event.preventDefault();
+        _event.stopImmediatePropagation();
     });
 
     $("#audio_sliderID").on('slideStop',function(_event){
         sliderMouse.mouseDown = _event.value;
         fnResetContentOnSlide(sliderMouse.mouseDown);
+        _event.preventDefault();
+        _event.stopImmediatePropagation();
     });
 
     $("#audio_sliderID").on('slide',function(_event){
@@ -567,6 +581,8 @@ $(document).ready(function(){
         {
             isSlideFlag = false;
         }
+        _event.preventDefault();
+        _event.stopImmediatePropagation();
     });
 
     /*------------ When Click on Resource Link in menu-------------------*/

@@ -1858,14 +1858,6 @@ function fnCreatePopupOnEvent(popupClass,content,position,startTime){
     $('#' + popupPos).find('span').text(content);
 };
 
-function refreshContentOnReload(){
-    $("#tips-images").find('div').addClass("content-collapse");
-    $("#tips-images").find('div').css("opacity",'0').css('display','none');
-    $("#tips-images").find('img').addClass("content-collapse");
-    $("#tips-images").find('img').css("opacity",'0');
-}
-
-
 function opendd() {
     if ($('.dropdown-menu').css('display') === 'none') {
         $('.dropdown-menu').css('display','block');
