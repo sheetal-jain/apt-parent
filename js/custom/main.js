@@ -412,6 +412,7 @@ $(document).ready(function(){
                 fnSlideWiseConversationManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
             }
         }
+
         /*Show Next Indicator*/
         if(getAudioCurrentTimeInSec == (Math.floor(duration) - 2))
         {
@@ -511,18 +512,20 @@ $(document).ready(function(){
                 isImgFlag = false;
             }
         }
-        fnSlideWiseEffectRemoveOnEvent(getAudioCurrentTimeInSec,getSingleObjOfJSON);
-        if(getSingleObjOfJSON.popupContent != undefined){
-            if(getSingleObjOfJSON.name == "intro_bergeron"){
-                var contArr = getSingleObjOfJSON.popupContent;
-                fnSetupContentByTimeOnBergeronSlide(getAudioCurrentTime,contArr);
-                isAudioFlag = false;
-            }else{
-                for(var intIndex = 0; intIndex<getSingleObjOfJSON.popupContent.length;intIndex++)
-                {
-                    if(getSingleObjOfJSON.popupContent[intIndex].startingTime != value){
-                        fnConversationRemoveOnEvent(getAudioCurrentTimeInSec,getSingleObjOfJSON);
-                        isSliderDraggable = true;
+        if(slide != "resource" &&
+            slide != "help") {
+            fnSlideWiseEffectRemoveOnEvent(getAudioCurrentTimeInSec, getSingleObjOfJSON);
+            if (getSingleObjOfJSON.popupContent != undefined) {
+                if (getSingleObjOfJSON.name == "intro_bergeron") {
+                    var contArr = getSingleObjOfJSON.popupContent;
+                    fnSetupContentByTimeOnBergeronSlide(getAudioCurrentTime, contArr);
+                    isAudioFlag = false;
+                } else {
+                    for (var intIndex = 0; intIndex < getSingleObjOfJSON.popupContent.length; intIndex++) {
+                        if (getSingleObjOfJSON.popupContent[intIndex].startingTime != value) {
+                            fnConversationRemoveOnEvent(getAudioCurrentTimeInSec, getSingleObjOfJSON);
+                            isSliderDraggable = true;
+                        }
                     }
                 }
             }
