@@ -28,13 +28,9 @@ $(window).load(function(){
 });
 
 $(document).ready(function(){
-
-
-
-
     objAPT_JSON = JSON.parse(fnGetDataFromServer('JSON/APT_Contents_JSON.json').responseText);
     max =objAPT_JSON.length;
-    /* RJ------------------ if cookie not exist, create one with the first slide ----------------------*/
+    /*------------------ if cookie not exist, create one with the first slide ----------------------*/
     var current_page_cookie = $.cookie('current_page');
     if(current_page_cookie != undefined){
         jQuery.each(objAPT_JSON,function(i,obj){
@@ -42,6 +38,7 @@ $(document).ready(function(){
                 if(current_page_cookie == 'introduction'){
                     $('#slide-dyn').addClass('content-collapse');
                     $('#slide1').attr('src',imgSrcBase+obj.imgName);
+
                     $('#firstslideheader').removeClass('content-collapse');
                     $('#btnStart').removeClass('content-collapse');
                     $('.custom-audio-button').removeClass('fade.in');
@@ -88,7 +85,7 @@ $(document).ready(function(){
                     $('a.custom-audio-button').addClass('fade.in');
                     $("#slide-dyn").attr('src','Images/'+obj.imgName);
                     $('#slide-dyn').removeClass('content-collapse');
-//                    showLoader('#slide-dyn');
+
                     $($("div.screen[name="+current_page_cookie+"]")).removeClass('content-collapse');
                     $($("div.screen:not(.screen[name="+current_page_cookie+"])")).addClass('content-collapse');
                     $("#tips-images").find("div").css('opacity','0');
@@ -102,6 +99,7 @@ $(document).ready(function(){
                     $("#slide-capsule1").removeClass('collapse');
                     fnSlideWiseContentManage(current_page_cookie);
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
+                    showLoader('#slide-dyn');
                     getTopicWiseData(i);
                     if(objAPT_JSON[i+1] != undefined){
                         preloadImages(objAPT_JSON[i+1]);
@@ -222,8 +220,9 @@ $(document).ready(function(){
         fnSlideWiseContentManage(getScreenName);
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         $('#slide-dyn').removeClass('content-collapse');
-        showLoader('#slide-dyn');
+
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
+        showLoader('#slide-dyn');
         changeCookieValue(objAPT_JSON[curIdx].name);
         if(objAPT_JSON[curIdx+1] != undefined){
             preloadImages(objAPT_JSON[curIdx+1]);
@@ -278,8 +277,9 @@ $(document).ready(function(){
             fnSlideWiseContentManage(getScreenName);
         }
 
-        $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
+
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
+        $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         changeCookieValue(objAPT_JSON[curIdx].name);
         getTopicWiseData(curIdx);
         isSliderDraggable = false;
@@ -577,6 +577,9 @@ $(document).ready(function(){
     $("#audio_sliderID").on('slideStop',function(_event){
         sliderMouse.mouseDown = _event.value;
         fnResetContentOnSlide(sliderMouse.mouseDown);
+        if(isSliderDraggable){
+            isSliderDraggable = false;
+        }
         _event.preventDefault();
         _event.stopImmediatePropagation();
     });
@@ -621,9 +624,9 @@ $(document).ready(function(){
                     fnSlideWiseContentManage(slide);
                     $(".popup-conversation").css("display","none");
                     $(".popup-conversation").html("");
-                    showLoader('#slide1');
                     $(".playa").removeAttr("style");
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
+                    showLoader('#slide1');
                     changeCookieValue(slide);
                     getTopicWiseData(i);
                     if(objAPT_JSON[i+1] != undefined){
@@ -670,7 +673,7 @@ $(document).ready(function(){
                     $('a.custom-audio-button').addClass('fade.in');
                     $("#slide-dyn").attr('src','Images/'+obj.imgName);
                     $('#slide-dyn').removeClass('content-collapse');
-                    showLoader('#slide-dyn');
+
                     setCollapseClassToScreen(slide);
 
                     changeCookieValue(slide);
@@ -685,6 +688,7 @@ $(document).ready(function(){
                     $("#slide-capsule1").removeClass('collapse');
 
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
+                    showLoader('#slide-dyn');
                     getTopicWiseData(i);
                     if(objAPT_JSON[i+1] != undefined){
                         preloadImages(objAPT_JSON[i+1]);

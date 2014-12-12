@@ -19,11 +19,13 @@
 </head>
 <body>
 <div class="interstitial white"></div>
-<span class="loading" id="loadingSpinner" style="left: 633px; top: 164px;"></span>
+<span class="loading" id="loadingSpinner">
+    <!--<img src="Images/spinner.gif">-->
+</span>
 <script type="text/javascript">
     $(".interstitial").css("height",window.innerHeight);
-    $("#loadingSpinner").css("left", (window.innerWidth/2) - 50);
-    $("#loadingSpinner").css("top", (window.innerHeight/2) - 50);
+    $("#loadingSpinner").css("left", (window.innerWidth/2) - 64);
+    $("#loadingSpinner").css("top", (window.innerHeight/2) - 64);
 
 </script>
 
@@ -152,7 +154,9 @@
                         <span class="header-span" style="margin-left: 50px;margin-right: -60px;">Section</span>
                         <span class="header">APTE Parents</span>
                     </div>
-                    <span class="loading" id="loadingSpinnerSlide" style="display:none"></span>
+                    <span class="loading" id="loadingSpinnerSlide" style="display:none">
+                        <!--<img src="Images/spinner.gif">-->
+                    </span>
                     <img id="slide1" class="img-responsive  col-mid-width-12 image-shadow" src="Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png" alt="" />
 
                     <!-- Welcome Programme -->
