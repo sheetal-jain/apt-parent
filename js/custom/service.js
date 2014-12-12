@@ -69,6 +69,9 @@ function startAPT() {
 	else if (scrw <= 980) {
         $('.well').css('width', '86%');
     }
+	else if (scrw <= 1366) {
+	    $('.well').css('width', '87%');
+	}
     else if (scrw >= 1920) {
         $('.well').css('width', '91%');
         $(".aud-control").css("width","9.4%");
@@ -1051,7 +1054,7 @@ function fnSlideWiseContentManage(slide){
             $('.fw-footer').removeClass('collapse');
             $('#fw-header-1').html('Exercer de bonnes ');
             $('#fw-header-1').css('margin-left', '-22px');
-            $('#fw-header-2').html('parenting practices');
+            $('#fw-header-2').html('pratiques parentales');
             $('#fw-footer-lr').removeClass('collapse');
             $('#fw-day').html('Vendredi');
             $('#fw-time').html('18 h 00');
@@ -1066,7 +1069,7 @@ function fnSlideWiseContentManage(slide){
             $('.content-view-1').removeClass('collapse');
             $('#rc-content-text').removeClass('collapse');
             $('#rc-content-text').html("");
-            $('#rc-content-text').html("<span class='font-med f-w-med block'>Pour bien gérer cette situation, Isabelle et Éric devront appliquer de bonnes pratiques parentales. Celles-ci incluent le contrôle parental qu’ils exercent, leur tolérance et leur style disciplinaire.<br /><br />Votre objectif est <span class='orange'>d’aider Isabelle et « Éric àmettre en » application ces bonnes pratiques parentales.</span> Au cours de la discussion, vous devrez également les aider à <span class='orange'>argumenter face à certaines croyances sur la consommation d’alcool.</span></span>");
+            $('#rc-content-text').html("<span class='font-med f-w-med block'>Pour bien gérer cette situation, Isabelle et Éric devront appliquer de bonnes pratiques parentales. Celles-ci incluent le contrôle parental qu’ils exercent, leur tolérance et leur style disciplinaire.<br /><br />Votre objectif est <span class='orange'>d’aider Isabelle et « Éric à mettre en » application ces bonnes pratiques parentales.</span> Au cours de la discussion, vous devrez également les aider à <span class='orange'>argumenter face à certaines croyances sur la consommation d’alcool.</span></span>");
             $('#rc-footer-text').removeClass('collapse');
             $('#rc-footer-text').html("");
             $('#rc-footer-text').html("<span id='rc-footer-span' class='font-med'>Pour commencer, passez à l’écran suivant.</span>");
@@ -1298,7 +1301,7 @@ function fnSlideWiseContentManage(slide){
             $('#fw-day').text('Mardi');
             $('#fw-time').text('16 h');
             $('.fw-footer-content-grp').css('margin-bottom', '2.2%')
-            $('.fw-footer-r-content').html("<span class='font-med f-w-med'>Éric est rentré plus tôt à la maison aujourd’hui. Il veut discuter avec Alexandra à son retour de l’école. En effet, Éric et Isabelle ont reçu un message d’une enseignante : depuis quelques semaines, Alexandra dort souvent en classe et manque des cours.<br />C’est la deuxième fois que l’école communique avec eux. Plus tôt cette année, d’autres enseignants avaient signalé une baisse importante des résultats scolaires d’Alexandra, qui ne se sont pas améliorés depuis…</span>");
+            $('.fw-footer-r-content').html("<span class='f-w-med' style='position: relative;top: 7px;'>Éric est rentré plus tôt à la maison aujourd’hui. Il veut discuter avec Alexandra à son retour de l’école. En effet, Éric et Isabelle ont reçu un message d’une enseignante : depuis quelques semaines, Alexandra dort souvent en classe et manque des cours.<br />C’est la deuxième fois que l’école communique avec eux. Plus tôt cette année, d’autres enseignants avaient signalé une baisse importante des résultats scolaires d’Alexandra, qui ne se sont pas améliorés depuis…</span>");
             $('.fw-header').hide();
             $('.fw-content').hide();
             $('.fw-footer').hide();
@@ -1501,24 +1504,35 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClassIntroCapsule();
             fnShowNextButton();
             fnSetModelScreen();
+
             $('.fw-content').removeAttr("style");
             $('#slide1').addClass("content-collapse");
             $('#slide1').removeAttr('style');
             $('#slide1').css("dispaly","none");
+
+
 
             $('#btnStart').addClass('content-collapse');
             $('#firstslideheader').addClass('content-collapse');
 
             $('#slide-dyn').removeClass('content-collapse');
             $('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
+
             //$('#bergeron-footer').removeClass('collapse');
             $('#footer-next-indicator').removeClass('collapse');
 
             $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
+
             $('.fw-content').removeClass('collapse');
             $('.fw-content').html("");
-            $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>ressources</span><span class='in-block font-lg'>Cliquez sur les fiches d'informations obtenues et les croyances pour les consulter.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>CROYANCES discutées dans les capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='croyances' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='croyances'>Tableaux des croyances</span></div></div><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='psychotropes' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='psychotropes'>Les psychotropes</span></a></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>FICHES d'Informations obtenues:</span></li></ul><div><div class='res-box'><span class='font-sm'>Reation de qualité</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>Communiquer efficacement</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>Pratiques parentales</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>Résoudre les conflits</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Cliquez sur Suivant pour continuer.</span></div></div>");
+            $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>ressources</span><span class='in-block font-lg'>Cliquez sur les fiches d'informations obtenues et les croyances pour les consulter.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>CROYANCES discutées dans les capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='croyances' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='croyances'>Tableaux des croyances</span></div></div><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='psychotropes' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='psychotropes'>Les psychotropes</span></a></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>FICHES d'Informations obtenues:</span></li></ul><div><div class='res-box'><span class='font-sm'>Relation de qualité</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>Communiquer efficacement</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>Pratiques parentales</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>Résoudre les conflits</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Cliquez sur Suivant pour continuer.</span></div></div>");
+//            console.log($("#slide-dyn").height()," === ",$("#slide-dyn").width());
+            $(".fw-content").removeClass("cap1-last-slide");
+            setTimeout(function(){
+                $("#slide-capsule1").css("height",$("#slide-dyn").height());
+                $("#slide-capsule1").css("width",$("#slide-dyn").width());
+            },100);
             fnResourceDownloadClickEvent();
             break;
 
@@ -1549,6 +1563,9 @@ function fnSlideWiseContentManage(slide){
             }
             else if (scrw <= 980) {
                 $('.well').css('width', '86%');
+            }
+			else if (scrw <= 1366) {
+                $('.well').css('width', '87%');
             }
             else if (scrw >= 1920) {
                 $('.well').css('width', '91%');
@@ -1593,6 +1610,8 @@ function fnSlideWiseContentManage(slide){
     }
 
     $('.convertion').addClass('collapse');
+
+
 };
 
 function fnResourceDownloadClickEvent(){
@@ -1846,29 +1865,45 @@ function refreshContentOnReload(){
     $("#tips-images").find('img').css("opacity",'0');
 }
 
+
+function opendd() {
+    if ($('.dropdown-menu').css('display') === 'none') {
+        $('.dropdown-menu').css('display','block');
+    }
+    else {
+        $('.dropdown-menu').css('display', 'none');
+    }
+}
 function tglclass() {
     //alert("toggle-introduction")
     $("#tgldtl").toggle(function () {
+        $('.dropdown-menu').css('display', 'block');
         if ($(this).css('display') === 'none') {
             $("#toggle-header").css('background-position', '5px 7px');
             $(this).prop('hidden', 'hidden');
         }
         else {
+//            $('.dropdown-menu').css('display', 'none');
             $("#toggle-header").css('background-position', '5px -78px');
             $(this).removeProp('hidden');
             //$(this).fadeIn();
+
         }
     })
 }
 
+
+
 function tglclass1() {
     //alert("toggle1-capsule1");
     $("#tgldtl1").toggle(function () {
+        $('.dropdown-menu').css('display', 'block');
         if ($(this).css('display') === 'none') {
             $("#toggle-header1").css('background-position', '5px 7px');
             $(this).prop('hidden', 'hidden');
         }
         else {
+//            $('.dropdown-menu').css('display', 'none');
             $("#toggle-header1").css('background-position', '5px -78px');
             $(this).removeProp('hidden');
             //$(this).fadeIn();
@@ -1880,11 +1915,13 @@ function tglclass1() {
 function tglclass2() {
     //alert("toggle1-capsule2");
     $("#tgldtl2").toggle(function () {
+        $('.dropdown-menu').css('display', 'block');
         if ($(this).css('display') === 'none') {
             $("#toggle-header2").css('background-position', '5px 7px');
             $(this).prop('hidden', 'hidden');
         }
         else {
+//            $('.dropdown-menu').css('display', 'none');
             $("#toggle-header2").css('background-position', '5px -78px');
             $(this).removeProp('hidden');
             //$(this).fadeIn();
@@ -1896,11 +1933,13 @@ function tglclass2() {
 function tglclass3() {
     //alert("toggle1-capsule3");
     $("#tgldtl3").toggle(function () {
+        $('.dropdown-menu').css('display', 'block');
         if ($(this).css('display') === 'none') {
             $("#toggle-header3").css('background-position', '5px 7px');
             $(this).prop('hidden', 'hidden');
         }
         else {
+//            $('.dropdown-menu').css('display', 'none');
             $("#toggle-header3").css('background-position', '5px -78px');
             $(this).removeProp('hidden');
             //$(this).fadeIn();
@@ -1912,11 +1951,13 @@ function tglclass3() {
 function tglclass4() {
     //alert("toggle1-capsule4");
     $("#tgldtl4").toggle(function () {
+        $('.dropdown-menu').css('display', 'block');
         if ($(this).css('display') === 'none') {
             $("#toggle-header4").css('background-position', '5px 7px');
             $(this).prop('hidden', 'hidden');
         }
         else {
+//            $('.dropdown-menu').css('display', 'none');
             $("#toggle-header4").css('background-position', '5px -78px');
             $(this).removeProp('hidden');
             //$(this).fadeIn();

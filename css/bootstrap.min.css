@@ -412,7 +412,7 @@ audio {
 .aside-container .aside-header {
     text-transform: uppercase;
     padding: 12% 30px 10% 40px;
-    font-size: 17px;
+    font-size: 16px;
     /*background: -webkit-linear-gradient(#d9d9d9, #c0c0c0);
     background: -o-linear-gradient(#d9d9d9, #c0c0c0);
     background: -moz-linear-gradient(#d9d9d9, #c0c0c0);
@@ -422,7 +422,7 @@ audio {
 
 .aside-container .aside-content {
     padding: 40px;
-    font-size: 17px;
+    font-size: 15px;
     color: #595959;
     line-height: 20px;
     font-weight: 500;
@@ -881,7 +881,7 @@ audio {
 
                     .capsule-model .main-div .content-view-1 .right-content .r-c-main-div .r-c-content {
                         padding: 6%;
-                        line-height: 18px;
+                        line-height: 15px;
                     }
 
                         .capsule-model .main-div .content-view-1 .right-content .r-c-main-div .r-c-content #rc-content-text {
@@ -1067,6 +1067,18 @@ audio {
 }
 
 /* -- Capsule Slide Classes -- */
+
+.font-main-header {
+    font-size: 100%;
+}
+
+.font-main-menu {
+    font-size: 80%;
+}
+
+.font-x-lw {
+    font-size: 80%;
+}
 
 .font-lw {
     font-size: 90%;
@@ -2521,6 +2533,8 @@ pre {
 }
 
 .container-fluid {
+	position: absolute;
+    /*top: 50%;*/
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -4239,6 +4253,7 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 
 .fade {
     opacity: 0;
+    display: none;
     /*-webkit-transition: opacity .15s linear;
     -o-transition: opacity .15s linear;
     transition: opacity .15s linear;*/
@@ -4246,6 +4261,7 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 
     .fade.in {
         opacity: 1;
+        display: inline-block;
         -webkit-transition: opacity .5s linear;
         -o-transition: opacity .5s linear;
         transition: opacity .5s linear;
@@ -8590,4 +8606,18 @@ c .interstitial {
 ul.f-w-med {
     margin-top: 10px;
     padding: 0px 17px;
+}
+@media (min-width: 1470px) and (max-width:1920px) {
+    .font-main-header {
+        font-size: 150%;
+    }
+
+    .font-main-menu {
+        font-size: 125%;
+    }
+
+    .capsule-model .main-div .content-view-1 .right-content .r-c-main-div .r-c-content #rc-content-select {
+        font-size: 125%;
+        line-height: 1.5;
+    }
 }

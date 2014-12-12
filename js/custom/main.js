@@ -18,13 +18,19 @@ var imgSrcBase = 'Images/';
 var audioSrcBase_mp3 = 'Audio/FR/mp3/';
 var audioSrcBase_ogg = 'ogg/';
 var audio = document.getElementById("APT_Audio_Controls");
-
+var scrw = $(window).width();
+var scrh = $(window).height();
+//var conth = $('.container-fluid').height();
+/*alert(conth);*/
 $(window).load(function(){
     $(".interstitial").css("display","none");
     $('#loadingSpinner').css("display","none");
 });
 
 $(document).ready(function(){
+
+
+
 
     objAPT_JSON = JSON.parse(fnGetDataFromServer('JSON/APT_Contents_JSON.json').responseText);
     max =objAPT_JSON.length;
@@ -106,8 +112,27 @@ $(document).ready(function(){
                     curIdx = i;
                 }
             }
-
         });
+
+        setTimeout(function(){
+            var contheight = $('#container-main').height();
+            var imgshd = $('.image-shadow').height();
+            var contmargintop = 0;
+//            alert("Height - " + scrh + " Container height - " + contheight + " image shadow - " + imgshd);
+
+            if (contheight > scrh) {
+                var heightdiff = contheight - scrh;
+                contmargintop = (contheight / 2) - (heightdiff / 2);
+            }
+            else {
+                contmargintop = (contheight / 2) + 12;
+            }
+//    if (scrw >= 1920) {
+//            $('.container-fluid').css('margin-top', "-"+contmargintop + "px");
+//    }
+        },1000);
+
+
 
         /*------------ Load Resource and help screen--------------------*/
         if(current_page_cookie == 'resource'){
@@ -127,6 +152,7 @@ $(document).ready(function(){
             preloadImages(objAPT_JSON[1]);
         }
     }
+
 
 //    preloadImages(objAPT_JSON[1]);
     var slider = new Slider("#audio_sliderID", {
@@ -165,6 +191,7 @@ $(document).ready(function(){
 
     $(".dropdown-menu").find("li").find("ul").find("li").click(function(event){
         slide = $(this).attr("name");
+        $('.dropdown-menu').css('display', 'none');
         fnSetupPageFromMenu(slide);
     });
 
@@ -685,6 +712,8 @@ $(document).ready(function(){
             }
         }
     })
+
+
 });
 
 

@@ -29,23 +29,24 @@
 
 <header>
     </header>
-    <div class="container-fluid">
+    <div id="container-main" class="container-fluid">
         <div id="firstprogram" class="row">
             <br />
             <div class="col-md-9 col-md-offset-1-5">
-                <div class="col-md-12">
+                <div class="col-md-12 font-main-header">
                     <strong>Section APTE Parents</strong>
                 </div>
             </div>
             <div class="col-md-9 col-md-offset-1-5">
                 <div class="col-md-12">
                     <div class="pull-right">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav font-main-menu">
                             <li><a href="javascript:void(0)" id="help">Aide</a></li>
                             <li class="divider-vertical"></li>
                             <li><a href="javascript:void(0)" id="resource" name="resource">Ressources</a></li>
                             <li class="divider-vertical"></li>
-                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Table des matières</a>
+                            <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Table des matières</a>-->
+                            <li id="tbl-content" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="opendd();" >Table of content</a>
                                 <ul class="dropdown-menu cust-toggle-menu">
                                     <li>
                                         <div id="toggle-header" class="toggle-header" onclick="tglclass();" name='introduction'>

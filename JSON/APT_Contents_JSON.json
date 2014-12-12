@@ -1316,9 +1316,9 @@
                 "contentId":"",
                 "contentClass":"conversation-bottom",
                 "position":{"top":"10","left":"615"},
-                "startingTime":"27",
+                "startingTime":"29",
                 "endingTime":"34",
-                "contentText":"Écoute, je vais pouvoir t’aider seulement si tu m’expliques ce qui se passe. Est-ce que tu fumes du pot?"
+                "contentText":"Écoute, je vais pouvoir t’aider seulement si tu m’expliques ce qui se passe Cassandra. Est-ce que tu fumes du pot?"
             },
             {
                 "contentId":"",
