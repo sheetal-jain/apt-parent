@@ -398,12 +398,13 @@ $(document).ready(function(){
                 }
             }
         }
-        if(slide != "resource")
+        if(slide != "resource" &&
+            slide != "help")
         {
             fnSlideWiseEffectManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
-        }
-        if(!isSliderDraggable){
-            fnSlideWiseConversationManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
+            if(!isSliderDraggable){
+                fnSlideWiseConversationManage(getAudioCurrentTimeInSec,getSingleObjOfJSON);
+            }
         }
         /*Show Next Indicator*/
         if(getAudioCurrentTimeInSec == (Math.floor(duration) - 2))
@@ -588,9 +589,6 @@ $(document).ready(function(){
     /*------------ When Click on Resource Link in menu-------------------*/
     $("#resource").click(function(){
         slide = $(this).attr("name");
-        $(".fw-header").stop().fadeIn();
-        $(".fw-header").stop().fadeOut();
-        $(".fw-header").css("display","none");
         changeCookieValue("resource");
         fnSlideWiseContentManage("resource");
         setupAudioControls( 'Audio/FR/mp3/6l4Qheq8nL6_22050_80_sec5.mp3');
@@ -598,6 +596,7 @@ $(document).ready(function(){
 
     /*------------ When Click on help Link in menu-----------------------*/
     $("#help").click(function(){
+        slide = $(this).attr("name");
         fnSlideWiseContentManage("help");
         changeCookieValue("help");
         setupAudioControls( 'Audio/FR/mp3/6l4Qheq8nL6_22050_80_sec5.mp3');
@@ -690,7 +689,7 @@ $(document).ready(function(){
         });
     }
 
-
+    /*--------------Mange Question-Answer All Slides ----------------------------*/
     answer_JSON = JSON.parse(fnGetDataFromServer('JSON/answer.json').responseText);
     var selectedOption;
     var rightImgUrl = "Images/6ZhqSSk0Exm_DX72_DY72_CX36_CY36.png";
@@ -727,9 +726,7 @@ $(document).ready(function(){
                 }
             }
         }
-    })
-
-
+    });
 });
 
 
