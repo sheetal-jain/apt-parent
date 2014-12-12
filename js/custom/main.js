@@ -734,6 +734,9 @@ $(document).ready(function(){
 
                 }
             }
+        }else{
+            $("#validateDialog").modal("show");
+            $("#validateDialog").css("top","25%");
         }
     });
 });

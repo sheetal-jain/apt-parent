@@ -437,7 +437,8 @@
                                                     <span id="rc-footer-span" class="font-med">Pour commencer, passez à l’écran suivant.</span>
                                                 </div>
                                                 <div id="rc-footer-confirm" class="collapse">
-                                                    <div id="validate-answer"></div>
+                                                    <div id="validate-answer" data-toggle="modal"></div> <!--data-target=".bs-example-modal-sm"-->
+
                                                 </div>
                                             </div>
                                         </div>
@@ -541,10 +542,24 @@
             </div>
         </div>
     </div>
-<!--<div id="overlay">
-    <img src="Images/spinner.png" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top:50%;left: 50%;"/>
-</div>-->
-
+    <!--<div id="overlay">
+        <img src="Images/spinner.png" class="img-responsive image-shadow" id='img-loader' style="position: absolute;top:50%;left: 50%;"/>
+    </div>-->
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="validateDialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
+                    <h3 id="myModalLabel">Réponse non valide</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Répondez à la question avant de continuer.</p>
+                    <br/>
+                    <button class="btn btn-default center-block" data-dismiss="modal" aria-hidden="true">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--Vendor JS-->
     <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
