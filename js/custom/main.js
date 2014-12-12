@@ -458,9 +458,9 @@ $(document).ready(function(){
             isAudioFlag = false
             isImgFlag = false;
             fnResetContentOnSlide(0);
-            if(isSliderDraggable){
+            /*if(isSliderDraggable){
                 isSliderDraggable = false;
-            }
+            }*/
             if(getSingleObjOfJSON.name == "intro_bergeron"){
                 refreshPopupContent(objAPT_JSON[curIdx].popupContent);
             }else if(getSingleObjOfJSON.name == "intro_Tips4online"){
@@ -476,9 +476,9 @@ $(document).ready(function(){
         isAudioFlag = false
         isImgFlag = false;
         fnResetContentOnSlide(0);
-        if(isSliderDraggable){
+        /*if(isSliderDraggable){
             isSliderDraggable = false;
-        }
+        }*/
         if(getSingleObjOfJSON.name == "intro_bergeron"){
             refreshPopupContent(objAPT_JSON[curIdx].popupContent);
         }else if(getSingleObjOfJSON.name == "intro_Tips4online"){
