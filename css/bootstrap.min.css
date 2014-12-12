@@ -5,7 +5,7 @@
  */ /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
 html {
-    font-family: sans-serif;
+    /*font-family: sans-serif;*/
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     background-color: #2D2E2D;
@@ -13,7 +13,7 @@ html {
 
 body {
     margin: 0;
-    font-family: customFonts;
+    /*font-family: customFonts;*/
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
@@ -294,7 +294,7 @@ audio {
     position: absolute;
     height: 135px;
     width: 100%;
-    padding: 17px 15px;
+    padding: 30px 15px;
 }
 
 .custom-slide-header img {
@@ -302,19 +302,20 @@ audio {
 }
 
 .custom-slide-header .header {
-    font-size: 56px;
-    vertical-align: middle;
-    color: #fff;
-    margin: 0 0 0 20px;
-    font-weight: lighter;
-    text-transform: uppercase;
-    transform: scale(0.8,1.2);
-    -webkit-transform: scale(0.8,1.2);
-    -moz-transform: scale(0.8,1.2);
-    -ms-transform: scale(0.8,1.2);
-    -o-transform: scale(0.8,1.2);
-    display: inline-block;
-}
+        font-size: 50px;
+        letter-spacing: 3px;
+        vertical-align: middle;
+        color: #fff;
+        margin: 0 0 0 20px;
+        font-weight: lighter;
+        text-transform: uppercase;
+        transform: scale(0.8,1.2);
+        -webkit-transform: scale(0.8,1.2);
+        -moz-transform: scale(0.8,1.2);
+        -ms-transform: scale(0.8,1.2);
+        -o-transform: scale(0.8,1.2);
+        display: inline-block;
+    }
 
 .custom-slide-header .header-span {
     text-transform: capitalize;
@@ -1110,6 +1111,15 @@ audio {
     line-height: 1.25;
 }
 
+.font-tahoma {
+    font-family: 'Tahoma';
+    letter-spacing: normal;
+}
+
+.font-myraidpro {
+    font-family: 'Myriad Pro';
+    letter-spacing: normal;
+}
 @media print {
     * {
         color: #000!important;
