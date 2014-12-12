@@ -48,9 +48,11 @@ function showLoader(imgId){
     $("#loadingSpinnerSlide").css("left", ($(".image-shadow").width()/2) - 50);
     $("#loadingSpinnerSlide").css("top", ($(".image-shadow").height()/2) - 50);
     $("#loadingSpinnerSlide").show();
+    $("#APT_Audio_Controls").trigger("pause");
     myImg.onload = function(){
         fnSetModelScreen();
         $("#loadingSpinnerSlide").hide();
+        $("#APT_Audio_Controls").trigger("play");
     }
 }
 
