@@ -182,9 +182,11 @@ $(document).ready(function(){
      }*/
 
     /*---- --------------------- Dropdown menu header click ----------*/
-    $(".toggle-header").click(function(){
+    $(".toggle-header-span").click(function(){
         slide = $(this).attr("name");
+        $('.dropdown-menu').css('display', 'none');
         fnSetupPageFromMenu(slide);
+
     });
 
     $(".dropdown-menu").find("li").find("ul").find("li").click(function(event){

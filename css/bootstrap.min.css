@@ -4,6 +4,20 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */ /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
+@font-face {
+    font-family: 'MyriadPro';
+    src: url('../fonts/MyriadPro/MyriadPro-Regular_4.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'fontTahoma';
+    src: url('../fonts/Tahoma/tahoma.ttf')
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     /*font-family: sans-serif;*/
     -webkit-text-size-adjust: 100%;
@@ -1117,7 +1131,7 @@ audio {
 }
 
 .font-myraidpro {
-    font-family: 'Myriad Pro';
+    font-family: 'MyriadPro';
     letter-spacing: normal;
 }
 @media print {
@@ -7963,7 +7977,7 @@ button.close {
     height: 100px;
     position: absolute;
     width: 100px;
-    z-index: 1201;
+    z-index: 999999;
 }
 
 .loading, .blocked {
@@ -7979,7 +7993,7 @@ button.close {
     height: 352px;
 }
 
-c .interstitial {
+.interstitial {
     left: 0;
     position: absolute;
     top: 0;
@@ -8605,4 +8619,19 @@ ul.f-w-med {
         font-size: 125%;
         line-height: 1.5;
     }
+}
+
+.dropdown .dropdown-toggle span {
+    margin-left: 5px;
+}
+
+.font-bold{
+    font-weight: bold !important;
+    font-size: 12px !important;
+}
+
+
+.icon-size{
+    width: 10px;
+    font-size: 13px !important;
 }

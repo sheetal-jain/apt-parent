@@ -43,16 +43,17 @@
                 <div class="col-md-12">
                     <div class="pull-right">
                         <ul class="nav navbar-nav font-main-menu font-tahoma">
-                            <li><a href="javascript:void(0)" id="help" name="help">Aide</a></li>
+                            <li><a href="javascript:void(0)"  class="font-bold" id="help" name="help">Aide</a></li>
                             <li class="divider-vertical"></li>
-                            <li><a href="javascript:void(0)" id="resource" name="resource">Ressources</a></li>
+                            <li><a href="javascript:void(0)" id="resource"  class="font-bold" name="resource">Ressources</a></li>
                             <li class="divider-vertical"></li>
                             <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Table des matières</a>-->
-                            <li id="tbl-content" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="opendd();" >Table of content</a>
+                            <!--<li id="tbl-content" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="opendd();" >Table of content</a>-->
+                            <li id="tbl-content" class="dropdown"><a class="dropdown-toggle font-bold" data-toggle="dropdown" href="#" onclick="opendd();" >Table des matières</span></a>
                                 <ul class="dropdown-menu cust-toggle-menu">
                                     <li>
-                                        <div id="toggle-header" class="toggle-header" onclick="tglclass();" name='introduction'>
-                                            <span>Introduction</span>
+                                        <div id="toggle-header" class="toggle-header"  >
+                                            <span><i class="fa fa-caret-right icon-size" onclick="tglclass();" id="tgl-intro-icon"></i><span class="toggle-header-span" name='introduction'>Introduction</span></span>
                                         </div>
                                         <div id="tgldtl" class="tgldt" style="display: none">
                                             <ul>
@@ -68,8 +69,8 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div id="toggle-header1" class="toggle-header" onclick="tglclass1();" name="capsule1_slide1">
-                                            <span>Capsule 1: Établir des relations de qualité entre parents et adolescents</span>
+                                        <div id="toggle-header1" class="toggle-header" >
+                                            <span><i class="fa fa-caret-right icon-size" onclick="tglclass1();" id="tgl-cap1-icon"></i><span class="toggle-header-span" name="capsule1_slide1">Capsule 1: Établir des relations de qualité entre parents et adolescents</span></span>
                                         </div>
                                         <div id="tgldtl1" class="tgldt" style="display: none">
                                             <ul>
@@ -88,8 +89,8 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div id="toggle-header2" class="toggle-header" onclick="tglclass2();" name="capsule2_slide1">
-                                            <span>Capsule 2: Communiquer efficacement avec vos adolescents</span>
+                                        <div id="toggle-header2" class="toggle-header" >
+                                            <span><i class="fa fa-caret-right icon-size" onclick="tglclass2();" id="tgl-cap2-icon"></i><span class="toggle-header-span" name="capsule2_slide1">Capsule 2: Communiquer efficacement avec vos adolescents</span></span>
                                         </div>
                                         <div id="tgldtl2" class="tgldt" style="display: none">
                                             <ul>
@@ -104,8 +105,8 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div id="toggle-header3" class="toggle-header" onclick="tglclass3();" name="capsule3_slide1">
-                                            <span>Capsule 3: Exercer de bonnes pratiques parentales</span>
+                                        <div id="toggle-header3" class="toggle-header" >
+                                            <span><i class="fa fa-caret-right icon-size" onclick="tglclass3();" id="tgl-cap3-icon"></i><span name="capsule3_slide1" class="toggle-header-span">Capsule 3: Exercer de bonnes pratiques parentales</span></span>
                                         </div>
                                         <div id="tgldtl3" class="tgldt" style="display: none">
                                             <ul>
@@ -123,8 +124,8 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div id="toggle-header4" class="toggle-header" onclick="tglclass4();" name="capsule4_slide1">
-                                            <span>Capsule 4: Résoudre les conflits entre parents et adolescents</span>
+                                        <div id="toggle-header4" class="toggle-header" >
+                                            <span><i class="fa fa-caret-right icon-size" onclick="tglclass4();" id="tgl-cap4-icon"></i><span class="toggle-header-span" name="capsule4_slide1">Capsule 4: Résoudre les conflits entre parents et adolescents</span></span>
                                         </div>
                                         <div id="tgldtl4" class="tgldt" style="display: none">
                                             <ul>
@@ -141,7 +142,7 @@
                                 </ul>
                             </li>
                             <li class="divider-vertical"></li>
-                            <li><a href="javascript:void(0);" id="quit">Quitter</a></li>
+                            <li><a href="javascript:void(0);"  class="font-bold" id="quit">Quitter</a></li>
                         </ul>
                     </div>
                 </div>
