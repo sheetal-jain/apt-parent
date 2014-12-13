@@ -13,7 +13,7 @@
 
 @font-face{
     font-family: 'fontTahoma';
-    src: url('../fonts/Tahoma/tahoma.ttf')
+    src: url('../fonts/Tahoma/tahoma.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -1126,7 +1126,7 @@ audio {
 }
 
 .font-tahoma {
-    font-family: 'Tahoma';
+    font-family: 'fontTahoma';
     letter-spacing: normal;
 }
 
