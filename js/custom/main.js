@@ -2,6 +2,7 @@
 var objAPT_JSON = ''
 var getSingleObjOfJSON = [];
 var answer_JSON =[];
+var viewedSlides = [];
 var getScreenName,max;
 var curIdx = 0;
 var isAudioFlag = false;
@@ -233,6 +234,26 @@ $(document).ready(function(){
         getTopicWiseData(curIdx);
         isSliderDraggable = false;
         slide = objAPT_JSON[curIdx].name;
+
+        /*--------------Already Viewed Slides Store in array JSON----------------*/
+        if(viewedSlides.length > 0){
+            if (viewedSlides.filter(function(e) {return e.viewedSlideName == objAPT_JSON[curIdx].name;}).length == 0) {
+                /* if current slide is not viewed, push in array*/
+                $("#option1").css("pointer-events",'auto');
+                $("#option2").css("pointer-events",'auto');
+                $("#option3").css("pointer-events",'auto');
+                $("#validate-answer").css("pointer-events",'auto');
+                $("#val1").prop("checked",false);
+                $("#val2").prop("checked",false);
+                $("#val3").prop("checked",false);
+                viewedSlides.push({"viewedSlideName":objAPT_JSON[curIdx].name});
+            }else{
+                /*---------- Show already store data--------------*/
+                fnShowSelectedAnsData();
+            }
+        }else{
+            viewedSlides.push({"viewedSlideName":objAPT_JSON[curIdx].name});
+        }
     });
 
     // Prev image and audio on button click
@@ -245,11 +266,9 @@ $(document).ready(function(){
             $('#slide1').attr('src',imgSrcBase+objAPT_JSON[curIdx].imgName);
             $('#firstslideheader').removeClass('content-collapse');
             $('#btnStart').removeClass('content-collapse');
-
             $('.custom-audio-button').removeClass('fade.in');
             $('#slide2').css('display','none');
             $('.custom-audio-button').addClass('fade');
-
             $(".playa").removeAttr("style");
             fnAddOrRemoveElementClass();
         }
@@ -278,13 +297,19 @@ $(document).ready(function(){
             fnSlideWiseContentManage(getScreenName);
         }
 
-
         setupAudioControls(audioSrcBase_mp3+objAPT_JSON[curIdx].audioName[0]);
         $('#slide-dyn').attr('src', imgSrcBase+objAPT_JSON[curIdx].imgName);
         changeCookieValue(objAPT_JSON[curIdx].name);
         getTopicWiseData(curIdx);
         isSliderDraggable = false;
         slide = objAPT_JSON[curIdx].name;
+
+        /*-------Get previous store slide data and content set on slide-------*/
+        if(viewedSlides.length>0)
+        {
+            fnShowSelectedAnsData();
+        }
+        /*-------End of Get previous store slide data and content set on slide-------*/
     });
 
     /*----------------------Model call on capsule click----------------------------------------*/
@@ -713,6 +738,14 @@ $(document).ready(function(){
     });
     $('#validate-answer').click(function(){
         if(selectedOption != undefined){
+            if (viewedSlides.filter(function(e) {return e.viewedSlideName == getSingleObjOfJSON.name;}).length > 0) {
+                /* Store User Selected Ans */
+                $.each(viewedSlides, function(index, value) {
+                    if(value.viewedSlideName == getSingleObjOfJSON.name){
+                        viewedSlides[index].userSelectedAns = $('input[type=radio]:checked').val();
+                    }
+                });
+            }
             for(var i = 0; i < answer_JSON.length; i++)
             {
                 if(getSingleObjOfJSON.name == answer_JSON[i].slideName){
