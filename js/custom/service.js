@@ -1993,7 +1993,7 @@ function fnShowSelectedAnsData(){
                             $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
                             $('#lc-ans-header').html("Tout à fait!");
                             $('#lc-ans-content').html(answer_JSON[i].positiveFeedback.text);
-                            $('#option'+answer_JSON[i].rightOption).css('background-image', 'url('+ rightImgUrl +')');
+                            $('#option'+answer_JSON[i].rightOption).css('background-image', 'url(Images/6ZhqSSk0Exm_DX72_DY72_CX36_CY36.png)');
                             $('#right'+answer_JSON[i].rightOption).show();
                             $('#lc-footer-img').hide();
                             setupAudioControls(audioSrcBase_mp3+answer_JSON[i].positiveFeedback.audio[0]);
