@@ -100,7 +100,7 @@ $(document).ready(function(){
                     $("#slide-capsule1").removeClass('collapse');
                     fnSlideWiseContentManage(current_page_cookie);
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
-                    showLoader('#slide-dyn');
+//                    showLoader('#slide-dyn');
                     getTopicWiseData(i);
                     if(objAPT_JSON[i+1] != undefined){
                         preloadImages(objAPT_JSON[i+1]);

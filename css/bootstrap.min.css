@@ -4392,6 +4392,7 @@ tbody.collapse.in {
 
         .dropdown-menu li .toggle-header {
             padding: 1% 1.5%;
+            cursor: pointer;
             /*border-bottom: 1px solid #E3E3E3;*/
         }
 
@@ -4401,6 +4402,7 @@ tbody.collapse.in {
 
     .dropdown-menu .tgldt li {
         padding: 0.5% 1%;
+        cursor: pointer;
     }
 
         .dropdown-menu .tgldt li:hover {

@@ -106,7 +106,7 @@
         "popupImg":[
             {
                 "imgName":"6lavtVoHLVD_DX542_DY542_CX172_CY271.png",
-                "startingTime":"5",
+                "startingTime":"7",
                 "endingTime":"30",
                 "imgId":"slide-content-1",
                 "imgContentId":"slide-content-1",
@@ -114,7 +114,7 @@
             },
             {
                 "imgName":"5rU7ZnG90Fx_DX542_DY542_CX172_CY271.png",
-                "startingTime":"12",
+                "startingTime":"13",
                 "endingTime":"30",
                 "imgId":"slide-content-2",
                 "imgContentId":"slide-content-2",
@@ -122,7 +122,7 @@
             },
             {
                 "imgName":"6hD3ydvjLt7_DX542_DY542_CX172_CY271.png",
-                "startingTime":"14",
+                "startingTime":"17",
                 "endingTime":"30",
                 "imgId":"slide-content-3",
                 "imgContentId":"slide-content-3",
@@ -130,7 +130,7 @@
             },
             {
                 "imgName":"6baW6GPP0CQ_DX542_DY542_CX172_CY271.png",
-                "startingTime":"20",
+                "startingTime":"22",
                 "endingTime":"30",
                 "imgId":"slide-content-4",
                 "imgContentId":"slide-content-4",
@@ -138,7 +138,7 @@
             },
             {
                 "imgName":"5unXAHubqY3_DX542_DY542_CX172_CY271.png",
-                "startingTime":"23",
+                "startingTime":"26",
                 "endingTime":"30",
                 "imgId":"slide-content-5",
                 "imgContentId":"slide-content-5",
@@ -1373,7 +1373,7 @@
                 "position":{"top":"10","left":"635"},
                 "startingTime":"8",
                 "endingTime":"11",
-                "contentText":"Stresser pas.J’suis pas une droguée !"
+                "contentText":"stresse pas, j’suis pas une droguée."
             },
             {
                 "contentId":"",

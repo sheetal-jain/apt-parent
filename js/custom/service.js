@@ -15,7 +15,7 @@ function fnGetDataFromServer(url)
     });
 };
 
-/* VJ ------------------ Change cookie pagewise -----------------------*/
+/* ------------------ Change cookie pagewise -----------------------*/
 function changeCookieValue(newValue) {
     $.removeCookie('current_page');
     $.cookie('current_page', newValue, { expires: 7 });
@@ -619,9 +619,9 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("«" + '"' + head + '"' + "»");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
             $('#rc-content-select').removeClass('collapse');
-            $('#rc-opt-1').html('"' + "I'm sure they won't bug you that much. Either way,you can just say no. And don't forgot to get your book back from Julie." + '"');
-            $('#rc-opt-2').html('"' + "Julie doesm't mind having alchohol aria-atomic her parties? You're much too young! You shouldn't hang out with them if they bug you to drink." + '"');
-            $('#rc-opt-3').html('"' + "You're worried about what your friends will say if they see you not drinking. Do you want to talk about it?" + '"');
+            $('#rc-opt-1').html( "« T’exagère, je suis sûre qu’ils ne t’achaleront pas tant que ça. Et puis t’as juste à dire non.  Ah, et n’oublie pas de reprendre ton livre chez Julie.»");
+            $('#rc-opt-2').html( "« Julie accepte qu’il y ait de l’alcool dans ses partys ? Vous êtes bien trop jeunes ! Et puis tu ne devrais pas rester avec eux, s’ils t’achalent pour consommer. »");
+            $('#rc-opt-3').html( "« Tu es préoccupé par la réaction de tes amis s’ils voient que tu ne bois pas.  Tu veux qu’on en parle ? »");
 
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
@@ -699,9 +699,9 @@ function fnSlideWiseContentManage(slide){
             $('#rc-content-select').removeClass('collapse');
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "C’est sûr que je suis fâchée! Je ne comprends pas pourquoi il a agi comme ça… " + '»' + "</dfn>");
-            $('#rc-opt-1').html('"' + "I am upset, I thought you had understood. Now I can't trust you anymore." + '"');
-            $('#rc-opt-2').html('"' + "I am disappointed in your behaviour. We'll talk tommorrow at breakfast, when you've sobered up." + '"');
-            $('#rc-opt-3').html('"' + "I knew it was a bad idea to let you go to a party where there would be alcohol. Why did you drink? Your friends really are bad influence on you!" + '"');
+            $('#rc-opt-1').html("« Je suis fâchée, je pensais que tu avais compris.  Je ne peux plus te faire confiance maintenant. »");
+            $('#rc-opt-2').html("« Je suis déçue de ton comportement.  On en reparlera demain au déjeuner, quand tu auras dessoûlé. »");
+            $('#rc-opt-3').html("« Je savais que c’était une mauvaise idée de te laisser aller à un party où il y a de l’alcool.  Pourquoi t’as fait ça ? Tes amis ont vraiment une mauvaise influence sur toi! »");
 //
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
@@ -734,9 +734,9 @@ function fnSlideWiseContentManage(slide){
             $('#rc-footer-confirm').removeClass('collapse');
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "Je veux qu’il sache que je suis contre la consommation d’alcool à son âge mais je veux aussi qu’il puisse compter sur moi quand il a des problèmes." + '»' + "</dfn>");
-            $('#rc-opt-1').html('"' + "Talk to me. I'd like to understand what happend." + '"');
-            $('#rc-opt-2').html('"' + "There's no point in apologizing, I won't here any of it. I don't want you drinking alcohol anymore, that's it." + '"');
-            $('#rc-opt-3').html('"' + "OK,it's your business. Do you want some orange juice" + '"');
+            $('#rc-opt-1').html("« Explique-moi.  J’aimerais comprendre ce qui s’est passé. »");
+            $('#rc-opt-2').html("« Ce n’est pas la peine de t’excuser, je ne veux rien savoir.  Je ne veux plus que tu prennes de l’alcool, c’est tout. »");
+            $('#rc-opt-3').html("« Ok, c’est tes affaires.  Bon, veux-tu un jus d’orange ? »");
 //
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
@@ -763,7 +763,7 @@ function fnSlideWiseContentManage(slide){
             $('#rc-footer-text').removeClass('collapse');
             $('#rc-content-text').removeClass('collapse');
             $('#rc-content-text').html("");
-            $('#rc-content-text').html("<span class='font-med f-w-med line-h-125 in-block'>En démontrant du <span class='orange'>soutien</span> et de <span class='orange'>l’affection</span> à Vincent, même dans les moments difficiles, Isabelle s’assure de développer et de maintenir une relation de qualité avec lui. S’il se sent compris, aimé et soutenu par ses parents, l’adolescent sera plus ouvert à discuter de ses problèmes avec eux.<br /><br />Isabelle a su discuter avec Vincent de ses croyances concernant l’alcool et avancer des arguments en la matière. Elle refuse également que Vincent consomme de l’alcool avec ses amis à son âge. Avec raison : plus un jeune commence à boire tôt, plus il risque de développer des comportements d’abus et de dépendance.</span>");
+            $('#rc-content-text').html("<span class='font-med f-w-med line-h-125 in-block' style='font-size: 100%'>En démontrant du <span class='orange'>soutien</span> et de <span class='orange'>l’affection</span> à Vincent, même dans les moments difficiles, Isabelle s’assure de développer et de maintenir une relation de qualité avec lui. S’il se sent compris, aimé et soutenu par ses parents, l’adolescent sera plus ouvert à discuter de ses problèmes avec eux.<br /><br />Isabelle a su discuter avec Vincent de ses croyances concernant l’alcool et avancer des arguments en la matière. Elle refuse également que Vincent consomme de l’alcool avec ses amis à son âge. Avec raison : plus un jeune commence à boire tôt, plus il risque de développer des comportements d’abus et de dépendance.</span>");
             $('#rc-footer-span').html("");
             $('#rc-footer-text').html("<span class='text-uppercase f-w-med'>Et vous?</span>");
             $('#rc-footer-text').append("<ul class='f-w-med'><li><span>Comment démontrez-vous votre soutien et votre affection à votre adolescent?</span></li><li><span>Quelles sont vos règles et vos croyances en matière de consommation d’alcool?</span></li></ul>");
@@ -878,9 +878,9 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "Un gars “bizarre”?" + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').html('"' + "Just ignor him.So, Do you like your teachers ?" + '"');
-            $('#rc-opt-2').html('"' + "Who is this guy? Why do you find him wired?" + '"');
-            $('#rc-opt-3').html('"' + "Come on, we don't talk like that about other people! He must not be any different from the others in your class." + '"');
+            $('#rc-opt-1').html("«  Tu n’as qu’à ne pas t’occuper de lui.  Et puis, aimes-tu tes profs ? »");
+            $('#rc-opt-2').html("« C’est qui se gars là ?  Pourquoi tu le trouves bizarre ? »");
+            $('#rc-opt-3').html("« Franchement, on ne parle pas des gens comme ça !  Il n’est sans doute pas si différent des autres de ta classe. »");
             $('#rc-footer-confirm').removeClass('collapse');
 //
             $(".ans-right").find("img").hide();
@@ -911,9 +911,9 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html();
             $('#rc-header-2').html("<dfn>" + '«' + "Du speed… Est-ce que je devrais lui en parler? Je ne veux pas attiser sa curiosité!" + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').html('"' + "It is very dangerous drug. I forbid you from talking it and I don't want to hear you talking about these things at home ." + '"');
-            $('#rc-opt-2').html('"' + "I'm not sure I should tell you about it. I'm sure they'll explain it to you at school." + '"');
-            $('#rc-opt-3').html('"' + "It's a drug. If you want, we can talk about it..." + '"');
+            $('#rc-opt-1').html("«  C’est une drogue très dangereuse.  Je t’interdis de toucher à ça et je ne veux pas entendre parler de ces affaires-là à la maison. »");
+            $('#rc-opt-2').html("« Je ne sais pas si je devrais t’en parler.  Ils vont sûrement vous expliquer ça à l’école ? »");
+            $('#rc-opt-3').html("«  C’est une drogue.  Si tu veux, on peut en parler… »");
             $('#rc-footer-confirm').removeClass('collapse');
 //
             $(".ans-right").find("img").hide();
@@ -964,9 +964,9 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').empty();
             $('#rc-header-2').append("<dfn>" + '«' + "Tant mieux. Il faudrait que ça reste comme ça : il ne faut pas que Vincent soit influencé par ce jeune-là." + '»' + "</dfn>");
             $('#rc-header-que').text("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').text('"' + "We're intrested in getting to know the people you hang out with and what you do together. If the opportunity presents it self, what would you do?" + '"');
-            $('#rc-opt-2').text('"' + "Very good.we know you have good judgement and would never take drugs, So don't pay attentaion him." + '"');
-            $('#rc-opt-3').text('"' + "You're better off. We don't want you hanging out with this guy nor do we want hear about him anymore." + '"');
+            $('#rc-opt-1').text("«  On est intéressés à connaître les gens que tu fréquentes et à savoir ce que vous faites ensemble.  Si la situation se représente, qu’est-ce que tu comptes faire ? »");
+            $('#rc-opt-2').text("« Très bien.  On sait que toi tu as du jugement et que tu ne prendras jamais de drogue, alors ne fais pas attention à lui. »");
+            $('#rc-opt-3').text("« Tant mieux.  On t’interdit de te tenir avec ce gars-là et on ne veut plus en entendre parler. »");
             $('#rc-footer-confirm').removeClass('collapse');
 //
             $(".ans-right").find("img").hide();
@@ -1100,9 +1100,9 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("<dfn>" + '«' + "Ça leur ferait plaisir d’inviter leurs amis, mais bon, il ne faudrait pas que ça dégénère…" + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
             $('#rc-content-select').removeClass('collapse');
-            $('#rc-opt-1').html('"' + "Ok, you can invite Matthew ans Sarah." + '"');
-            $('#rc-opt-2').html('"' + "No problem,you can do whatever you like so long as everybody's gone when we get back!" + '"');
-            $('#rc-opt-3').html('"' + "Absolutely not. There's no way we're going to allow a party to happen while we're not here." + '"');
+            $('#rc-opt-1').html("« Ok, vous pouvez inviter Mathieu et Delphine. »");
+            $('#rc-opt-2').html("« Pas de problème, faites ce que vous voulez tant que les gens sont partis quand on arrive ! »");
+            $('#rc-opt-3').html("« Non, pas question que ça finisse en party pendant qu’on n’est pas là. »");
 
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
@@ -1134,9 +1134,9 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "On veut leur permettre de vivre des expériences mais on doit établir des règles claires qu’ils doivent respecter. " + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').html('"' + "Go ahead,You're going to do what you want anyways." + '"');
-            $('#rc-opt-2').html('"' + "No, you cannot have any alcohol.But it's true that we've never actually speoken about this. As we do for everything else, we're going to take the time to discuss this and establish some ground rules." + '"');
-            $('#rc-opt-3').html('"' + "Out of the question.If you have any beer, you'll never be allowed to have any friends over again.Got it?" + '"');
+            $('#rc-opt-1').html("« Faites comme vous voulez, de toute façon vous faites toujours à votre tête. »");
+            $('#rc-opt-2').html("« Non, vous ne pouvez pas prendre d’alcool.  Mais c’est vrai qu’on n’en n’a jamais parlé clairement ensemble.  Comme pour tout le reste, on va prendre le temps d’en discuter et de s’entendre sur les règles. »");
+            $('#rc-opt-3').html("« Pas question.  Si jamais vous prenez une bière, vous ne pourrez plus jamais inviter d’amis à la maison.  Compris ? »");
             $('#rc-footer-confirm').removeClass('collapse');
 //
             $(".ans-right").find("img").hide();
@@ -1204,9 +1204,9 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "Je suis en colère mais je dois me contrôler pour ne pas dire des choses que je vais regretter." + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').html('"' + "You understand that there will be consequences.No friends over for the next month." + '"');
-            $('#rc-opt-2').html('"' + "You always do what you want! We'll never get anywere with you! Wait untill your father gets homeâ€¦" + '"');
-            $('#rc-opt-3').html('"' + "Ok,I am in no state to agure,so let's drop it.Don't tell your father and we'll forget it even happened." + '"');
+            $('#rc-opt-1').html("« Là, vous comprenez qu’il y aura des conséquences : pas d’amis à la maison pendant le prochain mois. »");
+            $('#rc-opt-2').html("« Vous faites toujours à votre tête !  On n’arrivera jamais à rien avec vous autres !  Attendez que votre père arrive… »");
+            $('#rc-opt-3').html("« Bon, OK.  Je ne suis pas en état de me chicaner, alors on n’en parle plus.  Ne le dites pas à votre père, on efface tout. »");
             $('#rc-footer-confirm').removeClass('collapse');
 //
             $(".ans-right").find("img").hide();
@@ -1235,7 +1235,7 @@ function fnSlideWiseContentManage(slide){
             $('#rc-content-text').removeClass('collapse');
             $('#rc-footer-text').removeClass("collapse");
             $('#rc-content-text').html("");
-            $('#rc-content-text').html("<span class='font-med f-w-med line-h-125 in-block'>Les bonnes pratiques parentales font référence au <span class='orange'>contrôle parental</span> (composé d’encadrement et d’autorisation), à la <span class='orange'>tolérance</span> et au <span class='orange'>style disciplinaire inductif</span> (fondé sur la négociation).<br /><br />Alexandra et Vincent savaient qu’ils devaient demander l’autorisation de recevoir des amis à la maison en l’absence de leurs parents. En acceptant tout en fixant des règles claires, Éric et Isabelle ont fait preuve une tolérance et un bon encadrement. Ils ont également agi pour protéger leurs enfants des risques d’une consommation d’alcool prématurée. Lorsque les règles ont été brisées, il était acceptable qu’Isabelle exerce un style disciplinaire punitif, sans agressivité.</span>");
+            $('#rc-content-text').html("<span class='font-med f-w-med line-h-125 in-block' style='font-size: 100%'>Les bonnes pratiques parentales font référence au <span class='orange'>contrôle parental</span> (composé d’encadrement et d’autorisation), à la <span class='orange'>tolérance</span> et au <span class='orange'>style disciplinaire inductif</span> (fondé sur la négociation).<br /><br />Alexandra et Vincent savaient qu’ils devaient demander l’autorisation de recevoir des amis à la maison en l’absence de leurs parents. En acceptant tout en fixant des règles claires, Éric et Isabelle ont fait preuve une tolérance et un bon encadrement. Ils ont également agi pour protéger leurs enfants des risques d’une consommation d’alcool prématurée. Lorsque les règles ont été brisées, il était acceptable qu’Isabelle exerce un style disciplinaire punitif, sans agressivité.</span>");
             $('#rc-footer-span').html("");
             $('#rc-footer-text').html("<span class='text-uppercase f-w-med'>Et vous?</span>");
             $('#rc-footer-text').append("<ul class='f-w-med'><li><span>Comment exercez-vous votre contrôle parental?</span></li><li><span>Quel est votre seuil de tolérance?</span></li><li><span>Quel est votre style disciplinaire?</span></li></ul>");
@@ -1350,9 +1350,9 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "Je n’en reviens pas. Je suis furieux, mais je veux en savoir plus pour qu’on trouve une solution ensemble." + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').html('"' + "That's enough! You have to stop it right way. You cannot flunk the school year because of this." + '"');
-            $('#rc-opt-2').html('"' + "Don't tell me you've become a pothead like your cousion? Honestly, I throught you were smarter than that." + '"');
-            $('#rc-opt-3').html('"' + "I would really like us to talk about it.How often do you smoke?" + '"');
+            $('#rc-opt-1').html("« Ça ne se peut pas !  Tu vas arrêter ça tout de suite.  Tu ne peux pas couler ton année scolaire à cause de ça. »");
+            $('#rc-opt-2').html("« Ne me dis pas que tu es rendue une « poteuse » comme ton cousin ?  Franchement, je te pensais plus intelligente que ça. »");
+            $('#rc-opt-3').html("« J’aimerais qu’on en parle.  Est-ce que tu fumes souvent ? »");
             $('#rc-footer-confirm').removeClass('collapse');
 //
             $(".ans-right").find("img").hide();
@@ -1385,9 +1385,9 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "Comment garder son calme et expliquer l’impact de la consommation de cannabis." + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').html('"' + "Ok,it's your business,but if you deal with stress by smoking pot, you won't get very far in life." + '"');
-            $('#rc-opt-2').html('"' + "Just pot? And after that, just cocaine and then you're just a drug addict! It's just your life after all." + '"');
-            $('#rc-opt-3').html('"' + "Hold on, pot is drug like any other and it's bad for you! If you use it regularly, it'll have the, it will have the exact opposite effects from what you described." + '"');
+            $('#rc-opt-1').html("« Bon, c’est ton affaire, mais si tu gères toujours ton stress en fumant du pot, tu n’iras pas bien loin dans la vie. »");
+            $('#rc-opt-2').html("« Juste du pot ! Et après ça sera juste de la cocaïne et tu seras juste  une droguée ! Après tout, c’est juste ta vie. »");
+            $('#rc-opt-3').html("« Un instant, le pot, c’est une drogue et toutes les drogues ont des impacts !  En consommer régulièrement, ça donne exactement le contraire de ce que tu as dit. »");
             $('#rc-footer-confirm').removeClass('collapse');
 //
             $(".ans-right").find("img").hide();
@@ -1420,9 +1420,9 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "Comment l’amener à arrêter de fumer et à se reprendre en main à l’école?" + '»' + "</dfn>");
             $('#rc-header-que').text("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').text('"' + "Your mother and I are against you smoking pot. I'd like for us to look into other ways to mange your stress." + '"');
-            $('#rc-opt-2').text('"' + "Clearly, You're not mature enough to find a soluation. For now, you'll come straight home after school to do your homework." + '"');
-            $('#rc-opt-3').text('"' + "It's simple-you are going to improve your grades and your mother and I never want to hear about drugs again." + '"');
+            $('#rc-opt-1').text("« Ta mère et moi, on est contre le fait que tu fumes du pot.  Mais j’aimerais qu’on regarde comment on peut t’aider à gérer ton stress autrement. »");
+            $('#rc-opt-2').text("« Visiblement, tu n’es pas assez mature pour trouver une solution.  À partir de maintenant, tu rentres tout de suite après l’école pour faire tes devoirs. »");
+            $('#rc-opt-3').text("« C’est simple : tu améliores tes notes et ta mère et moi, on ne veut plus entendre parler de drogue. »");
             $('#rc-footer-confirm').removeClass('collapse');
 //
             $(".ans-right").find("img").hide();
@@ -1566,7 +1566,7 @@ function fnSlideWiseContentManage(slide){
             else if (scrw <= 980) {
                 $('.well').css('width', '86%');
             }
-			else if (scrw <= 1366) {
+            else if (scrw <= 1366) {
                 $('.well').css('width', '87%');
             }
             else if (scrw >= 1920) {
@@ -1674,8 +1674,8 @@ function fnSlideWiseEffectManage(curTime,singleObj){
                 if(curTime == getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
                     $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(1000);
                     /*$('#fw-header-1').html('');
-                    $('#fw-header-2').html('');
-                    $('.fw-header').css("display","none");*/
+                     $('#fw-header-2').html('');
+                     $('.fw-header').css("display","none");*/
                 }
             }
             break;
@@ -1997,7 +1997,6 @@ function fnShowSelectedAnsData(){
                             $('#right'+answer_JSON[i].rightOption).show();
                             $('#lc-footer-img').hide();
                             setupAudioControls(audioSrcBase_mp3+answer_JSON[i].positiveFeedback.audio[0]);
-                            $("#next").css("pointer-events",'auto');
                             $("#val"+viewedSlides[index].userSelectedAns).prop("checked", true);
                         }
                         else{
@@ -2009,12 +2008,12 @@ function fnShowSelectedAnsData(){
                             $('#lc-footer-img').hide();
                             $('#right'+answer_JSON[i].rightOption).show();
                             setupAudioControls(audioSrcBase_mp3+answer_JSON[i].negativeFeedback.audio[0]);
-                            $("#next").css("pointer-events",'auto');
                         }
                         $("#option1").css("pointer-events",'none');
                         $("#option2").css("pointer-events",'none');
                         $("#option3").css("pointer-events",'none');
                         $("#validate-answer").css("pointer-events",'none');
+                        $("#next").css("pointer-events",'auto');
                     }
                 }
             }
@@ -2022,3 +2021,4 @@ function fnShowSelectedAnsData(){
     });
 }
 
+$('#rc-opt-2').html('"' + " Je suis déçue de ton comportement.  On en reparlera demain au déjeuner, quand tu auras dessoûlé." + '"');
