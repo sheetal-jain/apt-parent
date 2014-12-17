@@ -194,6 +194,9 @@ $(document).ready(function(){
         slide = $(this).attr("name");
         $('.dropdown-menu').css('display', 'none');
         fnSetupPageFromMenu(slide);
+
+        /*--------------Already Viewed Slides Store in array JSON----------------*/
+        fnViewedSlides();
     });
 
     // Next image and audio on button (and image) click
@@ -238,24 +241,7 @@ $(document).ready(function(){
         slide = objAPT_JSON[curIdx].name;
 
         /*--------------Already Viewed Slides Store in array JSON----------------*/
-        if(viewedSlides.length > 0){
-            if (viewedSlides.filter(function(e) {return e.viewedSlideName == objAPT_JSON[curIdx].name;}).length == 0) {
-                /* if current slide is not viewed, push in array*/
-                $("#option1").css("pointer-events",'auto');
-                $("#option2").css("pointer-events",'auto');
-                $("#option3").css("pointer-events",'auto');
-                $("#validate-answer").css("pointer-events",'auto');
-                $("#val1").prop("checked",false);
-                $("#val2").prop("checked",false);
-                $("#val3").prop("checked",false);
-                viewedSlides.push({"viewedSlideName":objAPT_JSON[curIdx].name});
-            }else{
-                /*---------- Show already store data--------------*/
-                fnShowSelectedAnsData();
-            }
-        }else{
-            viewedSlides.push({"viewedSlideName":objAPT_JSON[curIdx].name});
-        }
+        fnViewedSlides();
     });
 
     // Prev image and audio on button click
@@ -348,6 +334,33 @@ $(document).ready(function(){
         }
         changeCookieValue(screenName);
         getTopicWiseData(curIdx);
+    }
+
+    function fnViewedSlides(){
+        if(viewedSlides.length > 0){
+            if (viewedSlides.filter(function(e) {return e.viewedSlideName == objAPT_JSON[curIdx].name;}).length == 0) {
+                /* if current slide is not viewed, push in array*/
+                $("#option1").css("pointer-events",'auto');
+                $("#option2").css("pointer-events",'auto');
+                $("#option3").css("pointer-events",'auto');
+                $("#validate-answer").css("pointer-events",'auto');
+                $("#val1").prop("checked",false);
+                $("#val2").prop("checked",false);
+                $("#val3").prop("checked",false);
+                viewedSlides.push({"viewedSlideName":objAPT_JSON[curIdx].name});
+
+                /*------------- Provide Resource After Capsule Completed-------------------*/
+                fnProvideResourceAfterCapOver(viewedSlides)
+            }else{
+                /*---------- Show already store data--------------*/
+                fnShowSelectedAnsData(viewedSlides);
+            }
+        }else{
+            viewedSlides.push({"viewedSlideName":objAPT_JSON[curIdx].name});
+
+            /*------------- Provide Resource After Capsule Completed-------------------*/
+            fnProvideResourceAfterCapOver(viewedSlides)
+        }
     }
 
     function getTopicWiseData(curIdx)
@@ -628,8 +641,8 @@ $(document).ready(function(){
     });
 
     /*------------ When Click on Resource Link in menu-------------------*/
-    $("#resource").click(function(){
-        slide = $(this).attr("name");
+    $("#resource,.menu-resources").click(function(){
+        slide = $("#resource").attr("name");
         changeCookieValue("resource");
         fnSlideWiseContentManage("resource");
         setupAudioControls( 'Audio/FR/mp3/6l4Qheq8nL6_22050_80_sec5.mp3');
@@ -714,7 +727,7 @@ $(document).ready(function(){
                     setTimeout(function(){
                         fnSetModelScreen();
                     },1000)
-                    $("#slide-capsule1").removeClass('collapse');
+//                    $("#slide-capsule1").removeClass('collapse');
 
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
                     showLoader('#slide-dyn');

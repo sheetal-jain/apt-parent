@@ -3,6 +3,10 @@
  */
 var stTime = "";
 var maxWidth = $(window).width();
+var resource1="";
+var resource2="";
+var resource3="";
+var resource4="";
 
 function fnGetDataFromServer(url)
 {
@@ -416,6 +420,8 @@ function fnAddCollapseClassIntroCapsule(){
     $("#infrom-navi").addClass("content-collapse");
 
     $("#transition").addClass("content-collapse");
+
+    $("#slide-capsule1").addClass("collapse");
     fnShowNextButton();
 
 }
@@ -537,7 +543,6 @@ function fnSlideWiseContentManage(slide){
             //hide next button
             fnHideNextButton();
             $('#slide-dyn').removeClass('content-collapse');
-            $("#slide-capsule1").addClass("collapse");
             $('#slide-menu').removeClass('content-collapse');
             $('#slide-menu').removeClass('collapse');
             break;
@@ -577,6 +582,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide2":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('.fw-header').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
@@ -596,6 +602,7 @@ function fnSlideWiseContentManage(slide){
             break;
         case "capsule1_slide3":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -606,6 +613,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide4":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.r-c-header').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
@@ -629,6 +637,7 @@ function fnSlideWiseContentManage(slide){
             break;
         case "capsule1_slide5":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -639,6 +648,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide6":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -649,6 +659,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide7":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#fw-footer-lr').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
@@ -660,6 +671,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide8":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('.convertion').removeClass('collapse');
@@ -669,6 +681,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide9":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('#fw-footer-lr').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
@@ -680,6 +693,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide10":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -690,6 +704,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide11":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -711,6 +726,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide12":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse')
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -725,6 +741,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide13":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -746,6 +763,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide14":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -757,6 +775,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide15":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#lc-footer-img').attr('src', 'Images/6L9kKi7B4bf_DX1110_DY1110_CX555_CY80.png');
@@ -773,6 +792,7 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('.fw-content').show();
             fnShowNextButton();
+            $('#slide-capsule1').removeClass('collapse');
             $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
@@ -837,6 +857,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide2":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#fw-header-1').html('COMMUNICATE EFECTIVELY');
             $('#fw-header-2').html('YOUR ADOLESCENTS');
@@ -858,6 +879,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide3":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -868,6 +890,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide4":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -891,6 +914,7 @@ function fnSlideWiseContentManage(slide){
             break;
         case "capsule2_slide5":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -901,6 +925,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide6":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -924,6 +949,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide7":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -934,6 +960,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide8":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -944,6 +971,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide9":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -954,6 +982,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide10":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -977,6 +1006,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide11":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5W7AHu8TBJX_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').removeClass('collapse');
@@ -988,6 +1018,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide12":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#lc-footer-img').attr('src', 'Images/69FApGo5S5l_DX1110_DY1110_CX555_CY92.png');
@@ -1068,6 +1099,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide2":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#rc-content-text').removeClass('collapse');
             $('#rc-content-text').html("");
@@ -1087,6 +1119,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide3":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('#rc-content-text').html("");
             $('.content-view-1').removeClass('collapse');
@@ -1111,6 +1144,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide4":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6hmpZppJlxm_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').show();
@@ -1123,6 +1157,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide5":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1147,6 +1182,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide6":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6VSk8oIeeXM_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').show();
@@ -1159,6 +1195,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide7":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6b04fMETRyT_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').show();
@@ -1171,6 +1208,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide8":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6favrCCzyZW_DX1890_DY1890_CX945_CY530.png');
             $('#fw-footer-lr').removeClass('collapse');
@@ -1181,6 +1219,7 @@ function fnSlideWiseContentManage(slide){
             break;
         case "capsule3_slide9":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6favrCCzyZW_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').show();
@@ -1193,6 +1232,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide10":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1217,6 +1257,7 @@ function fnSlideWiseContentManage(slide){
             break;
         case "capsule3_slide11":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6leqSerEMzN_DX1890_DY1890_CX945_CY530.png');
             $('#fw-footer-img').removeClass('collapse');
@@ -1227,6 +1268,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide12":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6LfsxxorS1V_DX1890_DY1890_CX945_CY530.png');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1310,6 +1352,7 @@ function fnSlideWiseContentManage(slide){
             break;
         case "capsule4_slide2":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#rc-content-text').removeClass('collapse');
             $('#rc-content-text').html("");
@@ -1328,6 +1371,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide3":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5kP9TIE0HvI_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').removeClass('collapse');
@@ -1339,6 +1383,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide4":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1362,7 +1407,7 @@ function fnSlideWiseContentManage(slide){
             break;
         case "capsule4_slide5":
             fnAddCollapseClass();
-
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5ZPM7UaofLE_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').removeClass('collapse');
@@ -1374,6 +1419,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide6":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1398,6 +1444,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide7":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5dbjW9897cg_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').removeClass('collapse');
@@ -1409,6 +1456,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide8":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1433,6 +1481,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide9":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5wrz9olrxwX_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').removeClass('collapse');
@@ -1444,6 +1493,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide10":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').addClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5vAre4J4XO2_DX1890_DY1890_CX945_CY530.png');
@@ -1511,12 +1561,8 @@ function fnSlideWiseContentManage(slide){
             $('#slide1').addClass("content-collapse");
             $('#slide1').removeAttr('style');
             $('#slide1').css("dispaly","none");
-
-
-
             $('#btnStart').addClass('content-collapse');
             $('#firstslideheader').addClass('content-collapse');
-
             $('#slide-dyn').removeClass('content-collapse');
             $('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
 
@@ -1525,10 +1571,10 @@ function fnSlideWiseContentManage(slide){
 
             $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
-
+            $('.fw-content').removeClass('cap2-last-slide');
             $('.fw-content').removeClass('collapse');
             $('.fw-content').html("");
-            $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>ressources</span><span class='in-block font-lg'>Cliquez sur les fiches d'informations obtenues et les croyances pour les consulter.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>CROYANCES discutées dans les capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='croyances' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='croyances'>Tableaux des croyances</span></div></div><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='psychotropes' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='psychotropes'>Les psychotropes</span></a></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>FICHES d'Informations obtenues:</span></li></ul><div><div class='res-box'><span class='font-sm'>Relation de qualité</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>Communiquer efficacement</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>Pratiques parentales</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>Résoudre les conflits</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Cliquez sur Suivant pour continuer.</span></div></div>");
+            $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>ressources</span><span class='in-block font-lg'>Cliquez sur les fiches d'informations obtenues et les croyances pour les consulter.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>CROYANCES discutées dans les capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='croyances' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='croyances'>Tableaux des croyances</span></div></div><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='psychotropes' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='psychotropes'>Les psychotropes</span></a></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>FICHES d'Informations obtenues:</span></li></ul><div><div class='res-box'><span class='font-sm'>Relation de qualité</span><span class='font-x-lg'>01</span>"+resource1+"</div><div class='res-box'><span class='font-sm'>Communiquer efficacement</span><span class='font-x-lg'>02</span>"+resource2+"</div><div class='res-box'><span class='font-sm'>Pratiques parentales</span><span class='font-x-lg'>03</span>"+resource3+"</div><div class='res-box'><span class='font-sm'>Résoudre les conflits</span><span class='font-x-lg'>04</span>"+resource4+"</div></div></div><div class='res-footer'><span>Cliquez sur Suivant pour continuer.</span></div></div>");
 //            console.log($("#slide-dyn").height()," === ",$("#slide-dyn").width());
             $(".fw-content").removeClass("cap1-last-slide");
             setTimeout(function(){
@@ -2022,3 +2068,73 @@ function fnShowSelectedAnsData(){
 }
 
 $('#rc-opt-2').html('"' + " Je suis déçue de ton comportement.  On en reparlera demain au déjeuner, quand tu auras dessoûlé." + '"');
+
+function fnProvideResourceAfterCapOver(resourceNameArr){
+       for(var intIndex=0;intIndex<resourceNameArr.length;intIndex++)
+       {
+           if(resourceNameArr[intIndex].viewedSlideName == "capsule1_slide16")
+           {
+               resource1 = "";
+               resource1 += "<div id='resource1'>";
+               resource1 += "   <img class='download_resource img-responsive' name='proximite_emotionnelle' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource1 += "   <div class='download_resource text-upper cust-span-em' name='proximite_emotionnelle'>";
+               resource1 += "       <div class='fa fa-angle-double-right'></div>proximité émotionnelle";
+               resource1 += "   </div>"
+               resource1 += "</div>";
+           }
+           else if(resourceNameArr[intIndex].viewedSlideName == "capsule2_slide13")
+           {
+               resource2 = "";
+               resource2 += "   <div id='resource2'>"
+               resource2 += "       <img class='download_resource img-responsive' name='ouverture_communication' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource2 += "       <div class='download_resource text-upper cust-span-em' name='ouverture_communication'>";
+               resource2 += "           <div class='fa fa-angle-double-right'></div>OUVERTURE À LA COMMUNICATION";
+               resource2 += "       </div>";
+               resource2 += "   </div>";
+               resource2 += "   <div id='resource2'>";
+               resource2 += "       <img class='download_resource img-responsive' name='information_parentale' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource2 += "       <div class='download_resource text-upper cust-span-em' name='information_parentale'>";
+               resource2 += "           <div class='fa fa-angle-double-right'></div>informations parentale";
+               resource2 += "       </div>";
+               resource2 += "   </div>";
+               resource2 += "   <div id='resource2'>";
+               resource2 += "       <img class='download_resource img-responsive' name='messages_preventifs' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource2 += "       <div class='download_resource text-upper cust-span-em' name='messages_preventifs'>";
+               resource2 += "           <div class='fa fa-angle-double-right'></div>messages préventifs";
+               resource2 += "       </div>";
+               resource2 += "   </div>";
+           }
+           else if(resourceNameArr[intIndex].viewedSlideName == "capsule3_slide13")
+           {
+               resource3 = "";
+               resource3 += "<div id='resource3'>";
+               resource3 += "   <img class='download_resource img-responsive' name='controle_parental' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource3 += "   <div class='download_resource text-upper cust-span-em' name='controle_parental'>"
+               resource3 += "       <div class='fa fa-angle-double-right'></div>LE CONTRÔLE PARENTAL";
+               resource3 += "   </div>";
+               resource3 += "</div>";
+               resource3 += "<div id='resource3'>";
+               resource3 += "   <img class='download_resource img-responsive' name='styles_disciplinaires' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource3 += "   <div class='download_resource text-upper cust-span-em' name='styles_disciplinaires'>";
+               resource3 += "       <div class='fa fa-angle-double-right'></div>LES STYLES DISCIPLINAIRES";
+               resource3 += "   </div>";
+               resource3 += "</div>";
+               resource3 += "<div id='resource3'>";
+               resource3 += "   <img class='download_resource img-responsive' name='tolerance' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />"
+               resource3 += "   <div class='download_resource text-upper cust-span-em' name='tolerance'>";
+               resource3 += "       <div class='fa fa-angle-double-right'></div>LA TOLÉRANCE";
+               resource3 += "   </div>";
+               resource3 += "</div>";
+           }
+           else if(resourceNameArr[intIndex].viewedSlideName == "capsule4_slide11")
+           {
+               resource4 = "";
+               resource4 += "   <div id='resource4'>"
+               resource4 += "       <img class='download_resource img-responsive' name='resolution_conflit' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource4 += "       <div class='download_resource text-upper cust-span-em' name='resolution_conflit'>";
+               resource4 += "           <div class='fa fa-angle-double-right'></div>LES STRATÉGIES DE RÉSOLUTION DE CONFLITS";
+               resource4 += "       </div>";
+               resource4 += "   </div>";
+           }
+       }
+}

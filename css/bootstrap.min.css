@@ -680,6 +680,7 @@ audio {
         }
 
         #slide-menu .menu-header div:last-child {
+            cursor: pointer;
             display: inline-block;
             vertical-align: top;
             width: 30%;
@@ -7888,7 +7889,7 @@ button.close {
 
         #resource-menu .res-content .res-box {
             border: 1px solid rgba(255,255,255,0.5);
-            display: inline-block;
+            display: inline-table;
             width: 22%;
             height: 290px;
             margin: 1.5% 2.5% 0 0;
@@ -8636,4 +8637,36 @@ ul.f-w-med {
 .icon-size{
     width: 10px;
     font-size: 13px !important;
+}
+
+/*--------------------Provide Resource CSS------------------*/
+#resource1,#resource2,#resource3,#resource4{
+    cursor: pointer;
+}
+#resource1 > div{
+    position: absolute;
+    color: #808080;
+    font-size: 70%;
+    margin: -3.5% 0 0 1%;
+}
+#resource2 > div{
+    position: absolute;
+    color: #808080;
+    font-size: 70%;
+    margin: -3.8% 0 0 1%;
+    width: 18%;
+}
+#resource3 > div{
+    position: absolute;
+    color: #808080;
+    font-size: 70%;
+    margin: -3.8% 0 0 1%;
+    width: 18%;
+}
+#resource4 > div{
+    position: absolute;
+    color: #808080;
+    font-size: 70%;
+    margin: -3.8% 0 0 1%;
+    width: 18%;
 }
