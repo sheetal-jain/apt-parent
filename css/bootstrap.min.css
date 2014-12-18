@@ -7892,11 +7892,11 @@ button.close {
             display: inline-table;
             width: 22%;
             height: 290px;
-            margin: 1.5% 2.5% 0 0;
+            margin: 1.5% 1.5% 0 0;
         }
 
             #resource-menu .res-content .res-box:first-child {
-                margin-left: 1%;
+                margin-left: 0%;
             }
 
             #resource-menu .res-content .res-box:last-child {
