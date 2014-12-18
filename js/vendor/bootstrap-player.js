@@ -48,7 +48,7 @@
 					return true;
 				}
 				if(song.networkState === 3 || timeout === 75){
-					load_error();
+//					load_error();
 					clearInterval(loadCheck);
 					return false;
 				}
