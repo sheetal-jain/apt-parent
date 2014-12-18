@@ -752,40 +752,42 @@ $(document).ready(function(){
         selectedOption = $(this).val();
     });
     $('#validate-answer').click(function(){
-        if(selectedOption != undefined){
-            if (viewedSlides.filter(function(e) {return e.viewedSlideName == getSingleObjOfJSON.name;}).length > 0) {
-                /* Store User Selected Ans */
-                $.each(viewedSlides, function(index, value) {
-                    if(value.viewedSlideName == getSingleObjOfJSON.name){
-                        viewedSlides[index].userSelectedAns = $('input[type=radio]:checked').val();
-                    }
-                });
-            }
-            for(var i = 0; i < answer_JSON.length; i++)
-            {
-                if(getSingleObjOfJSON.name == answer_JSON[i].slideName){
-                    if( answer_JSON[i].rightOption == selectedOption){
-                        $("#l-c-footer-text").show();
-                        $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-                        $('#lc-ans-header').html("Tout à fait!");
-                        $('#lc-ans-content').html(answer_JSON[i].positiveFeedback.text);
-                        $('#option'+answer_JSON[i].rightOption).css('background-image', 'url('+ rightImgUrl +')');
-                        $('#right'+answer_JSON[i].rightOption).show();
-                        $('#lc-footer-img').hide();
-                        setupAudioControls(audioSrcBase_mp3+answer_JSON[i].positiveFeedback.audio[0]);
-                        $("#next").css("pointer-events",'auto');
-                    }
-                    else{
-                        $("#l-c-footer-text").show();
-                        $('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-                        $('#lc-ans-header').html("Ce n’est pas le meilleur choix.");
-                        $('#lc-ans-content').html(answer_JSON[i].negativeFeedback.text);
-                        $('#lc-footer-img').hide();
-                        $('#right'+answer_JSON[i].rightOption).show();
-                        setupAudioControls(audioSrcBase_mp3+answer_JSON[i].negativeFeedback.audio[0]);
-                        $("#next").css("pointer-events",'auto');
-                    }
+        if($('input[type=radio]').is(':checked') == true){
+            if(selectedOption != undefined){
+                if (viewedSlides.filter(function(e) {return e.viewedSlideName == getSingleObjOfJSON.name;}).length > 0) {
+                    /* Store User Selected Ans */
+                    $.each(viewedSlides, function(index, value) {
+                        if(value.viewedSlideName == getSingleObjOfJSON.name){
+                            viewedSlides[index].userSelectedAns = $('input[type=radio]:checked').val();
+                        }
+                    });
+                }
+                for(var i = 0; i < answer_JSON.length; i++)
+                {
+                    if(getSingleObjOfJSON.name == answer_JSON[i].slideName){
+                        if( answer_JSON[i].rightOption == selectedOption){
+                            $("#l-c-footer-text").show();
+                            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+                            $('#lc-ans-header').html("Tout à fait!");
+                            $('#lc-ans-content').html(answer_JSON[i].positiveFeedback.text);
+                            $('#option'+answer_JSON[i].rightOption).css('background-image', 'url('+ rightImgUrl +')');
+                            $('#right'+answer_JSON[i].rightOption).show();
+                            $('#lc-footer-img').hide();
+                            setupAudioControls(audioSrcBase_mp3+answer_JSON[i].positiveFeedback.audio[0]);
+                            $("#next").css("pointer-events",'auto');
+                        }
+                        else{
+                            $("#l-c-footer-text").show();
+                            $('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
+                            $('#lc-ans-header').html("Ce n’est pas le meilleur choix.");
+                            $('#lc-ans-content').html(answer_JSON[i].negativeFeedback.text);
+                            $('#lc-footer-img').hide();
+                            $('#right'+answer_JSON[i].rightOption).show();
+                            setupAudioControls(audioSrcBase_mp3+answer_JSON[i].negativeFeedback.audio[0]);
+                            $("#next").css("pointer-events",'auto');
+                        }
 
+                    }
                 }
             }
         }else{
