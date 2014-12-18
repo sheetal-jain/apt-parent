@@ -2,6 +2,12 @@
  * Created by VJ on 25/11/14.
  */
 var stTime = "";
+var maxWidth = $(window).width();
+var resource1="";
+var resource2="";
+var resource3="";
+var resource4="";
+
 function fnGetDataFromServer(url)
 {
     return $.ajax({
@@ -13,65 +19,45 @@ function fnGetDataFromServer(url)
     });
 };
 
-
-
-/* RJ ------------------ Change cookie pagewise -----------------------*/
+/* ------------------ Change cookie pagewise -----------------------*/
 function changeCookieValue(newValue) {
     $.removeCookie('current_page');
     $.cookie('current_page', newValue, { expires: 7 });
 }
 
 function preloadImages(JSONObj){
+
     var imagesArr = [];
+    var audiosArr = [];
+
     imagesArr.push(JSONObj.imgName);
     jQuery.each(JSONObj.popupImg,function(i,obj){
         imagesArr.push(obj.imgName)
     });
+
+    jQuery.each(JSONObj.audioName,function(i,obj){
+        if(obj != "" && obj.length > 0){
+            audiosArr.push(obj);
+        }
+    });
     $.preload(imagesArr);
+    $.preloadAudio(audiosArr);
 }
-
-function loadAudio(uri)
-{
-    var audio = new Audio();
-    //audio.onload = isAppLoaded; // It doesn't works!
-    audio.addEventListener('canplaythrough', isAudioLoaded, false); // It works!!
-    audio.src = uri;
-    return audio;
-}
-
-function isAudioLoaded(){
-//    console.log("Loaded");
-}
-
 
 var imgSrc = ""
 function showLoader(imgId){
 
     var myImg = new Image();
     myImg.src = $(imgId).attr('src');
-    console.log();
     $("#loadingSpinnerSlide").css("left", ($(".image-shadow").width()/2) - 50);
     $("#loadingSpinnerSlide").css("top", ($(".image-shadow").height()/2) - 50);
     $("#loadingSpinnerSlide").show();
+    $("#APT_Audio_Controls").trigger("pause");
     myImg.onload = function(){
         fnSetModelScreen();
         $("#loadingSpinnerSlide").hide();
+        $("#APT_Audio_Controls").trigger("play");
     }
-
-    /*console.log(imgSrc == $(imgId).attr('src')," ===== ",imgSrc," ===== ",$(imgId).attr('src'));
-
-    if(imgSrc != $(imgId).attr('src')){
-        imgSrc = $(imgId).attr('src');
-        $("#img-loader").show();
-        $(imgId).load(function(){
-            console.log("hide loader");
-            fnSetModelScreen();
-            $("#img-loader").hide();
-        })
-    }else{
-        console.log("none loader");
-        $("#img-loader").css("display","none");
-    }*/
 }
 
 function startAPT() {
@@ -81,10 +67,20 @@ function startAPT() {
     $('#APT_Audio_Controls').trigger('play');
 
     if (scrw <= 600) {
-        $('.well').css('width', '75%');
+        $('.well').css('width', '77%');
     }
     else if (scrw <= 768) {
-        $('.well').css('width', '80%');
+        $('.well').css('width', '82.5%');
+    }
+	else if (scrw <= 980) {
+        $('.well').css('width', '86%');
+    }
+	else if (scrw <= 1366) {
+	    $('.well').css('width', '87%');
+	}
+    else if (scrw >= 1920) {
+        $('.well').css('width', '91%');
+        $(".aud-control").css("width","9.4%");
     }
     else {
         $('.well').css('width', '87%');
@@ -147,10 +143,6 @@ function fnOverlayContentOnBergeronSlide(data){
         $('.'+data.contentClass).css('opacity',"1");
         $('.'+data.contentClass).removeClass('content-collapse');
     });
-
-//    $('.'+data.contentClass).fadeTo(1000, 0, function () {
-//      $('.'+data.contentClass).removeClass('content-collapse');
-//    }).fadeTo(500, 1);
 };
 
 function fnOverlayImageContentOnGatherResourcesSlide(data){
@@ -242,14 +234,11 @@ function setCollapseClassToScreen(screenName){
 function refreshPopupContent(popupContentArr){
     jQuery.each(popupContentArr,function(i,obj){
         $($("."+obj.contentClass)).css("display",'none');
-//        $($("."+obj.contentClass)).addClass("content-collapse");
     });
 }
 
 
 function setupAudioControls(audioName){
-    var aud = loadAudio(audioName);
-//    console.log(audioName);
     $("#mp3source").attr('src', audioName);
     $('#APT_Audio_Controls').trigger('load');
     $('#APT_Audio_Controls').trigger('play');
@@ -257,7 +246,6 @@ function setupAudioControls(audioName){
 
 function refreshPopupImages(popupImageArr){
     jQuery.each(popupImageArr,function(i,obj){
-        console.log(obj.contentClass)
         $($("#"+obj.imgId)).css('opacity','0');
         $($("#"+obj.imgId)).addClass("content-collapse");
     });
@@ -266,7 +254,6 @@ function refreshPopupImages(popupImageArr){
 function loadNextPageImages(nextObj){
     var slideImg = new Image();
     slideImg.src = nextObj.imgName;
-    console.log(slideImg.src);
 }
 
 function fnOverlayImageContentGeneral(imgSrc,popupImageObj){
@@ -290,7 +277,6 @@ function fnOverlayImageContentByTimeGeneral(curTime,imgArr){
             var imgId = '#'+imgArr[intIndex].imgId;
             var imgPath = "Images/"+imgArr[intIndex].imgName;
             var imgContent = imgArr[intIndex].imgContent;
-//            $(imgId).removeAttr('style');
             $(imgId).css('opacity','1');
             $(imgId).find('img').attr('src',imgPath);
             $(imgId).find('span').text(imgContent);
@@ -396,6 +382,8 @@ function fnAddCollapseClass(){
     $('#slide-dyn').removeClass('content-collapse');
 
     $('#help-header').hide();
+    $("#next").css("pointer-events",'auto');
+    fnShowNextButton();
 }
 
 function fnAddCollapseClassIntroCapsule(){
@@ -433,18 +421,37 @@ function fnAddCollapseClassIntroCapsule(){
 
     $("#transition").addClass("content-collapse");
 
+    $("#slide-capsule1").addClass("collapse");
+    fnShowNextButton();
+
 }
 function fnHideNextButton(){
     $("#next").addClass('content-collapse');
     $("#prev").removeClass("content-collapse");
-    $(".playa").css('width','93%');
-    $("#prev").css('margin-left','60px');
+    if(maxWidth > 1900)
+    {
+        $(".playa").css('width','95%');
+        $("#prev").css('margin-left','120px');
+        $(".aud-control").css("width","13.4%");
+    }else
+    {
+        $(".playa").css('width','93%');
+        $("#prev").css('margin-left','60px');
+    }
+
 };
 
 function fnShowNextButton(){
     $("#next").removeClass('content-collapse');
-    $(".playa").css('width','87%');
-    $("#prev").removeAttr("style");
+    if(maxWidth > 1900)
+    {
+        $(".playa").css('width','91%');
+        $("#prev").removeAttr("style");
+        $(".aud-control").css("width","9.4%");
+    }else{
+        $(".playa").css('width','87%');
+        $("#prev").removeAttr("style");
+    }
 };
 
 function fnSlideWiseContentManage(slide){
@@ -452,7 +459,6 @@ function fnSlideWiseContentManage(slide){
         case "introduction":
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
-            console.log("Inside Switch");
             $("#slide-dyn").addClass("content-collapse");
             $('#slide1').removeClass('content-collapse')
             $('#slide1').css('display','block')
@@ -537,7 +543,6 @@ function fnSlideWiseContentManage(slide){
             //hide next button
             fnHideNextButton();
             $('#slide-dyn').removeClass('content-collapse');
-            $("#slide-capsule1").addClass("collapse");
             $('#slide-menu').removeClass('content-collapse');
             $('#slide-menu').removeClass('collapse');
             break;
@@ -577,6 +582,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide2":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('.fw-header').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
@@ -593,9 +599,12 @@ function fnSlideWiseContentManage(slide){
             $('#rc-content-text').html("");
             $('#rc-content-text').html("<span class='font-med f-w-med block'>Isabelle aimerait en savoir plus sur ce qui tracasse Vincent. Dans cette situation, la qualité de leur relation sera déterminante pour la suite de la discussion.<br/><br/>Une relation de qualité implique de l’amour, c’est-à-dire une <span class='orange'>proximité émotionnelle.</span> C’est en montrant du soutien et de l’affection à Vincent qu’Isabelle assurera cette proximité.<br /><br />Votre objectif est d’aider <span class='orange'>Isabelle à faire preuve de soutien et d’affection vis-à-vis de Vincent</span> qui semble vivre une situation difficile.<br /><br />Au cours de la discussion, vous devrez également l’aider à <span class='orange'>argumenter face aux croyances de Vincent concernant la consommation d’alcool.</span></span>");
             $('#rc-footer-text').removeClass('collapse');
+            $('#rc-footer-text').html("");
+            $('#rc-footer-text').html("<span id='rc-footer-span' class='font-med'>Pour commencer, passez à l’écran suivant.</span>");
             break;
         case "capsule1_slide3":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -606,6 +615,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide4":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.r-c-header').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
@@ -619,22 +629,17 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("«" + '"' + head + '"' + "»");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
             $('#rc-content-select').removeClass('collapse');
-            $('#rc-opt-1').html('"' + "I'm sure they won't bug you that much. Either way,you can just say no. And don't forgot to get your book back from Julie." + '"');
-            $('#rc-opt-2').html('"' + "Julie doesm't mind having alchohol aria-atomic her parties? You're much too young! You shouldn't hang out with them if they bug you to drink." + '"');
-            $('#rc-opt-3').html('"' + "You're worried about what your friends will say if they see you not drinking. Do you want to talk about it?" + '"');
-            /* --- Wrong Answer --- */
-//            $('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-//            $('#lc-ans-header').html("Ce n’est pas le meilleur choix.");
-//            $('#lc-ans-content').html("Pour démontrer son soutien dans cette situation, Isabelle devrait rester amicale et demander à Vincent s’il souhaite en discuter. Vincent doit sentir que sa mère est à l’écoute et qu’elle comprend ses inquiétudes.");
+            $('#rc-opt-1').html( "« T’exagère, je suis sûre qu’ils ne t’achaleront pas tant que ça. Et puis t’as juste à dire non.  Ah, et n’oublie pas de reprendre ton livre chez Julie.»");
+            $('#rc-opt-2').html( "« Julie accepte qu’il y ait de l’alcool dans ses partys ? Vous êtes bien trop jeunes ! Et puis tu ne devrais pas rester avec eux, s’ils t’achalent pour consommer. »");
+            $('#rc-opt-3').html( "« Tu es préoccupé par la réaction de tes amis s’ils voient que tu ne bois pas.  Tu veux qu’on en parle ? »");
+
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
-            /* --- Right Answer --- */
-            //$('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-            //$('#lc-ans-header').text("that's right.");
-            /* --- Content --- */
+
             break;
         case "capsule1_slide5":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -645,6 +650,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide6":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -655,6 +661,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide7":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#fw-footer-lr').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
@@ -666,6 +673,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide8":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('.convertion').removeClass('collapse');
@@ -675,17 +683,19 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide9":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('#fw-footer-lr').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-day').text('Samedi soir');
             $('#fw-time').text('23 h 30');
-            $('#fw-text').text("Retour à la maison, Vincent est intoxiquè");
+            $('#fw-text').text("Retour à la maison, Vincent est intoxiqué");
             $('.fw-footer').hide();
             break;
 
         case "capsule1_slide10":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -696,6 +706,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide11":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -705,29 +716,26 @@ function fnSlideWiseContentManage(slide){
             $('#rc-content-select').removeClass('collapse');
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "C’est sûr que je suis fâchée! Je ne comprends pas pourquoi il a agi comme ça… " + '»' + "</dfn>");
-            $('#rc-opt-1').html('"' + "I am upset, I thought you had understood. Now I can't trust you anymore." + '"');
-            $('#rc-opt-2').html('"' + "I am disappointed in your behaviour. We'll talk tommorrow at breakfast, when you've sobered up." + '"');
-            $('#rc-opt-3').html('"' + "I knew it was a bad idea to let you go to a party where there would be alcohol. Why did you drink? Your friends really are bad influence on you!" + '"');
-//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-//            $('#lc-ans-header').html("Tout à fait!");
-//            $('#lc-ans-content').html("Vincent doit sentir qu’il peut compter sur sa mère, même si elle est en colère. Elle peut expliquer sa frustration sans le juger ou lui faire des reproches. De plus, discuter de la situation pendant que Vincent est en état d’ébriété est déconseillé. Il faut en parler, mais lorsqu’il sera sobre.");
+            $('#rc-opt-1').html("« Je suis fâchée, je pensais que tu avais compris.  Je ne peux plus te faire confiance maintenant. »");
+            $('#rc-opt-2').html("« Je suis déçue de ton comportement.  On en reparlera demain au déjeuner, quand tu auras dessoûlé. »");
+            $('#rc-opt-3').html("« Je savais que c’était une mauvaise idée de te laisser aller à un party où il y a de l’alcool.  Pourquoi t’as fait ça ? Tes amis ont vraiment une mauvaise influence sur toi! »");
+//
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
-            /* --- Wrong Answer --- */
-            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-            //$('#lc-ans-header').text("that's not the best option.");
+
             $('#l-c-footer-text').removeClass('collapse');
             break;
 
         case "capsule1_slide12":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse')
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
             $('#fw-footer-img-src').attr('src', 'Images/5itRdnRNYV6_DX1110_DY1110_CX555_CY80.png');
             $('.fw-header').removeClass('collapse');
             $('#fw-header-1').text('Le lendemain');
-            $('#fw-header-1').css('margin-left', '-9px');
+            $('#fw-header-1').css('margin-left', '-14px');
             $('#fw-header-2').text('matin …');
             $('.convertion').removeClass('collapse');
             $('#conv1-slide12').removeClass('collapse');
@@ -735,6 +743,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide13":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -744,22 +753,19 @@ function fnSlideWiseContentManage(slide){
             $('#rc-footer-confirm').removeClass('collapse');
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "Je veux qu’il sache que je suis contre la consommation d’alcool à son âge mais je veux aussi qu’il puisse compter sur moi quand il a des problèmes." + '»' + "</dfn>");
-            $('#rc-opt-1').html('"' + "Talk to me. I'd like to understand what happend." + '"');
-            $('#rc-opt-2').html('"' + "There's no point in apologizing, I won't here any of it. I don't want you drinking alcohol anymore, that's it." + '"');
-            $('#rc-opt-3').html('"' + "OK,it's your business. Do you want some orange juice" + '"');
-//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-//            $('#lc-ans-header').html("Tout à fait!");
-//            $('#lc-ans-content').html("En demandant calmement des explications à son fils, Isabelle montrera qu’elle essaie de comprendre ses difficultés et qu’elle souhaite l’aider. Ignorer la situation ou refuser d’écouter Vincent ne sont pas des marques de soutien ou d’affection qui permettent d’établir une relation de qualité.");
+            $('#rc-opt-1').html("« Explique-moi.  J’aimerais comprendre ce qui s’est passé. »");
+            $('#rc-opt-2').html("« Ce n’est pas la peine de t’excuser, je ne veux rien savoir.  Je ne veux plus que tu prennes de l’alcool, c’est tout. »");
+            $('#rc-opt-3').html("« Ok, c’est tes affaires.  Bon, veux-tu un jus d’orange ? »");
+//
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
-            /* --- Wrong Answer --- */
-            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-            //$('#lc-ans-header').text("that's not the best option.");
+
             $('#l-c-footer-text').removeClass('collapse');
             break;
 
         case "capsule1_slide14":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -771,13 +777,14 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule1_slide15":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#lc-footer-img').attr('src', 'Images/6L9kKi7B4bf_DX1110_DY1110_CX555_CY80.png');
             $('#rc-footer-text').removeClass('collapse');
             $('#rc-content-text').removeClass('collapse');
             $('#rc-content-text').html("");
-            $('#rc-content-text').html("<span class='font-med f-w-med line-h-125 in-block'>En démontrant du <span class='orange'>soutien</span> et de <span class='orange'>l’affection</span> à Vincent, même dans les moments difficiles, Isabelle s’assure de développer et de maintenir une relation de qualité avec lui. S’il se sent compris, aimé et soutenu par ses parents, l’adolescent sera plus ouvert à discuter de ses problèmes avec eux.<br /><br />Isabelle a su discuter avec Vincent de ses croyances concernant l’alcool et avancer des arguments en la matière. Elle refuse également que Vincent consomme de l’alcool avec ses amis à son âge. Avec raison : plus un jeune commence à boire tôt, plus il risque de développer des comportements d’abus et de dépendance.</span>");
+            $('#rc-content-text').html("<span class='font-med f-w-med line-h-125 in-block' style='font-size: 100%'>En démontrant du <span class='orange'>soutien</span> et de <span class='orange'>l’affection</span> à Vincent, même dans les moments difficiles, Isabelle s’assure de développer et de maintenir une relation de qualité avec lui. S’il se sent compris, aimé et soutenu par ses parents, l’adolescent sera plus ouvert à discuter de ses problèmes avec eux.<br /><br />Isabelle a su discuter avec Vincent de ses croyances concernant l’alcool et avancer des arguments en la matière. Elle refuse également que Vincent consomme de l’alcool avec ses amis à son âge. Avec raison : plus un jeune commence à boire tôt, plus il risque de développer des comportements d’abus et de dépendance.</span>");
             $('#rc-footer-span').html("");
             $('#rc-footer-text').html("<span class='text-uppercase f-w-med'>Et vous?</span>");
             $('#rc-footer-text').append("<ul class='f-w-med'><li><span>Comment démontrez-vous votre soutien et votre affection à votre adolescent?</span></li><li><span>Quelles sont vos règles et vos croyances en matière de consommation d’alcool?</span></li></ul>");
@@ -787,6 +794,7 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             $('.fw-content').show();
             fnShowNextButton();
+            $('#slide-capsule1').removeClass('collapse');
             $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-content').removeClass('collapse');
@@ -851,6 +859,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide2":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#fw-header-1').html('COMMUNICATE EFECTIVELY');
             $('#fw-header-2').html('YOUR ADOLESCENTS');
@@ -872,6 +881,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide3":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -882,6 +892,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide4":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -892,23 +903,20 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "Un gars “bizarre”?" + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').html('"' + "Just ignor him.So, Do you like your teachers ?" + '"');
-            $('#rc-opt-2').html('"' + "Who is this guy? Why do you find him wired?" + '"');
-            $('#rc-opt-3').html('"' + "Come on, we don't talk like that about other people! He must not be any different from the others in your class." + '"');
+            $('#rc-opt-1').html("«  Tu n’as qu’à ne pas t’occuper de lui.  Et puis, aimes-tu tes profs ? »");
+            $('#rc-opt-2').html("« C’est qui se gars là ?  Pourquoi tu le trouves bizarre ? »");
+            $('#rc-opt-3').html("« Franchement, on ne parle pas des gens comme ça !  Il n’est sans doute pas si différent des autres de ta classe. »");
             $('#rc-footer-confirm').removeClass('collapse');
-//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-//            $('#lc-ans-header').text("Tout à fait!");
-//            $('#lc-ans-content').text("L’ouverture et l’information sont la clé d’une communication efficace entre parents et adolescents. En essayant d’en savoir plus sur « le gars bizarre » sans juger Vincent, Éric et Isabelle montreront qu’ils écoutent et qu’ils s’intéressent à ce que leur fils dit et pense. De plus, ils seront informés sur les personnes qui l’entourent à l’école.");
+//
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
-            /* --- Wrong Answer --- */
-            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-            //$('#lc-ans-header').text("that's not the best option.");
+
             $('#l-c-footer-text').removeClass('collapse');
 
             break;
         case "capsule2_slide5":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -919,6 +927,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide6":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -929,23 +938,20 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html();
             $('#rc-header-2').html("<dfn>" + '«' + "Du speed… Est-ce que je devrais lui en parler? Je ne veux pas attiser sa curiosité!" + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').html('"' + "It is very dangerous drug. I forbid you from talking it and I don't want to hear you talking about these things at home ." + '"');
-            $('#rc-opt-2').html('"' + "I'm not sure I should tell you about it. I'm sure they'll explain it to you at school." + '"');
-            $('#rc-opt-3').html('"' + "It's a drug. If you want, we can talk about it..." + '"');
+            $('#rc-opt-1').html("«  C’est une drogue très dangereuse.  Je t’interdis de toucher à ça et je ne veux pas entendre parler de ces affaires-là à la maison. »");
+            $('#rc-opt-2').html("« Je ne sais pas si je devrais t’en parler.  Ils vont sûrement vous expliquer ça à l’école ? »");
+            $('#rc-opt-3').html("«  C’est une drogue.  Si tu veux, on peut en parler… »");
             $('#rc-footer-confirm').removeClass('collapse');
-//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-//            $('#lc-ans-header').html("Ce n’est pas le meilleur choix.");
-//            $('#lc-ans-content').html("Faire preuve d’ouverture implique de répondre franchement quand un adolescent pose des questions. De plus, il a été démontré que lorsque les parents parlent de drogue avec leurs enfants, ces derniers risquent moins d’en consommer. Isabelle et Éric devraient donc continuer la discussion.");
+//
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
-            /* --- Wrong Answer --- */
-            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-            //$('#lc-ans-header').text("that's not the best option.");
+
             $('#l-c-footer-text').removeClass('collapse');
             break;
 
         case "capsule2_slide7":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -956,6 +962,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide8":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -966,6 +973,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide9":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-footer-img').removeClass('collapse');
@@ -976,6 +984,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide10":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -986,23 +995,20 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').empty();
             $('#rc-header-2').append("<dfn>" + '«' + "Tant mieux. Il faudrait que ça reste comme ça : il ne faut pas que Vincent soit influencé par ce jeune-là." + '»' + "</dfn>");
             $('#rc-header-que').text("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').text('"' + "We're intrested in getting to know the people you hang out with and what you do together. If the opportunity presents it self, what would you do?" + '"');
-            $('#rc-opt-2').text('"' + "Very good.we know you have good judgement and would never take drugs, So don't pay attentaion him." + '"');
-            $('#rc-opt-3').text('"' + "You're better off. We don't want you hanging out with this guy nor do we want hear about him anymore." + '"');
+            $('#rc-opt-1').text("«  On est intéressés à connaître les gens que tu fréquentes et à savoir ce que vous faites ensemble.  Si la situation se représente, qu’est-ce que tu comptes faire ? »");
+            $('#rc-opt-2').text("« Très bien.  On sait que toi tu as du jugement et que tu ne prendras jamais de drogue, alors ne fais pas attention à lui. »");
+            $('#rc-opt-3').text("« Tant mieux.  On t’interdit de te tenir avec ce gars-là et on ne veut plus en entendre parler. »");
             $('#rc-footer-confirm').removeClass('collapse');
-//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-//            $('#lc-ans-header').text("Tout à fait!");
-//            $('#lc-ans-content').text("En étant bien informés sur les amis et les activités de Vincent, Isabelle et Éric pourront aider leur fils à reconnaître les situations à risque afin d’y faire face de la meilleure façon possible.");
+//
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
-            /* --- Wrong Answer --- */
-            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-            //$('#lc-ans-header').text("that's not the best option.");
+
             $('#l-c-footer-text').removeClass('collapse');
             break;
 
         case "capsule2_slide11":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5W7AHu8TBJX_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').removeClass('collapse');
@@ -1014,6 +1020,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule2_slide12":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
             $('#lc-footer-img').attr('src', 'Images/69FApGo5S5l_DX1110_DY1110_CX555_CY92.png');
@@ -1039,6 +1046,7 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').append("<div><span class='text-uppercase font-med'>En terminant cette capsule, vous avez obtenu de nouvelles fiches d’information!<br /><br />Consultez-les, ainsi que le tableau des croyances en matière de psychotropes, pour compléter votre formation :</span></div>");
             $('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>FICHES D'INFORMATIONS OBTENUES</span></th><th><span class='text-uppercase orange'>CROYANCES DISCUTÉES DANS LES CAPSULES</span></th></tr></thead><tbody><tr><td class='carousel wth-o-padd'><div class='custom-img'><img class='download_resource img-responsive' name='ouverture_communication' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /></a><span class='default_cursor'>(cliquez pour consulter)</span><span class='download_resource text-upper cust-span-em' name='ouverture_communication'><span class='fa fa-angle-double-right'></span>OUVERTURE À LA COMMUNICATION</span></div><div class='custom-img'><img class='download_resource img-responsive' name='information_parentale' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span class='default_cursor'>(cliquez pour consulter)</span><span class='download_resource text-upper cust-span-em' name='information_parentale'><span class='fa fa-angle-double-right'></span>informations parentale</span></div><div class='custom-img'><img class='download_resource img-responsive' name='messages_preventifs' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span class='default_cursor'>(cliquez pour consulter)</span><span class='download_resource text-upper cust-span-em' name='messages_preventifs'><span class='fa fa-angle-double-right'></span>messages préventifs</span></div></td><td class='v-align-t'><span>Prenez en note les numèros de croyances à consulter ;<br />1-20-22-23</span></td></tr><tr><td><span>La fiche est maintenant disponible dans l'onglet Ressources.</span></td><td><span>Consultez le tableau dans l'onglet Ressources pour voir les arguments utilisés pour y faire face.</span></td></tr></tbody></table>");
             $('.fw-content').append("<span class='font-med nxt-page-msg'>Passez à l’écran suivant pour retourner au menu principal.</span>");
+            $('.cust-span-em').css('width', '175px');
             fnResourceDownloadClickEvent();
             break;
 
@@ -1081,7 +1089,7 @@ function fnSlideWiseContentManage(slide){
             $('.fw-footer').removeClass('collapse');
             $('#fw-header-1').html('Exercer de bonnes ');
             $('#fw-header-1').css('margin-left', '-22px');
-            $('#fw-header-2').html('parenting practices');
+            $('#fw-header-2').html('pratiques parentales');
             $('#fw-footer-lr').removeClass('collapse');
             $('#fw-day').html('Vendredi');
             $('#fw-time').html('18 h 00');
@@ -1093,10 +1101,11 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide2":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#rc-content-text').removeClass('collapse');
             $('#rc-content-text').html("");
-            $('#rc-content-text').html("<span class='font-med f-w-med block'>Pour bien gérer cette situation, Isabelle et Éric devront appliquer de bonnes pratiques parentales. Celles-ci incluent le contrôle parental qu’ils exercent, leur tolérance et leur style disciplinaire.<br /><br />Votre objectif est <span class='orange'>d’aider Isabelle et Éric àmettre en application ces bonnes pratiques parentales.</span> Au cours de la discussion, vous devrez également les aider à <span class='orange'>argumenter face à certaines croyances sur la consommation d’alcool.</span></span>");
+            $('#rc-content-text').html("<span class='font-med f-w-med block'>Pour bien gérer cette situation, Isabelle et Éric devront appliquer de bonnes pratiques parentales. Celles-ci incluent le contrôle parental qu’ils exercent, leur tolérance et leur style disciplinaire.<br /><br />Votre objectif est <span class='orange'>d’aider Isabelle et « Éric à mettre en » application ces bonnes pratiques parentales.</span> Au cours de la discussion, vous devrez également les aider à <span class='orange'>argumenter face à certaines croyances sur la consommation d’alcool.</span></span>");
             $('#rc-footer-text').removeClass('collapse');
             $('#rc-footer-text').html("");
             $('#rc-footer-text').html("<span id='rc-footer-span' class='font-med'>Pour commencer, passez à l’écran suivant.</span>");
@@ -1112,6 +1121,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide3":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('#rc-content-text').html("");
             $('.content-view-1').removeClass('collapse');
@@ -1125,23 +1135,18 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("<dfn>" + '«' + "Ça leur ferait plaisir d’inviter leurs amis, mais bon, il ne faudrait pas que ça dégénère…" + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
             $('#rc-content-select').removeClass('collapse');
-            $('#rc-opt-1').html('"' + "Ok, you can invite Matthew ans Sarah." + '"');
-            $('#rc-opt-2').html('"' + "No problem,you can do whatever you like so long as everybody's gone when we get back!" + '"');
-            $('#rc-opt-3').html('"' + "Absolutely not. There's no way we're going to allow a party to happen while we're not here." + '"');
-            /* --- Right Answer --- */
-//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-//            $('#lc-ans-header').html("Tout à fait!");
-//            $('#lc-ans-content').html("En acceptant que leurs ados reçoivent des ami(e)s en leur absence, Isabelle et Éric feront preuve d’une saine tolérance. ");
+            $('#rc-opt-1').html("« Ok, vous pouvez inviter Mathieu et Delphine. »");
+            $('#rc-opt-2').html("« Pas de problème, faites ce que vous voulez tant que les gens sont partis quand on arrive ! »");
+            $('#rc-opt-3').html("« Non, pas question que ça finisse en party pendant qu’on n’est pas là. »");
+
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
-            /* --- Wrong Answer --- */
-            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-            //$('#lc-ans-header').text("that's not the best option.");
-            /* --- Content --- */
+
             break;
 
         case "capsule3_slide4":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6hmpZppJlxm_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').show();
@@ -1154,6 +1159,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide5":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1165,23 +1171,20 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "On veut leur permettre de vivre des expériences mais on doit établir des règles claires qu’ils doivent respecter. " + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').html('"' + "Go ahead,You're going to do what you want anyways." + '"');
-            $('#rc-opt-2').html('"' + "No, you cannot have any alcohol.But it's true that we've never actually speoken about this. As we do for everything else, we're going to take the time to discuss this and establish some ground rules." + '"');
-            $('#rc-opt-3').html('"' + "Out of the question.If you have any beer, you'll never be allowed to have any friends over again.Got it?" + '"');
+            $('#rc-opt-1').html("« Faites comme vous voulez, de toute façon vous faites toujours à votre tête. »");
+            $('#rc-opt-2').html("« Non, vous ne pouvez pas prendre d’alcool.  Mais c’est vrai qu’on n’en n’a jamais parlé clairement ensemble.  Comme pour tout le reste, on va prendre le temps d’en discuter et de s’entendre sur les règles. »");
+            $('#rc-opt-3').html("« Pas question.  Si jamais vous prenez une bière, vous ne pourrez plus jamais inviter d’amis à la maison.  Compris ? »");
             $('#rc-footer-confirm').removeClass('collapse');
-//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-//            $('#lc-ans-header').html("Tout à fait!");
-//            $('#lc-ans-content').html("L’encadrement fait partie du contrôle parental. Isabelle et Éric doivent fixer des règles et exiger qu’elles soient respectées. Toutefois, la menace d’une punition excessive est inutile. De plus, des règles et attentes claires en ce qui a trait à l’alcool, au cannabis ou aux autres drogues protègent les jeunes des problèmes de consommation.");
+//
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
-            /* --- Wrong Answer --- */
-            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-            //$('#lc-ans-header').text("that's not the best option.");
+
             $('#l-c-footer-text').removeClass('collapse');
             break;
 
         case "capsule3_slide6":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6VSk8oIeeXM_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').show();
@@ -1194,6 +1197,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide7":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6b04fMETRyT_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').show();
@@ -1206,6 +1210,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide8":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6favrCCzyZW_DX1890_DY1890_CX945_CY530.png');
             $('#fw-footer-lr').removeClass('collapse');
@@ -1216,6 +1221,7 @@ function fnSlideWiseContentManage(slide){
             break;
         case "capsule3_slide9":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6favrCCzyZW_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').show();
@@ -1228,6 +1234,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide10":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1239,23 +1246,20 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "Je suis en colère mais je dois me contrôler pour ne pas dire des choses que je vais regretter." + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').html('"' + "You understand that there will be consequences.No friends over for the next month." + '"');
-            $('#rc-opt-2').html('"' + "You always do what you want! We'll never get anywere with you! Wait untill your father gets homeâ€¦" + '"');
-            $('#rc-opt-3').html('"' + "Ok,I am in no state to agure,so let's drop it.Don't tell your father and we'll forget it even happened." + '"');
+            $('#rc-opt-1').html("« Là, vous comprenez qu’il y aura des conséquences : pas d’amis à la maison pendant le prochain mois. »");
+            $('#rc-opt-2').html("« Vous faites toujours à votre tête !  On n’arrivera jamais à rien avec vous autres !  Attendez que votre père arrive… »");
+            $('#rc-opt-3').html("« Bon, OK.  Je ne suis pas en état de me chicaner, alors on n’en parle plus.  Ne le dites pas à votre père, on efface tout. »");
             $('#rc-footer-confirm').removeClass('collapse');
-//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-//            $('#lc-ans-header').html("Tout à fait!");
-//            $('#lc-ans-content').html("Lorsque c’est possible, Isabelle devrait exercer son autorité parentale par des négociations avec ses ados (style disciplinaire inductif). Mais dans ce cas-ci, une règle a été brisée en toute conscience. La punition (style punitif) est donc acceptable. Isabelle doit cependant éviter l’agressivité ou les menaces (style coercitif), autant que l’absence de discipline (style permissif).");
+//
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
-            /* --- Wrong Answer --- */
-            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-            //$('#lc-ans-header').text("that's not the best option.");
+
             $('#l-c-footer-text').removeClass('collapse');
 
             break;
         case "capsule3_slide11":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6leqSerEMzN_DX1890_DY1890_CX945_CY530.png');
             $('#fw-footer-img').removeClass('collapse');
@@ -1266,6 +1270,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule3_slide12":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6LfsxxorS1V_DX1890_DY1890_CX945_CY530.png');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1274,7 +1279,7 @@ function fnSlideWiseContentManage(slide){
             $('#rc-content-text').removeClass('collapse');
             $('#rc-footer-text').removeClass("collapse");
             $('#rc-content-text').html("");
-            $('#rc-content-text').html("<span class='font-med f-w-med line-h-125 in-block'>Les bonnes pratiques parentales font référence au <span class='orange'>contrôle parental</span> (composé d’encadrement et d’autorisation), à la <span class='orange'>tolérance</span> et au <span class='orange'>style disciplinaire inductif</span> (fondé sur la négociation).<br /><br />Alexandra et Vincent savaient qu’ils devaient demander l’autorisation de recevoir des amis à la maison en l’absence de leurs parents. En acceptant tout en fixant des règles claires, Éric et Isabelle ont fait preuve une tolérance et un bon encadrement. Ils ont également agi pour protéger leurs enfants des risques d’une consommation d’alcool prématurée. Lorsque les règles ont été brisées, il était acceptable qu’Isabelle exerce un style disciplinaire punitif, sans agressivité.</span>");
+            $('#rc-content-text').html("<span class='font-med f-w-med line-h-125 in-block' style='font-size: 100%'>Les bonnes pratiques parentales font référence au <span class='orange'>contrôle parental</span> (composé d’encadrement et d’autorisation), à la <span class='orange'>tolérance</span> et au <span class='orange'>style disciplinaire inductif</span> (fondé sur la négociation).<br /><br />Alexandra et Vincent savaient qu’ils devaient demander l’autorisation de recevoir des amis à la maison en l’absence de leurs parents. En acceptant tout en fixant des règles claires, Éric et Isabelle ont fait preuve une tolérance et un bon encadrement. Ils ont également agi pour protéger leurs enfants des risques d’une consommation d’alcool prématurée. Lorsque les règles ont été brisées, il était acceptable qu’Isabelle exerce un style disciplinaire punitif, sans agressivité.</span>");
             $('#rc-footer-span').html("");
             $('#rc-footer-text').html("<span class='text-uppercase f-w-med'>Et vous?</span>");
             $('#rc-footer-text').append("<ul class='f-w-med'><li><span>Comment exercez-vous votre contrôle parental?</span></li><li><span>Quel est votre seuil de tolérance?</span></li><li><span>Quel est votre style disciplinaire?</span></li></ul>");
@@ -1342,13 +1347,14 @@ function fnSlideWiseContentManage(slide){
             $('#fw-day').text('Mardi');
             $('#fw-time').text('16 h');
             $('.fw-footer-content-grp').css('margin-bottom', '2.2%')
-            $('.fw-footer-r-content').html("<span class='font-med f-w-med'>Éric est rentré plus tôt à la maison aujourd’hui. Il veut discuter avec Alexandra à son retour de l’école. En effet, Éric et Isabelle ont reçu un message d’une enseignante : depuis quelques semaines, Alexandra dort souvent en classe et manque des cours.<br />C’est la deuxième fois que l’école communique avec eux. Plus tôt cette année, d’autres enseignants avaient signalé une baisse importante des résultats scolaires d’Alexandra, qui ne se sont pas améliorés depuis…</span>");
+            $('.fw-footer-r-content').html("<span class='f-w-med' style='position: relative;top: 7px;'>Éric est rentré plus tôt à la maison aujourd’hui. Il veut discuter avec Alexandra à son retour de l’école. En effet, Éric et Isabelle ont reçu un message d’une enseignante : depuis quelques semaines, Alexandra dort souvent en classe et manque des cours.<br />C’est la deuxième fois que l’école communique avec eux. Plus tôt cette année, d’autres enseignants avaient signalé une baisse importante des résultats scolaires d’Alexandra, qui ne se sont pas améliorés depuis…</span>");
             $('.fw-header').hide();
             $('.fw-content').hide();
             $('.fw-footer').hide();
             break;
         case "capsule4_slide2":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#rc-content-text').removeClass('collapse');
             $('#rc-content-text').html("");
@@ -1367,6 +1373,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide3":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5kP9TIE0HvI_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').removeClass('collapse');
@@ -1378,6 +1385,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide4":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1389,23 +1397,19 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "Je n’en reviens pas. Je suis furieux, mais je veux en savoir plus pour qu’on trouve une solution ensemble." + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').html('"' + "That's enough! You have to stop it right way. You cannot flunk the school year because of this." + '"');
-            $('#rc-opt-2').html('"' + "Don't tell me you've become a pothead like your cousion? Honestly, I throught you were smarter than that." + '"');
-            $('#rc-opt-3').html('"' + "I would really like us to talk about it.How often do you smoke?" + '"');
+            $('#rc-opt-1').html("« Ça ne se peut pas !  Tu vas arrêter ça tout de suite.  Tu ne peux pas couler ton année scolaire à cause de ça. »");
+            $('#rc-opt-2').html("« Ne me dis pas que tu es rendue une « poteuse » comme ton cousin ?  Franchement, je te pensais plus intelligente que ça. »");
+            $('#rc-opt-3').html("« J’aimerais qu’on en parle.  Est-ce que tu fumes souvent ? »");
             $('#rc-footer-confirm').removeClass('collapse');
-//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-//            $('#lc-ans-header').html("Tout à fait!");
-//            $('#lc-ans-content').html("Bien que les conflits soient inévitables dans une famille, il faut éviter que ceux-ci dégénèrent au point de blesser, humilier ou faire beaucoup de peine à l’adolescent. Éric devrait tenter d’en savoir plus en évitant de critiquer Alexandra et de lui faire des remarques désagréables. Il ne doit pas laisser aller sa colère au point de dire des insultes, des mots blessants ou des menaces.");
+//
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
-            /* --- Wrong Answer --- */
-            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-            //$('#lc-ans-header').text("that's not the best option.");
+
             $('#l-c-footer-text').removeClass('collapse');
             break;
         case "capsule4_slide5":
             fnAddCollapseClass();
-
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5ZPM7UaofLE_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').removeClass('collapse');
@@ -1417,6 +1421,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide6":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1428,23 +1433,20 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "Comment garder son calme et expliquer l’impact de la consommation de cannabis." + '»' + "</dfn>");
             $('#rc-header-que').html("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').html('"' + "Ok,it's your business,but if you deal with stress by smoking pot, you won't get very far in life." + '"');
-            $('#rc-opt-2').html('"' + "Just pot? And after that, just cocaine and then you're just a drug addict! It's just your life after all." + '"');
-            $('#rc-opt-3').html('"' + "Hold on, pot is drug like any other and it's bad for you! If you use it regularly, it'll have the, it will have the exact opposite effects from what you described." + '"');
+            $('#rc-opt-1').html("« Bon, c’est ton affaire, mais si tu gères toujours ton stress en fumant du pot, tu n’iras pas bien loin dans la vie. »");
+            $('#rc-opt-2').html("« Juste du pot ! Et après ça sera juste de la cocaïne et tu seras juste  une droguée ! Après tout, c’est juste ta vie. »");
+            $('#rc-opt-3').html("« Un instant, le pot, c’est une drogue et toutes les drogues ont des impacts !  En consommer régulièrement, ça donne exactement le contraire de ce que tu as dit. »");
             $('#rc-footer-confirm').removeClass('collapse');
-//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-//            $('#lc-ans-header').html("Tout à fait!");
-//            $('#lc-ans-content').html("Éric devrait poursuivre la discussion et informer sa fille, sans se mettre en colère. Le cannabis est une drogue et sa consommation doit être prise au sérieux. Ses impacts, notamment sur la mémoire, sur la concentration et sur la motivation entraînent des troubles scolaires importants. Les relations avec les amis et la famille peuvent également être affectées.");
+//
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
-            /* --- Wrong Answer --- */
-            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-            //$('#lc-ans-header').text("that's not the best option.");
+
             $('#l-c-footer-text').removeClass('collapse');
             break;
 
         case "capsule4_slide7":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5dbjW9897cg_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').removeClass('collapse');
@@ -1456,6 +1458,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide8":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $("#next").css("pointer-events",'none');
             $('.content-view-1').removeClass('collapse');
             $('#l-c-footer-img').removeClass('collapse');
@@ -1467,23 +1470,20 @@ function fnSlideWiseContentManage(slide){
             $('#rc-header-2').html("");
             $('#rc-header-2').html("<dfn>" + '«' + "Comment l’amener à arrêter de fumer et à se reprendre en main à l’école?" + '»' + "</dfn>");
             $('#rc-header-que').text("Quelle est la meilleure intervention à ce moment?");
-            $('#rc-opt-1').text('"' + "Your mother and I are against you smoking pot. I'd like for us to look into other ways to mange your stress." + '"');
-            $('#rc-opt-2').text('"' + "Clearly, You're not mature enough to find a soluation. For now, you'll come straight home after school to do your homework." + '"');
-            $('#rc-opt-3').text('"' + "It's simple-you are going to improve your grades and your mother and I never want to hear about drugs again." + '"');
+            $('#rc-opt-1').text("« Ta mère et moi, on est contre le fait que tu fumes du pot.  Mais j’aimerais qu’on regarde comment on peut t’aider à gérer ton stress autrement. »");
+            $('#rc-opt-2').text("« Visiblement, tu n’es pas assez mature pour trouver une solution.  À partir de maintenant, tu rentres tout de suite après l’école pour faire tes devoirs. »");
+            $('#rc-opt-3').text("« C’est simple : tu améliores tes notes et ta mère et moi, on ne veut plus entendre parler de drogue. »");
             $('#rc-footer-confirm').removeClass('collapse');
-//            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
-//            $('#lc-ans-header').text("Tout à fait!");
-//            $('#lc-ans-content').text("Quand les intérêts de tout le monde sont compatibles, il vaut mieux utiliser une stratégie de collaboration où tout le monde y gagne. En cas d’urgence, Éric pourrait imposer ses conditions (stratégie de compétition); Alexandra serait alors conciliante (stratégie d’accommodation), mais en sortirait frustrée et donc perdante. Enfin, refuser de discuter du conflit (stratégie d’évitement) amènerait le pire résultat possible.");
+//
             $(".ans-right").find("img").hide();
             $("#l-c-footer-text").hide();
-            /* --- Wrong Answer --- */
-            //$('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
-            //$('#lc-ans-header').text("that's not the best option.");
+
             $('#l-c-footer-text').removeClass('collapse');
             break;
 
         case "capsule4_slide9":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5wrz9olrxwX_DX1890_DY1890_CX945_CY530.png');
             $('.fw-footer').removeClass('collapse');
@@ -1495,6 +1495,7 @@ function fnSlideWiseContentManage(slide){
 
         case "capsule4_slide10":
             fnAddCollapseClass();
+            $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').addClass('collapse');
             $('.content-view-1').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/5vAre4J4XO2_DX1890_DY1890_CX945_CY530.png');
@@ -1524,6 +1525,7 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>FICHES d'Informations obtenues</span></th><th><span class='text-uppercase orange'>CROYANCES DISCUTÉES DANS LES CAPSULES</span></th></tr></thead><tbody><tr><td class='carousel'><div class='custom-img'><img class='download_resource img-responsive' name='resolution_conflit' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span class='default_cursor'>(cliquez pour consulter)</span><span class='download_resource text-upper cust-span-em' name='resolution_conflit'><span class='fa fa-angle-double-right'></span>LES STRATÉGIES DE RÉSOLUTION DE CONFLITS</span></div></td><td><span>Prenez en note les numèros de croyances à consulter<br />4-5-9-11-16-17-18-19-21</span></td></tr><tr><td><span>La fiche est maintenant disponible dans l'onglet Ressources.</span></td><td><span>Consultez le tableau dans l'onglet Ressources pour voir les arguments utilisés pour y faire face.</span></td></tr></tbody></table>");
             $('.fw-content').append("<span class='font-med nxt-page-msg'>Passez à l’écran suivant pour retourner au menu principal.</span>");
             $('.cust-span-em').css('font-size', '60%');
+            $('.cust-span-em').css('width', '175px');
             fnResourceDownloadClickEvent();
             break;
 
@@ -1555,24 +1557,32 @@ function fnSlideWiseContentManage(slide){
             fnAddCollapseClass();
             fnAddCollapseClassIntroCapsule();
             fnShowNextButton();
+            fnSetModelScreen();
+
             $('.fw-content').removeAttr("style");
             $('#slide1').addClass("content-collapse");
             $('#slide1').removeAttr('style');
             $('#slide1').css("dispaly","none");
-
             $('#btnStart').addClass('content-collapse');
             $('#firstslideheader').addClass('content-collapse');
-
             $('#slide-dyn').removeClass('content-collapse');
             $('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
+
             //$('#bergeron-footer').removeClass('collapse');
             $('#footer-next-indicator').removeClass('collapse');
 
             $('#slide-capsule1').removeClass('collapse');
             $('.full-width-content').removeClass('collapse');
+            $('.fw-content').removeClass('cap2-last-slide');
             $('.fw-content').removeClass('collapse');
             $('.fw-content').html("");
-            $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>ressources</span><span class='in-block font-lg'>Cliquez sur les fiches d'informations obtenues et les croyances pour les consulter.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>CROYANCES discutées dans les capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='croyances' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='croyances'>Tableaux des croyances</span></div></div><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='psychotropes' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='psychotropes'>Les psychotropes</span></a></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>FICHES d'Informations obtenues:</span></li></ul><div><div class='res-box'><span class='font-sm'>Reation de qualité</span><span class='font-x-lg'>01</span></div><div class='res-box'><span class='font-sm'>Communiquer efficacement</span><span class='font-x-lg'>02</span></div><div class='res-box'><span class='font-sm'>Pratiques parentales</span><span class='font-x-lg'>03</span></div><div class='res-box'><span class='font-sm'>Résoudre les conflits</span><span class='font-x-lg'>04</span></div></div></div><div class='res-footer'><span>Cliquez sur Suivant pour continuer.</span></div></div>");
+            $('.fw-content').append("<div id='resource-menu'><div class='resourse-header'><span class='orange text-upper in-block font-m-lg'>ressources</span><span class='in-block font-lg'>Cliquez sur les fiches d'informations obtenues et les croyances pour les consulter.</span></div><div class='content-top'><ul class='font-med'><li><span class='text-upper'>CROYANCES discutées dans les capsules:</span></li></ul><div id='content-top-images' class='in-block'><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='croyances' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='croyances'>Tableaux des croyances</span></div></div><div class='res-img-dtl' style='cursor: pointer'><img class='download_resource' name='psychotropes' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><div><p class='fa fa-angle-double-right font-sm'></p><span class='download_resource text-upper font-sm' name='psychotropes'>Les psychotropes</span></a></div></div></div></div><hr /><div class='res-content'><ul class='font-med'><li><span class='text-upper'>FICHES d'Informations obtenues:</span></li></ul><div><div class='res-box'><span class='font-sm'>Relation de qualité</span><span class='font-x-lg'>01</span>"+resource1+"</div><div class='res-box'><span class='font-sm'>Communiquer efficacement</span><span class='font-x-lg'>02</span>"+resource2+"</div><div class='res-box'><span class='font-sm'>Pratiques parentales</span><span class='font-x-lg'>03</span>"+resource3+"</div><div class='res-box'><span class='font-sm'>Résoudre les conflits</span><span class='font-x-lg'>04</span>"+resource4+"</div></div></div><div class='res-footer'><span>Cliquez sur Suivant pour continuer.</span></div></div>");
+//            console.log($("#slide-dyn").height()," === ",$("#slide-dyn").width());
+            $(".fw-content").removeClass("cap1-last-slide");
+            setTimeout(function(){
+                $("#slide-capsule1").css("height",$("#slide-dyn").height());
+                $("#slide-capsule1").css("width",$("#slide-dyn").width());
+            },100);
             fnResourceDownloadClickEvent();
             break;
 
@@ -1596,10 +1606,20 @@ function fnSlideWiseContentManage(slide){
             var scrw = $(window).width();
             // --- Show --- //
             if (scrw <= 600) {
-                $('.well').css('width', '75%');
+                $('.well').css('width', '77%');
             }
             else if (scrw <= 768) {
-                $('.well').css('width', '80%');
+                $('.well').css('width', '82.5%');
+            }
+            else if (scrw <= 980) {
+                $('.well').css('width', '86%');
+            }
+            else if (scrw <= 1366) {
+                $('.well').css('width', '87%');
+            }
+            else if (scrw >= 1920) {
+                $('.well').css('width', '91%');
+                $(".aud-control").css("width","9.4%");
             }
             else {
                 $('.well').css('width', '87%');
@@ -1615,6 +1635,7 @@ function fnSlideWiseContentManage(slide){
         case "thankYou":
             fnAddCollapseClass();
             fnHideNextButton();
+            fnSetModelScreen();
 //            fnAddCollapseClassIntroCapsule();
             $('#slide-dyn').attr('src', 'Images/5eexq4u95MM_DX1890_DY1890_CX945_CY530.png');
             $('#slide-capsule1').removeClass('collapse');
@@ -1631,16 +1652,7 @@ function fnSlideWiseContentManage(slide){
             $('.fw-content').append("<div class='custom-margin-top text-center'><div class='in-block v-align-m col-mid-width-6 font-med'><span>Pierre Vaugeois<br />Geneviève Lefebvre</span></div><div class='in-block v-align-m col-mid-width-6'><span>Directeur scientifique<br />Directrice générale </span></div></div>");
             $('.fw-content').append("<div class='custom-margin-top text-center'><div class='in-block v-align-m col-mid-width-6 font-med'><span class='orange block'>Production</span><span>Ellicom inc.</span></div><div class='in-block v-align-m col-mid-width-6'><span class='orange block'>Soutien financier</span><span>Santé Canada</span></div></div>");
             $('.fw-content').append("<div class='custom-margin-top text-center font-med'><div class='col-mid-width-6 in-block'><span class='orange block'>Réalisation</span><span>Centre québécois de lutte aux dépendances (CQLD) Dépôt légal, Bibliothèque et Archives nationales du Canada 2014.</span><span class='orange text-upper f-w-med block'>isbn</span><span>978-0-9881422-3-7</span></div></div>");
-            //$('.fw-header').addClass('collapse');
-            //$('.fw-footer').addClass('collapse');
-            //$('.fw-content').removeClass('collapse');
-            //$('.fw-content').empty();
-            //$('.fw-content').addClass('cap1-last-slide');
-            //$('.fw-content').append("<div><span class='orange text-uppercase font-x-lg'>congratulations!</span></div>");
-            //$('.fw-content').append("<div><span class='text-uppercase font-med'>to conclude this training capsule, you have received a new information sheet!<br /><br />In order to complete your training, consult the information sheet as well as the common beliefs and misconceptions document:</span></div>");
-            //$('.fw-content').append("<table class='font-med'><thead><tr><th><span class='text-uppercase orange'>information sheet</span></th><th><span class='text-uppercase orange'>common beliefs and misconceptions covered in the capsule</span></th></tr></thead><tbody><tr><td class='carousel'><div class='custom-img'><img class='img-responsive' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' /><span>(click to consult)</span><span class='text-upper cust-span-em'><span class='fa fa-angle-double-right'></span>CONFLICT RESOLUTION STRATEGIS</span></div></td><td><span>Go to the next screen to return to the main menu.<br />4-5-9-11-16-17-18-19-21</span></td></tr><tr><td><span>The information sheet is now in the Resources tab.</span></td><td><span>Consult the chart in the Resources tab in order to see the arguments used against these misconceptions.</span></td></tr></tbody></table>");
-            //$('.fw-content').append("<span class='font-med nxt-page-msg'>Go to the next screen to return to the main menu.</span>");
-            //$('.cust-span-em').css('font-size', '60%');
+
             break;
 
         default:
@@ -1648,6 +1660,8 @@ function fnSlideWiseContentManage(slide){
     }
 
     $('.convertion').addClass('collapse');
+
+
 };
 
 function fnResourceDownloadClickEvent(){
@@ -1689,11 +1703,12 @@ function fnSlideWiseEffectManage(curTime,singleObj){
             {
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
                     fnDisableNextPrev();
-
                     $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(1000,function(){
                         fnEnableNextPrev();
                     });
-                    $('.fw-header').css('display','inline-block');
+                    if(getSlideWiseData.popupContent[intIndex].contentClass == "fw-header"){
+                        $('.'+getSlideWiseData.popupContent[intIndex].contentClass).css('display','inline-block');
+                    }
                 }
             }
             for(var intIndex=0;intIndex<getSlideWiseData.popupImg.length;intIndex++)
@@ -1704,11 +1719,11 @@ function fnSlideWiseEffectManage(curTime,singleObj){
                         fnEnableNextPrev();
                     });
                 }
-                if(curTime > getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
+                if(curTime == getSlideWiseData.popupImg[intIndex].endingTime && getSlideWiseData.name=="capsule1_slide12"){
                     $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(1000);
                     /*$('#fw-header-1').html('');
-                    $('#fw-header-2').html('');
-                    $('.fw-header').css("display","none");*/
+                     $('#fw-header-2').html('');
+                     $('.fw-header').css("display","none");*/
                 }
             }
             break;
@@ -1736,7 +1751,9 @@ function fnSlideWiseEffectRemoveOnEvent(curTime,singleObj){
                     $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(1000,function(){
                         fnEnableNextPrev();
                     });
-                    $('.fw-header').css('display','inline-block');
+                    if(getSlideWiseData.popupContent[intIndex].contentClass == "fw-header"){
+                        $('.'+getSlideWiseData.popupContent[intIndex].contentClass).css('display','inline-block');
+                    }
                 }
                 else{
                     $('.'+getSlideWiseData.popupContent[intIndex].contentClass).hide();
@@ -1751,9 +1768,7 @@ function fnSlideWiseEffectRemoveOnEvent(curTime,singleObj){
                     });
                 }
                 else{
-
                     $('.'+getSlideWiseData.popupImg[intIndex].imgClass).fadeOut(1000);
-
                 }
             }
             break;
@@ -1845,7 +1860,7 @@ function fnConversationRemoveOnEvent(curTime,singleObj){
                 var popupPosition = getSlideWiseData.popupContent[intIndex].position;
                 var contentText = getSlideWiseData.popupContent[intIndex].contentText;
                 var contentClass =getSlideWiseData.popupContent[intIndex].contentClass;
-                if(getSlideWiseData.popupContent[intIndex].startingTime < curTime  && curTime <= getSlideWiseData.popupContent[intIndex].endingTime){
+                if(getSlideWiseData.popupContent[intIndex].startingTime <= curTime  && curTime <= getSlideWiseData.popupContent[intIndex].endingTime){
                     fnCreatePopupOnEvent(contentClass,contentText,popupPosition,getSlideWiseData.popupContent[intIndex].startingTime);
                 }
             }
@@ -1893,38 +1908,54 @@ function fnCreatePopupOnEvent(popupClass,content,position,startTime){
     $('#' + popupPos).find('span').text(content);
 };
 
-function refreshContentOnReload(){
-    $("#tips-images").find('div').addClass("content-collapse");
-    $("#tips-images").find('div').css("opacity",'0').css('display','none');
-    $("#tips-images").find('img').addClass("content-collapse");
-    $("#tips-images").find('img').css("opacity",'0');
+function opendd() {
+    if ($('.dropdown-menu').css('display') === 'none') {
+        $('.dropdown-menu').css('display','block');
+    }
+    else {
+        $('.dropdown-menu').css('display', 'none');
+    }
 }
-
 function tglclass() {
     //alert("toggle-introduction")
     $("#tgldtl").toggle(function () {
+        $('.dropdown-menu').css('display', 'block');
         if ($(this).css('display') === 'none') {
             $("#toggle-header").css('background-position', '5px 7px');
             $(this).prop('hidden', 'hidden');
+            $("#tgl-intro-icon").removeClass("fa-caret-down");
+            $("#tgl-intro-icon").addClass("fa-caret-right")
         }
         else {
+//            $('.dropdown-menu').css('display', 'none');
             $("#toggle-header").css('background-position', '5px -78px');
             $(this).removeProp('hidden');
+            $("#tgl-intro-icon").removeClass("fa-caret-right");
+            $("#tgl-intro-icon").addClass("fa-caret-down")
             //$(this).fadeIn();
+
         }
     })
 }
 
+
+
 function tglclass1() {
     //alert("toggle1-capsule1");
     $("#tgldtl1").toggle(function () {
+        $('.dropdown-menu').css('display', 'block');
         if ($(this).css('display') === 'none') {
             $("#toggle-header1").css('background-position', '5px 7px');
             $(this).prop('hidden', 'hidden');
+            $("#tgl-cap1-icon").removeClass("fa-caret-down");
+            $("#tgl-cap1-icon").addClass("fa-caret-right");
         }
         else {
+//            $('.dropdown-menu').css('display', 'none');
             $("#toggle-header1").css('background-position', '5px -78px');
             $(this).removeProp('hidden');
+            $("#tgl-cap1-icon").removeClass("fa-caret-right");
+            $("#tgl-cap1-icon").addClass("fa-caret-down");
             //$(this).fadeIn();
         }
         fnSlideWiseContentManage($(this).attr("name"));
@@ -1934,13 +1965,19 @@ function tglclass1() {
 function tglclass2() {
     //alert("toggle1-capsule2");
     $("#tgldtl2").toggle(function () {
+        $('.dropdown-menu').css('display', 'block');
         if ($(this).css('display') === 'none') {
             $("#toggle-header2").css('background-position', '5px 7px');
             $(this).prop('hidden', 'hidden');
+            $("#tgl-cap2-icon").removeClass("fa-caret-down");
+            $("#tgl-cap2-icon").addClass("fa-caret-right");
         }
         else {
+//            $('.dropdown-menu').css('display', 'none');
             $("#toggle-header2").css('background-position', '5px -78px');
             $(this).removeProp('hidden');
+            $("#tgl-cap2-icon").removeClass("fa-caret-right");
+            $("#tgl-cap2-icon").addClass("fa-caret-down");
             //$(this).fadeIn();
         }
         fnSlideWiseContentManage($(this).attr("name"));
@@ -1950,13 +1987,19 @@ function tglclass2() {
 function tglclass3() {
     //alert("toggle1-capsule3");
     $("#tgldtl3").toggle(function () {
+        $('.dropdown-menu').css('display', 'block');
         if ($(this).css('display') === 'none') {
             $("#toggle-header3").css('background-position', '5px 7px');
             $(this).prop('hidden', 'hidden');
+            $("#tgl-cap3-icon").removeClass("fa-caret-down");
+            $("#tgl-cap3-icon").addClass("fa-caret-right");
         }
         else {
+//            $('.dropdown-menu').css('display', 'none');
             $("#toggle-header3").css('background-position', '5px -78px');
             $(this).removeProp('hidden');
+            $("#tgl-cap3-icon").removeClass("fa-caret-right");
+            $("#tgl-cap3-icon").addClass("fa-caret-down");
             //$(this).fadeIn();
         }
         fnSlideWiseContentManage($(this).attr("name"));
@@ -1966,16 +2009,134 @@ function tglclass3() {
 function tglclass4() {
     //alert("toggle1-capsule4");
     $("#tgldtl4").toggle(function () {
+        $('.dropdown-menu').css('display', 'block');
         if ($(this).css('display') === 'none') {
             $("#toggle-header4").css('background-position', '5px 7px');
             $(this).prop('hidden', 'hidden');
+            $("#tgl-cap4-icon").removeClass("fa-caret-down");
+            $("#tgl-cap4-icon").addClass("fa-caret-right");
         }
         else {
+//            $('.dropdown-menu').css('display', 'none');
             $("#toggle-header4").css('background-position', '5px -78px');
             $(this).removeProp('hidden');
+            $("#tgl-cap4-icon").removeClass("fa-caret-right");
+            $("#tgl-cap4-icon").addClass("fa-caret-down");
             //$(this).fadeIn();
         }
         fnSlideWiseContentManage($(this).attr("name"));
     })
 };
 
+function fnShowSelectedAnsData(){
+    $.each(viewedSlides, function(index, value) {
+        if(getSingleObjOfJSON.name == viewedSlides[index].viewedSlideName){
+            if(viewedSlides[index].userSelectedAns != undefined)
+            {
+                for(var i = 0; i < answer_JSON.length; i++)
+                {
+                    if(getSingleObjOfJSON.name == answer_JSON[i].slideName){
+                        if( answer_JSON[i].rightOption == viewedSlides[index].userSelectedAns){
+                            $("#l-c-footer-text").show();
+                            $('#lc-ans-img').attr('src', 'Images/5tcf1kUdQOl_DX66_DY66_CX33_CY33.png');
+                            $('#lc-ans-header').html("Tout à fait!");
+                            $('#lc-ans-content').html(answer_JSON[i].positiveFeedback.text);
+                            $('#option'+answer_JSON[i].rightOption).css('background-image', 'url(Images/6ZhqSSk0Exm_DX72_DY72_CX36_CY36.png)');
+                            $('#right'+answer_JSON[i].rightOption).show();
+                            $('#lc-footer-img').hide();
+                            setupAudioControls(audioSrcBase_mp3+answer_JSON[i].positiveFeedback.audio[0]);
+                            $("#val"+viewedSlides[index].userSelectedAns).prop("checked", true);
+                        }
+                        else{
+                            $("#val"+viewedSlides[index].userSelectedAns).prop("checked", true);
+                            $("#l-c-footer-text").show();
+                            $('#lc-ans-img').attr('src', 'Images/6NStwRl6lCH_DX66_DY66_CX33_CY33.png');
+                            $('#lc-ans-header').html("Ce n’est pas le meilleur choix.");
+                            $('#lc-ans-content').html(answer_JSON[i].negativeFeedback.text);
+                            $('#lc-footer-img').hide();
+                            $('#right'+answer_JSON[i].rightOption).show();
+                            setupAudioControls(audioSrcBase_mp3+answer_JSON[i].negativeFeedback.audio[0]);
+                        }
+                        $("#option1").css("pointer-events",'none');
+                        $("#option2").css("pointer-events",'none');
+                        $("#option3").css("pointer-events",'none');
+                        $("#validate-answer").css("pointer-events",'none');
+                        $("#next").css("pointer-events",'auto');
+                    }
+                }
+            }
+        }
+    });
+}
+
+$('#rc-opt-2').html('"' + " Je suis déçue de ton comportement.  On en reparlera demain au déjeuner, quand tu auras dessoûlé." + '"');
+
+function fnProvideResourceAfterCapOver(resourceNameArr){
+       for(var intIndex=0;intIndex<resourceNameArr.length;intIndex++)
+       {
+           if(resourceNameArr[intIndex].viewedSlideName == "capsule1_slide16")
+           {
+               resource1 = "";
+               resource1 += "<div id='resource1'>";
+               resource1 += "   <img class='download_resource img-responsive' name='proximite_emotionnelle' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource1 += "   <div class='download_resource text-upper cust-span-em' name='proximite_emotionnelle'>";
+               resource1 += "       <div class='fa fa-angle-double-right'></div>proximité émotionnelle";
+               resource1 += "   </div>"
+               resource1 += "</div>";
+           }
+           else if(resourceNameArr[intIndex].viewedSlideName == "capsule2_slide13")
+           {
+               resource2 = "";
+               resource2 += "   <div id='resource2'>"
+               resource2 += "       <img class='download_resource img-responsive' name='ouverture_communication' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource2 += "       <div class='download_resource text-upper cust-span-em' name='ouverture_communication'>";
+               resource2 += "           <div class='fa fa-angle-double-right'></div>OUVERTURE À LA COMMUNICATION";
+               resource2 += "       </div>";
+               resource2 += "   </div>";
+               resource2 += "   <div id='resource2'>";
+               resource2 += "       <img class='download_resource img-responsive' name='information_parentale' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource2 += "       <div class='download_resource text-upper cust-span-em' name='information_parentale'>";
+               resource2 += "           <div class='fa fa-angle-double-right'></div>informations parentale";
+               resource2 += "       </div>";
+               resource2 += "   </div>";
+               resource2 += "   <div id='resource2'>";
+               resource2 += "       <img class='download_resource img-responsive' name='messages_preventifs' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource2 += "       <div class='download_resource text-upper cust-span-em' name='messages_preventifs'>";
+               resource2 += "           <div class='fa fa-angle-double-right'></div>messages préventifs";
+               resource2 += "       </div>";
+               resource2 += "   </div>";
+           }
+           else if(resourceNameArr[intIndex].viewedSlideName == "capsule3_slide13")
+           {
+               resource3 = "";
+               resource3 += "<div id='resource3'>";
+               resource3 += "   <img class='download_resource img-responsive' name='controle_parental' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource3 += "   <div class='download_resource text-upper cust-span-em' name='controle_parental'>"
+               resource3 += "       <div class='fa fa-angle-double-right'></div>LE CONTRÔLE PARENTAL";
+               resource3 += "   </div>";
+               resource3 += "</div>";
+               resource3 += "<div id='resource3'>";
+               resource3 += "   <img class='download_resource img-responsive' name='styles_disciplinaires' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource3 += "   <div class='download_resource text-upper cust-span-em' name='styles_disciplinaires'>";
+               resource3 += "       <div class='fa fa-angle-double-right'></div>LES STYLES DISCIPLINAIRES";
+               resource3 += "   </div>";
+               resource3 += "</div>";
+               resource3 += "<div id='resource3'>";
+               resource3 += "   <img class='download_resource img-responsive' name='tolerance' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />"
+               resource3 += "   <div class='download_resource text-upper cust-span-em' name='tolerance'>";
+               resource3 += "       <div class='fa fa-angle-double-right'></div>LA TOLÉRANCE";
+               resource3 += "   </div>";
+               resource3 += "</div>";
+           }
+           else if(resourceNameArr[intIndex].viewedSlideName == "capsule4_slide11")
+           {
+               resource4 = "";
+               resource4 += "   <div id='resource4'>"
+               resource4 += "       <img class='download_resource img-responsive' name='resolution_conflit' src='Images/5nOPbb9fbwT_DX398_DY398_CX199_CY61.png' alt='' />";
+               resource4 += "       <div class='download_resource text-upper cust-span-em' name='resolution_conflit'>";
+               resource4 += "           <div class='fa fa-angle-double-right'></div>LES STRATÉGIES DE RÉSOLUTION DE CONFLITS";
+               resource4 += "       </div>";
+               resource4 += "   </div>";
+           }
+       }
+}
