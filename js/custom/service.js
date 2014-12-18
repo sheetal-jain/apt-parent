@@ -599,6 +599,8 @@ function fnSlideWiseContentManage(slide){
             $('#rc-content-text').html("");
             $('#rc-content-text').html("<span class='font-med f-w-med block'>Isabelle aimerait en savoir plus sur ce qui tracasse Vincent. Dans cette situation, la qualité de leur relation sera déterminante pour la suite de la discussion.<br/><br/>Une relation de qualité implique de l’amour, c’est-à-dire une <span class='orange'>proximité émotionnelle.</span> C’est en montrant du soutien et de l’affection à Vincent qu’Isabelle assurera cette proximité.<br /><br />Votre objectif est d’aider <span class='orange'>Isabelle à faire preuve de soutien et d’affection vis-à-vis de Vincent</span> qui semble vivre une situation difficile.<br /><br />Au cours de la discussion, vous devrez également l’aider à <span class='orange'>argumenter face aux croyances de Vincent concernant la consommation d’alcool.</span></span>");
             $('#rc-footer-text').removeClass('collapse');
+            $('#rc-footer-text').html("");
+            $('#rc-footer-text').html("<span id='rc-footer-span' class='font-med'>Pour commencer, passez à l’écran suivant.</span>");
             break;
         case "capsule1_slide3":
             fnAddCollapseClass();
