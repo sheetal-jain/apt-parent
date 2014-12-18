@@ -656,6 +656,11 @@ $(document).ready(function(){
         setupAudioControls( 'Audio/FR/mp3/6l4Qheq8nL6_22050_80_sec5.mp3');
     });
 
+    /*--------------Quit APTE and View Home page------------------------*/
+    $("#quit").click(function(){
+        slide = 'introduction';
+        fnSetupPageFromMenu(slide);
+    });
 
     function fnSetupPageFromMenu(slide){
         jQuery.each(objAPT_JSON,function(i,obj){
