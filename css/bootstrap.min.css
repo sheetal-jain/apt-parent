@@ -311,12 +311,12 @@ audio {
     }
 
     .custom-slide-header .header-span {
-        text-transform: lowercase;
+        text-transform: capitalize;
         font-size: 20px;
         color: #fff;
         margin-left: -25px;
         font-weight: lighter;
-        vertical-align: middle;
+        vertical-align: calc(15px);
     }
 
 .custom-slide-position {
