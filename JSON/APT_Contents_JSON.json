@@ -213,7 +213,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-bottom",
-                "position":{"top":"100","left":"570"},
+                "position":{"top":"0","left":"515"},
                 "startingTime":"1",
                 "endingTime":"5",
                 "contentText":"Qu’est-ce qui ne va pas Vincent? T’as l’air préoccupé. Aller à un party ça devrait être plaisant, non?"
@@ -221,7 +221,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-top",
-                "position":{"top":"175","left":"55"},
+                "position":{"top":"175","left":"110"},
                 "startingTime":"6",
                 "endingTime":"14",
                 "contentText":"Oui mais, c’est juste que les partys chez Julie, c’est toujours pareil! Gab et Alexis vont apporter de l’alcool puis m’achaler pour que j’en prenne avec eux. "
@@ -244,7 +244,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-bottom",
-                "position":{"top":"100","left":"570"},
+                "position":{"top":"0","left":"515"},
                 "startingTime":"1",
                 "endingTime":"5",
                 "contentText":"T’es préoccupé par la réaction de tes amis si tu n’en prends pas. Tu veux qu’on en parle?"
@@ -252,7 +252,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-top",
-                "position":{"top":"175","left":"55"},
+                "position":{"top":"200","left":"110"},
                 "startingTime":"6",
                 "endingTime":"18",
                 "contentText":"Non… Ben, je sais pas trop quoi penser. Tout le monde dit que c’est chill l’alcool, que ça relaxe et tout. Et puis, je serais peut-être moins pogné si j’en prenais un peu… Et mes amis arrêteraient de m’achaler avec ça."
@@ -260,7 +260,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-bottom",
-                "position":{"top":"100","left":"570"},
+                "position":{"top":"0","left":"515"},
                 "startingTime":"19",
                 "endingTime":"27",
                 "contentText":"Tu sais, ce n’est pas si relax que ça l’alcool, Vincent. Selon la quantité que tu prends, ça peut donner mal au cœur, au ventre et ça fait déprimer aussi."
@@ -268,7 +268,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-top",
-                "position":{"top":"175","left":"55"},
+                "position":{"top":"200","left":"110"},
                 "startingTime":"28",
                 "endingTime":"31",
                 "contentText":"Tu exagéres maman, tout le monde boit dans les partys à mon âge !"
@@ -284,7 +284,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-top",
-                "position":{"top":"175","left":"55"},
+                "position":{"top":"200","left":"110"},
                 "startingTime":"41",
                 "endingTime":"41",
                 "contentText":"Hey, wo là!"
@@ -292,7 +292,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-bottom",
-                "position":{"top":"100","left":"570"},
+                "position":{"top":"0","left":"515"},
                 "startingTime":"42",
                 "endingTime":"47",
                 "contentText":"Et tu ne devrais pas avoir à prendre de l’alcool pour qu’on arrête de t’achaler."
@@ -308,7 +308,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-top",
-                "position":{"top":"175","left":"55"},
+                "position":{"top":"190","left":"85"},
                 "startingTime":"0",
                 "endingTime":"3",
                 "contentText":"Ouin... Faque j’ai un peu raison de ne pas vouloir absolument boire de l’alcool?"
@@ -349,7 +349,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-bottom",
-                "position":{"top":"15","left":"650"},
+                "position":{"top":"0","left":"650"},
                 "startingTime":"0",
                 "endingTime":"1",
                 "contentText":"Oui, allô?"
@@ -365,7 +365,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-bottom",
-                "position":{"top":"15","left":"650"},
+                "position":{"top":"0","left":"650"},
                 "startingTime":"7",
                 "endingTime":"9",
                 "contentText":"Comment ça? Qu’est-ce qui s’est passé?"
@@ -381,7 +381,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-bottom",
-                "position":{"top":"15","left":"650"},
+                "position":{"top":"0","left":"650"},
                 "startingTime":"13",
                 "endingTime":"16",
                 "contentText":"Coudonc, as-tu pris de l’alcool?"
@@ -397,7 +397,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-bottom",
-                "position":{"top":"15","left":"650"},
+                "position":{"top":"0","left":"650"},
                 "startingTime":"20",
                 "endingTime":"25",
                 "contentText":"Tu me déçois Vincent. Bon… j’arrive!"
@@ -429,7 +429,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-top",
-                "position":{"top":"220","left":"55"},
+                "position":{"top":"250","left":"90"},
                 "startingTime":"1",
                 "endingTime":"5",
                 "contentText":"Je m’excuse, maman. T’es fâchée hein?"
