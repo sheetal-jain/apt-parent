@@ -1807,11 +1807,12 @@ function fnSlideWiseConversationManage(curTime,singleObj){
             for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
             {
                 if(curTime == getSlideWiseData.popupContent[intIndex].startingTime){
+                    var slideName = getSlideWiseData.name;
                     var popupPosition = getSlideWiseData.popupContent[intIndex].position;
                     var contentText = getSlideWiseData.popupContent[intIndex].contentText;
                     var contentClass = getSlideWiseData.popupContent[intIndex].contentClass;
                     fnDisableNextPrev();
-                    fnCreatePopup(contentClass,contentText,popupPosition,getSlideWiseData.popupContent[intIndex].startingTime);
+                    fnCreatePopup(slideName,contentClass,contentText,popupPosition,getSlideWiseData.popupContent[intIndex].startingTime);
                     $('.'+getSlideWiseData.popupContent[intIndex].contentClass).fadeIn(1000,function() {
                         fnEnableNextPrev();
                     })
@@ -1857,11 +1858,12 @@ function fnConversationRemoveOnEvent(curTime,singleObj){
         case "capsule4_slide9":
             for(var intIndex=0;intIndex<getSlideWiseData.popupContent.length;intIndex++)
             {
+                var slideName = getSlideWiseData.name;
                 var popupPosition = getSlideWiseData.popupContent[intIndex].position;
                 var contentText = getSlideWiseData.popupContent[intIndex].contentText;
                 var contentClass =getSlideWiseData.popupContent[intIndex].contentClass;
                 if(getSlideWiseData.popupContent[intIndex].startingTime <= curTime  && curTime <= getSlideWiseData.popupContent[intIndex].endingTime){
-                    fnCreatePopupOnEvent(contentClass,contentText,popupPosition,getSlideWiseData.popupContent[intIndex].startingTime);
+                    fnCreatePopupOnEvent(slideName,contentClass,contentText,popupPosition,getSlideWiseData.popupContent[intIndex].startingTime);
                 }
             }
             break;
@@ -1870,12 +1872,12 @@ function fnConversationRemoveOnEvent(curTime,singleObj){
     }
 };
 
-function fnCreatePopup(popupClass,content,position,startTime){
+function fnCreatePopup(slideName,popupClass,content,position,startTime){
     if(stTime != startTime){
         stTime = startTime;
         var popupPos = "talkbubble-"+popupClass.split("-")[1];
         var html = '';
-        html += '<div class="convertion '+popupClass+'">';
+        html += '<div id='+slideName+'-'+popupClass+' class="convertion '+popupClass+'">';
         html += '    <div>';
         html += '       <div id='+popupPos+'>';
         html += '           <span></span>';
@@ -1891,10 +1893,10 @@ function fnCreatePopup(popupClass,content,position,startTime){
     }
 };
 
-function fnCreatePopupOnEvent(popupClass,content,position,startTime){
+function fnCreatePopupOnEvent(slideName,popupClass,content,position,startTime){
     var popupPos = "talkbubble-" + popupClass.split("-")[1];
     var html = '';
-    html += '<div class="convertion ' + popupClass + '">';
+    html += '<div id='+slideName+'-'+popupClass+' class="convertion ' + popupClass + '">';
     html += '    <div>';
     html += '       <div id=' + popupPos + '>';
     html += '           <span></span>';

@@ -679,8 +679,8 @@
             },
             {
                 "contentId":"",
-                "contentClass":"conversation-top",
-                "position":{"top":"200","left":"415"},
+                "contentClass":"conversation-right",
+                "position":{"top":"180","left":"250"},
                 "startingTime":"6",
                 "endingTime":"16",
                 "contentText":"Il sent toujours drôle, il arrive en retard et il a souvent l’air fatigué… Pis d’autres fois, il est super énervé. En tout cas… Heille, qu’est-ce que ça fait du « speed »?"
@@ -726,8 +726,8 @@
             },
             {
                 "contentId":"",
-                "contentClass":"conversation-top",
-                "position":{"top":"200","left":"500"},
+                "contentClass":"conversation-bottom",
+                "position":{"top":"25","left":"680"},
                 "startingTime":"23",
                 "endingTime":"24",
                 "contentText":"Est-ce que t’avais envie d’essayer?"
@@ -813,10 +813,10 @@
             },
             {
                 "contentId":"",
-                "contentClass":"conversation-left",
-                "position":{"top":"240","left":"450"},
+                "contentClass":"conversation-bottom",
+                "position":{"top":"0","left":"400"},
                 "startingTime":"9",
-                "endingTime":"13",
+                "endingTime":"15",
                 "contentText":"Je vais juste lui dire que je suis pas intéressé, c’est tout. De toute façon, je me tiens avec Julien, puis il l’aime pas trop lui non plus."
             }
             ,
