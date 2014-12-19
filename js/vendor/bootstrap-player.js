@@ -175,7 +175,8 @@
 					'min': 0,
 					'max': 1,
 					'step': 1 / 100,
-					'value': 1
+					'value': 1,
+                    'id':'volumeChanger'
 				});
 			volume.slide = function () {
 				song.muted = false;
