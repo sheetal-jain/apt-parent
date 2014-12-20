@@ -8739,6 +8739,16 @@ color: rgba(0,246,255,0.15);
         top: 260px !important;
         left: 325px !important;
     }
+
+
+    #capsule3_slide4-conversation-top{
+        top: 325px !important;
+        left: 670px !important;
+    }
+    #capsule3_slide4-conversation-bottom{
+        top: 25px !important;
+        left: 320px !important;
+    }
 }
 
 @media (max-width:1024px) {
