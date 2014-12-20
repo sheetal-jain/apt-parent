@@ -21,16 +21,14 @@ var audioSrcBase_ogg = 'ogg/';
 var audio = document.getElementById("APT_Audio_Controls");
 var scrw = $(window).width();
 var scrh = $(window).height();
-//var conth = $('.container-fluid').height();
-/*alert(conth);*/
+
 $(window).load(function(){
     $(".interstitial").css("display","none");
     $('#loadingSpinner').css("display","none");
-    //setTimeout(function(){
+
     var contheight = $('#container-main').height();
     var imgshd = $('.image-shadow').height();
     var contmargintop = 0;
-//            alert("Height - " + scrh + " Container height - " + contheight + " image shadow - " + imgshd);
 
     if (contheight > scrh) {
         var heightdiff = contheight - scrh;
@@ -39,10 +37,7 @@ $(window).load(function(){
     else {
         contmargintop = (contheight / 2) + 12;
     }
-//    if (scrw >= 1920) {
     $('.container-fluid').css('margin-top', "-"+contmargintop + "px");
-//    }
-    //},1000);
 });
 
 $(document).ready(function(){
@@ -153,8 +148,6 @@ $(document).ready(function(){
         }
     }
 
-
-//    preloadImages(objAPT_JSON[1]);
     var slider = new Slider("#audio_sliderID", {
         range: false,
         tooltip: 'hide',
@@ -411,7 +404,7 @@ $(document).ready(function(){
                 {
                     isAudioFlag = false;
                 }
-                if(getAudioCurrentTimeInSec == getSingleObjOfJSON.popupContent[intIndex].endingTime && isSliderDraggable)
+                if(getAudioCurrentTimeInSec == (getSingleObjOfJSON.popupContent[intIndex].startingTime - 1) && isSliderDraggable)
                 {
                     isSliderDraggable = false;
                 }
@@ -502,9 +495,6 @@ $(document).ready(function(){
             isAudioFlag = false
             isImgFlag = false;
             fnResetContentOnSlide(0);
-            /*if(isSliderDraggable){
-                isSliderDraggable = false;
-            }*/
             if(getSingleObjOfJSON.name == "intro_bergeron"){
                 refreshPopupContent(objAPT_JSON[curIdx].popupContent);
             }else if(getSingleObjOfJSON.name == "intro_Tips4online"){
@@ -520,9 +510,6 @@ $(document).ready(function(){
         isAudioFlag = false
         isImgFlag = false;
         fnResetContentOnSlide(0);
-        /*if(isSliderDraggable){
-            isSliderDraggable = false;
-        }*/
         if(getSingleObjOfJSON.name == "intro_bergeron"){
             refreshPopupContent(objAPT_JSON[curIdx].popupContent);
         }else if(getSingleObjOfJSON.name == "intro_Tips4online"){
@@ -568,6 +555,8 @@ $(document).ready(function(){
                         if (getSingleObjOfJSON.popupContent[intIndex].startingTime != value) {
                             fnConversationRemoveOnEvent(getAudioCurrentTimeInSec, getSingleObjOfJSON);
                             isSliderDraggable = true;
+                            /*--------- stTime is Service file variable---------------------*/
+                            stTime = value;
                         }
                     }
                 }
@@ -620,9 +609,6 @@ $(document).ready(function(){
     $("#audio_sliderID").on('slideStop',function(_event){
         sliderMouse.mouseDown = _event.value;
         fnResetContentOnSlide(sliderMouse.mouseDown);
-        if(isSliderDraggable){
-            isSliderDraggable = false;
-        }
         _event.preventDefault();
         _event.stopImmediatePropagation();
     });
@@ -686,8 +672,6 @@ $(document).ready(function(){
                     curIdx = i;
                 }
                 else if(slide == 'intro_welcome'){
-//                    $('#slide-dyn').addClass('content-collapse');
-//                    $('#slide2').css('display','none');
                     $('#slide1').attr('src', 'Images/655JPh2a9IB_DX1890_DY1890_CX945_CY530.png');
                     $('#slide1').css('display','inline');
                     fnSlideWiseContentManage(slide);
@@ -732,8 +716,7 @@ $(document).ready(function(){
                     fnSlideWiseContentManage(slide);
                     setTimeout(function(){
                         fnSetModelScreen();
-                    },1000)
-//                    $("#slide-capsule1").removeClass('collapse');
+                    },1000);
 
                     setupAudioControls(audioSrcBase_mp3+obj.audioName[0]);
                     showLoader('#slide-dyn');
