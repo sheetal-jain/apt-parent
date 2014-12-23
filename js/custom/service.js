@@ -78,6 +78,10 @@ function startAPT() {
 	else if (scrw <= 1366) {
 	    $('.well').css('width', '87%');
 	}
+    else if (scrw >=  1680 && scrw < 1920) {
+        $('.well').css('width', '90%');
+        $(".aud-control").css("width","10.4%");
+    }
     else if (scrw >= 1920) {
         $('.well').css('width', '91%');
         $(".aud-control").css("width","9.4%");
@@ -428,7 +432,13 @@ function fnAddCollapseClassIntroCapsule(){
 function fnHideNextButton(){
     $("#next").addClass('content-collapse');
     $("#prev").removeClass("content-collapse");
-    if(maxWidth > 1900)
+    if(maxWidth >= 1680 && maxWidth < 1900)
+    {
+        $(".playa").css('width','95%');
+        $("#prev").css('margin-left','120px');
+        $(".aud-control").css("width","15.4%");
+    }
+    else if(maxWidth > 1900)
     {
         $(".playa").css('width','95%');
         $("#prev").css('margin-left','120px');
@@ -443,7 +453,13 @@ function fnHideNextButton(){
 
 function fnShowNextButton(){
     $("#next").removeClass('content-collapse');
-    if(maxWidth > 1900)
+    if(maxWidth >= 1680 && maxWidth < 1900)
+    {
+        $(".playa").css('width','90%');
+        $("#prev").removeAttr("style");
+        $(".aud-control").css("width","10.4%");
+    }
+    else if(maxWidth > 1900)
     {
         $(".playa").css('width','91%');
         $("#prev").removeAttr("style");
@@ -1616,6 +1632,10 @@ function fnSlideWiseContentManage(slide){
             }
             else if (scrw <= 1366) {
                 $('.well').css('width', '87%');
+            }
+            else if (scrw >= 1680 && scrw < 1920) {
+                $('.well').css('width', '90%');
+                $(".aud-control").css("width","10.4%");
             }
             else if (scrw >= 1920) {
                 $('.well').css('width', '91%');

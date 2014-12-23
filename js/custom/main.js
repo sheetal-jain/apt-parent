@@ -245,6 +245,8 @@ $(document).ready(function(){
         if(curIdx == 0)//The condition for 1st slide when prev
         {
             $('#slide-dyn').addClass('content-collapse');
+            $('#slide1').removeAttr("style");
+            $('#slide1').removeClass('content-collapse')
             $('#slide1').attr('src',imgSrcBase+objAPT_JSON[curIdx].imgName);
             $('#firstslideheader').removeClass('content-collapse');
             $('#btnStart').removeClass('content-collapse');

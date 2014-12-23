@@ -8761,6 +8761,42 @@ color: rgba(0,246,255,0.15);
     }
 }
 
+@media (max-width:1680px) and (min-width: 1500px) {
+    #vol_wrapper{
+        width: 16%;
+    }
+    #infrom-navi .play{
+        left:2px;
+        top:10px;
+    }
+    #infrom-navi .seekbar{
+        top:26px;
+    }
+    #infrom-navi .vol{
+        left:67%;
+        top:26px;
+    }
+    #infrom-navi .next-scr{
+        left:93%;
+        top:36px;
+    }
+    #infrom-navi .prev-scr{
+        left:84%;
+        top:36px;
+    }
+    #infrom-navi .inform{
+        width:15%;
+        left:85%;
+    }
+    #infrom-navi .navi-help{
+        left:70%;
+    }
+    #footer-next-indicator {
+        padding-right: 3.5%;
+        padding-top: 26px;
+    }
+}
+
 .default_cursor{
     cursor: text;
 }
