@@ -78,6 +78,14 @@ function startAPT() {
 	else if (scrw <= 1366) {
 	    $('.well').css('width', '87%');
 	}
+    else if(scrw >=  1420 && scrw < 1580) {
+        $('.well').css('width', '88%');
+        $(".aud-control").css("width","12.4%");
+    }
+    else if (scrw >=  1600 && scrw < 1680) {
+        $('.well').css('width', '89%');
+        $(".aud-control").css("width","11.4%");
+    }
     else if (scrw >=  1680 && scrw < 1920) {
         $('.well').css('width', '90%');
         $(".aud-control").css("width","10.4%");
@@ -432,13 +440,22 @@ function fnAddCollapseClassIntroCapsule(){
 function fnHideNextButton(){
     $("#next").addClass('content-collapse');
     $("#prev").removeClass("content-collapse");
-    if(maxWidth >= 1680 && maxWidth < 1900)
+
+    if(maxWidth >=  1420 && maxWidth < 1580) {
+        $('.playa').css('width', '94%');
+        $(".aud-control").css("width","6.4%");
+    }
+    else if(maxWidth >=  1580 && maxWidth < 1680) {
+        $('.playa').css('width', '94%');
+        $(".aud-control").css("width","6.4%");
+    }
+    else if(maxWidth >= 1680 && maxWidth < 1920)
     {
         $(".playa").css('width','95%');
         $("#prev").css('margin-left','120px');
         $(".aud-control").css("width","15.4%");
     }
-    else if(maxWidth > 1900)
+    else if(maxWidth >= 1920)
     {
         $(".playa").css('width','95%');
         $("#prev").css('margin-left','120px');
@@ -453,13 +470,21 @@ function fnHideNextButton(){
 
 function fnShowNextButton(){
     $("#next").removeClass('content-collapse');
-    if(maxWidth >= 1680 && maxWidth < 1900)
+    if(maxWidth >=  1420 && maxWidth < 1580) {
+        $('.playa').css('width', '88%');
+        $(".aud-control").css("width","12.4%");
+    }
+    else if(maxWidth >=  1580 && maxWidth < 1680) {
+        $('.playa').css('width', '89%');
+        $(".aud-control").css("width","11.4%");
+    }
+    else if(maxWidth >= 1680 && maxWidth < 1920)
     {
         $(".playa").css('width','90%');
         $("#prev").removeAttr("style");
         $(".aud-control").css("width","10.4%");
     }
-    else if(maxWidth > 1900)
+    else if(maxWidth >= 1920)
     {
         $(".playa").css('width','91%');
         $("#prev").removeAttr("style");
@@ -1632,6 +1657,14 @@ function fnSlideWiseContentManage(slide){
             }
             else if (scrw <= 1366) {
                 $('.well').css('width', '87%');
+            }
+            else if(scrw >=  1420 && scrw < 1580) {
+                $('.well').css('width', '88%');
+                $(".aud-control").css("width","12.4%");
+            }
+            else if (scrw >=  1600 && scrw < 1680) {
+                $('.well').css('width', '89%');
+                $(".aud-control").css("width","11.4%");
             }
             else if (scrw >= 1680 && scrw < 1920) {
                 $('.well').css('width', '90%');
