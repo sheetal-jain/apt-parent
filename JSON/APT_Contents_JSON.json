@@ -968,8 +968,8 @@
             },
             {
                 "contentId":"",
-                "contentClass":"conversation-top",
-                "position":{"top":"240","left":"200"},
+                "contentClass":"conversation-topLeftCorner",
+                "position":{"top":"240","left":"270"},
                 "startingTime":"19",
                 "endingTime":"21",
                 "contentText":"Envoye-donc, papa! On n’est plus des enfants"
@@ -984,8 +984,8 @@
             },
             {
                 "contentId":"",
-                "contentClass":"conversation-top",
-                "position":{"top":"240","left":"200"},
+                "contentClass":"conversation-topLeftCorner",
+                "position":{"top":"240","left":"270"},
                 "startingTime":"23",
                 "endingTime":"24",
                 "contentText":"Juste une ou deux bières..."
@@ -995,13 +995,13 @@
                 "contentClass":"conversation-left",
                 "position":{"top":"240","left":"215"},
                 "startingTime":"25",
-                "endingTime":"34",
+                "endingTime":"33",
                 "contentText":"Vous n’êtes plus des enfants, c’est vrai! Vous pouvez rester seuls à la maison et inviter des amis, mais vous n’avez pas l’âge de prendre de l’alcool et ça ne fait pas exception quand on n’est pas là."
             },
             {
                 "contentId":"",
-                "contentClass":"conversation-bottom",
-                "position":{"top":"30","left":"415"},
+                "contentClass":"conversation-topLeftCorner",
+                "position":{"top":"240","left":"270"},
                 "startingTime":"33",
                 "endingTime":"35",
                 "contentText":"Aaaah… OK, OK. "
@@ -1071,16 +1071,16 @@
         "popupContent":[
             {
                 "contentId":"",
-                "contentClass":"conversation-top",
-                "position":{"top":"80","left":"575"},
+                "contentClass":"conversation-right",
+                "position":{"top":"40","left":"400"},
                 "startingTime":"0",
                 "endingTime":"1",
                 "contentText":"C’est quoi ça?"
             },
             {
                 "contentId":"",
-                "contentClass":"conversation-bottom",
-                "position":{"top":"145","left":"150"},
+                "contentClass":"conversation-topLeftCorner",
+                "position":{"top":"290","left":"60"},
                 "startingTime":"2",
                 "endingTime":"3",
                 "contentText":"Ben… euh…"
@@ -1088,7 +1088,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-top",
-                "position":{"top":"80","left":"495"},
+                "position":{"top":"80","left":"490"},
                 "startingTime":"4",
                 "endingTime":"8",
                 "contentText":"Je suis vraiment déçue. Vous connaissiez les règles pourtant. Pas d’alcool, ça veut dire pas de bière!"
@@ -1104,7 +1104,7 @@
             {
                 "contentId":"",
                 "contentClass":"conversation-top",
-                "position":{"top":"80","left":"495"},
+                "position":{"top":"80","left":"490"},
                 "startingTime":"12",
                 "endingTime":"16",
                 "contentText":"Ce n’est pas une question de combien vous en avez pris… "
@@ -1134,8 +1134,8 @@
             },
             {
                 "contentId":"",
-                "contentClass":"conversation-left",
-                "position":{"top":"300","left":"500"},
+                "contentClass":"conversation-topLeftCorner",
+                "position":{"top":"290","left":"330"},
                 "startingTime":"3",
                 "endingTime":"4",
                 "contentText":"Mais maman"
@@ -1166,16 +1166,16 @@
             },
             {
                 "contentId":"",
-                "contentClass":"conversation-left",
-                "position":{"top":"300","left":"500"},
+                "contentClass":"conversation-topLeftCorner",
+                "position":{"top":"290","left":"330"},
                 "startingTime":"7",
                 "endingTime":"10",
                 "contentText":"On n’en a quasiment pas pris et c’était l’idée de Vincent."
             },
             {
                 "contentId":"",
-                "contentClass":"conversation-top",
-                "position":{"top":"300","left":"80"},
+                "contentClass":"conversation-left",
+                "position":{"top":"230","left":"200"},
                 "startingTime":"9",
                 "endingTime":"10",
                 "contentText":"Heille!"
@@ -1306,8 +1306,8 @@
             },
             {
                 "contentId":"",
-                "contentClass":"conversation-top",
-                "position":{"top":"125","left":"185"},
+                "contentClass":"conversation-left",
+                "position":{"top":"75","left":"280"},
                 "startingTime":"27",
                 "endingTime":"28",
                 "contentText":"..."

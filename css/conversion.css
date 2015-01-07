@@ -84,6 +84,32 @@
 
 }
 
+#talkbubble-topLeftCorner {
+    display: inline-block;
+    max-width: 250px;
+    background: #fff;
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 70px 0 0 20px;
+    padding: 20px;
+}
+
+#talkbubble-topLeftCorner:before {
+    content: "";
+    position: absolute;
+    left: 25%;
+    top: -60px;
+    width: 0px;
+    height: 0px;
+    border-top: 75px solid transparent;
+    border-right: 18px solid #fff;
+    -ms-transform: rotate(40deg);
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);
+}
+
 #talkbubble-bottom {
     display: inline-block;
     max-width: 250px;

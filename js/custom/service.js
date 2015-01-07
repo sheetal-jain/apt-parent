@@ -612,6 +612,7 @@ function fnSlideWiseContentManage(slide){
             $('#fw-header-2').text('parents et adolescents');
             $('#fw-footer-lr').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
+            $('.fw-footer-content-grp').removeAttr("style");
             $('#fw-day').text('Samedi soir');
             $('#fw-time').text('19 h 30');
             $('#fw-text').text("Isabelle conduit Vincent à une fête chez son amie Julie. Normalement, Vincent est un vrai moulin à paroles, mais ce soir, il a l’air anxieux…");
@@ -706,6 +707,7 @@ function fnSlideWiseContentManage(slide){
             $('.full-width-content').removeClass('collapse');
             $('#fw-footer-lr').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
+            $('.fw-footer-content-grp').removeAttr("style");
             $('#fw-day').text('Samedi soir');
             $('#fw-time').text('23 h 00');
             $('#fw-text').text("Appel téléphonique de Vincent à sa mère");
@@ -729,6 +731,7 @@ function fnSlideWiseContentManage(slide){
             $('.full-width-content').removeClass('collapse');
             $('.fw-footer').removeClass('collapse');
             $('#fw-day').text('Samedi soir');
+            $('.fw-footer-content-grp').removeAttr("style");
             $('#fw-time').text('23 h 30');
             $('#fw-text').text("Retour à la maison, Vincent est intoxiqué");
             $('.fw-footer').hide();
@@ -890,6 +893,7 @@ function fnSlideWiseContentManage(slide){
             $('#fw-header-2').html('vos adolescents');
             $('#fw-footer-lr').removeClass('collapse');
             $('#fw-footer-img').addClass('collapse');
+            $('.fw-footer-content-grp').removeAttr("style");
             $('#fw-day').html('Jeudi soir');
             $('#fw-time').html('18 h 15');
             $('#fw-text').html("Vincent a commencé la 4e secondaire il y a quelques jours. Éric et Isabelle aimeraient savoir comment les choses se passent…");
@@ -1132,6 +1136,7 @@ function fnSlideWiseContentManage(slide){
             $('#fw-header-1').css('margin-left', '-22px');
             $('#fw-header-2').html('pratiques parentales');
             $('#fw-footer-lr').removeClass('collapse');
+            $('.fw-footer-content-grp').removeAttr("style");
             $('#fw-day').html('Vendredi');
             $('#fw-time').html('18 h 00');
             $('#fw-text').html("Au souper, Isabelle et Éric annoncent à leurs enfants qu’ils vont passer la soirée chez des amis. Ils laisseront Vincent et Alexandra seuls à la maison à partir de 19h30. Ceux-ci demandent s’ils peuvent inviter des amis…");
@@ -1255,6 +1260,7 @@ function fnSlideWiseContentManage(slide){
             $('.full-width-content').removeClass('collapse');
             $('#slide-dyn').attr('src', 'Images/6favrCCzyZW_DX1890_DY1890_CX945_CY530.png');
             $('#fw-footer-lr').removeClass('collapse');
+            $('.fw-footer-content-grp').removeAttr("style");
             $('#fw-day').html('Vendredi');
             $('#fw-time').html('10 h 45');
             $('#fw-text').html("Isabelle, qui souffre d’une légère migraine, a décidé de rentrer plus tôt. Éric reviendra plus tard en taxi.  Alors qu’elle ne pense qu’à aller dormir, elle voit les bouteilles vides sur la table du salon…");
@@ -1319,6 +1325,7 @@ function fnSlideWiseContentManage(slide){
             $('.r-c-header').addClass('collapse');
             $('#rc-content-text').removeClass('collapse');
             $('#rc-footer-text').removeClass("collapse");
+            $('.fw-footer-content-grp').removeAttr("style");
             $('#rc-content-text').html("");
             $('#rc-content-text').html("<span class='font-med f-w-med line-h-125 in-block' style='font-size: 100%'>Les bonnes pratiques parentales font référence au <span class='orange'>contrôle parental</span> (composé d’encadrement et d’autorisation), à la <span class='orange'>tolérance</span> et au <span class='orange'>style disciplinaire inductif</span> (fondé sur la négociation).<br /><br />Alexandra et Vincent savaient qu’ils devaient demander l’autorisation de recevoir des amis à la maison en l’absence de leurs parents. En acceptant tout en fixant des règles claires, Éric et Isabelle ont fait preuve une tolérance et un bon encadrement. Ils ont également agi pour protéger leurs enfants des risques d’une consommation d’alcool prématurée. Lorsque les règles ont été brisées, il était acceptable qu’Isabelle exerce un style disciplinaire punitif, sans agressivité.</span>");
             $('#rc-footer-span').html("");
@@ -1386,9 +1393,9 @@ function fnSlideWiseContentManage(slide){
             $('#fw-header-2').html('parents et adolescents');
             $('#fw-footer-lr').removeClass('collapse');
             $('#fw-day').text('Mardi');
-            $('#fw-time').text('16 h');
+            $('#fw-time').text("16 h");
             $('.fw-footer-content-grp').css('margin-bottom', '2.2%')
-            $('.fw-footer-r-content').html("<span class='f-w-med' style='position: relative;top: 7px;'>Éric est rentré plus tôt à la maison aujourd’hui. Il veut discuter avec Alexandra à son retour de l’école. En effet, Éric et Isabelle ont reçu un message d’une enseignante : depuis quelques semaines, Alexandra dort souvent en classe et manque des cours.<br />C’est la deuxième fois que l’école communique avec eux. Plus tôt cette année, d’autres enseignants avaient signalé une baisse importante des résultats scolaires d’Alexandra, qui ne se sont pas améliorés depuis…</span>");
+            $('#fw-text').html("<span class='f-w-med' style='position: relative;top: 7px;'>Éric est rentré plus tôt à la maison aujourd’hui. Il veut discuter avec Alexandra à son retour de l’école. En effet, Éric et Isabelle ont reçu un message d’une enseignante : depuis quelques semaines, Alexandra dort souvent en classe et manque des cours.<br />C’est la deuxième fois que l’école communique avec eux. Plus tôt cette année, d’autres enseignants avaient signalé une baisse importante des résultats scolaires d’Alexandra, qui ne se sont pas améliorés depuis…</span>");
             $('.fw-header').hide();
             $('.fw-content').hide();
             $('.fw-footer').hide();

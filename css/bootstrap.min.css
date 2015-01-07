@@ -8592,6 +8592,9 @@ color: rgba(0,246,255,0.15);
         padding-right: 3.5%;
         padding-top: 26px;
     }
+    .fw-footer-content-grp{
+        margin-bottom:5% !important;
+    }
 
     /*------------set popup position-------------*/
     #capsule1_slide3-conversation-bottom{
@@ -8661,8 +8664,8 @@ color: rgba(0,246,255,0.15);
         left: 990px !important;
     }
     #capsule1_slide14-conversation-top{
-        top: 265px !important;
-        left: 275px !important;
+        top: 280px !important;
+        left: 240px !important;
     }
     #capsule1_slide14-conversation-right{
         top: 318px !important;
@@ -8742,12 +8745,128 @@ color: rgba(0,246,255,0.15);
 
 
     #capsule3_slide4-conversation-top{
-        top: 325px !important;
-        left: 670px !important;
+        top: 375px !important;
+        left: 200px !important;
     }
     #capsule3_slide4-conversation-bottom{
         top: 25px !important;
-        left: 320px !important;
+        left: 900px !important;
+    }
+
+    #capsule3_slide6-conversation-top{
+        top: 400px !important;
+        left: 765px !important;
+    }
+    #capsule3_slide6-conversation-left{
+        top: 280px !important;
+        left: 300px !important;
+    }
+    #capsule3_slide6-conversation-bottom{
+        top: 0px !important;
+        left: 180px !important;
+    }
+    #capsule3_slide6-conversation-topLeftCorner{
+        top: 350px !important;
+        left: 455px !important;
+    }
+    #capsule3_slide6-conversation-right{
+        top: 350px !important;
+        left: 825px !important;
+    }
+
+    #capsule3_slide7-conversation-top{
+        top: 300px !important;
+        left: 270px !important;
+    }
+    #capsule3_slide7-conversation-bottom{
+        top: 0px !important;
+        left: 900px !important;
+    }
+
+    #capsule3_slide9-conversation-right{
+        top: 90px !important;
+        left: 740px !important;
+    }
+    #capsule3_slide9-conversation-top{
+        top: 130px !important;
+        left: 810px !important;
+    }
+    #capsule3_slide9-conversation-topLeftCorner{
+        top: 450px !important;
+        left: 140px !important;
+    }
+    #capsule3_slide9-conversation-bottom{
+        top: 270px !important;
+        left: 535px !important;
+    }
+
+    #capsule3_slide11-conversation-top{
+        top: 160px !important;
+        left: 740px !important;
+    }
+    #capsule3_slide11-conversation-right{
+        top: 90px !important;
+        left: 530px !important;
+    }
+    #capsule3_slide11-conversation-left{
+        top: 380px !important;
+        left: 310px !important;
+    }
+    #capsule3_slide11-conversation-topLeftCorner{
+        top: 450px !important;
+        left: 490px !important;
+    }
+    #capsule3_slide11-conversation-bottom{
+        top: 220px !important;
+        left: 310px !important;
+    }
+
+    #capsule4_slide3-conversation-top{
+        top: 185px !important;
+        left: 190px !important;
+    }
+    #capsule4_slide3-conversation-right{
+        top: 145px !important;
+        left: 70px !important;
+    }
+    #capsule4_slide3-conversation-left{
+        top: 145px !important;
+        left: 425px !important;
+    }
+    #capsule4_slide3-conversation-bottom{
+        top: 10px !important;
+        left: 1015px !important;
+    }
+
+    #capsule4_slide5-conversation-top{
+        top: 270px !important;
+        left: 190px !important;
+    }
+    #capsule4_slide5-conversation-right{
+        top: 280px !important;
+        left: 550px !important;
+    }
+    #capsule4_slide5-conversation-bottom{
+        top: 10px !important;
+        left: 1015px !important;
+    }
+
+    #capsule4_slide7-conversation-top{
+        top: 300px !important;
+        left: 765px !important;
+    }
+    #capsule4_slide7-conversation-left{
+        top: 265px !important;
+        left: 500px !important;
+    }
+
+    #capsule4_slide9-conversation-top{
+        top: 270px !important;
+        left: 190px !important;
+    }
+    #capsule4_slide9-conversation-bottom{
+        top: 10px !important;
+        left: 1015px !important;
     }
 }
 
@@ -8794,6 +8913,279 @@ color: rgba(0,246,255,0.15);
     #footer-next-indicator {
         padding-right: 3.5%;
         padding-top: 26px;
+    }
+
+    /*------------set popup position-------------*/
+    #capsule1_slide3-conversation-bottom{
+        top: 0px !important;
+        left: 750px !important;
+    }
+    #capsule1_slide3-conversation-top{
+        top: 235px !important;
+        left: 185px !important;
+    }
+
+    #capsule1_slide5-conversation-bottom{
+        top: 0px !important;
+        left: 720px !important;
+    }
+    #capsule1_slide5-conversation-top{
+        top: 235px !important;
+        left: 185px !important;
+    }
+    #capsule1_slide5-conversation-left{
+        top: 250px !important;
+        left: 695px !important;
+    }
+
+    #capsule1_slide6-conversation-left{
+        top: 250px !important;
+        left: 685px !important;
+    }
+    #capsule1_slide6-conversation-top{
+        top: 250px !important;
+        left: 150px !important;
+    }
+
+    #capsule1_slide8-conversation-bottom{
+        top: 5px !important;
+        left: 850px !important;
+    }
+    #capsule1_slide8-conversation-top{
+        top: 220px !important;
+        left: 175px !important;
+    }
+
+    #capsule1_slide10-conversation-top{
+        top: 360px !important;
+        left: 160px !important;
+    }
+
+    #capsule1_slide12-conversation-bottom{
+        top: 70px !important;
+        left: 890px !important;
+    }
+    #capsule1_slide12-conversation-top{
+        top: 360px !important;
+        left: 260px !important;
+    }
+    #capsule1_slide12-conversation-right{
+        top: 240px !important;
+        left: 470px !important;
+    }
+    #capsule1_slide12-conversation-left{
+        top: 325px !important;
+        left: 470px !important;
+    }
+
+    #capsule1_slide14-conversation-bottom{
+        top: 115px !important;
+        left: 840px !important;
+    }
+    #capsule1_slide14-conversation-top{
+        top: 280px !important;
+        left: 170px !important;
+    }
+    #capsule1_slide14-conversation-right{
+        top: 285px !important;
+        left: 425px !important;
+    }
+
+
+    #capsule2_slide3-conversation-bottom{
+        top: 25px !important;
+        left: 630px !important;
+    }
+    #capsule2_slide3-conversation-top{
+        top: 355px !important;
+        left: 70px !important;
+    }
+
+    #capsule2_slide5-conversation-bottom{
+        top: 25px !important;
+        left: 900px !important;
+    }
+    #capsule2_slide5-conversation-top{
+        top: 335px !important;
+        left: 200px !important;
+    }
+    #capsule2_slide5-conversation-left{
+        top: 300px !important;
+        left: 450px !important;
+    }
+    #capsule2_slide5-conversation-right{
+        top: 250px !important;
+        left: 400px !important;
+    }
+
+    #capsule2_slide7-conversation-top{
+        top: 350px !important;
+        left: 50px !important;
+    }
+    #capsule2_slide7-conversation-left{
+        top: 270px !important;
+        left: 600px !important;
+    }
+    #capsule2_slide7-conversation-bottom{
+        top: 25px !important;
+        left: 900px !important;
+    }
+
+    #capsule2_slide8-conversation-left{
+        top: 300px !important;
+        left: 380px !important;
+    }
+    #capsule2_slide8-conversation-top{
+        top: 325px !important;
+        left: 750px !important;
+    }
+
+    #capsule2_slide9-conversation-top{
+        top: 380px !important;
+        left: 100px !important;
+    }
+    #capsule2_slide9-conversation-bottom{
+        top: 70px !important;
+        left: 800px !important;
+    }
+
+    #capsule2_slide11-conversation-top{
+        top: 250px !important;
+        left: 600px !important;
+    }
+    #capsule2_slide11-conversation-bottom{
+        top: 0px !important;
+        left: 510px !important;
+    }
+    #capsule2_slide11-conversation-left{
+        top: 260px !important;
+        left: 280px !important;
+    }
+
+
+    #capsule3_slide4-conversation-top{
+        top: 330px !important;
+        left: 140px !important;
+    }
+    #capsule3_slide4-conversation-bottom{
+        top: 25px !important;
+        left: 800px !important;
+    }
+
+    #capsule3_slide6-conversation-top{
+        top: 350px !important;
+        left: 650px !important;
+    }
+    #capsule3_slide6-conversation-left{
+        top: 280px !important;
+        left: 240px !important;
+    }
+    #capsule3_slide6-conversation-bottom{
+        top: 0px !important;
+        left: 180px !important;
+    }
+    #capsule3_slide6-conversation-topLeftCorner{
+        top: 315px !important;
+        left: 370px !important;
+    }
+    #capsule3_slide6-conversation-right{
+        top: 350px !important;
+        left: 700px !important;
+    }
+
+    #capsule3_slide7-conversation-top{
+        top: 260px !important;
+        left: 200px !important;
+    }
+    #capsule3_slide7-conversation-bottom{
+        top: 0px !important;
+        left: 750px !important;
+    }
+
+    #capsule3_slide9-conversation-right{
+        top: 70px !important;
+        left: 600px !important;
+    }
+    #capsule3_slide9-conversation-top{
+        top: 130px !important;
+        left: 680px !important;
+    }
+    #capsule3_slide9-conversation-topLeftCorner{
+        top: 400px !important;
+        left: 110px !important;
+    }
+    #capsule3_slide9-conversation-bottom{
+        top: 230px !important;
+        left: 460px !important;
+    }
+
+    #capsule3_slide11-conversation-top{
+        top: 160px !important;
+        left: 600px !important;
+    }
+    #capsule3_slide11-conversation-right{
+        top: 90px !important;
+        left: 430px !important;
+    }
+    #capsule3_slide11-conversation-left{
+        top: 380px !important;
+        left: 310px !important;
+    }
+    #capsule3_slide11-conversation-topLeftCorner{
+        top: 400px !important;
+        left: 465px !important;
+    }
+    #capsule3_slide11-conversation-bottom{
+        top: 220px !important;
+        left: 235px !important;
+    }
+
+    #capsule4_slide3-conversation-top{
+        top: 160px !important;
+        left: 130px !important;
+    }
+    #capsule4_slide3-conversation-right{
+        top: 115px !important;
+        left: 50px !important;
+    }
+    #capsule4_slide3-conversation-left{
+        top: 145px !important;
+        left: 425px !important;
+    }
+    #capsule4_slide3-conversation-bottom{
+        top: 10px !important;
+        left: 888px !important;
+    }
+
+    #capsule4_slide5-conversation-top{
+        top: 270px !important;
+        left: 160px !important;
+    }
+    #capsule4_slide5-conversation-right{
+        top: 250px !important;
+        left: 480px !important;
+    }
+    #capsule4_slide5-conversation-bottom{
+        top: 10px !important;
+        left: 888px !important;
+    }
+
+    #capsule4_slide7-conversation-top{
+        top: 260px !important;
+        left: 650px !important;
+    }
+    #capsule4_slide7-conversation-left{
+        top: 225px !important;
+        left: 450px !important;
+    }
+
+    #capsule4_slide9-conversation-top{
+        top: 270px !important;
+        left: 190px !important;
+    }
+    #capsule4_slide9-conversation-bottom{
+        top: 10px !important;
+        left: 888px !important;
     }
 }
 @media (max-width:1280px) and (min-width: 1024px) {
